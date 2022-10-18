@@ -25,10 +25,19 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(Writ.conjunction([0b1111, 0b0000, 0b001]), 0b1111)
 
     def test_writ_implies(self):
+        # C implies True
         self.assertTrue(Writ.implies(0b00100, 0b00000))
+
+        # AB implies A
         self.assertTrue(Writ.implies(0b00011, 0b00001))
+
+        # ABCDE implies ABE
         self.assertTrue(Writ.implies(0b11111, 0b10011))
+
+        # E does not imply C (due to C)
         self.assertFalse(Writ.implies(0b10000, 0b00100))
+
+        # ADE does not imply ABC (due to BC)
         self.assertFalse(Writ.implies(0b11001, 0b00111))
 
 
