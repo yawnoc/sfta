@@ -16,4 +16,3 @@ This is free software with NO WARRANTY etc. etc., see [LICENSE]. <br>
 
 
 [LICENSE]: LICENSE
-
