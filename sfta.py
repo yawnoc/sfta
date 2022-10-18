@@ -17,8 +17,10 @@ class Writ:
     For example, if the events are A, B, C, D, E,
     then the writ for the boolean term ABE is
         EDCBA
-        10011 (in binary),
+        10011 (binary),
     which is 19.
+
+    Note that the writ 0 encodes an empty conjunction, which is TRUE.
     """
 
     @staticmethod
