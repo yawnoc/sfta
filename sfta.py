@@ -64,4 +64,4 @@ class Writ:
              ~10000 & 00100 = 00100  <-->  E does not imply C (due to C)
              ~11001 & 00111 = 00110  <-->  ADE does not imply ABC (due to BC)
         """
-        return reference_writ & ~test_writ == 0
+        return ~test_writ & reference_writ == 0
