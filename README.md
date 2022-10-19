@@ -1,5 +1,7 @@
 # Slow Fault Tree Analyser (SFTA)
 
+**(Work in progress; nothing to see yet.)**
+
 A slow (also shitty) fault tree analyser based on the idea presented in
 [Wheeler et al. (1977). Fault Tree Analysis Using Bit Manipulation.
 IEEE Transactions on Reliability, Volume R-26, Issue 2.
