@@ -94,7 +94,7 @@ class Event:
 
     def set_label(self, label, line_number):
         if self.label is not None:
-            message = f'`label` already set for Event `{self.id_}`.'
+            message = f'`label` already set for Event `{self.id_}`'
             raise Event.LabelAlreadySetException(line_number, message)
 
         self.label = label
@@ -102,7 +102,7 @@ class Event:
     def set_probability(self, probability_str, line_number):
         if self.quantity_type is not None:
             message = (
-                f'`probability` or `rate` already set for Event `{self.id_}`.'
+                f'`probability` or `rate` already set for Event `{self.id_}`'
             )
             raise Event.QuantityAlreadySetException(line_number, message)
 
@@ -120,7 +120,7 @@ class Event:
     def set_rate(self, rate_str, line_number):
         if self.quantity_type is not None:
             message = (
-                f'`probability` or `rate` already set for Event `{self.id_}`.'
+                f'`probability` or `rate` already set for Event `{self.id_}`'
             )
             raise Event.QuantityAlreadySetException(line_number, message)
 
