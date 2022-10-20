@@ -94,57 +94,81 @@ class Event:
 
     def set_label(self, label, line_number):
         if self.label is not None:
-            message = f'label already set for Event `{self.id_}`'
-            raise Event.LabelAlreadySetException(line_number, message)
+            raise Event.LabelAlreadySetException(
+                line_number,
+                f'label is already set for Event `{self.id_}`'
+            )
 
         self.label = label
 
     def set_probability(self, probability_str, line_number):
         if self.quantity_type is not None:
-            message = f'probability or rate already set for Event `{self.id_}`'
-            raise Event.QuantityAlreadySetException(line_number, message)
+            raise Event.QuantityAlreadySetException(
+                line_number,
+                f'probability or rate is already set for Event `{self.id_}`'
+            )
 
         try:
             probability = float(probability_str)
         except ValueError:
-            message = f'unable to convert `{probability_str}` to float'
-            raise Event.BadFloatException(line_number, message)
+            raise Event.BadFloatException(
+                line_number,
+                f'unable to convert `{probability_str}` to float '
+                f'for Event `{self.id_}`'
+            )
 
         if probability < 0:
-            message = f'probability `{probability_str}` is negative'
-            raise Event.BadProbabilityException(line_number, message)
+            raise Event.BadProbabilityException(
+                line_number,
+                f'probability `{probability_str}` is negative '
+                f'for Event `{self.id_}`'
+            )
         if probability > 1:
-            message = f'probability `{probability_str}` exceeds 1'
-            raise Event.BadProbabilityException(line_number, message)
+            raise Event.BadProbabilityException(
+                line_number,
+                f'probability `{probability_str}` exceeds 1 '
+                f'for Event `{self.id_}`'
+            )
 
         self.quantity_type = Event.TYPE_PROBABILITY
         self.quantity_value = probability
 
     def set_rate(self, rate_str, line_number):
         if self.quantity_type is not None:
-            message = f'probability or rate already set for Event `{self.id_}`'
-            raise Event.QuantityAlreadySetException(line_number, message)
+            raise Event.QuantityAlreadySetException(
+                line_number,
+                f'probability or rate is already set for Event `{self.id_}`'
+            )
 
         try:
             rate = float(rate_str)
         except ValueError:
-            message = f'unable to convert `{rate_str}` to float'
-            raise Event.BadFloatException(line_number, message)
+            raise Event.BadFloatException(
+                line_number,
+                f'unable to convert `{rate_str}` to float '
+                f'for Event `{self.id_}`'
+            )
 
         if rate < 0:
-            message = f'rate `{rate_str}` is negative'
-            raise Event.BadRateException(line_number, message)
+            raise Event.BadRateException(
+                line_number,
+                f'rate `{rate_str}` is negative for Event `{self.id_}`'
+            )
         if not rate < float('inf'):
-            message = f'rate `{rate_str}` is not finite'
-            raise Event.BadRateException(line_number, message)
+            raise Event.BadRateException(
+                line_number,
+                f'rate `{rate_str}` is not finite for Event `{self.id_}`'
+            )
 
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
 
     def validate(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
-            message = f'probability or rate not set for Event `{self.id_}`'
-            raise Event.QuantityNotSetException(line_number, message)
+            raise Event.QuantityNotSetException(
+                line_number,
+                f'probability or rate is not set for Event `{self.id_}`'
+            )
 
     class LabelAlreadySetException(FaultTreeTextException):
         pass
@@ -184,28 +208,36 @@ class Gate:
 
     def set_label(self, label, line_number):
         if self.label is not None:
-            message = f'label already set for Gate `{self.id_}`'
-            raise Gate.LabelAlreadySetException(line_number, message)
+            raise Gate.LabelAlreadySetException(
+                line_number,
+                f'label is already set for Gate `{self.id_}`'
+            )
 
         self.label = label
 
     def set_type(self, type_str, line_number):
         if self.type is not None:
-            message = f'type already set for Gate `{self.id_}`'
-            raise Gate.TypeAlreadySetException(line_number, message)
+            raise Gate.TypeAlreadySetException(
+                line_number,
+                f'type is already set for Gate `{self.id_}`'
+            )
 
         if type_str == 'OR':
             self.type = Gate.TYPE_OR
         elif type_str == 'AND':
             self.type = Gate.TYPE_AND
         else:
-            message = f'type must be one of `OR`, `AND` (case-sensitive)'
-            raise Gate.BadTypeException(line_number, message)
+            raise Gate.BadTypeException(
+                line_number,
+                f'type is neither `OR` nor `AND` for Gate `{self.id_}`'
+            )
 
     def set_inputs(self, input_ids_str, line_number):
         if self.input_ids is not None:
-            message = f'inputs already set for Gate `{self.id_}`'
-            raise Gate.InputsAlreadySetException(line_number, message)
+            raise Gate.InputsAlreadySetException(
+                line_number,
+                f'inputs are already set for Gate `{self.id_}`'
+            )
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
@@ -316,13 +348,10 @@ class FaultTree:
                     elif key == 'rate':
                         current_object.set_rate(value, line_number)
                     else:
-                        message = (
-                            f'unrecognised key `{key}` '
-                            f'for Event `{current_object.id_}`'
-                        )
                         raise Event.UnrecognisedKeyException(
                             line_number,
-                            message,
+                            f'unrecognised key `{key}` '
+                            f'for Event `{current_object.id_}`'
                         )
                 elif isinstance(current_object, Gate):
                     if key == 'label':
