@@ -112,8 +112,12 @@ class Event:
             message = f'unable to convert `{probability_str}` to float'
             raise Event.BadFloatException(line_number, message)
 
-        if not 0 <= probability <= 1:
-            raise Event.BadProbabilityException(line_number, probability_str)
+        if probability < 0:
+            message = f'probability `{probability_str}` is negative'
+            raise Event.BadProbabilityException(line_number, message)
+        if probability > 1:
+            message = f'probability `{probability_str}` exceeds 1'
+            raise Event.BadProbabilityException(line_number, message)
 
         self.quantity_type = Event.TYPE_PROBABILITY
         self.quantity_value = probability
@@ -150,10 +154,8 @@ class Event:
     class BadFloatException(FaultTreeTextException):
         pass
 
-    class BadProbabilityException(Exception):
-        def __init__(self, line_number, probability_str):
-            self.line_number = line_number
-            self.probability_str = probability_str
+    class BadProbabilityException(FaultTreeTextException):
+        pass
 
     class BadRateException(Exception):
         def __init__(self, line_number, rate_str):
@@ -407,6 +409,7 @@ def main():
         Event.LabelAlreadySetException,
         Event.QuantityAlreadySetException,
         Event.BadFloatException,
+        Event.BadProbabilityException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
