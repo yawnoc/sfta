@@ -161,10 +161,8 @@ class Event:
     class BadRateException(FaultTreeTextException):
         pass
 
-    class UnrecognisedKeyException(Exception):
-        def __init__(self, line_number, key):
-            self.line_number = line_number
-            self.key = key
+    class UnrecognisedKeyException(FaultTreeTextException):
+        pass
 
     class QuantityNotSetException(FaultTreeTextException):
         pass
@@ -319,7 +317,14 @@ class FaultTree:
                     elif key == 'rate':
                         current_object.set_rate(value, line_number)
                     else:
-                        raise Event.UnrecognisedKeyException(line_number, key)
+                        message = (
+                            f'unrecognised key `{key}` '
+                            f'for Event `{current_object.id_}`'
+                        )
+                        raise Event.UnrecognisedKeyException(
+                            line_number,
+                            message,
+                        )
                 elif isinstance(current_object, Gate):
                     if key == 'label':
                         current_object.set_label(value, line_number)
@@ -408,6 +413,7 @@ def main():
         Event.BadFloatException,
         Event.BadProbabilityException,
         Event.BadRateException,
+        Event.UnrecognisedKeyException,
         Event.QuantityNotSetException,
         Gate.LabelAlreadySetException,
     )
