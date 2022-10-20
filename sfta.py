@@ -241,7 +241,7 @@ class Gate:
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
-            raise Gate.MissingInputsException(
+            raise Gate.ZeroInputsException(
                 line_number,
                 f'no IDs could be extracted from inputs `{input_ids_str}` '
                 f'for Gate `{self.id_}`'
@@ -273,7 +273,7 @@ class Gate:
     class BadTypeException(FaultTreeTextException):
         pass
 
-    class MissingInputsException(FaultTreeTextException):
+    class ZeroInputsException(FaultTreeTextException):
         pass
 
     class TypeNotSetException(FaultTreeTextException):
@@ -450,7 +450,7 @@ def main():
         Gate.TypeAlreadySetException,
         Gate.InputsAlreadySetException,
         Gate.BadTypeException,
-        Gate.MissingInputsException,
+        Gate.ZeroInputsException,
         Gate.TypeNotSetException,
     )
     try:

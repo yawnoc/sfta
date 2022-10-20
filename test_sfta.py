@@ -313,7 +313,7 @@ class TestSfta(unittest.TestCase):
 
         # Missing inputs
         self.assertRaises(
-            Gate.MissingInputsException,
+            Gate.ZeroInputsException,
             FaultTree.parse,
             textwrap.dedent('''
                 Gate: A
