@@ -96,7 +96,7 @@ class Event:
         if self.label is not None:
             raise Event.LabelAlreadySetException(
                 line_number,
-                f'label is already set for Event `{self.id_}`'
+                f'label has already been set for Event `{self.id_}`'
             )
 
         self.label = label
@@ -105,7 +105,8 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate is already set for Event `{self.id_}`'
+                f'probability or rate has already been set '
+                f'for Event `{self.id_}`'
             )
 
         try:
@@ -137,7 +138,8 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate is already set for Event `{self.id_}`'
+                f'probability or rate has already been set '
+                f'for Event `{self.id_}`'
             )
 
         try:
@@ -167,7 +169,7 @@ class Event:
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(
                 line_number,
-                f'probability or rate is not set for Event `{self.id_}`'
+                f'probability or rate has not been set for Event `{self.id_}`'
             )
 
     class LabelAlreadySetException(FaultTreeTextException):
@@ -210,7 +212,7 @@ class Gate:
         if self.label is not None:
             raise Gate.LabelAlreadySetException(
                 line_number,
-                f'label is already set for Gate `{self.id_}`'
+                f'label has already been set for Gate `{self.id_}`'
             )
 
         self.label = label
@@ -219,7 +221,7 @@ class Gate:
         if self.type is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
-                f'type is already set for Gate `{self.id_}`'
+                f'type has already been set for Gate `{self.id_}`'
             )
 
         if type_str == 'OR':
@@ -236,7 +238,7 @@ class Gate:
         if self.input_ids is not None:
             raise Gate.InputsAlreadySetException(
                 line_number,
-                f'inputs are already set for Gate `{self.id_}`'
+                f'inputs have already been set for Gate `{self.id_}`'
             )
 
         ids = Gate.split_ids(input_ids_str)
@@ -256,7 +258,7 @@ class Gate:
         if self.type is None:
             raise Gate.TypeNotSetException(
                 line_number,
-                f'type is not set for Gate `{self.id_}`'
+                f'type has not been set for Gate `{self.id_}`'
             )
         if self.input_ids is None:
             raise Gate.InputsNotSetException(line_number, self.id_)
