@@ -314,7 +314,7 @@ class FaultTree:
                 id_ = object_line_match.group('id_')
 
                 if current_object is not None:
-                    raise FaultTree.UnspacedObjectDeclarationException(
+                    raise FaultTree.SmotheredObjectDeclarationException(
                         line_number,
                         f'missing blank line before '
                         f'declaration of {class_} `{id_}`'
@@ -401,7 +401,7 @@ class FaultTree:
 
         return events, gates
 
-    class UnspacedObjectDeclarationException(FaultTreeTextException):
+    class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
     class DanglingPropertySettingException(FaultTreeTextException):
@@ -462,7 +462,7 @@ def main():
         Gate.ZeroInputsException,
         Gate.TypeNotSetException,
         Gate.InputsNotSetException,
-        FaultTree.UnspacedObjectDeclarationException,
+        FaultTree.SmotheredObjectDeclarationException,
         FaultTree.DanglingPropertySettingException,
     )
     try:
