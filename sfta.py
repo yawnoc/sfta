@@ -233,8 +233,8 @@ class Gate:
         else:
             raise Gate.BadTypeException(
                 line_number,
-                f'bad type {type_str} for Gate `{self.id_}`'
-                f'\n{Gate.TYPE_EXPLAINER}'
+                f'bad type `{type_str}` for Gate `{self.id_}`'
+                f'\n\n{Gate.TYPE_EXPLAINER}'
             )
 
     def set_inputs(self, input_ids_str, line_number):
@@ -256,7 +256,7 @@ class Gate:
                 raise FaultTree.BadIdException(
                     line_number,
                     f'bad ID `{id_}` among inputs for Gate `{self.id_}`'
-                    f'\n{FaultTree.IDS_EXPLAINER}'
+                    f'\n\n{FaultTree.IDS_EXPLAINER}'
                 )
 
         self.input_ids = ids
@@ -343,8 +343,8 @@ class FaultTree:
                 if FaultTree.is_bad_id(id_):
                     raise FaultTree.BadIdException(
                         line_number,
-                        f'bad ID `{id_}` in declaration of `{class_}`'
-                        f'\n{FaultTree.IDS_EXPLAINER}'
+                        f'bad ID `{id_}` in declaration of {class_}'
+                        f'\n\n{FaultTree.IDS_EXPLAINER}'
                     )
 
                 if class_ == 'Event':
@@ -424,7 +424,7 @@ class FaultTree:
             raise FaultTree.BadLineException(
                 line_number,
                 f'bad line `{line}`'
-                f'\n{FaultTree.LINE_EXPLAINER}'
+                f'\n\n{FaultTree.LINE_EXPLAINER}'
             )
 
         return events, gates
