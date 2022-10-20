@@ -250,7 +250,11 @@ class Gate:
             )
         for id_ in ids:
             if FaultTree.is_bad_id(id_):
-                raise FaultTree.BadIdException(line_number, id_)
+                raise FaultTree.BadIdException(
+                    line_number,
+                    f'bad ID `{id_}` among inputs for Gate `{self.id_}`'
+                    f'\n{FaultTree.IDS_EXPLAINER}'
+                )
 
         self.input_ids = ids
 
@@ -292,6 +296,8 @@ class FaultTree:
     def __init__(self, fault_tree_text):
         self.events, self.gates = FaultTree.parse(fault_tree_text)
 
+    IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
+
     @staticmethod
     def is_bad_id(string):
         return re.search(r'[\s,.]', string)
@@ -325,7 +331,11 @@ class FaultTree:
                         f'duplicate ID `{id_}` in declaration of {class_}'
                     )
                 if FaultTree.is_bad_id(id_):
-                    raise FaultTree.BadIdException(line_number, id_)
+                    raise FaultTree.BadIdException(
+                        line_number,
+                        f'bad ID `{id_}` in declaration of `{class_}`'
+                        f'\n{FaultTree.IDS_EXPLAINER}'
+                    )
 
                 if class_ == 'Event':
                     event = Event(id_)
@@ -413,10 +423,8 @@ class FaultTree:
     class DuplicateIdException(FaultTreeTextException):
         pass
 
-    class BadIdException(Exception):
-        def __init__(self, line_number, id_):
-            self.line_number = line_number
-            self.id_ = id_
+    class BadIdException(FaultTreeTextException):
+        pass
 
     class BadLineException(Exception):
         def __init__(self, line_number):
@@ -466,6 +474,7 @@ def main():
         FaultTree.SmotheredObjectDeclarationException,
         FaultTree.DanglingPropertySettingException,
         FaultTree.DuplicateIdException,
+        FaultTree.BadIdException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)

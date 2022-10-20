@@ -1,0 +1,2 @@
+Gate: A
+- inputs: good, VERY BAD
