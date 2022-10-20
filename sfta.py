@@ -314,7 +314,11 @@ class FaultTree:
                 id_ = object_line_match.group('id_')
 
                 if current_object is not None:
-                    raise FaultTree.ObjectDeclarationException(line_number)
+                    raise FaultTree.ObjectDeclarationException(
+                        line_number,
+                        f'missing blank line before '
+                        f'declaration of {class_} `{id_}`'
+                    )
                 if id_ in object_ids:
                     raise FaultTree.DuplicateIdException(line_number, id_)
                 if FaultTree.is_bad_id(id_):
@@ -393,9 +397,8 @@ class FaultTree:
 
         return events, gates
 
-    class ObjectDeclarationException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class ObjectDeclarationException(FaultTreeTextException):
+        pass
 
     class PropertyDeclarationException(Exception):
         def __init__(self, line_number):
@@ -456,6 +459,7 @@ def main():
         Gate.ZeroInputsException,
         Gate.TypeNotSetException,
         Gate.InputsNotSetException,
+        FaultTree.ObjectDeclarationException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
