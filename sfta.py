@@ -204,7 +204,8 @@ class Gate:
 
     def set_inputs(self, input_ids_str, line_number):
         if self.input_ids is not None:
-            raise Gate.InputsAlreadySetException(line_number)
+            message = f'inputs already set for Gate `{self.id_}`'
+            raise Gate.InputsAlreadySetException(line_number, message)
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
@@ -227,9 +228,8 @@ class Gate:
     class TypeAlreadySetException(FaultTreeTextException):
         pass
 
-    class InputsAlreadySetException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class InputsAlreadySetException(FaultTreeTextException):
+        pass
 
     class BadTypeException(FaultTreeTextException):
         pass
@@ -416,6 +416,7 @@ def main():
         Event.QuantityNotSetException,
         Gate.LabelAlreadySetException,
         Gate.TypeAlreadySetException,
+        Gate.InputsAlreadySetException,
         Gate.BadTypeException,
     )
     try:

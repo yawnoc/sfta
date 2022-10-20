@@ -1,0 +1,4 @@
+Gate: A
+- type: OR
+- inputs: 1, 2
+- inputs: 3, 4
