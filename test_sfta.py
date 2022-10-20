@@ -116,6 +116,33 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Bad line
+        self.assertRaises(
+            FaultTree.BadLineException,
+            FaultTree.parse,
+            'foo bar',
+        )
+        self.assertRaises(
+            FaultTree.BadLineException,
+            FaultTree.parse,
+            'Event:',
+        )
+        self.assertRaises(
+            FaultTree.BadLineException,
+            FaultTree.parse,
+            'Gate: ',
+        )
+        self.assertRaises(
+            FaultTree.BadLineException,
+            FaultTree.parse,
+            'Event:A',
+        )
+        self.assertRaises(
+            FaultTree.BadLineException,
+            FaultTree.parse,
+            ' - key: value',
+        )
+
     def test_fault_tree_parse_event(self):
         # Label already set
         self.assertRaises(
