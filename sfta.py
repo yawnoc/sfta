@@ -348,7 +348,7 @@ class FaultTree:
                 value = property_line_match.group('value')
 
                 if current_object is None:
-                    raise FaultTree.PropertyDeclarationException(
+                    raise FaultTree.DanglingPropertySettingException(
                         line_number,
                         f'missing object declaration before '
                         f'setting {key} to `{value}`'
@@ -404,7 +404,7 @@ class FaultTree:
     class ObjectDeclarationException(FaultTreeTextException):
         pass
 
-    class PropertyDeclarationException(FaultTreeTextException):
+    class DanglingPropertySettingException(FaultTreeTextException):
         pass
 
     class DuplicateIdException(Exception):
@@ -463,7 +463,7 @@ def main():
         Gate.TypeNotSetException,
         Gate.InputsNotSetException,
         FaultTree.ObjectDeclarationException,
-        FaultTree.PropertyDeclarationException,
+        FaultTree.DanglingPropertySettingException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)

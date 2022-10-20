@@ -109,7 +109,7 @@ class TestSfta(unittest.TestCase):
 
         # Hanging property declaration
         self.assertRaises(
-            FaultTree.PropertyDeclarationException,
+            FaultTree.DanglingPropertySettingException,
             FaultTree.parse,
             textwrap.dedent('''
                 - probability: 0
