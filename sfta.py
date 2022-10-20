@@ -348,7 +348,11 @@ class FaultTree:
                 value = property_line_match.group('value')
 
                 if current_object is None:
-                    raise FaultTree.PropertyDeclarationException(line_number)
+                    raise FaultTree.PropertyDeclarationException(
+                        line_number,
+                        f'missing object declaration before '
+                        f'setting {key} to `{value}`'
+                    )
 
                 if isinstance(current_object, Event):
                     if key == 'label':
@@ -400,9 +404,8 @@ class FaultTree:
     class ObjectDeclarationException(FaultTreeTextException):
         pass
 
-    class PropertyDeclarationException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class PropertyDeclarationException(FaultTreeTextException):
+        pass
 
     class DuplicateIdException(Exception):
         def __init__(self, line_number, id_):
@@ -460,6 +463,7 @@ def main():
         Gate.TypeNotSetException,
         Gate.InputsNotSetException,
         FaultTree.ObjectDeclarationException,
+        FaultTree.PropertyDeclarationException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
