@@ -153,6 +153,68 @@ class Event:
 class Gate:
     def __init__(self, id_):
         self.id_ = id_
+        self.label = None
+        self.type = None
+        self.input_ids = None
+
+    TYPE_OR = 0
+    TYPE_AND = 1
+
+    @staticmethod
+    def split_ids(input_ids_str):
+        return list(filter(None, re.split(r'\s*,\s*', input_ids_str)))
+
+    def set_label(self, label, line_number):
+        if self.label is not None:
+            raise Gate.LabelAlreadySetException(line_number)
+
+        self.label = label
+
+    def set_type(self, type_str, line_number):
+        if self.type is not None:
+            raise Gate.TypeAlreadySetException(line_number)
+
+        if type_str == 'OR':
+            self.type = Gate.TYPE_OR
+        elif type_str == 'AND':
+            self.type = Gate.TYPE_AND
+        else:
+            raise Gate.BadTypeException(line_number, type_str)
+
+    def set_inputs(self, input_ids_str, line_number):
+        if self.input_ids is not None:
+            raise Gate.InputsAlreadySetException(line_number)
+
+        ids = Gate.split_ids(input_ids_str)
+        if not ids:
+            raise Gate.MissingInputsException(line_number, input_ids_str)
+        for id_ in ids:
+            if FaultTree.is_bad_id(id_):
+                raise FaultTree.BadIdException(line_number, id_)
+
+        self.input_ids = ids
+
+    class LabelAlreadySetException(Exception):
+        def __init__(self, line_number):
+            self.line_number = line_number
+
+    class TypeAlreadySetException(Exception):
+        def __init__(self, line_number):
+            self.line_number = line_number
+
+    class InputsAlreadySetException(Exception):
+        def __init__(self, line_number):
+            self.line_number = line_number
+
+    class BadTypeException(Exception):
+        def __init__(self, line_number, type_str):
+            self.line_number = line_number
+            self.type_str = type_str
+
+    class MissingInputsException(Exception):
+        def __init__(self, line_number, input_ids_str):
+            self.line_number = line_number
+            self.input_ids_str = input_ids_str
 
 
 class FaultTree:
@@ -223,7 +285,12 @@ class FaultTree:
                     else:
                         raise Event.UnrecognisedKeyException(line_number, key)
                 elif isinstance(current_object, Gate):
-                    pass  # TODO: Gate property declaration
+                    if key == 'label':
+                        current_object.set_label(value, line_number)
+                    elif key == 'type':
+                        current_object.set_type(value, line_number)
+                    elif key == 'inputs':
+                        current_object.set_inputs(value, line_number)
                 else:
                     raise RuntimeError(
                         f'Implementation error: '

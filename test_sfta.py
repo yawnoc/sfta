@@ -13,7 +13,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 import textwrap
 import unittest
 
-from sfta import Event, FaultTree
+from sfta import Event, FaultTree, Gate
 from sfta import Writ
 
 
@@ -52,6 +52,15 @@ class TestSfta(unittest.TestCase):
 
         # ADE does not imply ABC (due to BC)
         self.assertFalse(Writ.implies(0b11001, 0b00111))
+
+    def test_gate_split_ids(self):
+        self.assertEqual(Gate.split_ids(''), [])
+        self.assertEqual(Gate.split_ids('abc'), ['abc'])
+        self.assertEqual(Gate.split_ids('abc DEF'), ['abc DEF'])
+
+        self.assertEqual(Gate.split_ids(','), [])
+        self.assertEqual(Gate.split_ids('abc,DEF'), ['abc', 'DEF'])
+        self.assertEqual(Gate.split_ids('abc, DEF,'), ['abc', 'DEF'])
 
     def test_fault_tree_is_bad_id(self):
         self.assertTrue(FaultTree.is_bad_id('Contains space'))
@@ -221,6 +230,70 @@ class TestSfta(unittest.TestCase):
                 Event: A
                 - rate: 1
                 - foo: bar
+            '''),
+        )
+
+    def test_fault_tree_parse_gate(self):
+        # Label already set
+        self.assertRaises(
+            Gate.LabelAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - label: First label
+                - label: Second label
+            '''),
+        )
+
+        # Type already set
+        self.assertRaises(
+            Gate.TypeAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - type: AND
+                - type: AND
+            '''),
+        )
+
+        # Inputs already set
+        self.assertRaises(
+            Gate.InputsAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - inputs: B, C
+                - inputs: B, C
+            '''),
+        )
+
+        # Bad type
+        self.assertRaises(
+            Gate.BadTypeException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - type: aNd
+            '''),
+        )
+
+        # Missing inputs
+        self.assertRaises(
+            Gate.MissingInputsException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - inputs: ,
+            '''),
+        )
+
+        # Bad ID
+        self.assertRaises(
+            FaultTree.BadIdException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - inputs: good, (bad because of whitespace)
             '''),
         )
 
