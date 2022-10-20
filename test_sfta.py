@@ -74,7 +74,7 @@ class TestSfta(unittest.TestCase):
     def test_fault_tree_parse(self):
         # Missing blank line before next object declaration
         self.assertRaises(
-            FaultTree.ObjectDeclarationException,
+            FaultTree.UnspacedObjectDeclarationException,
             FaultTree.parse,
             textwrap.dedent('''
                 Event: A
