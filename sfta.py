@@ -191,7 +191,8 @@ class Gate:
 
     def set_type(self, type_str, line_number):
         if self.type is not None:
-            raise Gate.TypeAlreadySetException(line_number)
+            message = f'type already set for Gate `{self.id_}`'
+            raise Gate.TypeAlreadySetException(line_number, message)
 
         if type_str == 'OR':
             self.type = Gate.TYPE_OR
@@ -222,9 +223,8 @@ class Gate:
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
-    class TypeAlreadySetException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class TypeAlreadySetException(FaultTreeTextException):
+        pass
 
     class InputsAlreadySetException(Exception):
         def __init__(self, line_number):
@@ -416,6 +416,7 @@ def main():
         Event.UnrecognisedKeyException,
         Event.QuantityNotSetException,
         Gate.LabelAlreadySetException,
+        Gate.TypeAlreadySetException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
