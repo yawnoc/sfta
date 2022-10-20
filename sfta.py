@@ -199,7 +199,8 @@ class Gate:
         elif type_str == 'AND':
             self.type = Gate.TYPE_AND
         else:
-            raise Gate.BadTypeException(line_number, type_str)
+            message = f'type must be one of `OR`, `AND` (case-sensitive)'
+            raise Gate.BadTypeException(line_number, message)
 
     def set_inputs(self, input_ids_str, line_number):
         if self.input_ids is not None:
@@ -230,10 +231,8 @@ class Gate:
         def __init__(self, line_number):
             self.line_number = line_number
 
-    class BadTypeException(Exception):
-        def __init__(self, line_number, type_str):
-            self.line_number = line_number
-            self.type_str = type_str
+    class BadTypeException(FaultTreeTextException):
+        pass
 
     class MissingInputsException(Exception):
         def __init__(self, line_number, input_ids_str):
@@ -417,6 +416,7 @@ def main():
         Event.QuantityNotSetException,
         Gate.LabelAlreadySetException,
         Gate.TypeAlreadySetException,
+        Gate.BadTypeException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
