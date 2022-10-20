@@ -10,6 +10,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 
 import argparse
 import re
+import sys
 
 
 __version__ = '0.0.0'
@@ -75,6 +76,12 @@ class Writ:
         return ~test_writ & reference_writ == 0
 
 
+class FaultTreeTextException(Exception):
+    def __init__(self, line_number, message):
+        self.line_number = line_number
+        self.message = message
+
+
 class Event:
     def __init__(self, id_):
         self.id_ = id_
@@ -87,7 +94,8 @@ class Event:
 
     def set_label(self, label, line_number):
         if self.label is not None:
-            raise Event.LabelAlreadySetException(line_number)
+            message = f'`label` already set for Event `{self.id_}`.'
+            raise Event.LabelAlreadySetException(line_number, message)
 
         self.label = label
 
@@ -125,9 +133,8 @@ class Event:
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(line_number, self.id_)
 
-    class LabelAlreadySetException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class LabelAlreadySetException(FaultTreeTextException):
+        pass
 
     class QuantityAlreadySetException(Exception):
         def __init__(self, line_number):
@@ -391,7 +398,16 @@ def main():
     with open(file_name, 'r', encoding='utf-8') as file:
         fault_tree_text = file.read()
 
-    fault_tree = FaultTree(fault_tree_text)
+    try:
+        fault_tree = FaultTree(fault_tree_text)
+    except Event.LabelAlreadySetException as exception:
+        line_number = exception.line_number
+        message = exception.message
+        print(
+            f'Error at line {line_number} of `{file_name}`:\n  {message}',
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
 
 if __name__ == '__main__':
