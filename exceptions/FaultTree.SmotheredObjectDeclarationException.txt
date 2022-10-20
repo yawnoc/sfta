@@ -3,6 +3,5 @@ Event: A
 
 Event: B
 - probability: 0.5
-
 Event: C
 - probability: 1
