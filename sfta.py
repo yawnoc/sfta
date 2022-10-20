@@ -121,6 +121,10 @@ class Event:
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
 
+    def validate(self, line_number):
+        if self.quantity_type is None or self.quantity_value is None:
+            raise Event.QuantityNotSetException(line_number, self.id_)
+
     class LabelAlreadySetException(Exception):
         def __init__(self, line_number):
             self.line_number = line_number
@@ -148,6 +152,11 @@ class Event:
         def __init__(self, line_number, key):
             self.line_number = line_number
             self.key = key
+
+    class QuantityNotSetException(Exception):
+        def __init__(self, line_number, id_):
+            self.line_number = line_number
+            self.id_ = id_
 
 
 class Gate:
@@ -233,7 +242,8 @@ class FaultTree:
         current_object = None
         object_ids = set()
 
-        for line_number, line in enumerate(fault_tree_text.splitlines(), 1):
+        lines = (fault_tree_text + '\n\n').splitlines()
+        for line_number, line in enumerate(lines, 1):
 
             object_line_regex = r'^(?P<class_>Event|Gate): \s*(?P<id_>.+?)\s*$'
             object_line_match = re.match(object_line_regex, line)
@@ -305,7 +315,7 @@ class FaultTree:
                     continue
 
                 if isinstance(current_object, Event):
-                    # TODO: Event object self-check
+                    current_object.validate(line_number)
                     current_object = None
                 elif isinstance(current_object, Gate):
                     # TODO: Gate object self-check

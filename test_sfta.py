@@ -260,6 +260,13 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Quantity not set
+        self.assertRaises(
+            Event.QuantityNotSetException,
+            FaultTree.parse,
+            'Event: A',
+        )
+
     def test_fault_tree_parse_gate(self):
         # Label already set
         self.assertRaises(
