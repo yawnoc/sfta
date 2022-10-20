@@ -135,8 +135,12 @@ class Event:
             message = f'unable to convert `{rate_str}` to float'
             raise Event.BadFloatException(line_number, message)
 
-        if not 0 <= rate < float('inf'):
-            raise Event.BadRateException(line_number, rate_str)
+        if rate < 0:
+            message = f'rate `{rate_str}` is negative'
+            raise Event.BadRateException(line_number, message)
+        if not rate < float('inf'):
+            message = f'rate `{rate_str}` is not finite'
+            raise Event.BadRateException(line_number, message)
 
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
@@ -157,10 +161,8 @@ class Event:
     class BadProbabilityException(FaultTreeTextException):
         pass
 
-    class BadRateException(Exception):
-        def __init__(self, line_number, rate_str):
-            self.line_number = line_number
-            self.rate_str = rate_str
+    class BadRateException(FaultTreeTextException):
+        pass
 
     class UnrecognisedKeyException(Exception):
         def __init__(self, line_number, key):
@@ -410,6 +412,7 @@ def main():
         Event.QuantityAlreadySetException,
         Event.BadFloatException,
         Event.BadProbabilityException,
+        Event.BadRateException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
