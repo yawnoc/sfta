@@ -254,7 +254,10 @@ class Gate:
 
     def validate(self, line_number):
         if self.type is None:
-            raise Gate.TypeNotSetException(line_number, self.id_)
+            raise Gate.TypeNotSetException(
+                line_number,
+                f'type is not set for Gate `{self.id_}`'
+            )
         if self.input_ids is None:
             raise Gate.InputsNotSetException(line_number, self.id_)
 
@@ -273,10 +276,8 @@ class Gate:
     class MissingInputsException(FaultTreeTextException):
         pass
 
-    class TypeNotSetException(Exception):
-        def __init__(self, line_number, id_):
-            self.line_number = line_number
-            self.id_ = id_
+    class TypeNotSetException(FaultTreeTextException):
+        pass
 
     class InputsNotSetException(Exception):
         def __init__(self, line_number, id_):
@@ -450,6 +451,7 @@ def main():
         Gate.InputsAlreadySetException,
         Gate.BadTypeException,
         Gate.MissingInputsException,
+        Gate.TypeNotSetException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
