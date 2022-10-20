@@ -147,7 +147,8 @@ class Event:
 
     def validate(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
-            raise Event.QuantityNotSetException(line_number, self.id_)
+            message = f'probability or rate not set for Event `{self.id_}`'
+            raise Event.QuantityNotSetException(line_number, message)
 
     class LabelAlreadySetException(FaultTreeTextException):
         pass
@@ -169,10 +170,8 @@ class Event:
             self.line_number = line_number
             self.key = key
 
-    class QuantityNotSetException(Exception):
-        def __init__(self, line_number, id_):
-            self.line_number = line_number
-            self.id_ = id_
+    class QuantityNotSetException(FaultTreeTextException):
+        pass
 
 
 class Gate:
@@ -413,6 +412,7 @@ def main():
         Event.BadFloatException,
         Event.BadProbabilityException,
         Event.BadRateException,
+        Event.QuantityNotSetException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
