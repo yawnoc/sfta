@@ -201,6 +201,8 @@ class Gate:
         self.type = None
         self.input_ids = None
 
+    TYPE_EXPLAINER = 'Gate type must `AND` or `OR` (case-sensitive).'
+
     TYPE_OR = 0
     TYPE_AND = 1
 
@@ -231,7 +233,8 @@ class Gate:
         else:
             raise Gate.BadTypeException(
                 line_number,
-                f'type is neither `OR` nor `AND` for Gate `{self.id_}`'
+                f'bad type {type_str} for Gate `{self.id_}`'
+                f'\n{Gate.TYPE_EXPLAINER}'
             )
 
     def set_inputs(self, input_ids_str, line_number):
