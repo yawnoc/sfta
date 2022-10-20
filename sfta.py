@@ -241,7 +241,11 @@ class Gate:
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
-            raise Gate.MissingInputsException(line_number, input_ids_str)
+            raise Gate.MissingInputsException(
+                line_number,
+                f'no IDs could be extracted from inputs `{input_ids_str}` '
+                f'for Gate `{self.id_}`'
+            )
         for id_ in ids:
             if FaultTree.is_bad_id(id_):
                 raise FaultTree.BadIdException(line_number, id_)
@@ -266,10 +270,8 @@ class Gate:
     class BadTypeException(FaultTreeTextException):
         pass
 
-    class MissingInputsException(Exception):
-        def __init__(self, line_number, input_ids_str):
-            self.line_number = line_number
-            self.input_ids_str = input_ids_str
+    class MissingInputsException(FaultTreeTextException):
+        pass
 
     class TypeNotSetException(Exception):
         def __init__(self, line_number, id_):
@@ -447,6 +449,7 @@ def main():
         Gate.TypeAlreadySetException,
         Gate.InputsAlreadySetException,
         Gate.BadTypeException,
+        Gate.MissingInputsException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
