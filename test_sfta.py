@@ -331,6 +331,17 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Unrecognised key
+        self.assertRaises(
+            Gate.UnrecognisedKeyException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - type: AND
+                - foo: bar
+            '''),
+        )
+
         # Type not set
         self.assertRaises(
             Gate.TypeNotSetException,

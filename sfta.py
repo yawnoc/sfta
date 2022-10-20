@@ -89,6 +89,12 @@ class Event:
         self.quantity_type = None
         self.quantity_value = None
 
+    KEY_EXPLAINER = (
+        'Recognised keys for an Event property setting are:\n'
+        '    label (optional)\n'
+        '    probability or rate (exactly one required).'
+    )
+
     TYPE_PROBABILITY = 0
     TYPE_RATE = 1
 
@@ -201,6 +207,12 @@ class Gate:
         self.type = None
         self.input_ids = None
 
+    KEY_EXPLAINER = (
+        'Recognised keys for a Gate property setting are:\n'
+        '    label (optional)\n'
+        '    type (required)\n'
+        '    inputs (required).'
+    )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
 
     TYPE_OR = 0
@@ -286,6 +298,9 @@ class Gate:
         pass
 
     class ZeroInputsException(FaultTreeTextException):
+        pass
+
+    class UnrecognisedKeyException(FaultTreeTextException):
         pass
 
     class TypeNotSetException(FaultTreeTextException):
@@ -389,6 +404,7 @@ class FaultTree:
                             line_number,
                             f'unrecognised key `{key}` '
                             f'for Event `{current_object.id_}`'
+                            f'\n\n{Event.KEY_EXPLAINER}'
                         )
                 elif isinstance(current_object, Gate):
                     if key == 'label':
@@ -397,6 +413,13 @@ class FaultTree:
                         current_object.set_type(value, line_number)
                     elif key == 'inputs':
                         current_object.set_inputs(value, line_number)
+                    else:
+                        raise Gate.UnrecognisedKeyException(
+                            line_number,
+                            f'unrecognised key `{key}` '
+                            f'for Gate `{current_object.id_}`'
+                            f'\n\n{Gate.KEY_EXPLAINER}'
+                        )
                 else:
                     raise RuntimeError(
                         f'Implementation error: '
@@ -483,6 +506,7 @@ def main():
         Gate.InputsAlreadySetException,
         Gate.BadTypeException,
         Gate.ZeroInputsException,
+        Gate.UnrecognisedKeyException,
         Gate.TypeNotSetException,
         Gate.InputsNotSetException,
         FaultTree.SmotheredObjectDeclarationException,
