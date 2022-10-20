@@ -101,9 +101,7 @@ class Event:
 
     def set_probability(self, probability_str, line_number):
         if self.quantity_type is not None:
-            message = (
-                f'probability or rate already set for Event `{self.id_}`'
-            )
+            message = f'probability or rate already set for Event `{self.id_}`'
             raise Event.QuantityAlreadySetException(line_number, message)
 
         try:
@@ -124,9 +122,7 @@ class Event:
 
     def set_rate(self, rate_str, line_number):
         if self.quantity_type is not None:
-            message = (
-                f'probability or rate already set for Event `{self.id_}`'
-            )
+            message = f'probability or rate already set for Event `{self.id_}`'
             raise Event.QuantityAlreadySetException(line_number, message)
 
         try:
