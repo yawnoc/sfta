@@ -203,6 +203,12 @@ class Gate:
 
         self.input_ids = ids
 
+    def validate(self, line_number):
+        if self.type is None:
+            raise Gate.TypeNotSetException(line_number, self.id_)
+        if self.input_ids is None:
+            raise Gate.InputsNotSetException(line_number, self.id_)
+
     class LabelAlreadySetException(Exception):
         def __init__(self, line_number):
             self.line_number = line_number
@@ -224,6 +230,16 @@ class Gate:
         def __init__(self, line_number, input_ids_str):
             self.line_number = line_number
             self.input_ids_str = input_ids_str
+
+    class TypeNotSetException(Exception):
+        def __init__(self, line_number, id_):
+            self.line_number = line_number
+            self.id_ = id_
+
+    class InputsNotSetException(Exception):
+        def __init__(self, line_number, id_):
+            self.line_number = line_number
+            self.id_ = id_
 
 
 class FaultTree:
@@ -273,7 +289,6 @@ class FaultTree:
                         f'is neither `Event` nor `Gate`.'
                     )
                 object_ids.add(id_)
-
                 continue
 
             property_line_regex = r'^- (?P<key>\S+): \s*(?P<value>.+?)\s*$'
@@ -307,18 +322,14 @@ class FaultTree:
                         f'current_object {current_object} '
                         f'is an instance of neither Event nor Gate.'
                     )
-
                 continue
 
             if line == '':
                 if current_object is None:
                     continue
 
-                if isinstance(current_object, Event):
+                if isinstance(current_object, (Event, Gate)):
                     current_object.validate(line_number)
-                    current_object = None
-                elif isinstance(current_object, Gate):
-                    # TODO: Gate object self-check
                     current_object = None
                 else:
                     raise RuntimeError(
@@ -326,7 +337,6 @@ class FaultTree:
                         f'current_object {current_object} '
                         f'is an instance of neither Event nor Gate.'
                     )
-
                 continue
 
             raise FaultTree.BadLineException(line_number)

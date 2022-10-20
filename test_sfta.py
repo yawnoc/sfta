@@ -331,6 +331,26 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Type not set
+        self.assertRaises(
+            Gate.TypeNotSetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - inputs: B, C
+            '''),
+        )
+
+        # Inputs not set
+        self.assertRaises(
+            Gate.InputsNotSetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Gate: A
+                - type: OR
+            '''),
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
