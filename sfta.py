@@ -398,7 +398,8 @@ class FaultTree:
                     )
                 continue
 
-            if line == '':
+            blank_line_regex = r'^\s*$'
+            if re.match(blank_line_regex, line):
                 if current_object is None:
                     continue
 
