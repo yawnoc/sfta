@@ -10,8 +10,10 @@ Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
 This is free software with NO WARRANTY etc. etc., see LICENSE.
 """
 
+import textwrap
 import unittest
 
+from sfta import FaultTree
 from sfta import Writ
 
 
@@ -50,6 +52,60 @@ class TestSfta(unittest.TestCase):
 
         # ADE does not imply ABC (due to BC)
         self.assertFalse(Writ.implies(0b11001, 0b00111))
+
+    def test_fault_tree_is_bad_id(self):
+        self.assertTrue(FaultTree.is_bad_id('Contains space'))
+        self.assertTrue(FaultTree.is_bad_id('Contains\ttab'))
+        self.assertTrue(FaultTree.is_bad_id('Contains,comma'))
+        self.assertTrue(FaultTree.is_bad_id('Contains.full.stop'))
+
+        self.assertFalse(FaultTree.is_bad_id('is_good'))
+        self.assertFalse(FaultTree.is_bad_id('AbSoLUtEly-fiNe'))
+
+    def test_fault_tree_parse(self):
+        # Missing blank line before next object declaration
+        self.assertRaises(
+            FaultTree.ObjectDeclarationException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: 1
+                Event: B
+                - probability: 0
+            '''),
+        )
+
+        # Duplicate IDs
+        self.assertRaises(
+            FaultTree.DuplicateIdException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: 1
+
+                Event: A
+                - probability: 1
+            '''),
+        )
+
+        # Bad ID
+        self.assertRaises(
+            FaultTree.BadIdException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: This ID hath whitespace
+                - probability: 1
+            '''),
+        )
+
+        # Hanging property declaration
+        self.assertRaises(
+            FaultTree.PropertyDeclarationException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                - probability: 0
+            '''),
+        )
 
 
 if __name__ == '__main__':

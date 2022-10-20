@@ -1,0 +1,17 @@
+Gate: A+AB
+- label: Absorption (A + AB)
+- type: OR
+- inputs: A, AB
+
+Gate: AB
+- label: Conjunction (AB)
+- type: AND
+- inputs: A, B
+
+Event: A
+- label: A is for Apple
+- probability: 0.7
+
+Event: B
+- label: B is for Banana
+- probability: 0.3
