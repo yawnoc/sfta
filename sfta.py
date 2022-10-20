@@ -300,6 +300,13 @@ class FaultTree:
         self.events, self.gates = FaultTree.parse(fault_tree_text)
 
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
+    LINE_EXPLAINER = (
+        'A line must have one of the following forms:\n'
+        '    Event: <id>         (an event declaration)\n'
+        '    Gate: <id>          (a gate declaration)\n'
+        '    - <key>: <value>    (a property setting)\n'
+        '    <a blank line>      (used before the next declaration).'
+    )
 
     @staticmethod
     def is_bad_id(string):
@@ -414,7 +421,11 @@ class FaultTree:
                     )
                 continue
 
-            raise FaultTree.BadLineException(line_number)
+            raise FaultTree.BadLineException(
+                line_number,
+                f'bad line `{line}`'
+                f'\n{FaultTree.LINE_EXPLAINER}'
+            )
 
         return events, gates
 
@@ -430,9 +441,8 @@ class FaultTree:
     class BadIdException(FaultTreeTextException):
         pass
 
-    class BadLineException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class BadLineException(FaultTreeTextException):
+        pass
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
@@ -479,6 +489,7 @@ def main():
         FaultTree.DanglingPropertySettingException,
         FaultTree.DuplicateIdException,
         FaultTree.BadIdException,
+        FaultTree.BadLineException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
