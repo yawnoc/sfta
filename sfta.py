@@ -320,7 +320,10 @@ class FaultTree:
                         f'declaration of {class_} `{id_}`'
                     )
                 if id_ in object_ids:
-                    raise FaultTree.DuplicateIdException(line_number, id_)
+                    raise FaultTree.DuplicateIdException(
+                        line_number,
+                        f'duplicate ID `{id_}` in declaration of {class_}'
+                    )
                 if FaultTree.is_bad_id(id_):
                     raise FaultTree.BadIdException(line_number, id_)
 
@@ -407,10 +410,8 @@ class FaultTree:
     class DanglingPropertySettingException(FaultTreeTextException):
         pass
 
-    class DuplicateIdException(Exception):
-        def __init__(self, line_number, id_):
-            self.line_number = line_number
-            self.id_ = id_
+    class DuplicateIdException(FaultTreeTextException):
+        pass
 
     class BadIdException(Exception):
         def __init__(self, line_number, id_):
@@ -464,6 +465,7 @@ def main():
         Gate.InputsNotSetException,
         FaultTree.SmotheredObjectDeclarationException,
         FaultTree.DanglingPropertySettingException,
+        FaultTree.DuplicateIdException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
