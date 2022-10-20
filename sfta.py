@@ -101,7 +101,10 @@ class Event:
 
     def set_probability(self, probability_str, line_number):
         if self.quantity_type is not None:
-            raise Event.QuantityAlreadySetException(line_number)
+            message = (
+                f'`probability` or `rate` already set for Event `{self.id_}`.'
+            )
+            raise Event.QuantityAlreadySetException(line_number, message)
 
         try:
             probability = float(probability_str)
@@ -116,7 +119,10 @@ class Event:
 
     def set_rate(self, rate_str, line_number):
         if self.quantity_type is not None:
-            raise Event.QuantityAlreadySetException(line_number)
+            message = (
+                f'`probability` or `rate` already set for Event `{self.id_}`.'
+            )
+            raise Event.QuantityAlreadySetException(line_number, message)
 
         try:
             rate = float(rate_str)
@@ -136,9 +142,8 @@ class Event:
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
-    class QuantityAlreadySetException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class QuantityAlreadySetException(FaultTreeTextException):
+        pass
 
     class BadFloatException(Exception):
         def __init__(self, line_number, probability_str):
@@ -398,9 +403,13 @@ def main():
     with open(file_name, 'r', encoding='utf-8') as file:
         fault_tree_text = file.read()
 
+    exception_classes = (
+        Event.LabelAlreadySetException,
+        Event.QuantityAlreadySetException,
+    )
     try:
         fault_tree = FaultTree(fault_tree_text)
-    except Event.LabelAlreadySetException as exception:
+    except exception_classes as exception:
         line_number = exception.line_number
         message = exception.message
         print(
