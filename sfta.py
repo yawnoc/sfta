@@ -201,7 +201,7 @@ class Gate:
         self.type = None
         self.input_ids = None
 
-    TYPE_EXPLAINER = 'Gate type must `AND` or `OR` (case-sensitive).'
+    TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
 
     TYPE_OR = 0
     TYPE_AND = 1
