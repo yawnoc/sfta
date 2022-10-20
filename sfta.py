@@ -186,7 +186,8 @@ class Gate:
 
     def set_label(self, label, line_number):
         if self.label is not None:
-            raise Gate.LabelAlreadySetException(line_number)
+            message = f'label already set for Gate `{self.id_}`'
+            raise Gate.LabelAlreadySetException(line_number, message)
 
         self.label = label
 
@@ -220,9 +221,8 @@ class Gate:
         if self.input_ids is None:
             raise Gate.InputsNotSetException(line_number, self.id_)
 
-    class LabelAlreadySetException(Exception):
-        def __init__(self, line_number):
-            self.line_number = line_number
+    class LabelAlreadySetException(FaultTreeTextException):
+        pass
 
     class TypeAlreadySetException(Exception):
         def __init__(self, line_number):
@@ -409,6 +409,7 @@ def main():
         Event.BadProbabilityException,
         Event.BadRateException,
         Event.QuantityNotSetException,
+        Gate.LabelAlreadySetException,
     )
     try:
         fault_tree = FaultTree(fault_tree_text)
