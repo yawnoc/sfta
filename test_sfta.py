@@ -13,7 +13,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 import textwrap
 import unittest
 
-from sfta import FaultTree
+from sfta import Event, FaultTree
 from sfta import Writ
 
 
@@ -104,6 +104,123 @@ class TestSfta(unittest.TestCase):
             FaultTree.parse,
             textwrap.dedent('''
                 - probability: 0
+            '''),
+        )
+
+    def test_fault_tree_parse_event(self):
+        # Label already set
+        self.assertRaises(
+            Event.LabelAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - label: First label
+                - label: Second label
+            '''),
+        )
+
+        # Setting probability after probability already set
+        self.assertRaises(
+            Event.QuantityAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: 0
+                - probability: 0
+            '''),
+        )
+
+        # Setting probability after rate already set
+        self.assertRaises(
+            Event.QuantityAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: 1
+                - probability: 0
+            '''),
+        )
+
+        # Setting rate after probability already set
+        self.assertRaises(
+            Event.QuantityAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: 0
+                - rate: 1
+            '''),
+        )
+
+        # Setting rate after rate already set
+        self.assertRaises(
+            Event.QuantityAlreadySetException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: 1
+                - rate: 1
+            '''),
+        )
+
+        # Bad float
+        self.assertRaises(
+            Event.BadFloatException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: not-a-float
+            '''),
+        )
+
+        # Bad probability (negative)
+        self.assertRaises(
+            Event.BadProbabilityException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: -0.1
+            '''),
+        )
+
+        # Bad probability (too big)
+        self.assertRaises(
+            Event.BadProbabilityException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - probability: 2
+            '''),
+        )
+
+        # Bad rate (negative)
+        self.assertRaises(
+            Event.BadRateException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: -1
+            '''),
+        )
+
+        # Bad rate (too big)
+        self.assertRaises(
+            Event.BadRateException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: inf
+            '''),
+        )
+
+        # Unrecognised key
+        self.assertRaises(
+            Event.UnrecognisedKeyException,
+            FaultTree.parse,
+            textwrap.dedent('''
+                Event: A
+                - rate: 1
+                - foo: bar
             '''),
         )
 

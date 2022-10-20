@@ -78,6 +78,76 @@ class Writ:
 class Event:
     def __init__(self, id_):
         self.id_ = id_
+        self.label = None
+        self.quantity_type = None
+        self.quantity_value = None
+
+    TYPE_PROBABILITY = 0
+    TYPE_RATE = 1
+
+    def set_label(self, label, line_number):
+        if self.label is not None:
+            raise Event.LabelAlreadySetException(line_number)
+
+        self.label = label
+
+    def set_probability(self, probability_str, line_number):
+        if self.quantity_type is not None:
+            raise Event.QuantityAlreadySetException(line_number)
+
+        try:
+            probability = float(probability_str)
+        except ValueError:
+            raise Event.BadFloatException(line_number, probability_str)
+
+        if not 0 <= probability <= 1:
+            raise Event.BadProbabilityException(line_number, probability_str)
+
+        self.quantity_type = Event.TYPE_PROBABILITY
+        self.quantity_value = probability
+
+    def set_rate(self, rate_str, line_number):
+        if self.quantity_type is not None:
+            raise Event.QuantityAlreadySetException(line_number)
+
+        try:
+            rate = float(rate_str)
+        except ValueError:
+            raise Event.BadFloatException(line_number, rate_str)
+
+        if not 0 <= rate < float('inf'):
+            raise Event.BadRateException(line_number, rate_str)
+
+        self.quantity_type = Event.TYPE_RATE
+        self.quantity_value = rate
+
+    class LabelAlreadySetException(Exception):
+        def __init__(self, line_number):
+            self.line_number = line_number
+
+    class QuantityAlreadySetException(Exception):
+        def __init__(self, line_number):
+            self.line_number = line_number
+
+    class BadFloatException(Exception):
+        def __init__(self, line_number, probability_str):
+            self.line_number = line_number
+            self.probability_str = probability_str
+
+    class BadProbabilityException(Exception):
+        def __init__(self, line_number, probability_str):
+            self.line_number = line_number
+            self.probability_str = probability_str
+
+    class BadRateException(Exception):
+        def __init__(self, line_number, rate_str):
+            self.line_number = line_number
+            self.rate_str = rate_str
+
+    class UnrecognisedKeyException(Exception):
+        def __init__(self, line_number, key):
+            self.line_number = line_number
+            self.key = key
 
 
 class Gate:
@@ -134,7 +204,7 @@ class FaultTree:
 
                 continue
 
-            property_line_regex = r'^- (?P<key>[a-z]+): \s*(?P<value>.+?)\s*$'
+            property_line_regex = r'^- (?P<key>\S+): \s*(?P<value>.+?)\s*$'
             property_line_match = re.match(property_line_regex, line)
             if property_line_match:
                 key = property_line_match.group('key')
@@ -144,7 +214,14 @@ class FaultTree:
                     raise FaultTree.PropertyDeclarationException(line_number)
 
                 if isinstance(current_object, Event):
-                    pass  # TODO: Event property declaration
+                    if key == 'label':
+                        current_object.set_label(value, line_number)
+                    elif key == 'probability':
+                        current_object.set_probability(value, line_number)
+                    elif key == 'rate':
+                        current_object.set_rate(value, line_number)
+                    else:
+                        raise Event.UnrecognisedKeyException(line_number, key)
                 elif isinstance(current_object, Gate):
                     pass  # TODO: Gate property declaration
                 else:
