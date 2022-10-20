@@ -177,7 +177,7 @@ class FaultTree:
 
             raise FaultTree.BadLineException(line_number)
 
-        return [], []
+        return events, gates
 
     class ObjectDeclarationException(Exception):
         def __init__(self, line_number):
