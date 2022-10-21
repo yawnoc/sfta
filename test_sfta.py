@@ -79,6 +79,7 @@ class TestSfta(unittest.TestCase):
             textwrap.dedent('''
                 Event: A
                 - probability: 1
+                # Comments don't count as a blank line
                 Event: B
                 - probability: 0
             '''),

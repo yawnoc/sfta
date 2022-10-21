@@ -323,6 +323,7 @@ class FaultTree:
         '    Event: <id>         (an event declaration)\n'
         '    Gate: <id>          (a gate declaration)\n'
         '    - <key>: <value>    (a property setting)\n'
+        '    # <comment>         (a comment)\n'
         '    <a blank line>      (used before the next declaration).'
     )
 
@@ -431,6 +432,10 @@ class FaultTree:
                         f'current_object {current_object} '
                         f'is an instance of neither Event nor Gate.'
                     )
+                continue
+
+            comment_line_regex = '^#.*$'
+            if re.match(comment_line_regex, line):
                 continue
 
             blank_line_regex = r'^\s*$'
