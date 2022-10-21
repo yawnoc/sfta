@@ -214,7 +214,10 @@ class Event:
 class Gate:
     def __init__(self, id_):
         self.id_ = id_
+
         self.label = None
+        self.label_line_number = None
+
         self.type = None
         self.input_ids = None
         self.inputs_line_number = None
@@ -238,10 +241,12 @@ class Gate:
         if self.label is not None:
             raise Gate.LabelAlreadySetException(
                 line_number,
-                f'label hath already been set for Gate `{self.id_}`'
+                f'label hath already been set for Gate `{self.id_}` '
+                f'at line {self.label_line_number}'
             )
 
         self.label = label
+        self.label_line_number = line_number
 
     def set_type(self, type_str, line_number):
         if self.type is not None:
