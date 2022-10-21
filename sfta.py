@@ -83,8 +83,9 @@ class FaultTreeTextException(Exception):
 
 
 class Event:
-    def __init__(self, id_):
+    def __init__(self, id_, index):
         self.id_ = id_
+        self.index = index
         self.label = None
         self.quantity_type = None
         self.quantity_value = None
@@ -332,6 +333,7 @@ class FaultTree:
         events = []
         gates = []
 
+        event_index = 0
         current_object = None
         ids = set()
 
@@ -363,8 +365,9 @@ class FaultTree:
                     )
 
                 if class_ == 'Event':
-                    event = Event(id_)
+                    event = Event(id_, event_index)
                     events.append(event)
+                    event_index += 1
                     current_object = event
                 elif class_ == 'Gate':
                     gate = Gate(id_)
