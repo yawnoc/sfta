@@ -103,7 +103,7 @@ class Event:
         if self.label is not None:
             raise Event.LabelAlreadySetException(
                 line_number,
-                f'label has already been set for Event `{self.id_}`'
+                f'label hath already been set for Event `{self.id_}`'
             )
 
         self.label = label
@@ -112,7 +112,7 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate has already been set '
+                f'probability or rate hath already been set '
                 f'for Event `{self.id_}`'
             )
 
@@ -134,7 +134,7 @@ class Event:
         if probability > 1:
             raise Event.BadProbabilityException(
                 line_number,
-                f'probability `{probability_str}` exceeds 1 '
+                f'probability `{probability_str}` exceedeth 1 '
                 f'for Event `{self.id_}`'
             )
 
@@ -145,7 +145,7 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate has already been set '
+                f'probability or rate hath already been set '
                 f'for Event `{self.id_}`'
             )
 
@@ -176,7 +176,7 @@ class Event:
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(
                 line_number,
-                f'probability or rate has not been set for Event `{self.id_}`'
+                f'probability or rate hath not been set for Event `{self.id_}`'
             )
 
     class LabelAlreadySetException(FaultTreeTextException):
@@ -228,7 +228,7 @@ class Gate:
         if self.label is not None:
             raise Gate.LabelAlreadySetException(
                 line_number,
-                f'label has already been set for Gate `{self.id_}`'
+                f'label hath already been set for Gate `{self.id_}`'
             )
 
         self.label = label
@@ -237,7 +237,7 @@ class Gate:
         if self.type is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
-                f'type has already been set for Gate `{self.id_}`'
+                f'type hath already been set for Gate `{self.id_}`'
             )
 
         if type_str == 'OR':
@@ -280,7 +280,7 @@ class Gate:
         if self.type is None:
             raise Gate.TypeNotSetException(
                 line_number,
-                f'type has not been set for Gate `{self.id_}`'
+                f'type hath not been set for Gate `{self.id_}`'
             )
         if self.input_ids is None:
             raise Gate.InputsNotSetException(
@@ -334,7 +334,7 @@ class FaultTree:
     PROPERTY_EXPLAINER = (
         'Setting of properties for the fault tree itself '
         'must be done at the start of the file, '
-        'even before any Event or Gate has been declared.'
+        'even before any Event or Gate hath been declared.'
     )
     KEY_EXPLAINER = (
         'Recognised keys for a fault tree property setting are:\n'
