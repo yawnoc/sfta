@@ -75,7 +75,7 @@ class TestSfta(unittest.TestCase):
         # Missing blank line before next object declaration
         self.assertRaises(
             FaultTree.SmotheredObjectDeclarationException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 1
@@ -88,7 +88,7 @@ class TestSfta(unittest.TestCase):
         # Duplicate IDs
         self.assertRaises(
             FaultTree.DuplicateIdException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 1
@@ -101,7 +101,7 @@ class TestSfta(unittest.TestCase):
         # Bad ID
         self.assertRaises(
             FaultTree.BadIdException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: This ID hath whitespace
                 - probability: 1
@@ -111,7 +111,7 @@ class TestSfta(unittest.TestCase):
         # Dangling property declaration
         self.assertRaises(
             FaultTree.DanglingPropertySettingException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 1
@@ -124,34 +124,34 @@ class TestSfta(unittest.TestCase):
         # Bad line
         self.assertRaises(
             FaultTree.BadLineException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             'foo bar',
         )
         self.assertRaises(
             FaultTree.BadLineException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             'Event:',
         )
         self.assertRaises(
             FaultTree.BadLineException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             'Gate: ',
         )
         self.assertRaises(
             FaultTree.BadLineException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             'Event:A',
         )
         self.assertRaises(
             FaultTree.BadLineException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             ' - key: value',
         )
 
         # Unrecognised Key
         self.assertRaises(
             FaultTree.UnrecognisedKeyException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             '- foo: bar',
         )
 
@@ -159,7 +159,7 @@ class TestSfta(unittest.TestCase):
         # Label already set
         self.assertRaises(
             Event.LabelAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - label: First label
@@ -170,7 +170,7 @@ class TestSfta(unittest.TestCase):
         # Setting probability after probability already set
         self.assertRaises(
             Event.QuantityAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 0
@@ -181,7 +181,7 @@ class TestSfta(unittest.TestCase):
         # Setting probability after rate already set
         self.assertRaises(
             Event.QuantityAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: 1
@@ -192,7 +192,7 @@ class TestSfta(unittest.TestCase):
         # Setting rate after probability already set
         self.assertRaises(
             Event.QuantityAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 0
@@ -203,7 +203,7 @@ class TestSfta(unittest.TestCase):
         # Setting rate after rate already set
         self.assertRaises(
             Event.QuantityAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: 1
@@ -214,7 +214,7 @@ class TestSfta(unittest.TestCase):
         # Bad float
         self.assertRaises(
             Event.BadFloatException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: not-a-float
@@ -224,7 +224,7 @@ class TestSfta(unittest.TestCase):
         # Bad probability (negative)
         self.assertRaises(
             Event.BadProbabilityException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: -0.1
@@ -234,7 +234,7 @@ class TestSfta(unittest.TestCase):
         # Bad probability (too big)
         self.assertRaises(
             Event.BadProbabilityException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - probability: 2
@@ -244,7 +244,7 @@ class TestSfta(unittest.TestCase):
         # Bad rate (negative)
         self.assertRaises(
             Event.BadRateException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: -1
@@ -254,7 +254,7 @@ class TestSfta(unittest.TestCase):
         # Bad rate (too big)
         self.assertRaises(
             Event.BadRateException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: inf
@@ -264,7 +264,7 @@ class TestSfta(unittest.TestCase):
         # Unrecognised key
         self.assertRaises(
             Event.UnrecognisedKeyException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Event: A
                 - rate: 1
@@ -275,7 +275,7 @@ class TestSfta(unittest.TestCase):
         # Quantity not set
         self.assertRaises(
             Event.QuantityNotSetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             'Event: A',
         )
 
@@ -283,7 +283,7 @@ class TestSfta(unittest.TestCase):
         # Label already set
         self.assertRaises(
             Gate.LabelAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - label: First label
@@ -294,7 +294,7 @@ class TestSfta(unittest.TestCase):
         # Type already set
         self.assertRaises(
             Gate.TypeAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - type: AND
@@ -305,7 +305,7 @@ class TestSfta(unittest.TestCase):
         # Inputs already set
         self.assertRaises(
             Gate.InputsAlreadySetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - inputs: B, C
@@ -316,7 +316,7 @@ class TestSfta(unittest.TestCase):
         # Bad type
         self.assertRaises(
             Gate.BadTypeException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - type: aNd
@@ -326,7 +326,7 @@ class TestSfta(unittest.TestCase):
         # Missing inputs
         self.assertRaises(
             Gate.ZeroInputsException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - inputs: ,
@@ -336,7 +336,7 @@ class TestSfta(unittest.TestCase):
         # Bad ID
         self.assertRaises(
             FaultTree.BadIdException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - inputs: good, (bad because of whitespace)
@@ -346,7 +346,7 @@ class TestSfta(unittest.TestCase):
         # Unrecognised key
         self.assertRaises(
             Gate.UnrecognisedKeyException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - type: AND
@@ -357,7 +357,7 @@ class TestSfta(unittest.TestCase):
         # Type not set
         self.assertRaises(
             Gate.TypeNotSetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - inputs: B, C
@@ -367,7 +367,7 @@ class TestSfta(unittest.TestCase):
         # Inputs not set
         self.assertRaises(
             Gate.InputsNotSetException,
-            FaultTree.parse,
+            FaultTree.parse_and_validate,
             textwrap.dedent('''
                 Gate: A
                 - type: OR
