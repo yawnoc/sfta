@@ -71,7 +71,7 @@ class TestSfta(unittest.TestCase):
         self.assertFalse(FaultTree.is_bad_id('is_good'))
         self.assertFalse(FaultTree.is_bad_id('AbSoLUtEly-fiNe'))
 
-    def test_fault_tree_parse(self):
+    def test_fault_tree_parse_and_validate(self):
         # Missing blank line before next object declaration
         self.assertRaises(
             FaultTree.SmotheredObjectDeclarationException,
@@ -155,7 +155,7 @@ class TestSfta(unittest.TestCase):
             '- foo: bar',
         )
 
-    def test_fault_tree_parse_event(self):
+    def test_fault_tree_parse_and_validate_event(self):
         # Label already set
         self.assertRaises(
             Event.LabelAlreadySetException,
@@ -279,7 +279,7 @@ class TestSfta(unittest.TestCase):
             'Event: A',
         )
 
-    def test_fault_tree_parse_gate(self):
+    def test_fault_tree_parse_and_validate_gate(self):
         # Label already set
         self.assertRaises(
             Gate.LabelAlreadySetException,
@@ -372,6 +372,17 @@ class TestSfta(unittest.TestCase):
                 Gate: A
                 - type: OR
             '''),
+        )
+
+        # Unknown input
+        self.assertRaises(
+            Gate.UnknownInputException,
+            FaultTree.parse_and_validate,
+            textwrap.dedent('''
+                Gate: A
+                - type: OR
+                - inputs: anonymous
+            ''')
         )
 
 

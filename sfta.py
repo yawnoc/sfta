@@ -207,6 +207,7 @@ class Gate:
         self.label = None
         self.type = None
         self.input_ids = None
+        self.inputs_line_number = None
 
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
@@ -273,6 +274,7 @@ class Gate:
                 )
 
         self.input_ids = ids
+        self.inputs_line_number = line_number
 
     def validate_properties(self, line_number):
         if self.type is None:
@@ -310,6 +312,9 @@ class Gate:
     class InputsNotSetException(FaultTreeTextException):
         pass
 
+    class UnknownInputException(FaultTreeTextException):
+        pass
+
 
 class FaultTree:
     def __init__(self, fault_tree_text):
@@ -345,7 +350,7 @@ class FaultTree:
         event_from_id, gate_from_id, time_unit = (
             FaultTree.parse(fault_tree_text)
         )
-        # TODO: validate gate input IDs
+        FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         # TODO: validate tree
         return event_from_id, gate_from_id, time_unit
 
@@ -496,6 +501,20 @@ class FaultTree:
         gate_from_id = {gate.id_: gate for gate in gates}
 
         return event_from_id, gate_from_id, time_unit
+
+    @staticmethod
+    def validate_gate_inputs(event_from_id, gate_from_id):
+        event_ids = event_from_id.keys()
+        gate_ids = gate_from_id.keys()
+        gates = gate_from_id.values()
+
+        for gate in gates:
+            for id_ in gate.input_ids:
+                if id_ not in event_ids and id_ not in gate_ids:
+                    raise Gate.UnknownInputException(
+                        gate.inputs_line_number,
+                        f'no Event or Gate is ever declared with ID `{id_}`'
+                    )
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
