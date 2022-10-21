@@ -313,7 +313,9 @@ class Gate:
 
 class FaultTree:
     def __init__(self, fault_tree_text):
-        self.events, self.gates = FaultTree.parse(fault_tree_text)
+        self.event_from_id, self.gate_from_id = (
+            FaultTree.parse(fault_tree_text)
+        )
 
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
     LINE_EXPLAINER = (
@@ -453,7 +455,10 @@ class FaultTree:
                 f'\n\n{FaultTree.LINE_EXPLAINER}'
             )
 
-        return events, gates
+        event_from_id = {event.id_: event for event in events}
+        gate_from_id = {gate.id_: gate for gate in gates}
+
+        return event_from_id, gate_from_id
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
