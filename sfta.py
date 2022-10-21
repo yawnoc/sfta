@@ -333,7 +333,7 @@ class FaultTree:
         gates = []
 
         current_object = None
-        object_ids = set()
+        ids = set()
 
         lines = (fault_tree_text + '\n\n').splitlines()
         for line_number, line in enumerate(lines, 1):
@@ -350,7 +350,7 @@ class FaultTree:
                         f'missing blank line before '
                         f'declaration of {class_} `{id_}`'
                     )
-                if id_ in object_ids:
+                if id_ in ids:
                     raise FaultTree.DuplicateIdException(
                         line_number,
                         f'duplicate ID `{id_}` in declaration of {class_}'
@@ -376,7 +376,7 @@ class FaultTree:
                         f'`class_` matched from regex `{object_line_regex}` '
                         f'is neither `Event` nor `Gate`.'
                     )
-                object_ids.add(id_)
+                ids.add(id_)
                 continue
 
             property_line_regex = r'^- (?P<key>\S+): \s*(?P<value>.+?)\s*$'
