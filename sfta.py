@@ -274,7 +274,8 @@ class Gate:
         if self.input_ids is not None:
             raise Gate.InputsAlreadySetException(
                 line_number,
-                f'inputs have already been set for Gate `{self.id_}`'
+                f'inputs have already been set for Gate `{self.id_}` '
+                f'at line {self.inputs_line_number}'
             )
 
         ids = Gate.split_ids(input_ids_str)
