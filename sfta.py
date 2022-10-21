@@ -342,6 +342,15 @@ class FaultTree:
 
     @staticmethod
     def parse_and_validate(fault_tree_text):
+        event_from_id, gate_from_id, time_unit = (
+            FaultTree.parse(fault_tree_text)
+        )
+        # TODO: validate gate input IDs
+        # TODO: validate tree
+        return event_from_id, gate_from_id, time_unit
+
+    @staticmethod
+    def parse(fault_tree_text):
         events = []
         gates = []
         time_unit = None
