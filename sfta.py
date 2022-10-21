@@ -493,31 +493,9 @@ def main():
     with open(file_name, 'r', encoding='utf-8') as file:
         fault_tree_text = file.read()
 
-    exception_classes = (
-        Event.LabelAlreadySetException,
-        Event.QuantityAlreadySetException,
-        Event.BadFloatException,
-        Event.BadProbabilityException,
-        Event.BadRateException,
-        Event.UnrecognisedKeyException,
-        Event.QuantityNotSetException,
-        Gate.LabelAlreadySetException,
-        Gate.TypeAlreadySetException,
-        Gate.InputsAlreadySetException,
-        Gate.BadTypeException,
-        Gate.ZeroInputsException,
-        Gate.UnrecognisedKeyException,
-        Gate.TypeNotSetException,
-        Gate.InputsNotSetException,
-        FaultTree.SmotheredObjectDeclarationException,
-        FaultTree.DanglingPropertySettingException,
-        FaultTree.DuplicateIdException,
-        FaultTree.BadIdException,
-        FaultTree.BadLineException,
-    )
     try:
         fault_tree = FaultTree(fault_tree_text)
-    except exception_classes as exception:
+    except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
         print(
