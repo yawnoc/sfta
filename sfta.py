@@ -219,6 +219,8 @@ class Gate:
         self.label_line_number = None
 
         self.type = None
+        self.type_line_number = None
+
         self.input_ids = None
         self.inputs_line_number = None
 
@@ -252,7 +254,8 @@ class Gate:
         if self.type is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
-                f'type hath already been set for Gate `{self.id_}`'
+                f'type hath already been set for Gate `{self.id_}` '
+                f'at line {self.type_line_number}'
             )
 
         if type_str == 'OR':
@@ -265,6 +268,7 @@ class Gate:
                 f'bad type `{type_str}` for Gate `{self.id_}`'
                 f'\n\n{Gate.TYPE_EXPLAINER}'
             )
+        self.type_line_number = line_number
 
     def set_inputs(self, input_ids_str, line_number):
         if self.input_ids is not None:
