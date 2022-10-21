@@ -87,6 +87,7 @@ class Event:
         self.id_ = id_
         self.index = index
         self.label = None
+        self.label_line_number = None
         self.quantity_type = None
         self.quantity_value = None
 
@@ -103,10 +104,12 @@ class Event:
         if self.label is not None:
             raise Event.LabelAlreadySetException(
                 line_number,
-                f'label hath already been set for Event `{self.id_}`'
+                f'label hath already been set for Event `{self.id_}` '
+                f'at line {self.label_line_number}'
             )
 
         self.label = label
+        self.label_line_number = line_number
 
     def set_probability(self, probability_str, line_number):
         if self.quantity_type is not None:
