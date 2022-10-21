@@ -86,10 +86,13 @@ class Event:
     def __init__(self, id_, index):
         self.id_ = id_
         self.index = index
+
         self.label = None
         self.label_line_number = None
+
         self.quantity_type = None
         self.quantity_value = None
+        self.quantity_line_number = None
 
     KEY_EXPLAINER = (
         'Recognised keys for an Event property setting are:\n'
@@ -116,7 +119,8 @@ class Event:
             raise Event.QuantityAlreadySetException(
                 line_number,
                 f'probability or rate hath already been set '
-                f'for Event `{self.id_}`'
+                f'for Event `{self.id_}` '
+                f'at line {self.quantity_line_number}'
             )
 
         try:
@@ -143,13 +147,15 @@ class Event:
 
         self.quantity_type = Event.TYPE_PROBABILITY
         self.quantity_value = probability
+        self.quantity_line_number = line_number
 
     def set_rate(self, rate_str, line_number):
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
                 f'probability or rate hath already been set '
-                f'for Event `{self.id_}`'
+                f'for Event `{self.id_}` '
+                f'at line {self.quantity_line_number}'
             )
 
         try:
@@ -174,6 +180,7 @@ class Event:
 
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
+        self.quantity_line_number = line_number
 
     def validate_properties(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
