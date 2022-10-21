@@ -313,18 +313,27 @@ class Gate:
 
 class FaultTree:
     def __init__(self, fault_tree_text):
-        self.event_from_id, self.gate_from_id = (
+        self.event_from_id, self.gate_from_id, time_unit = (
             FaultTree.parse(fault_tree_text)
         )
 
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
     LINE_EXPLAINER = (
         'A line must have one of the following forms:\n'
-        '    Event: <id>         (an event declaration)\n'
-        '    Gate: <id>          (a gate declaration)\n'
+        '    Event: <id>         (an Event declaration)\n'
+        '    Gate: <id>          (a Gate declaration)\n'
         '    - <key>: <value>    (a property setting)\n'
         '    # <comment>         (a comment)\n'
         '    <a blank line>      (used before the next declaration).'
+    )
+    PROPERTY_EXPLAINER = (
+        'Setting of properties for the fault tree itself '
+        'must be done at the start of the file, '
+        'even before any Event or Gate has been declared.'
+    )
+    KEY_EXPLAINER = (
+        'Recognised keys for a fault tree property setting are:\n'
+        '    time_unit (optional).'
     )
 
     @staticmethod
@@ -335,9 +344,10 @@ class FaultTree:
     def parse(fault_tree_text):
         events = []
         gates = []
+        time_unit = None
 
         event_index = 0
-        current_object = None
+        current_object = FaultTree
         ids = set()
 
         lines = (fault_tree_text + '\n\n').splitlines()
@@ -349,7 +359,7 @@ class FaultTree:
                 class_ = object_line_match.group('class_')
                 id_ = object_line_match.group('id_')
 
-                if current_object is not None:
+                if current_object not in (None, FaultTree):
                     raise FaultTree.SmotheredObjectDeclarationException(
                         line_number,
                         f'missing blank line before '
@@ -394,11 +404,22 @@ class FaultTree:
                 if current_object is None:
                     raise FaultTree.DanglingPropertySettingException(
                         line_number,
-                        f'missing object declaration before '
+                        f'missing Event or Gate declaration before '
                         f'setting {key} to `{value}`'
+                        f'\n\n{FaultTree.PROPERTY_EXPLAINER}'
                     )
 
-                if isinstance(current_object, Event):
+                if current_object is FaultTree:
+                    if key == 'time_unit':
+                        time_unit = value
+                    else:
+                        raise FaultTree.UnrecognisedKeyException(
+                            line_number,
+                            f'unrecognised key `{key}` '
+                            f'for the fault tree'
+                            f'\n\n{FaultTree.KEY_EXPLAINER}'
+                        )
+                elif isinstance(current_object, Event):
                     if key == 'label':
                         current_object.set_label(value, line_number)
                     elif key == 'probability':
@@ -443,7 +464,9 @@ class FaultTree:
                 if current_object is None:
                     continue
 
-                if isinstance(current_object, (Event, Gate)):
+                if current_object is FaultTree:
+                    pass
+                elif isinstance(current_object, (Event, Gate)):
                     current_object.validate_properties(line_number)
                     current_object = None
                 else:
@@ -463,7 +486,7 @@ class FaultTree:
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
 
-        return event_from_id, gate_from_id
+        return event_from_id, gate_from_id, time_unit
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
@@ -478,6 +501,9 @@ class FaultTree:
         pass
 
     class BadLineException(FaultTreeTextException):
+        pass
+
+    class UnrecognisedKeyException(FaultTreeTextException):
         pass
 
 

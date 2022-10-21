@@ -1,1 +1,5 @@
+Event: A
+- probability: 1
+
+# Dangling:
 - probability: 0

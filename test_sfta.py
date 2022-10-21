@@ -108,11 +108,15 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
-        # Hanging property declaration
+        # Dangling property declaration
         self.assertRaises(
             FaultTree.DanglingPropertySettingException,
             FaultTree.parse,
             textwrap.dedent('''
+                Event: A
+                - probability: 1
+
+                # Dangling:
                 - probability: 0
             '''),
         )
@@ -142,6 +146,13 @@ class TestSfta(unittest.TestCase):
             FaultTree.BadLineException,
             FaultTree.parse,
             ' - key: value',
+        )
+
+        # Unrecognised Key
+        self.assertRaises(
+            FaultTree.UnrecognisedKeyException,
+            FaultTree.parse,
+            '- foo: bar',
         )
 
     def test_fault_tree_parse_event(self):
