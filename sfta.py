@@ -171,7 +171,7 @@ class Event:
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
 
-    def validate(self, line_number):
+    def validate_properties(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(
                 line_number,
@@ -273,7 +273,7 @@ class Gate:
 
         self.input_ids = ids
 
-    def validate(self, line_number):
+    def validate_properties(self, line_number):
         if self.type is None:
             raise Gate.TypeNotSetException(
                 line_number,
@@ -434,7 +434,7 @@ class FaultTree:
                     continue
 
                 if isinstance(current_object, (Event, Gate)):
-                    current_object.validate(line_number)
+                    current_object.validate_properties(line_number)
                     current_object = None
                 else:
                     raise RuntimeError(
