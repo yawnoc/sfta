@@ -339,7 +339,7 @@ class Gate:
 class FaultTree:
     def __init__(self, fault_tree_text):
         self.event_from_id, self.gate_from_id, time_unit = (
-            FaultTree.parse_and_validate(fault_tree_text)
+            FaultTree.build(fault_tree_text)
         )
 
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
@@ -366,7 +366,7 @@ class FaultTree:
         return re.search(r'[\s,.]', string)
 
     @staticmethod
-    def parse_and_validate(fault_tree_text):
+    def build(fault_tree_text):
         event_from_id, gate_from_id, time_unit = (
             FaultTree.parse(fault_tree_text)
         )
