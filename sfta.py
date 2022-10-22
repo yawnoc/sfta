@@ -758,13 +758,26 @@ class FaultTree:
         gate_ids = gate_from_id.keys()
         gates = gate_from_id.values()
 
+        unused_event_ids = set(event_ids)
+        top_gate_ids = set(gate_ids)
+
         for gate in gates:
             for id_ in gate.input_ids:
-                if id_ not in event_ids and id_ not in gate_ids:
+                input_is_known_event = id_ in event_ids
+                if input_is_known_event:
+                    unused_event_ids.discard(id_)
+
+                input_is_known_gate = id_ in gate_ids
+                if input_is_known_gate:
+                    top_gate_ids.discard(id_)
+
+                if not (input_is_known_event or input_is_known_gate):
                     raise Gate.UnknownInputException(
                         gate.inputs_line_number,
                         f'no Event or Gate is ever declared with ID `{id_}`'
                     )
+
+        return unused_event_ids, top_gate_ids
 
     @staticmethod
     def validate_tree(gate_from_id):
