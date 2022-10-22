@@ -141,7 +141,7 @@ class TestSfta(unittest.TestCase):
                 0b100000,  # F
                 0b011001,  # ADE
                 0b011010,  # BDE
-            }
+            },
         )
 
     def test_writ_implieth(self):
@@ -245,7 +245,7 @@ class TestSfta(unittest.TestCase):
             [
                 CutSet({0b01}, Event.TYPE_RATE),
                 CutSet({0b10}, Event.TYPE_RATE),
-            ]
+            ],
         )
 
         # A (probability) . B (probability) . C (rate) is illegal
@@ -256,7 +256,7 @@ class TestSfta(unittest.TestCase):
                 CutSet({0b001}, Event.TYPE_PROBABILITY),
                 CutSet({0b010}, Event.TYPE_PROBABILITY),
                 CutSet({0b100}, Event.TYPE_RATE),
-            ]
+            ],
         )
 
     def test_gate_split_ids(self):
