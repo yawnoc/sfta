@@ -15,28 +15,24 @@ import unittest
 
 from sfta import Event, FaultTree, Gate
 from sfta import Writ
-from sfta import find_back_edges
+from sfta import find_cycles
 
 
 class TestSfta(unittest.TestCase):
     def test_find_cycle(self):
         self.assertEqual(
-            find_back_edges({1: {3, 4}, 2: {4}, 3: {4, 5}, 4: {5}, 5: {6, 7}}),
+            find_cycles({1: {3, 4}, 2: {4}, 3: {4, 5}, 4: {5}, 5: {6, 7}}),
             set(),
         )
         self.assertEqual(
-            find_back_edges({1: {2, 3}, 3: {4}, 4: {5}, 5: {6}, 6: {4}}),
-            {(6, 4)},
+            find_cycles({1: {2, 3}, 3: {4}, 4: {5}, 5: {6}, 6: {4}}),
+            {(4, 5, 6)},
         )
         self.assertEqual(
-            find_back_edges({1: {2, 3}, 3: {4}, 4: {5}, 5: {6}, 6: {4}}),
-            {(6, 4)},
-        )
-        self.assertEqual(
-            find_back_edges(
+            find_cycles(
                 {1: {2}, 2: {5}, 3: {2}, 4: {1, 2}, 5: {4, 6}, 6: {3, 6}}
             ),
-            {(4, 1), (4, 2), (6, 6), (3, 2)},
+            {(1, 2, 5, 4), (2, 5, 4), (6,), (2, 5, 6, 3)},
         )
 
     def test_writ_conjunction(self):

@@ -16,18 +16,19 @@ import sys
 __version__ = '0.0.0'
 
 
-def find_back_edges(adjacency_dict):
+def find_cycles(adjacency_dict):
     """
-    Find back-edges of a directed graph via three-state depth-first search.
+    Find cycles of a directed graph via three-state depth-first search.
 
     The three states are clean, infected, and dead.
     While clean nodes yet exist, a clean node is made infected.
     An infected node will:
     (1) if it has an infected child, have discovered a cycle;
-    (2) make its clean children become infected; and
+    (2) make its clean children infected; and
     (3) become dead itself (having exhausted children to infect).
     """
-    back_edges = set()
+    infection_cycles = set()
+    infection_chain = []
 
     clean_nodes = set(adjacency_dict.keys())
     infected_nodes = set()
@@ -36,13 +37,16 @@ def find_back_edges(adjacency_dict):
     def infect(node):
         clean_nodes.discard(node)
         infected_nodes.add(node)
+        infection_chain.append(node)
 
         for child_node in sorted(adjacency_dict[node]):
             if child_node in infected_nodes:
-                back_edges.add((node, child_node))
+                child_index = infection_chain.index(child_node)
+                infection_cycles.add(tuple(infection_chain[child_index:]))
             elif child_node in clean_nodes:
                 infect(child_node)
 
+        infection_chain.pop()
         infected_nodes.discard(node)
         dead_nodes.discard(node)
 
@@ -50,7 +54,7 @@ def find_back_edges(adjacency_dict):
         first_clean_node = min(clean_nodes)
         infect(first_clean_node)
 
-    return back_edges
+    return infection_cycles
 
 
 class Writ:
@@ -583,7 +587,7 @@ class FaultTree:
             for id_, gate in gate_from_id.items()
         }
 
-        id_cycle = find_back_edges(input_gate_ids_from_id)
+        id_cycle = find_cycles(input_gate_ids_from_id)
         if id_cycle:
             raise FaultTree.CircularGateInputsException(
                 line_number='XXX',  # TODO
