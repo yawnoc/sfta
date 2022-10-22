@@ -74,7 +74,7 @@ class Writ:
     """
 
     @staticmethod
-    def conjunction(input_writs):
+    def conjunction(*input_writs):
         """
         Compute the AND (conjunction) of some input writs.
 

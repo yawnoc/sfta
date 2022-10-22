@@ -66,22 +66,22 @@ class TestSfta(unittest.TestCase):
 
     def test_writ_conjunction(self):
         # (Empty conjunction) = True
-        self.assertEqual(Writ.conjunction([]), 0)
+        self.assertEqual(Writ.conjunction(), 0)
 
         # AC = AC
-        self.assertEqual(Writ.conjunction([0b00101]), 0b00101)
+        self.assertEqual(Writ.conjunction(0b00101), 0b00101)
 
         # True . A = A
-        self.assertEqual(Writ.conjunction([0b00000, 0b00001]), 0b00001)
+        self.assertEqual(Writ.conjunction(0b00000, 0b00001), 0b00001)
 
         # ABE . BC = ABCE
-        self.assertEqual(Writ.conjunction([0b10011, 0b00110]), 0b10111)
+        self.assertEqual(Writ.conjunction(0b10011, 0b00110), 0b10111)
 
         # C . A . B = ABC
-        self.assertEqual(Writ.conjunction([0b100, 0b001, 0b010]), 0b111)
+        self.assertEqual(Writ.conjunction(0b100, 0b001, 0b010), 0b111)
 
         # ABCD . True . A = ABCD
-        self.assertEqual(Writ.conjunction([0b1111, 0b0000, 0b0001]), 0b1111)
+        self.assertEqual(Writ.conjunction(0b1111, 0b0000, 0b0001), 0b1111)
 
     def test_writ_implies(self):
         # C implies True
