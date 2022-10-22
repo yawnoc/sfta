@@ -384,9 +384,7 @@ class Gate:
 
 class FaultTree:
     def __init__(self, fault_tree_text):
-        self.event_from_id, self.gate_from_id, time_unit = (
-            FaultTree.build(fault_tree_text)
-        )
+        FaultTree.build(fault_tree_text)
 
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
     LINE_EXPLAINER = (
@@ -419,8 +417,6 @@ class FaultTree:
 
         FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         FaultTree.validate_tree(gate_from_id)
-
-        return event_from_id, gate_from_id, time_unit
 
     @staticmethod
     def parse(fault_tree_text):
@@ -651,7 +647,7 @@ def main():
         fault_tree_text = file.read()
 
     try:
-        fault_tree = FaultTree(fault_tree_text)
+        FaultTree(fault_tree_text)
     except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
