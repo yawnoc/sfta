@@ -367,9 +367,9 @@ class FaultTree:
 
     @staticmethod
     def build(fault_tree_text):
-        event_from_id, gate_from_id, time_unit = (
-            FaultTree.parse(fault_tree_text)
-        )
+        events, gates, time_unit = FaultTree.parse(fault_tree_text)
+        event_from_id = {event.id_: event for event in events}
+        gate_from_id = {gate.id_: gate for gate in gates}
         FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         # TODO: validate tree
         return event_from_id, gate_from_id, time_unit
@@ -517,10 +517,7 @@ class FaultTree:
                 f'\n\n{FaultTree.LINE_EXPLAINER}'
             )
 
-        event_from_id = {event.id_: event for event in events}
-        gate_from_id = {gate.id_: gate for gate in gates}
-
-        return event_from_id, gate_from_id, time_unit
+        return events, gates, time_unit
 
     @staticmethod
     def validate_gate_inputs(event_from_id, gate_from_id):
