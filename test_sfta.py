@@ -83,7 +83,7 @@ class TestSfta(unittest.TestCase):
         # ABCD . True . A = ABCD
         self.assertEqual(Writ.and_(0b1111, 0b0000, 0b0001), 0b1111)
 
-    def test_writ_implies(self):
+    def test_writ_implieth(self):
         # C implies True
         self.assertTrue(Writ.implieth(0b00100, 0b00000))
 
