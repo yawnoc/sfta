@@ -7,7 +7,7 @@ A slow (also shitty) fault tree analyser based on the idea presented in
 IEEE Transactions on Reliability, Volume R-26, Issue 2.
 <<https://doi.org/10.1109/TR.1977.5220060>>]
 
-For fault trees with only AND gates and OR gates.
+For coherent fault trees (which have only AND gates and OR gates).
 
 
 ## License
