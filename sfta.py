@@ -16,6 +16,43 @@ import sys
 __version__ = '0.0.0'
 
 
+def find_back_edges(adjacency_dict):
+    """
+    Find back-edges of a directed graph via three-state depth-first search.
+
+    The three states are clean, infected, and dead.
+    While clean nodes yet exist, a clean node is made infected.
+    An infected node will:
+    (1) if it has an infected child, have discovered a cycle;
+    (2) make its clean children become infected; and
+    (3) become dead itself (having exhausted children to infect).
+    """
+    back_edges = set()
+
+    clean_nodes = set(adjacency_dict.keys())
+    infected_nodes = set()
+    dead_nodes = set()
+
+    def infect(node):
+        clean_nodes.discard(node)
+        infected_nodes.add(node)
+
+        for child_node in sorted(adjacency_dict[node]):
+            if child_node in infected_nodes:
+                back_edges.add((node, child_node))
+            elif child_node in clean_nodes:
+                infect(child_node)
+
+        infected_nodes.discard(node)
+        dead_nodes.discard(node)
+
+    while clean_nodes:
+        first_clean_node = min(clean_nodes)
+        infect(first_clean_node)
+
+    return back_edges
+
+
 class Writ:
     """
     Static class for performing calculations with writs.
@@ -370,8 +407,10 @@ class FaultTree:
         events, gates, time_unit = FaultTree.parse(fault_tree_text)
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
+
         FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
-        # TODO: validate tree
+        FaultTree.validate_tree(gate_from_id)
+
         return event_from_id, gate_from_id, time_unit
 
     @staticmethod
@@ -533,6 +572,24 @@ class FaultTree:
                         f'no Event or Gate is ever declared with ID `{id_}`'
                     )
 
+    @staticmethod
+    def validate_tree(gate_from_id):
+        input_gate_ids_from_id = {
+            id_: set(
+                input_id
+                for input_id in gate.input_ids
+                if input_id in gate_from_id  # ignore Events
+            )
+            for id_, gate in gate_from_id.items()
+        }
+
+        id_cycle = find_back_edges(input_gate_ids_from_id)
+        if id_cycle:
+            raise FaultTree.CircularGateInputsException(
+                line_number='XXX',  # TODO
+                message='XXX',  # TODO
+            )
+
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
@@ -549,6 +606,9 @@ class FaultTree:
         pass
 
     class UnrecognisedKeyException(FaultTreeTextException):
+        pass
+
+    class CircularGateInputsException(FaultTreeTextException):
         pass
 
 
