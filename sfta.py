@@ -594,12 +594,16 @@ class FaultTree:
 
         cycles = find_cycles(input_gate_ids_from_id)
         if cycles:
-            cycle = min(cycles)
-            cycle += (cycle[0],)
-            cycle_str = ' <-- '.join(f'`{id_}`' for id_ in cycle)
-            raise FaultTree.CircularGateInputsException(
-                f'circular gate inputs ({cycle_str})'
+            newline_with_indent = '\n    '
+            message = (
+                'circular gate inputs:'
+                + newline_with_indent
+                + newline_with_indent.join(
+                    ' <-- '.join(f'`{id_}`' for id_ in (cycle + (cycle[0],)))
+                    for cycle in sorted(cycles)
+                )
             )
+            raise FaultTree.CircularGateInputsException(message)
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
