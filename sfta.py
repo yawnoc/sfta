@@ -100,7 +100,7 @@ class Writ:
         Removes redundant writs as part of the computation.
         """
         undecided_writs = set(input_writs)
-        essential_writs = set()
+        disjunction_writs = set()
 
         while undecided_writs:
             writ = undecided_writs.pop()
@@ -109,10 +109,10 @@ class Writ:
                     break
                 if Writ.implieth(other_writ, writ):  # other_writ is redundant
                     undecided_writs.discard(other_writ)
-            else:
-                essential_writs.add(writ)
+            else:  # writ is not redundant
+                disjunction_writs.add(writ)
 
-        return essential_writs
+        return disjunction_writs
 
     @staticmethod
     def implieth(test_writ, reference_writ):
