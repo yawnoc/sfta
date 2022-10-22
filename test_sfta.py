@@ -108,6 +108,42 @@ class TestSfta(unittest.TestCase):
             {0b011, 0b110, 0b101},
         )
 
+        # God save!
+        self.assertEqual(
+            Writ.or_(
+                0b000011,  # AB
+                0b000110,  # BC
+                0b001100,  # CD
+                0b010100,  # CE
+                0b100000,  # F
+                0b000111,  # ABC
+                0b001011,  # ABD
+                0b010011,  # ABE
+                0b001101,  # ACD
+                0b010101,  # ACE
+                0b011001,  # ADE
+                0b001110,  # BCD
+                0b010110,  # BCE
+                0b011010,  # BDE
+                0b011100,  # CDE
+                0b001111,  # ABCD
+                0b010111,  # ABCE
+                0b011011,  # ABDE
+                0b011101,  # ACDE
+                0b011110,  # BCDE
+                0b110101,  # FACE
+            ),
+            {
+                0b000011,  # AB
+                0b000110,  # BC
+                0b001100,  # CD
+                0b010100,  # CE
+                0b100000,  # F
+                0b011001,  # ADE
+                0b011010,  # BDE
+            }
+        )
+
     def test_writ_implieth(self):
         # A implies True
         self.assertTrue(Writ.implieth(1, 0))
