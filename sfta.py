@@ -390,6 +390,11 @@ class Gate:
         '    inputs (required).'
     )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
+    AND_INPUTS_EXPLAINER = (
+        'The first input of an AND gate '
+        'may be a probability (initiator/enabler) or a rate (initiator). '
+        'All subsequent inputs must be probabilities (enablers).'
+    )
     OR_INPUTS_EXPLAINER = (
         'OR gate inputs must be either all probabilities or all rates.'
     )
@@ -489,7 +494,21 @@ class Gate:
                 )
 
         if self.type == Gate.TYPE_AND:
-            self.cut_set = CutSet.and_(*input_cut_sets)
+            try:
+                self.cut_set = CutSet.and_(*input_cut_sets)
+            except CutSet.ConjunctionBadTypesException as exception:
+                indices = exception.non_first_rate_indices
+                ids = [self.input_ids[index] for index in indices]
+                raise Gate.ConjunctionBadTypesException(
+                    self.inputs_line_number,
+                    f'non-first inputs of type rate for AND Gate `{self.id_}`:'
+                    + '\n    '
+                    + '\n    '.join(
+                        f'`{id_}` (input #{index+1}) hath type rate'
+                        for index, id_ in zip(indices, ids)
+                    )
+                    + f'\n\n{Gate.AND_INPUTS_EXPLAINER}'
+                )
         elif self.type == Gate.TYPE_OR:
             try:
                 self.cut_set = CutSet.or_(*input_cut_sets)
@@ -501,7 +520,7 @@ class Gate:
                 ids = self.input_ids
                 raise Gate.DisjunctionBadTypesException(
                     self.inputs_line_number,
-                    f'inputs of different type for OR gate `{self.id_}`:'
+                    f'inputs of different type for OR Gate `{self.id_}`:'
                     + '\n    '
                     + '\n    '.join(
                         f'`{id_}` hath type {type_str}'
@@ -540,6 +559,9 @@ class Gate:
         pass
 
     class UnknownInputException(FaultTreeTextException):
+        pass
+
+    class ConjunctionBadTypesException(FaultTreeTextException):
         pass
 
     class DisjunctionBadTypesException(FaultTreeTextException):

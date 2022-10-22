@@ -1,0 +1,15 @@
+Event: P1
+- probability: 0.5
+
+Event: R2
+- rate: 2
+
+Event: P3
+- probability: 0.9
+
+Event: R4
+- rate: 4
+
+Gate: conjunction
+- type: AND
+- inputs: P1, R2, P3, R4

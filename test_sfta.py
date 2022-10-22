@@ -684,6 +684,29 @@ class TestSfta(unittest.TestCase):
             ''')
         )
 
+        # AND gate with non-first rates
+        self.assertRaises(
+            Gate.ConjunctionBadTypesException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Event: P1
+                - probability: 0.5
+
+                Event: R2
+                - rate: 2
+
+                Event: P3
+                - probability: 0.9
+
+                Event: R4
+                - rate: 4
+
+                Gate: conjunction
+                - type: AND
+                - inputs: P1, R2, P3, R4
+            '''),
+        )
+
         # OR gate with different-typed input
         self.assertRaises(
             Gate.DisjunctionBadTypesException,
