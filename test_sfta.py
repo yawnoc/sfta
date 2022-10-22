@@ -69,10 +69,10 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(Writ.and_(), 0)
 
         # AC = AC
-        self.assertEqual(Writ.and_(0b00101), 0b00101)
+        self.assertEqual(Writ.and_(0b101), 0b101)
 
         # True . A = A
-        self.assertEqual(Writ.and_(0b00000, 0b00001), 0b00001)
+        self.assertEqual(Writ.and_(0, 1), 1)
 
         # ABE . BC = ABCE
         self.assertEqual(Writ.and_(0b10011, 0b00110), 0b10111)
@@ -109,11 +109,11 @@ class TestSfta(unittest.TestCase):
         )
 
     def test_writ_implieth(self):
-        # C implies True
-        self.assertTrue(Writ.implieth(0b00100, 0b00000))
+        # A implies True
+        self.assertTrue(Writ.implieth(1, 0))
 
         # AB implies A
-        self.assertTrue(Writ.implieth(0b00011, 0b00001))
+        self.assertTrue(Writ.implieth(0b11, 0b01))
 
         # ABCDE implies ABE
         self.assertTrue(Writ.implieth(0b11111, 0b10011))
