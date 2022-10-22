@@ -123,6 +123,21 @@ class FaultTreeTextException(Exception):
         self.message = message
 
 
+class CutSet:
+    def __init__(self, writs, quantity_type):
+        self.writs = {*writs}
+        self.quantity_type = quantity_type
+
+    def __eq__(self, other):
+        return self.identity() == other.identity()
+
+    def __hash__(self):
+        return hash(self.identity())
+
+    def identity(self):
+        return self.writs, self.quantity_type
+
+
 class Event:
     def __init__(self, id_, index):
         self.id_ = id_
