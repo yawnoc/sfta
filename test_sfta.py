@@ -167,6 +167,15 @@ class TestSfta(unittest.TestCase):
             CutSet({0}, Event.TYPE_PROBABILITY),
         )
 
+        # A . True = A
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({1}, Event.TYPE_PROBABILITY),
+                CutSet({0}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({1}, Event.TYPE_PROBABILITY),
+        )
+
         # A . B . C = ABC
         self.assertEqual(
             CutSet.and_(
@@ -256,6 +265,48 @@ class TestSfta(unittest.TestCase):
                 CutSet({0b001}, Event.TYPE_PROBABILITY),
                 CutSet({0b010}, Event.TYPE_PROBABILITY),
                 CutSet({0b100}, Event.TYPE_RATE),
+            ],
+        )
+
+    def test_cut_set_or(self):
+        # A + True = True
+        self.assertEqual(
+            CutSet.or_(
+                CutSet({1}, Event.TYPE_PROBABILITY),
+                CutSet({0}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0}, Event.TYPE_PROBABILITY),
+        )
+
+        # AB + BC + CA + ABC = AB + BC + CA
+        self.assertEqual(
+            CutSet.or_(
+                CutSet({0b011}, Event.TYPE_PROBABILITY),
+                CutSet({0b110}, Event.TYPE_PROBABILITY),
+                CutSet({0b101}, Event.TYPE_PROBABILITY),
+                CutSet({0b111}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0b011, 0b110, 0b101}, Event.TYPE_PROBABILITY),
+        )
+
+        # A + A + B + C = A + B + C
+        self.assertEqual(
+            CutSet.or_(
+                CutSet({0b001}, Event.TYPE_RATE),
+                CutSet({0b001}, Event.TYPE_RATE),
+                CutSet({0b010}, Event.TYPE_RATE),
+                CutSet({0b100}, Event.TYPE_RATE),
+            ),
+            CutSet({0b001, 0b010, 0b100}, Event.TYPE_RATE),
+        )
+
+        # A (probability) + B (rate) is illegal
+        self.assertRaises(
+            CutSet.DisjunctionBadTypesException,
+            lambda events: CutSet.or_(*events),
+            [
+                CutSet({0b01}, Event.TYPE_PROBABILITY),
+                CutSet({0b10}, Event.TYPE_RATE),
             ],
         )
 

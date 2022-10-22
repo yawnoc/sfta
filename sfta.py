@@ -189,9 +189,37 @@ class CutSet:
 
         return CutSet(conjunction_writs, conjunction_quantity_type)
 
+    @staticmethod
+    def or_(*input_cut_sets):
+        """
+        Compute the OR (disjunction) of some cut sets.
+
+        All inputs must have the same dimension.
+        """
+        input_quantity_types = [
+            cut_set.quantity_type for cut_set in input_cut_sets
+        ]
+        if len(set(input_quantity_types)) > 1:
+            raise CutSet.DisjunctionBadTypesException(input_quantity_types)
+
+        disjunction_quantity_type = input_quantity_types[0]
+
+        input_writs = (
+            writ
+            for cut_set in input_cut_sets
+            for writ in cut_set.writs
+        )
+        disjunction_writs = Writ.or_(*input_writs)
+
+        return CutSet(disjunction_writs, disjunction_quantity_type)
+
     class ConjunctionBadTypesException(Exception):
         def __init__(self, non_first_rate_indices):
             self.non_first_rate_indices = non_first_rate_indices
+
+    class DisjunctionBadTypesException(Exception):
+        def __init__(self, input_quantity_types):
+            self.input_quantity_types = input_quantity_types
 
 
 class Event:
