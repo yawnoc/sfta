@@ -9,6 +9,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 """
 
 import argparse
+import itertools
 import re
 import sys
 
@@ -147,7 +148,7 @@ class FaultTreeTextException(Exception):
 
 class CutSet:
     def __init__(self, writs, quantity_type):
-        self.writs = {*writs}
+        self.writs = frozenset(writs)
         self.quantity_type = quantity_type
 
     def __eq__(self, other):
@@ -158,6 +159,39 @@ class CutSet:
 
     def identity(self):
         return self.writs, self.quantity_type
+
+    @staticmethod
+    def and_(*input_cut_sets):
+        """
+        Compute the AND (conjunction) of some cut sets.
+
+        The first input may be a probability (initiator/enabler) or a rate
+        (initiator). All subsequent inputs must be probabilities (enablers).
+        Hence the conjunction has the same dimension as the first input.
+        """
+        non_first_rate_indices = [
+            index
+            for index, cut_set in enumerate(input_cut_sets)
+            if index > 0 and cut_set.quantity_type == Event.TYPE_RATE
+        ]
+        if non_first_rate_indices:
+            raise CutSet.ConjunctionBadTypesException(non_first_rate_indices)
+
+        conjunction_quantity_type = input_cut_sets[0].quantity_type
+
+        input_writs = [cut_set.writs for cut_set in input_cut_sets]
+        term_writ_tuples = list(itertools.product(*input_writs))
+        term_writs = [
+            Writ.and_(*term_writ_tuple)
+            for term_writ_tuple in term_writ_tuples
+        ]
+        conjunction_writs = Writ.or_(*term_writs)
+
+        return CutSet(conjunction_writs, conjunction_quantity_type)
+
+    class ConjunctionBadTypesException(Exception):
+        def __init__(self, non_first_rate_indices):
+            self.non_first_rate_indices = non_first_rate_indices
 
 
 class Event:

@@ -13,7 +13,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 import textwrap
 import unittest
 
-from sfta import Event, FaultTree, Gate
+from sfta import CutSet, Event, FaultTree, Gate
 from sfta import Writ
 from sfta import find_cycles
 
@@ -159,6 +159,74 @@ class TestSfta(unittest.TestCase):
 
         # ADE does not imply ABC (due to BC)
         self.assertFalse(Writ.implieth(0b11001, 0b00111))
+
+    def test_cut_set_and(self):
+        # True = True
+        self.assertEqual(
+            CutSet.and_(CutSet({0}, Event.TYPE_PROBABILITY)),
+            CutSet({0}, Event.TYPE_PROBABILITY),
+        )
+
+        # A . B . C = ABC
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({0b001}, Event.TYPE_PROBABILITY),
+                CutSet({0b010}, Event.TYPE_PROBABILITY),
+                CutSet({0b100}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0b111}, Event.TYPE_PROBABILITY),
+        )
+
+        # A . AB . ABC = ABC
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({0b001}, Event.TYPE_PROBABILITY),
+                CutSet({0b011}, Event.TYPE_PROBABILITY),
+                CutSet({0b111}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0b111}, Event.TYPE_PROBABILITY),
+        )
+
+        # A . (A+B) = A
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({0b01}, Event.TYPE_PROBABILITY),
+                CutSet({0b01, 0b10}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0b01}, Event.TYPE_PROBABILITY),
+        )
+
+        # (A + B + E) . (A + B + C + D) = A + B + CE + DE
+        self.assertEqual(
+            CutSet.and_(
+                CutSet(
+                    {0b00001, 0b00010, 0b10000},
+                    Event.TYPE_PROBABILITY,
+                ),
+                CutSet(
+                    {0b00001, 0b00010, 0b00100, 0b01000},
+                    Event.TYPE_PROBABILITY,
+                ),
+            ),
+            CutSet(
+                {0b00001, 0b00010, 0b10100, 0b11000},
+                Event.TYPE_PROBABILITY,
+            ),
+        )
+
+        # (A+B) . (A+C) . (A+D) . E = AE + BCDE
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({0b00001, 0b00010}, Event.TYPE_PROBABILITY),
+                CutSet({0b00001, 0b00100}, Event.TYPE_PROBABILITY),
+                CutSet({0b00001, 0b01000}, Event.TYPE_PROBABILITY),
+                CutSet({0b10000}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet(
+                {0b10001, 0b11110},
+                Event.TYPE_PROBABILITY,
+            ),
+        )
 
     def test_gate_split_ids(self):
         self.assertEqual(Gate.split_ids(''), [])
