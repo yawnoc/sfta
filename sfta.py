@@ -117,11 +117,6 @@ class Writ:
         return ~test_writ & reference_writ == 0
 
 
-class FaultTreeCalculationException(Exception):
-    def __init__(self, message):
-        self.message = message
-
-
 class FaultTreeTextException(Exception):
     def __init__(self, line_number, message):
         self.line_number = line_number
@@ -590,12 +585,16 @@ class FaultTree:
 
         cycles = find_cycles(input_gate_ids_from_id)
         if cycles:
+            cycle = min(cycles)
+            length = len(cycle)
             raise FaultTree.CircularGateInputsException(
-                'circular gate inputs:'
+                None,
+                'circular gate inputs detected:'
                 + '\n    '
                 + '\n    '.join(
-                    ' <-- '.join(f'`{id_}`' for id_ in (cycle + (cycle[0],)))
-                    for cycle in sorted(cycles)
+                    f'at line {gate_from_id[cycle[i]].inputs_line_number}: '
+                    f'Gate `{cycle[i]}` hath input `{cycle[(i+1) % length]}`'
+                    for i, _ in enumerate(cycle)
                 )
             )
 
@@ -617,7 +616,7 @@ class FaultTree:
     class UnrecognisedKeyException(FaultTreeTextException):
         pass
 
-    class CircularGateInputsException(FaultTreeCalculationException):
+    class CircularGateInputsException(FaultTreeTextException):
         pass
 
 
@@ -651,17 +650,17 @@ def main():
     except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
+
+        if line_number:
+            error_location_str = f'at line {line_number} '
+        else:
+            error_location_str = ''
+
         print(
-            f'Error at line {line_number} in `{file_name}`:\n  {message}',
+            f'Error {error_location_str}in `{file_name}`:\n  {message}',
             file=sys.stderr,
         )
         sys.exit(1)
-    except FaultTreeCalculationException as exception:
-        message = exception.message
-        print(
-            f'Error in `{file_name}`:\n  {message}',
-            file=sys.stderr,
-        )
 
 
 if __name__ == '__main__':
