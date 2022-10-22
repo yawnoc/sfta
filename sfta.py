@@ -93,6 +93,28 @@ class Writ:
         return conjunction_writ
 
     @staticmethod
+    def or_(*input_writs):
+        """
+        Compute the OR (disjunction) of some input writs.
+
+        Removes redundant writs as part of the computation.
+        """
+        undecided_writs = set(input_writs)
+        essential_writs = set()
+
+        while undecided_writs:
+            writ = undecided_writs.pop()
+            for other_writ in set(undecided_writs):
+                if Writ.implieth(writ, other_writ):  # writ is redundant
+                    break
+                if Writ.implieth(other_writ, writ):  # other_writ is redundant
+                    undecided_writs.discard(other_writ)
+            else:
+                essential_writs.add(writ)
+
+        return essential_writs
+
+    @staticmethod
     def implieth(test_writ, reference_writ):
         """
         Decide whether a test writ implies a reference writ.

@@ -83,6 +83,31 @@ class TestSfta(unittest.TestCase):
         # ABCD . True . A = ABCD
         self.assertEqual(Writ.and_(0b1111, 0b0000, 0b0001), 0b1111)
 
+    def test_writ_or(self):
+        # (Empty disjunction) = False
+        self.assertEqual(Writ.or_(), set())
+
+        # A + True = True
+        self.assertEqual(Writ.or_(1, 0), {0})
+
+        # A + A + A = A
+        self.assertEqual(Writ.or_(1, 1, 1), {1})
+
+        # AC = AC
+        self.assertEqual(Writ.or_(0b101), {0b101})
+
+        # A + B + C = A + B + C
+        self.assertEqual(Writ.or_(0b001, 0b010, 0b100), {0b001, 0b010, 0b100})
+
+        # A + AB + BC = A + BC
+        self.assertEqual(Writ.or_(0b001, 0b011, 0b110), {0b001, 0b110})
+
+        # AB + BC + CA + ABC = AB + BC + CA
+        self.assertEqual(
+            Writ.or_(0b011, 0b110, 0b101, 0b111),
+            {0b011, 0b110, 0b101},
+        )
+
     def test_writ_implieth(self):
         # C implies True
         self.assertTrue(Writ.implieth(0b00100, 0b00000))
