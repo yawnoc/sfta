@@ -376,6 +376,8 @@ class Gate:
         self.input_ids = None
         self.inputs_line_number = None
 
+        self.cut_set = None
+
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
         '    label (optional)\n'
@@ -460,6 +462,34 @@ class Gate:
                 f'inputs have not been set for Gate `{self.id_}`'
             )
 
+    def compute_cut_set(self, event_from_id, gate_from_id):
+        input_cut_sets = set()
+        for input_id in self.input_ids:
+            if input_id in event_from_id:  # input is Event
+                event = event_from_id[input_id]
+                input_cut_sets.add(event.cut_set)
+            elif input_id in gate_from_id:  # input is Gate
+                gate = gate_from_id[input_id]
+                if gate.cut_set is None:
+                    gate.compute_cut_set(event_from_id, gate_from_id)
+                input_cut_sets.add(gate.cut_set)
+            else:
+                raise RuntimeError(
+                    f'Implementation error: '
+                    f'`{input_id}` is in '
+                    f'neither `event_from_id` nor `gate_from_id`.'
+                )
+
+        if self.type == Gate.TYPE_OR:
+            self.cut_set = CutSet.or_(*input_cut_sets)
+        elif self.type == Gate.TYPE_AND:
+            self.cut_set = CutSet.and_(*input_cut_sets)
+        else:
+            raise RuntimeError(
+                f'Implementation error: '
+                f'Gate `type` is neither `TYPE_OR` nor `TYPE_AND`.'
+            )
+
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
@@ -525,6 +555,7 @@ class FaultTree:
         FaultTree.validate_tree(gate_from_id)
 
         FaultTree.compute_event_cut_sets(events)
+        FaultTree.compute_gate_cut_sets(event_from_id, gate_from_id)
 
     @staticmethod
     def parse(fault_tree_text):
@@ -715,6 +746,11 @@ class FaultTree:
     def compute_event_cut_sets(events):
         for event in events:
             event.compute_cut_set()
+
+    @staticmethod
+    def compute_gate_cut_sets(event_from_id, gate_from_id):
+        for gate in gate_from_id.values():
+            gate.compute_cut_set(event_from_id, gate_from_id)
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
