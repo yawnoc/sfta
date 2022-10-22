@@ -61,7 +61,7 @@ class Writ:
     """
     Static class for performing calculations with writs.
 
-    A __writ__ is an encoding of a boolean term (a conjunction of events)
+    A __writ__ is an encoding of a boolean term (a conjunction (AND) of events)
     by setting the nth bit if and only if the nth event is present as a factor.
 
     For example, if the events are A, B, C, D, E,
@@ -74,7 +74,7 @@ class Writ:
     """
 
     @staticmethod
-    def conjunction(*input_writs):
+    def and_(*input_writs):
         """
         Compute the AND (conjunction) of some input writs.
 
