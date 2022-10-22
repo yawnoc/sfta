@@ -570,7 +570,7 @@ class Gate:
 
 class FaultTree:
     def __init__(self, fault_tree_text):
-        FaultTree.build(fault_tree_text)
+        FaultTree.build(fault_tree_text)  # TODO: assign results
 
     KEY_EXPLAINER = (
         'Recognised keys for a fault tree property setting are:\n'
@@ -606,6 +606,9 @@ class FaultTree:
 
         FaultTree.compute_event_cut_sets(events)
         FaultTree.compute_gate_cut_sets(event_from_id, gate_from_id)
+        # TODO: FaultTree.compute_quantities (with caching by CutSet)
+
+        # TODO: return results
 
     @staticmethod
     def parse(fault_tree_text):
@@ -863,7 +866,7 @@ def main():
         fault_tree_text = file.read()
 
     try:
-        FaultTree(fault_tree_text)
+        FaultTree(fault_tree_text)  # TODO: assign
     except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
@@ -878,6 +881,8 @@ def main():
             file=sys.stderr,
         )
         sys.exit(1)
+
+    # TODO: write results
 
 
 if __name__ == '__main__':
