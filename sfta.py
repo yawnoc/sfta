@@ -572,6 +572,10 @@ class FaultTree:
     def __init__(self, fault_tree_text):
         FaultTree.build(fault_tree_text)
 
+    KEY_EXPLAINER = (
+        'Recognised keys for a fault tree property setting are:\n'
+        '    time_unit (optional).'
+    )
     IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
     LINE_EXPLAINER = (
         'A line must have one of the following forms:\n'
@@ -585,10 +589,6 @@ class FaultTree:
         'Setting of properties for the fault tree itself '
         'must be done at the start of the file, '
         'even before any Event or Gate hath been declared.'
-    )
-    KEY_EXPLAINER = (
-        'Recognised keys for a fault tree property setting are:\n'
-        '    time_unit (optional).'
     )
 
     @staticmethod
