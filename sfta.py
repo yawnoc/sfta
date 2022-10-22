@@ -179,12 +179,12 @@ class CutSet:
 
         conjunction_quantity_type = input_cut_sets[0].quantity_type
 
-        input_writs = [cut_set.writs for cut_set in input_cut_sets]
-        term_writ_tuples = list(itertools.product(*input_writs))
-        term_writs = [
+        input_writs = (cut_set.writs for cut_set in input_cut_sets)
+        term_writ_tuples = itertools.product(*input_writs)
+        term_writs = (
             Writ.and_(*term_writ_tuple)
             for term_writ_tuple in term_writ_tuples
-        ]
+        )
         conjunction_writs = Writ.or_(*term_writs)
 
         return CutSet(conjunction_writs, conjunction_quantity_type)
