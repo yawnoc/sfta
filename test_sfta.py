@@ -228,6 +228,37 @@ class TestSfta(unittest.TestCase):
             ),
         )
 
+        # A (rate) . B (probability) . C (probability) = ABC (rate)
+        self.assertEqual(
+            CutSet.and_(
+                CutSet({0b001}, Event.TYPE_RATE),
+                CutSet({0b010}, Event.TYPE_PROBABILITY),
+                CutSet({0b100}, Event.TYPE_PROBABILITY),
+            ),
+            CutSet({0b111}, Event.TYPE_RATE),
+        )
+
+        # A (rate) . B (rate) is illegal
+        self.assertRaises(
+            CutSet.ConjunctionBadTypesException,
+            lambda events: CutSet.and_(*events),
+            [
+                CutSet({0b01}, Event.TYPE_RATE),
+                CutSet({0b10}, Event.TYPE_RATE),
+            ]
+        )
+
+        # A (probability) . B (probability) . C (rate) is illegal
+        self.assertRaises(
+            CutSet.ConjunctionBadTypesException,
+            lambda events: CutSet.and_(*events),
+            [
+                CutSet({0b001}, Event.TYPE_PROBABILITY),
+                CutSet({0b010}, Event.TYPE_PROBABILITY),
+                CutSet({0b100}, Event.TYPE_RATE),
+            ]
+        )
+
     def test_gate_split_ids(self):
         self.assertEqual(Gate.split_ids(''), [])
         self.assertEqual(Gate.split_ids('abc'), ['abc'])
