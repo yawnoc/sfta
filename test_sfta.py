@@ -684,6 +684,23 @@ class TestSfta(unittest.TestCase):
             ''')
         )
 
+        # OR gate with different-typed input
+        self.assertRaises(
+            Gate.DisjunctionBadTypesException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Event: P
+                - probability: 0.5
+
+                Event: R
+                - rate: 2
+
+                Gate: P+R
+                - type: OR
+                - inputs: P, R
+            '''),
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

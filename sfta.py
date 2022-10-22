@@ -252,6 +252,11 @@ class Event:
     TYPE_PROBABILITY = 0
     TYPE_RATE = 1
 
+    STR_FROM_TYPE = {
+        TYPE_PROBABILITY: 'probability',
+        TYPE_RATE: 'rate',
+    }
+
     def set_label(self, label, line_number):
         if self.label is not None:
             raise Event.LabelAlreadySetException(
@@ -385,6 +390,9 @@ class Gate:
         '    inputs (required).'
     )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
+    OR_INPUTS_EXPLAINER = (
+        'OR gate inputs must be either all probabilities or all rates.'
+    )
 
     TYPE_OR = 0
     TYPE_AND = 1
@@ -481,7 +489,24 @@ class Gate:
                 )
 
         if self.type == Gate.TYPE_OR:
-            self.cut_set = CutSet.or_(*input_cut_sets)
+            try:
+                self.cut_set = CutSet.or_(*input_cut_sets)
+            except CutSet.DisjunctionBadTypesException as exception:
+                type_strs = [
+                    Event.STR_FROM_TYPE[type_]
+                    for type_ in exception.input_quantity_types
+                ]
+                ids = self.input_ids
+                raise Gate.DisjunctionBadTypesException(
+                    self.inputs_line_number,
+                    f'inputs of different type for OR gate `{self.id_}`:'
+                    + '\n    '
+                    + '\n    '.join(
+                        f'`{id_}` hath type {type_str}'
+                        for id_, type_str in zip(ids, type_strs)
+                    )
+                    + f'\n\n{Gate.OR_INPUTS_EXPLAINER}'
+                )
         elif self.type == Gate.TYPE_AND:
             self.cut_set = CutSet.and_(*input_cut_sets)
         else:
@@ -515,6 +540,9 @@ class Gate:
         pass
 
     class UnknownInputException(FaultTreeTextException):
+        pass
+
+    class DisjunctionBadTypesException(FaultTreeTextException):
         pass
 
 
