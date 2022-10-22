@@ -64,7 +64,7 @@ class TestSfta(unittest.TestCase):
             {(1, 2, 5, 4), (2, 5, 4), (6,), (2, 5, 6, 3)},
         )
 
-    def test_writ_conjunction(self):
+    def test_writ_and(self):
         # (Empty conjunction) = True
         self.assertEqual(Writ.and_(), 0)
 
