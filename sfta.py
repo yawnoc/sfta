@@ -75,6 +75,13 @@ class Writ:
     """
 
     @staticmethod
+    def to_writs(event_index):
+        """
+        Convert an event index to a set containing its corresponding writ.
+        """
+        return {1 << event_index}
+
+    @staticmethod
     def and_(*input_writs):
         """
         Compute the AND (conjunction) of some input writs.
@@ -234,6 +241,8 @@ class Event:
         self.quantity_value = None
         self.quantity_line_number = None
 
+        self.cut_set = None
+
     KEY_EXPLAINER = (
         'Recognised keys for an Event property setting are:\n'
         '    label (optional)\n'
@@ -328,6 +337,9 @@ class Event:
                 line_number,
                 f'probability or rate hath not been set for Event `{self.id_}`'
             )
+
+    def compute_cut_set(self):
+        self.cut_set = CutSet(Writ.to_writs(self.index), self.quantity_type)
 
     class LabelAlreadySetException(FaultTreeTextException):
         pass
@@ -511,6 +523,8 @@ class FaultTree:
 
         FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         FaultTree.validate_tree(gate_from_id)
+
+        FaultTree.compute_event_cut_sets(events)
 
     @staticmethod
     def parse(fault_tree_text):
@@ -696,6 +710,11 @@ class FaultTree:
                     for i, _ in enumerate(cycle)
                 )
             )
+
+    @staticmethod
+    def compute_event_cut_sets(events):
+        for event in events:
+            event.compute_cut_set()
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass

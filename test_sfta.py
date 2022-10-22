@@ -64,6 +64,12 @@ class TestSfta(unittest.TestCase):
             {(1, 2, 5, 4), (2, 5, 4), (6,), (2, 5, 6, 3)},
         )
 
+    def test_writ_to_writs(self):
+        self.assertEqual(Writ.to_writs(0), {2 ** 0})
+        self.assertEqual(Writ.to_writs(1), {2 ** 1})
+        self.assertEqual(Writ.to_writs(10), {2 ** 10})
+        self.assertEqual(Writ.to_writs(69420), {2 ** 69420})
+
     def test_writ_and(self):
         # (Empty conjunction) = True
         self.assertEqual(Writ.and_(), 0)
