@@ -117,6 +117,11 @@ class Writ:
         return ~test_writ & reference_writ == 0
 
 
+class FaultTreeCalculationException(Exception):
+    def __init__(self, message):
+        self.message = message
+
+
 class FaultTreeTextException(Exception):
     def __init__(self, line_number, message):
         self.line_number = line_number
@@ -582,16 +587,18 @@ class FaultTree:
             id_: set(
                 input_id
                 for input_id in gate.input_ids
-                if input_id in gate_from_id  # ignore Events
+                if input_id in gate_from_id  # exclude Events
             )
             for id_, gate in gate_from_id.items()
         }
 
-        id_cycle = find_cycles(input_gate_ids_from_id)
-        if id_cycle:
+        cycles = find_cycles(input_gate_ids_from_id)
+        if cycles:
+            cycle = min(cycles)
+            cycle += (cycle[0],)
+            cycle_str = ' <-- '.join(f'`{id_}`' for id_ in cycle)
             raise FaultTree.CircularGateInputsException(
-                line_number='XXX',  # TODO
-                message='XXX',  # TODO
+                f'circular gate inputs ({cycle_str})'
             )
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
@@ -612,7 +619,7 @@ class FaultTree:
     class UnrecognisedKeyException(FaultTreeTextException):
         pass
 
-    class CircularGateInputsException(FaultTreeTextException):
+    class CircularGateInputsException(FaultTreeCalculationException):
         pass
 
 
@@ -647,10 +654,16 @@ def main():
         line_number = exception.line_number
         message = exception.message
         print(
-            f'Error at line {line_number} of `{file_name}`:\n  {message}',
+            f'Error at line {line_number} in `{file_name}`:\n  {message}',
             file=sys.stderr,
         )
         sys.exit(1)
+    except FaultTreeCalculationException as exception:
+        message = exception.message
+        print(
+            f'Error in `{file_name}`:\n  {message}',
+            file=sys.stderr,
+        )
 
 
 if __name__ == '__main__':

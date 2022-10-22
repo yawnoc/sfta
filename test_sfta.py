@@ -201,6 +201,42 @@ class TestSfta(unittest.TestCase):
             '- foo: bar',
         )
 
+        # Circular gate inputs
+        self.assertRaises(
+            FaultTree.CircularGateInputsException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Gate: A
+                - type: AND
+                - inputs: A
+            '''),
+        )
+        self.assertRaises(
+            FaultTree.CircularGateInputsException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Gate: Paper
+                - type: OR
+                - inputs: Scissors, Lizard
+
+                Gate: Scissors
+                - type: OR
+                - inputs: Spock, Rock
+
+                Gate: Spock
+                - type: OR
+                - inputs: Lizard, Paper
+
+                Gate: Lizard
+                - type: OR
+                - inputs: Rock, Scissors
+
+                Gate: Rock
+                - type: OR
+                - inputs: Paper, Spock
+            '''),
+        )
+
     def test_fault_tree_build_event(self):
         # Label already set
         self.assertRaises(
