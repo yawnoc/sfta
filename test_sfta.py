@@ -21,8 +21,17 @@ from sfta import find_cycles
 class TestSfta(unittest.TestCase):
     def test_find_cycle(self):
         self.assertEqual(
+            find_cycles({}),
+            set()
+        )
+        self.assertEqual(
             find_cycles({1: {3, 4}, 2: {4}, 3: {4, 5}, 4: {5}, 5: {6, 7}}),
             set(),
+        )
+
+        self.assertEqual(
+            find_cycles({1: {1}, 2: {3}, 3: {2}}),
+            {(1,), (2, 3)}
         )
         self.assertEqual(
             find_cycles({1: {2, 3}, 3: {4}, 4: {5}, 5: {6}, 6: {4}}),
