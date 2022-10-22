@@ -488,7 +488,9 @@ class Gate:
                     f'neither `event_from_id` nor `gate_from_id`.'
                 )
 
-        if self.type == Gate.TYPE_OR:
+        if self.type == Gate.TYPE_AND:
+            self.cut_set = CutSet.and_(*input_cut_sets)
+        elif self.type == Gate.TYPE_OR:
             try:
                 self.cut_set = CutSet.or_(*input_cut_sets)
             except CutSet.DisjunctionBadTypesException as exception:
@@ -507,12 +509,10 @@ class Gate:
                     )
                     + f'\n\n{Gate.OR_INPUTS_EXPLAINER}'
                 )
-        elif self.type == Gate.TYPE_AND:
-            self.cut_set = CutSet.and_(*input_cut_sets)
         else:
             raise RuntimeError(
                 f'Implementation error: '
-                f'Gate `type` is neither `TYPE_OR` nor `TYPE_AND`.'
+                f'Gate `type` is neither `TYPE_AND` nor `TYPE_OR`.'
             )
 
     class LabelAlreadySetException(FaultTreeTextException):
