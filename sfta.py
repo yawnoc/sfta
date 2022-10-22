@@ -93,7 +93,7 @@ class Writ:
         return conjunction_writ
 
     @staticmethod
-    def implies(test_writ, reference_writ):
+    def implieth(test_writ, reference_writ):
         """
         Decide whether a test writ implies a reference writ.
 

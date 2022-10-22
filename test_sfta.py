@@ -85,19 +85,19 @@ class TestSfta(unittest.TestCase):
 
     def test_writ_implies(self):
         # C implies True
-        self.assertTrue(Writ.implies(0b00100, 0b00000))
+        self.assertTrue(Writ.implieth(0b00100, 0b00000))
 
         # AB implies A
-        self.assertTrue(Writ.implies(0b00011, 0b00001))
+        self.assertTrue(Writ.implieth(0b00011, 0b00001))
 
         # ABCDE implies ABE
-        self.assertTrue(Writ.implies(0b11111, 0b10011))
+        self.assertTrue(Writ.implieth(0b11111, 0b10011))
 
         # E does not imply C (due to C)
-        self.assertFalse(Writ.implies(0b10000, 0b00100))
+        self.assertFalse(Writ.implieth(0b10000, 0b00100))
 
         # ADE does not imply ABC (due to BC)
-        self.assertFalse(Writ.implies(0b11001, 0b00111))
+        self.assertFalse(Writ.implieth(0b11001, 0b00111))
 
     def test_gate_split_ids(self):
         self.assertEqual(Gate.split_ids(''), [])
