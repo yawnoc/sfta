@@ -1,3 +1,0 @@
-Event: A
-- rate: 1
-- rate: 2

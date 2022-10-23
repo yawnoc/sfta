@@ -1,2 +1,0 @@
-Gate: A
-- inputs: X, Y

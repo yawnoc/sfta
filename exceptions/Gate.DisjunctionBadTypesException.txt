@@ -1,9 +1,0 @@
-Event: P
-- probability: 0.5
-
-Event: R
-- rate: 2
-
-Gate: P_R
-- type: OR
-- inputs: P, R

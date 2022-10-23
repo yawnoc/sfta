@@ -1,3 +1,0 @@
-Gate: A
-- label: First label
-- label: Second label

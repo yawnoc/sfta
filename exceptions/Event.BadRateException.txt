@@ -1,2 +1,0 @@
-Event: A
-- rate: 1e1000

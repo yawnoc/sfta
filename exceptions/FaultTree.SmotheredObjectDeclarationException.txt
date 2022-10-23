@@ -1,7 +1,0 @@
-Event: A
-- probability: 0
-
-Event: B
-- probability: 0.5
-Event: C
-- probability: 1
