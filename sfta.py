@@ -1043,16 +1043,14 @@ def main():
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
 
     output_directory_name = f'{text_file_name}.out'
-    output_cut_sets_directory_name = f'{output_directory_name}/cut-sets'
+    cut_sets_directory_name = f'{output_directory_name}/cut-sets'
     create_directory_robust(output_directory_name)
-    create_directory_robust(output_cut_sets_directory_name)
+    create_directory_robust(cut_sets_directory_name)
 
     events_table.write_tsv(f'{output_directory_name}/events.tsv')
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
-        cut_set_table.write_tsv(
-            f'{output_cut_sets_directory_name}/{gate_id}.tsv'
-        )
+        cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
 
 
 if __name__ == '__main__':
