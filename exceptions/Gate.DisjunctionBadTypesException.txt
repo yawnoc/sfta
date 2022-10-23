@@ -4,6 +4,6 @@ Event: P
 Event: R
 - rate: 2
 
-Gate: P+R
+Gate: P_R
 - type: OR
 - inputs: P, R

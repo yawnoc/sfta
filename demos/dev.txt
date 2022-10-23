@@ -1,4 +1,4 @@
-Gate: A+AB
+Gate: A_AB
 - label: Absorption (A + AB)
 - type: OR
 - inputs: A, AB

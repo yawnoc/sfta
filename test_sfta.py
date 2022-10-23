@@ -335,7 +335,9 @@ class TestSfta(unittest.TestCase):
         self.assertTrue(FaultTree.is_bad_id('Contains\ttab'))
         self.assertTrue(FaultTree.is_bad_id('Contains,comma'))
         self.assertTrue(FaultTree.is_bad_id('Contains.full.stop'))
+        self.assertTrue(FaultTree.is_bad_id('file/separators'))
 
+        self.assertFalse(FaultTree.is_bad_id('abc123XYZ'))
         self.assertFalse(FaultTree.is_bad_id('is_good'))
         self.assertFalse(FaultTree.is_bad_id('AbSoLUtEly-fiNe'))
 
@@ -723,7 +725,7 @@ class TestSfta(unittest.TestCase):
                 Event: R
                 - rate: 2
 
-                Gate: P+R
+                Gate: P_R
                 - type: OR
                 - inputs: P, R
             '''),

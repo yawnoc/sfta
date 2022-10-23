@@ -656,7 +656,9 @@ class FaultTree:
         'Recognised keys for a fault tree property setting are:\n'
         '    time_unit (optional).'
     )
-    IDS_EXPLAINER = 'IDs must not contain whitespace, commas, or full stops.'
+    IDS_EXPLAINER = (
+        'IDs may only contain letters, digits, underscores, and hyphens.'
+    )
     LINE_EXPLAINER = (
         'A line must have one of the following forms:\n'
         '    Event: <id>         (an Event declaration)\n'
@@ -673,7 +675,7 @@ class FaultTree:
 
     @staticmethod
     def is_bad_id(string):
-        return re.search(r'[\s,.]', string)
+        return not re.fullmatch(r'[a-zA-Z0-9_-]+', string)
 
     @staticmethod
     def build(fault_tree_text):
