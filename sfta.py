@@ -62,11 +62,12 @@ class Writ:
     """
     Static class for performing calculations with writs.
 
-    A __writ__ is an encoding of a boolean term (a conjunction (AND) of events)
+    A __writ__ is an encoding of a cut set
+    (i.e. a boolean term, a conjunction (AND) of events)
     by setting the nth bit if and only if the nth event is present as a factor.
 
     For example, if the events are A, B, C, D, E,
-    then the writ for the boolean term ABE is
+    then the writ for the cut set ABE is
         EDCBA
         10011 (binary),
     which is 19.
@@ -134,8 +135,8 @@ class Writ:
 
         The test writ will not imply the reference writ if and only if there is
         some bit not set in the test writ that is set in the reference writ.
-        Hence we compute the bitwise AND between the test writ negative
-        and the reference writ, and then compare unto zero.
+        Hence we compute the bitwise AND between the test writ inverted
+        and the reference writ, then compare unto zero.
 
         For example:
              ~00100 & 00000 = 00000  <-->  C implies True
@@ -153,7 +154,11 @@ class FaultTreeTextException(Exception):
         self.message = message
 
 
-class CutSet:
+class Tome:
+    """
+    A __tome__ holds a collection of writs (representing cut sets)
+    and the quantity type (probability or rate).
+    """
     def __init__(self, writs, quantity_type):
         self.writs = frozenset(writs)
         self.quantity_type = quantity_type
@@ -168,9 +173,9 @@ class CutSet:
         return self.writs, self.quantity_type
 
     @staticmethod
-    def and_(*input_cut_sets):
+    def and_(*input_tomes):
         """
-        Compute the AND (conjunction) of some cut sets.
+        Compute the AND (conjunction) of some input tomes.
 
         The first input may be a probability (initiator/enabler) or a rate
         (initiator). All subsequent inputs must be probabilities (enablers).
@@ -178,47 +183,47 @@ class CutSet:
         """
         non_first_rate_indices = [
             index
-            for index, cut_set in enumerate(input_cut_sets)
-            if index > 0 and cut_set.quantity_type == Event.TYPE_RATE
+            for index, tome in enumerate(input_tomes)
+            if index > 0 and tome.quantity_type == Event.TYPE_RATE
         ]
         if non_first_rate_indices:
-            raise CutSet.ConjunctionBadTypesException(non_first_rate_indices)
+            raise Tome.ConjunctionBadTypesException(non_first_rate_indices)
 
-        conjunction_quantity_type = input_cut_sets[0].quantity_type
+        conjunction_quantity_type = input_tomes[0].quantity_type
 
-        input_writs = (cut_set.writs for cut_set in input_cut_sets)
-        term_writ_tuples = itertools.product(*input_writs)
-        term_writs = (
+        writs_by_tome = (tome.writs for tome in input_tomes)
+        writ_tuples_by_term = itertools.product(*writs_by_tome)
+        conjunction_writs_by_term = (
             Writ.and_(*term_writ_tuple)
-            for term_writ_tuple in term_writ_tuples
+            for term_writ_tuple in writ_tuples_by_term
         )
-        conjunction_writs = Writ.or_(*term_writs)
+        conjunction_writs = Writ.or_(*conjunction_writs_by_term)
 
-        return CutSet(conjunction_writs, conjunction_quantity_type)
+        return Tome(conjunction_writs, conjunction_quantity_type)
 
     @staticmethod
-    def or_(*input_cut_sets):
+    def or_(*input_tomes):
         """
-        Compute the OR (disjunction) of some cut sets.
+        Compute the OR (disjunction) of some input tomes.
 
         All inputs must have the same dimension.
         """
         input_quantity_types = [
-            cut_set.quantity_type for cut_set in input_cut_sets
+            tome.quantity_type for tome in input_tomes
         ]
         if len(set(input_quantity_types)) > 1:
-            raise CutSet.DisjunctionBadTypesException(input_quantity_types)
+            raise Tome.DisjunctionBadTypesException(input_quantity_types)
 
         disjunction_quantity_type = input_quantity_types[0]
 
         input_writs = (
             writ
-            for cut_set in input_cut_sets
-            for writ in cut_set.writs
+            for tome in input_tomes
+            for writ in tome.writs
         )
         disjunction_writs = Writ.or_(*input_writs)
 
-        return CutSet(disjunction_writs, disjunction_quantity_type)
+        return Tome(disjunction_writs, disjunction_quantity_type)
 
     class ConjunctionBadTypesException(Exception):
         def __init__(self, non_first_rate_indices):
@@ -241,7 +246,7 @@ class Event:
         self.quantity_value = None
         self.quantity_line_number = None
 
-        self.cut_set = None
+        self.tome = None
 
     KEY_EXPLAINER = (
         'Recognised keys for an Event property setting are:\n'
@@ -343,8 +348,8 @@ class Event:
                 f'probability or rate hath not been set for Event `{self.id_}`'
             )
 
-    def compute_cut_set(self):
-        self.cut_set = CutSet(Writ.to_writs(self.index), self.quantity_type)
+    def compute_tome(self):
+        self.tome = Tome(Writ.to_writs(self.index), self.quantity_type)
 
     class LabelAlreadySetException(FaultTreeTextException):
         pass
@@ -381,7 +386,7 @@ class Gate:
         self.input_ids = None
         self.inputs_line_number = None
 
-        self.cut_set = None
+        self.tome = None
 
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
@@ -475,17 +480,17 @@ class Gate:
                 f'inputs have not been set for Gate `{self.id_}`'
             )
 
-    def compute_cut_set(self, event_from_id, gate_from_id):
-        input_cut_sets = set()
+    def compute_tome(self, event_from_id, gate_from_id):
+        input_tomes = set()
         for input_id in self.input_ids:
             if input_id in event_from_id:  # input is Event
                 event = event_from_id[input_id]
-                input_cut_sets.add(event.cut_set)
+                input_tomes.add(event.tome)
             elif input_id in gate_from_id:  # input is Gate
                 gate = gate_from_id[input_id]
-                if gate.cut_set is None:
-                    gate.compute_cut_set(event_from_id, gate_from_id)
-                input_cut_sets.add(gate.cut_set)
+                if gate.tome is None:
+                    gate.compute_tome(event_from_id, gate_from_id)
+                input_tomes.add(gate.tome)
             else:
                 raise RuntimeError(
                     f'Implementation error: '
@@ -495,8 +500,8 @@ class Gate:
 
         if self.type == Gate.TYPE_AND:
             try:
-                self.cut_set = CutSet.and_(*input_cut_sets)
-            except CutSet.ConjunctionBadTypesException as exception:
+                self.tome = Tome.and_(*input_tomes)
+            except Tome.ConjunctionBadTypesException as exception:
                 indices = exception.non_first_rate_indices
                 ids = [self.input_ids[index] for index in indices]
                 raise Gate.ConjunctionBadTypesException(
@@ -511,8 +516,8 @@ class Gate:
                 )
         elif self.type == Gate.TYPE_OR:
             try:
-                self.cut_set = CutSet.or_(*input_cut_sets)
-            except CutSet.DisjunctionBadTypesException as exception:
+                self.tome = Tome.or_(*input_tomes)
+            except Tome.DisjunctionBadTypesException as exception:
                 type_strs = [
                     Event.STR_FROM_TYPE[type_]
                     for type_ in exception.input_quantity_types
@@ -604,9 +609,9 @@ class FaultTree:
         FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         FaultTree.validate_tree(gate_from_id)
 
-        FaultTree.compute_event_cut_sets(events)
-        FaultTree.compute_gate_cut_sets(event_from_id, gate_from_id)
-        # TODO: FaultTree.compute_quantities (with caching by CutSet)
+        FaultTree.compute_event_tomes(events)
+        FaultTree.compute_gate_tomes(event_from_id, gate_from_id)
+        # TODO: FaultTree.compute_quantities
 
         # TODO: return results
 
@@ -809,14 +814,14 @@ class FaultTree:
             )
 
     @staticmethod
-    def compute_event_cut_sets(events):
+    def compute_event_tomes(events):
         for event in events:
-            event.compute_cut_set()
+            event.compute_tome()
 
     @staticmethod
-    def compute_gate_cut_sets(event_from_id, gate_from_id):
+    def compute_gate_tomes(event_from_id, gate_from_id):
         for gate in gate_from_id.values():
-            gate.compute_cut_set(event_from_id, gate_from_id)
+            gate.compute_tome(event_from_id, gate_from_id)
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass

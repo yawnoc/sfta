@@ -13,8 +13,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 import textwrap
 import unittest
 
-from sfta import CutSet, Event, FaultTree, Gate
-from sfta import Writ
+from sfta import Event, FaultTree, Gate, Tome, Writ
 from sfta import find_cycles
 
 
@@ -166,64 +165,64 @@ class TestSfta(unittest.TestCase):
         # ADE does not imply ABC (due to BC)
         self.assertFalse(Writ.implieth(0b11001, 0b00111))
 
-    def test_cut_set_and(self):
+    def test_tome_and(self):
         # True = True
         self.assertEqual(
-            CutSet.and_(CutSet({0}, Event.TYPE_PROBABILITY)),
-            CutSet({0}, Event.TYPE_PROBABILITY),
+            Tome.and_(Tome({0}, Event.TYPE_PROBABILITY)),
+            Tome({0}, Event.TYPE_PROBABILITY),
         )
 
         # A . True = A
         self.assertEqual(
-            CutSet.and_(
-                CutSet({1}, Event.TYPE_PROBABILITY),
-                CutSet({0}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({1}, Event.TYPE_PROBABILITY),
+                Tome({0}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({1}, Event.TYPE_PROBABILITY),
+            Tome({1}, Event.TYPE_PROBABILITY),
         )
 
         # A . B . C = ABC
         self.assertEqual(
-            CutSet.and_(
-                CutSet({0b001}, Event.TYPE_PROBABILITY),
-                CutSet({0b010}, Event.TYPE_PROBABILITY),
-                CutSet({0b100}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({0b001}, Event.TYPE_PROBABILITY),
+                Tome({0b010}, Event.TYPE_PROBABILITY),
+                Tome({0b100}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0b111}, Event.TYPE_PROBABILITY),
+            Tome({0b111}, Event.TYPE_PROBABILITY),
         )
 
         # A . AB . ABC = ABC
         self.assertEqual(
-            CutSet.and_(
-                CutSet({0b001}, Event.TYPE_PROBABILITY),
-                CutSet({0b011}, Event.TYPE_PROBABILITY),
-                CutSet({0b111}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({0b001}, Event.TYPE_PROBABILITY),
+                Tome({0b011}, Event.TYPE_PROBABILITY),
+                Tome({0b111}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0b111}, Event.TYPE_PROBABILITY),
+            Tome({0b111}, Event.TYPE_PROBABILITY),
         )
 
         # A . (A+B) = A
         self.assertEqual(
-            CutSet.and_(
-                CutSet({0b01}, Event.TYPE_PROBABILITY),
-                CutSet({0b01, 0b10}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({0b01}, Event.TYPE_PROBABILITY),
+                Tome({0b01, 0b10}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0b01}, Event.TYPE_PROBABILITY),
+            Tome({0b01}, Event.TYPE_PROBABILITY),
         )
 
         # (A + B + E) . (A + B + C + D) = A + B + CE + DE
         self.assertEqual(
-            CutSet.and_(
-                CutSet(
+            Tome.and_(
+                Tome(
                     {0b00001, 0b00010, 0b10000},
                     Event.TYPE_PROBABILITY,
                 ),
-                CutSet(
+                Tome(
                     {0b00001, 0b00010, 0b00100, 0b01000},
                     Event.TYPE_PROBABILITY,
                 ),
             ),
-            CutSet(
+            Tome(
                 {0b00001, 0b00010, 0b10100, 0b11000},
                 Event.TYPE_PROBABILITY,
             ),
@@ -231,13 +230,13 @@ class TestSfta(unittest.TestCase):
 
         # (A+B) . (A+C) . (A+D) . E = AE + BCDE
         self.assertEqual(
-            CutSet.and_(
-                CutSet({0b00001, 0b00010}, Event.TYPE_PROBABILITY),
-                CutSet({0b00001, 0b00100}, Event.TYPE_PROBABILITY),
-                CutSet({0b00001, 0b01000}, Event.TYPE_PROBABILITY),
-                CutSet({0b10000}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({0b00001, 0b00010}, Event.TYPE_PROBABILITY),
+                Tome({0b00001, 0b00100}, Event.TYPE_PROBABILITY),
+                Tome({0b00001, 0b01000}, Event.TYPE_PROBABILITY),
+                Tome({0b10000}, Event.TYPE_PROBABILITY),
             ),
-            CutSet(
+            Tome(
                 {0b10001, 0b11110},
                 Event.TYPE_PROBABILITY,
             ),
@@ -245,74 +244,74 @@ class TestSfta(unittest.TestCase):
 
         # A (rate) . B (probability) . C (probability) = ABC (rate)
         self.assertEqual(
-            CutSet.and_(
-                CutSet({0b001}, Event.TYPE_RATE),
-                CutSet({0b010}, Event.TYPE_PROBABILITY),
-                CutSet({0b100}, Event.TYPE_PROBABILITY),
+            Tome.and_(
+                Tome({0b001}, Event.TYPE_RATE),
+                Tome({0b010}, Event.TYPE_PROBABILITY),
+                Tome({0b100}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0b111}, Event.TYPE_RATE),
+            Tome({0b111}, Event.TYPE_RATE),
         )
 
         # A (rate) . B (rate) is illegal
         self.assertRaises(
-            CutSet.ConjunctionBadTypesException,
-            lambda events: CutSet.and_(*events),
+            Tome.ConjunctionBadTypesException,
+            lambda events: Tome.and_(*events),
             [
-                CutSet({0b01}, Event.TYPE_RATE),
-                CutSet({0b10}, Event.TYPE_RATE),
+                Tome({0b01}, Event.TYPE_RATE),
+                Tome({0b10}, Event.TYPE_RATE),
             ],
         )
 
         # A (probability) . B (probability) . C (rate) is illegal
         self.assertRaises(
-            CutSet.ConjunctionBadTypesException,
-            lambda events: CutSet.and_(*events),
+            Tome.ConjunctionBadTypesException,
+            lambda events: Tome.and_(*events),
             [
-                CutSet({0b001}, Event.TYPE_PROBABILITY),
-                CutSet({0b010}, Event.TYPE_PROBABILITY),
-                CutSet({0b100}, Event.TYPE_RATE),
+                Tome({0b001}, Event.TYPE_PROBABILITY),
+                Tome({0b010}, Event.TYPE_PROBABILITY),
+                Tome({0b100}, Event.TYPE_RATE),
             ],
         )
 
-    def test_cut_set_or(self):
+    def test_tome_or(self):
         # A + True = True
         self.assertEqual(
-            CutSet.or_(
-                CutSet({1}, Event.TYPE_PROBABILITY),
-                CutSet({0}, Event.TYPE_PROBABILITY),
+            Tome.or_(
+                Tome({1}, Event.TYPE_PROBABILITY),
+                Tome({0}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0}, Event.TYPE_PROBABILITY),
+            Tome({0}, Event.TYPE_PROBABILITY),
         )
 
         # AB + BC + CA + ABC = AB + BC + CA
         self.assertEqual(
-            CutSet.or_(
-                CutSet({0b011}, Event.TYPE_PROBABILITY),
-                CutSet({0b110}, Event.TYPE_PROBABILITY),
-                CutSet({0b101}, Event.TYPE_PROBABILITY),
-                CutSet({0b111}, Event.TYPE_PROBABILITY),
+            Tome.or_(
+                Tome({0b011}, Event.TYPE_PROBABILITY),
+                Tome({0b110}, Event.TYPE_PROBABILITY),
+                Tome({0b101}, Event.TYPE_PROBABILITY),
+                Tome({0b111}, Event.TYPE_PROBABILITY),
             ),
-            CutSet({0b011, 0b110, 0b101}, Event.TYPE_PROBABILITY),
+            Tome({0b011, 0b110, 0b101}, Event.TYPE_PROBABILITY),
         )
 
         # A + A + B + C = A + B + C
         self.assertEqual(
-            CutSet.or_(
-                CutSet({0b001}, Event.TYPE_RATE),
-                CutSet({0b001}, Event.TYPE_RATE),
-                CutSet({0b010}, Event.TYPE_RATE),
-                CutSet({0b100}, Event.TYPE_RATE),
+            Tome.or_(
+                Tome({0b001}, Event.TYPE_RATE),
+                Tome({0b001}, Event.TYPE_RATE),
+                Tome({0b010}, Event.TYPE_RATE),
+                Tome({0b100}, Event.TYPE_RATE),
             ),
-            CutSet({0b001, 0b010, 0b100}, Event.TYPE_RATE),
+            Tome({0b001, 0b010, 0b100}, Event.TYPE_RATE),
         )
 
         # A (probability) + B (rate) is illegal
         self.assertRaises(
-            CutSet.DisjunctionBadTypesException,
-            lambda events: CutSet.or_(*events),
+            Tome.DisjunctionBadTypesException,
+            lambda events: Tome.or_(*events),
             [
-                CutSet({0b01}, Event.TYPE_PROBABILITY),
-                CutSet({0b10}, Event.TYPE_RATE),
+                Tome({0b01}, Event.TYPE_PROBABILITY),
+                Tome({0b10}, Event.TYPE_RATE),
             ],
         )
 
