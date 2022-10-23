@@ -9,7 +9,9 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 """
 
 import argparse
+import csv
 import itertools
+import os
 import re
 import sys
 from math import prod as product
@@ -616,8 +618,8 @@ class Gate:
 class FaultTree:
     def __init__(self, fault_tree_text):
         (
-            self.event_from_id,
-            self.gate_from_id,
+            self.events,
+            self.gates,
             self.unused_event_ids,
             self.top_gate_ids,
         ) \
@@ -662,8 +664,8 @@ class FaultTree:
         FaultTree.compute_gate_quantities(events, gates)
 
         return (
-            event_from_id,
-            gate_from_id,
+            events,
+            gates,
             unused_event_ids,
             top_gate_ids,
         )
@@ -885,6 +887,19 @@ class FaultTree:
         for gate in gates:
             gate.compute_quantity(quantity_value_from_event_index)
 
+    def get_events_summary(self):
+        field_names = ['id', 'quantity_type', 'quantity_value', 'label']
+        rows = [
+            [
+                event.id_,
+                Event.STR_FROM_TYPE[event.quantity_type],
+                event.quantity_value,
+                event.label,
+            ]
+            for event in self.events
+        ]
+        return Summary(field_names, rows)
+
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
@@ -905,6 +920,20 @@ class FaultTree:
 
     class CircularGateInputsException(FaultTreeTextException):
         pass
+
+
+class Summary:
+    def __init__(self, field_names, rows):
+        self.field_names = field_names
+        self.rows = rows
+
+    def write_tsv(self, file_name):
+        with open(file_name, 'w', encoding='utf-8', newline='') as file:
+            writer = (
+                csv.writer(file, delimiter='\t', lineterminator=os.linesep)
+            )
+            writer.writerow(self.field_names)
+            writer.writerows(self.rows)
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
@@ -928,8 +957,8 @@ def parse_command_line_arguments():
 
 def main():
     parsed_arguments = parse_command_line_arguments()
-    file_name = parsed_arguments.fault_tree_text_file_name
-    with open(file_name, 'r', encoding='utf-8') as file:
+    text_file_name = parsed_arguments.fault_tree_text_file_name
+    with open(text_file_name, 'r', encoding='utf-8') as file:
         fault_tree_text = file.read()
 
     try:
@@ -944,12 +973,22 @@ def main():
             error_location_str = ''
 
         print(
-            f'Error {error_location_str}in `{file_name}`:\n  {message}',
+            f'Error {error_location_str}in `{text_file_name}`:\n  {message}',
             file=sys.stderr,
         )
         sys.exit(1)
 
-    # TODO: write results using fault_tree
+    events_summary = fault_tree.get_events_summary()
+
+    output_directory = f'{text_file_name}.out'
+    if os.path.isfile(output_directory):
+        os.remove(output_directory)
+    if not os.path.isdir(output_directory):
+        os.mkdir(output_directory)
+
+    events_summary.write_tsv(f'{output_directory}/events.tsv')
+
+    # TODO: write gate and cut set results
 
 
 if __name__ == '__main__':
