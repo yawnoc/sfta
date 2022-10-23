@@ -433,6 +433,11 @@ class Gate:
     TYPE_OR = 0
     TYPE_AND = 1
 
+    STR_FROM_TYPE = {
+        TYPE_OR: 'OR',
+        TYPE_AND: 'AND',
+    }
+
     @staticmethod
     def split_ids(input_ids_str):
         return list(filter(None, re.split(r'\s*,\s*', input_ids_str)))
@@ -900,6 +905,28 @@ class FaultTree:
         ]
         return Summary(field_names, rows)
 
+    def get_gates_summary(self):
+        field_names = [
+            'id',
+            'quantity_type',
+            'quantity_value',
+            'type',
+            'inputs',
+            'label',
+        ]
+        rows = [
+            [
+                gate.id_,
+                Event.STR_FROM_TYPE[gate.quantity_type],
+                gate.quantity_value,
+                Gate.STR_FROM_TYPE[gate.type],
+                ','.join(gate.input_ids),
+                gate.label,
+            ]
+            for gate in self.gates
+        ]
+        return Summary(field_names, rows)
+
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
@@ -979,6 +1006,7 @@ def main():
         sys.exit(1)
 
     events_summary = fault_tree.get_events_summary()
+    gates_summary = fault_tree.get_gates_summary()
 
     output_directory = f'{text_file_name}.out'
     if os.path.isfile(output_directory):
@@ -987,8 +1015,8 @@ def main():
         os.mkdir(output_directory)
 
     events_summary.write_tsv(f'{output_directory}/events.tsv')
-
-    # TODO: write gate and cut set results
+    gates_summary.write_tsv(f'{output_directory}/gates.tsv')
+    # TODO: write cut set results
 
 
 if __name__ == '__main__':
