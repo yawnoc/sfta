@@ -12,6 +12,7 @@ import argparse
 import itertools
 import re
 import sys
+from math import prod as product
 
 
 __version__ = '0.0.0'
@@ -81,6 +82,25 @@ class Writ:
         Convert an event index to a set containing its corresponding writ.
         """
         return {1 << event_index}
+
+    @staticmethod
+    def to_event_indices(writ):
+        """
+        Convert a writ to a set containing the corresponding event indices.
+
+        From <https://stackoverflow.com/a/49592515> (answer by Joe Samanek),
+        the quickest way to extract the indices of set bits (from a writ)
+        is to convert to a string and check for a match against '1'.
+        The slice `[-1:1:-1]` means that the loop:
+            -1: starts from the rightmost character (least significant bit)
+             1: stops before '0b' prefix returned by `bin`
+            -1: travels from right to left
+        """
+        return frozenset(
+            index
+            for index, digit in enumerate(bin(writ)[-1:1:-1])
+            if digit == '1'
+        )
 
     @staticmethod
     def and_(*input_writs):
@@ -388,6 +408,10 @@ class Gate:
 
         self.tome = None
 
+        self.cut_sets_indices = None
+        self.quantity_type = None
+        self.quantity_value = None
+
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
         '    label (optional)\n'
@@ -539,6 +563,22 @@ class Gate:
                 f'Gate `type` is neither `TYPE_AND` nor `TYPE_OR`.'
             )
 
+    def compute_quantity(self, quantity_value_from_event_index):
+        self.cut_sets_indices = {
+            Writ.to_event_indices(writ)
+            for writ in self.tome.writs
+        }
+        self.quantity_type = self.tome.quantity_type
+        self.quantity_value = (
+            sum(
+                product(
+                    quantity_value_from_event_index[event_index]
+                    for event_index in cut_set_indices
+                )
+                for cut_set_indices in self.cut_sets_indices
+            )
+        )
+
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
@@ -611,7 +651,7 @@ class FaultTree:
 
         FaultTree.compute_event_tomes(events)
         FaultTree.compute_gate_tomes(event_from_id, gate_from_id)
-        # TODO: FaultTree.compute_quantities
+        FaultTree.compute_gate_quantities(events, gates)
 
         # TODO: return results
 
@@ -822,6 +862,15 @@ class FaultTree:
     def compute_gate_tomes(event_from_id, gate_from_id):
         for gate in gate_from_id.values():
             gate.compute_tome(event_from_id, gate_from_id)
+
+    @staticmethod
+    def compute_gate_quantities(events, gates):
+        quantity_value_from_event_index = {
+            event.index: event.quantity_value
+            for event in events
+        }
+        for gate in gates:
+            gate.compute_quantity(quantity_value_from_event_index)
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass

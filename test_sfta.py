@@ -69,6 +69,12 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(Writ.to_writs(10), {2 ** 10})
         self.assertEqual(Writ.to_writs(69420), {2 ** 69420})
 
+    def test_writ_to_event_indices(self):
+        self.assertEqual(Writ.to_event_indices(0), set())
+        self.assertEqual(Writ.to_event_indices(1), {0})
+        self.assertEqual(Writ.to_event_indices(0b1010010), {1, 4, 6})
+        self.assertEqual(Writ.to_event_indices(2 ** 69420), {69420})
+
     def test_writ_and(self):
         # (Empty conjunction) = True
         self.assertEqual(Writ.and_(), 0)
