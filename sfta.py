@@ -412,6 +412,7 @@ class Gate:
 
         self.cut_sets_indices = None
         self.quantity_type = None
+        self.quantity_value_from_cut_set_indices = None
         self.quantity_value = None
 
     KEY_EXPLAINER = (
@@ -576,14 +577,16 @@ class Gate:
             for writ in self.tome.writs
         }
         self.quantity_type = self.tome.quantity_type
-        self.quantity_value = (
-            sum(
+        self.quantity_value_from_cut_set_indices = {
+            cut_set_indices:
                 product(
                     quantity_value_from_event_index[event_index]
                     for event_index in cut_set_indices
                 )
-                for cut_set_indices in self.cut_sets_indices
-            )
+            for cut_set_indices in self.cut_sets_indices
+        }
+        self.quantity_value = (
+            sum(self.quantity_value_from_cut_set_indices.values())
         )
 
     class LabelAlreadySetException(FaultTreeTextException):
@@ -625,6 +628,7 @@ class FaultTree:
         (
             self.events,
             self.gates,
+            self.event_id_from_index,
             self.unused_event_ids,
             self.top_gate_ids,
         ) \
@@ -656,6 +660,7 @@ class FaultTree:
     @staticmethod
     def build(fault_tree_text):
         events, gates, time_unit = FaultTree.parse(fault_tree_text)
+        event_id_from_index = {event.index: event.id_ for event in events}
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
 
@@ -671,6 +676,7 @@ class FaultTree:
         return (
             events,
             gates,
+            event_id_from_index,
             unused_event_ids,
             top_gate_ids,
         )
@@ -927,6 +933,26 @@ class FaultTree:
         ]
         return Summary(field_names, rows)
 
+    def get_cut_set_summaries(self):
+        cut_set_summary_from_gate_id = {}
+        for gate in self.gates:
+            field_names = ['quantity_type', 'quantity_value', 'cut_set']
+            rows = [
+                [
+                    Event.STR_FROM_TYPE[gate.quantity_type],
+                    quantity_value,
+                    '.'.join(
+                        self.event_id_from_index[event_index]
+                        for event_index in cut_set_indices
+                    ),
+                ]
+                for cut_set_indices, quantity_value
+                in gate.quantity_value_from_cut_set_indices.items()
+            ]
+            cut_set_summary_from_gate_id[gate.id_] = Summary(field_names, rows)
+
+        return cut_set_summary_from_gate_id
+
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
@@ -1014,13 +1040,19 @@ def main():
 
     events_summary = fault_tree.get_events_summary()
     gates_summary = fault_tree.get_gates_summary()
+    cut_set_summary_from_gate_id = fault_tree.get_cut_set_summaries()
 
     output_directory_name = f'{text_file_name}.out'
+    output_cut_sets_directory_name = f'{output_directory_name}/cut-sets'
     create_directory_robust(output_directory_name)
+    create_directory_robust(output_cut_sets_directory_name)
 
     events_summary.write_tsv(f'{output_directory_name}/events.tsv')
     gates_summary.write_tsv(f'{output_directory_name}/gates.tsv')
-    # TODO: write cut set results
+    for gate_id, cut_set_summary in cut_set_summary_from_gate_id.items():
+        cut_set_summary.write_tsv(
+            f'{output_cut_sets_directory_name}/{gate_id}.tsv'
+        )
 
 
 if __name__ == '__main__':
