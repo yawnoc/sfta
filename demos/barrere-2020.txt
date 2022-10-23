@@ -1,0 +1,56 @@
+# From Figure 1 in Barrère & Hankin (2020).
+# MaxSAT Evaluation 2020 -- Benchmark: Identifying Maximum Probability Minimal Cut Sets in Fault Trees.
+# <https://arxiv.org/abs/2007.08255>
+
+Gate: FPS
+- label: Failure of Fire Protection System
+- type: OR
+- inputs: FDS, FSS
+
+Gate: FDS
+- label: Fire detection system fails
+- type: AND
+- inputs: x1, x2
+
+Event: x1
+- label: Failure of smoke detector sensor
+- probability: 0.2
+
+Event: x2
+- label: Failure of heat detector sensor
+- probability: 0.1
+
+Gate: FSS
+- label: Fire suppression system fails
+- type: OR
+- inputs: x3, TS, x4
+
+Event: x3
+- label: No water to sprinkler system
+- probability: 0.001
+
+Gate: TS
+- label: Triggering system fails
+- type: AND
+- inputs: x5, RC
+
+Event: x5
+- label: Automatic mechanism fails
+- probability: 0.05
+
+Gate: RC
+- label: Remote control fails
+- type: OR
+- inputs: x6, x7
+
+Event: x6
+- label: Communications failure
+- probability: 0.1
+
+Event: x7
+- label: DDoS attack
+- probability: 0.05
+
+Event: x4
+- label: Sprinkler nozzles blocked
+- probability: 0.002

@@ -1,0 +1,6 @@
+id	is_top_gate	quantity_type	quantity_value	quantity_unit	type	inputs	label
+FPS	True	probability	0.030500000000000006	1	OR	FDS,FSS	Failure of Fire Protection System
+FDS	False	probability	0.020000000000000004	1	AND	x1,x2	Fire detection system fails
+FSS	False	probability	0.0105	1	OR	x3,TS,x4	Fire suppression system fails
+RC	False	probability	0.15000000000000002	1	OR	x6,x7	Remote control fails
+TS	False	probability	0.0075000000000000015	1	AND	x5,RC	Triggering system fails
