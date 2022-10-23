@@ -939,6 +939,7 @@ class FaultTree:
             ]
             for event in self.events
         ]
+        rows.sort(key=lambda row: row[0])  # id
         return Table(field_names, rows)
 
     def get_gates_table(self):
