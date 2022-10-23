@@ -289,10 +289,17 @@ class Event:
         if quantity_type == Event.TYPE_PROBABILITY:
             return '1'
 
-        if quantity_type == Event.TYPE_RATE and time_unit is not None:
-            return f'/{time_unit}'
+        if quantity_type == Event.TYPE_RATE:
+            if time_unit is None:
+                return '(unspecified)'
+            else:
+                return f'/{time_unit}'
 
-        return None
+        raise RuntimeError(
+            'Implementation error: '
+            '`quantity_type` is neither '
+            '`Event.TYPE_PROBABILITY` nor `Event.TYPE_RATE`'
+        )
 
     def set_label(self, label, line_number):
         if self.label is not None:
