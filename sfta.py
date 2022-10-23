@@ -615,7 +615,13 @@ class Gate:
 
 class FaultTree:
     def __init__(self, fault_tree_text):
-        FaultTree.build(fault_tree_text)  # TODO: assign results
+        (
+            self.event_from_id,
+            self.gate_from_id,
+            self.unused_event_ids,
+            self.top_gate_ids,
+        ) \
+            = FaultTree.build(fault_tree_text)
 
     KEY_EXPLAINER = (
         'Recognised keys for a fault tree property setting are:\n'
@@ -646,14 +652,21 @@ class FaultTree:
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
 
-        FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
+        unused_event_ids, top_gate_ids = (
+            FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
+        )
         FaultTree.validate_tree(gate_from_id)
 
         FaultTree.compute_event_tomes(events)
         FaultTree.compute_gate_tomes(event_from_id, gate_from_id)
         FaultTree.compute_gate_quantities(events, gates)
 
-        # TODO: return results
+        return (
+            event_from_id,
+            gate_from_id,
+            unused_event_ids,
+            top_gate_ids,
+        )
 
     @staticmethod
     def parse(fault_tree_text):
@@ -920,7 +933,7 @@ def main():
         fault_tree_text = file.read()
 
     try:
-        FaultTree(fault_tree_text)  # TODO: assign
+        fault_tree = FaultTree(fault_tree_text)
     except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
@@ -936,7 +949,7 @@ def main():
         )
         sys.exit(1)
 
-    # TODO: write results
+    # TODO: write results using fault_tree
 
 
 if __name__ == '__main__':
