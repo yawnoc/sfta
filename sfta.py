@@ -646,7 +646,7 @@ class FaultTree:
             self.events,
             self.gates,
             self.event_id_from_index,
-            self.unused_event_ids,
+            self.used_event_ids,
             self.top_gate_ids,
             self.time_unit,
         ) \
@@ -684,7 +684,7 @@ class FaultTree:
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
 
-        unused_event_ids, top_gate_ids = (
+        used_event_ids, top_gate_ids = (
             FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         )
         FaultTree.validate_tree(gate_from_id)
@@ -697,7 +697,7 @@ class FaultTree:
             events,
             gates,
             event_id_from_index,
-            unused_event_ids,
+            used_event_ids,
             top_gate_ids,
             time_unit,
         )
@@ -853,14 +853,14 @@ class FaultTree:
         gate_ids = gate_from_id.keys()
         gates = gate_from_id.values()
 
-        unused_event_ids = set(event_ids)
+        used_event_ids = set()
         top_gate_ids = set(gate_ids)
 
         for gate in gates:
             for id_ in gate.input_ids:
                 input_is_known_event = id_ in event_ids
                 if input_is_known_event:
-                    unused_event_ids.discard(id_)
+                    used_event_ids.add(id_)
 
                 input_is_known_gate = id_ in gate_ids
                 if input_is_known_gate:
@@ -872,7 +872,7 @@ class FaultTree:
                         f'no Event or Gate is ever declared with ID `{id_}`'
                     )
 
-        return unused_event_ids, top_gate_ids
+        return used_event_ids, top_gate_ids
 
     @staticmethod
     def validate_tree(gate_from_id):
@@ -922,6 +922,7 @@ class FaultTree:
     def get_events_table(self):
         field_names = [
             'id',
+            'is_used',
             'quantity_type',
             'quantity_value',
             'quantity_unit',
@@ -930,6 +931,7 @@ class FaultTree:
         rows = [
             [
                 event.id_,
+                event.id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
                 event.quantity_value,
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
