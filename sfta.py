@@ -982,6 +982,13 @@ def parse_command_line_arguments():
     return argument_parser.parse_args()
 
 
+def create_directory_robust(directory_name):
+    if os.path.isfile(directory_name):
+        os.remove(directory_name)
+    if not os.path.isdir(directory_name):
+        os.mkdir(directory_name)
+
+
 def main():
     parsed_arguments = parse_command_line_arguments()
     text_file_name = parsed_arguments.fault_tree_text_file_name
@@ -1008,14 +1015,11 @@ def main():
     events_summary = fault_tree.get_events_summary()
     gates_summary = fault_tree.get_gates_summary()
 
-    output_directory = f'{text_file_name}.out'
-    if os.path.isfile(output_directory):
-        os.remove(output_directory)
-    if not os.path.isdir(output_directory):
-        os.mkdir(output_directory)
+    output_directory_name = f'{text_file_name}.out'
+    create_directory_robust(output_directory_name)
 
-    events_summary.write_tsv(f'{output_directory}/events.tsv')
-    gates_summary.write_tsv(f'{output_directory}/gates.tsv')
+    events_summary.write_tsv(f'{output_directory_name}/events.tsv')
+    gates_summary.write_tsv(f'{output_directory_name}/gates.tsv')
     # TODO: write cut set results
 
 
