@@ -945,6 +945,7 @@ class FaultTree:
     def get_gates_table(self):
         field_names = [
             'id',
+            'is_top_gate',
             'quantity_type',
             'quantity_value',
             'quantity_unit',
@@ -955,6 +956,7 @@ class FaultTree:
         rows = [
             [
                 gate.id_,
+                gate.id_ in self.top_gate_ids,
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 gate.quantity_value,
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
@@ -964,6 +966,7 @@ class FaultTree:
             ]
             for gate in self.gates
         ]
+        rows.sort(key=lambda row: (-row[1], row[0]))  # is_top_gate, id
         return Table(field_names, rows)
 
     def get_cut_set_tables(self):
