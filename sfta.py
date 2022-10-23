@@ -284,6 +284,16 @@ class Event:
         TYPE_RATE: 'rate',
     }
 
+    @staticmethod
+    def quantity_unit_str(quantity_type, time_unit):
+        if quantity_type == Event.TYPE_PROBABILITY:
+            return '1'
+
+        if quantity_type == Event.TYPE_RATE and time_unit is not None:
+            return f'/{time_unit}'
+
+        return None
+
     def set_label(self, label, line_number):
         if self.label is not None:
             raise Event.LabelAlreadySetException(
@@ -631,6 +641,7 @@ class FaultTree:
             self.event_id_from_index,
             self.unused_event_ids,
             self.top_gate_ids,
+            self.time_unit,
         ) \
             = FaultTree.build(fault_tree_text)
 
@@ -679,6 +690,7 @@ class FaultTree:
             event_id_from_index,
             unused_event_ids,
             top_gate_ids,
+            time_unit,
         )
 
     @staticmethod
@@ -899,12 +911,19 @@ class FaultTree:
             gate.compute_quantity(quantity_value_from_event_index)
 
     def get_events_table(self):
-        field_names = ['id', 'quantity_type', 'quantity_value', 'label']
+        field_names = [
+            'id',
+            'quantity_type',
+            'quantity_value',
+            'quantity_unit',
+            'label',
+        ]
         rows = [
             [
                 event.id_,
                 Event.STR_FROM_TYPE[event.quantity_type],
                 event.quantity_value,
+                Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
             for event in self.events
@@ -916,6 +935,7 @@ class FaultTree:
             'id',
             'quantity_type',
             'quantity_value',
+            'quantity_unit',
             'type',
             'inputs',
             'label',
@@ -925,6 +945,7 @@ class FaultTree:
                 gate.id_,
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 gate.quantity_value,
+                Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                 Gate.STR_FROM_TYPE[gate.type],
                 ','.join(gate.input_ids),
                 gate.label,
@@ -936,11 +957,20 @@ class FaultTree:
     def get_cut_set_tables(self):
         cut_set_table_from_gate_id = {}
         for gate in self.gates:
-            field_names = ['quantity_type', 'quantity_value', 'cut_set']
+            field_names = [
+                'quantity_type',
+                'quantity_value',
+                'quantity_unit',
+                'cut_set',
+            ]
             rows = [
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
                     quantity_value,
+                    Event.quantity_unit_str(
+                        gate.quantity_type,
+                        self.time_unit
+                    ),
                     '.'.join(
                         self.event_id_from_index[event_index]
                         for event_index in cut_set_indices

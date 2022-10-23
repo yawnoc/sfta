@@ -1,3 +1,3 @@
-id	quantity_type	quantity_value	type	inputs	label
-A+AB	probability	0.7	OR	A,AB	Absorption (A + AB)
-AB	probability	0.21	AND	A,B	Conjunction (AB)
+id	quantity_type	quantity_value	quantity_unit	type	inputs	label
+A+AB	probability	0.7	1	OR	A,AB	Absorption (A + AB)
+AB	probability	0.21	1	AND	A,B	Conjunction (AB)

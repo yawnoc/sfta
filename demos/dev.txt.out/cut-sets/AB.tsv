@@ -1,2 +1,2 @@
-quantity_type	quantity_value	cut_set
-probability	0.21	A.B
+quantity_type	quantity_value	quantity_unit	cut_set
+probability	0.21	1	A.B
