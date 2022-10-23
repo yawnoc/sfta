@@ -898,7 +898,7 @@ class FaultTree:
         for gate in gates:
             gate.compute_quantity(quantity_value_from_event_index)
 
-    def get_events_summary(self):
+    def get_events_table(self):
         field_names = ['id', 'quantity_type', 'quantity_value', 'label']
         rows = [
             [
@@ -909,9 +909,9 @@ class FaultTree:
             ]
             for event in self.events
         ]
-        return Summary(field_names, rows)
+        return Table(field_names, rows)
 
-    def get_gates_summary(self):
+    def get_gates_table(self):
         field_names = [
             'id',
             'quantity_type',
@@ -931,10 +931,10 @@ class FaultTree:
             ]
             for gate in self.gates
         ]
-        return Summary(field_names, rows)
+        return Table(field_names, rows)
 
-    def get_cut_set_summaries(self):
-        cut_set_summary_from_gate_id = {}
+    def get_cut_set_tables(self):
+        cut_set_table_from_gate_id = {}
         for gate in self.gates:
             field_names = ['quantity_type', 'quantity_value', 'cut_set']
             rows = [
@@ -949,9 +949,9 @@ class FaultTree:
                 for cut_set_indices, quantity_value
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
-            cut_set_summary_from_gate_id[gate.id_] = Summary(field_names, rows)
+            cut_set_table_from_gate_id[gate.id_] = Table(field_names, rows)
 
-        return cut_set_summary_from_gate_id
+        return cut_set_table_from_gate_id
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
@@ -975,7 +975,7 @@ class FaultTree:
         pass
 
 
-class Summary:
+class Table:
     def __init__(self, field_names, rows):
         self.field_names = field_names
         self.rows = rows
@@ -1038,19 +1038,19 @@ def main():
         )
         sys.exit(1)
 
-    events_summary = fault_tree.get_events_summary()
-    gates_summary = fault_tree.get_gates_summary()
-    cut_set_summary_from_gate_id = fault_tree.get_cut_set_summaries()
+    events_table = fault_tree.get_events_table()
+    gates_table = fault_tree.get_gates_table()
+    cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
 
     output_directory_name = f'{text_file_name}.out'
     output_cut_sets_directory_name = f'{output_directory_name}/cut-sets'
     create_directory_robust(output_directory_name)
     create_directory_robust(output_cut_sets_directory_name)
 
-    events_summary.write_tsv(f'{output_directory_name}/events.tsv')
-    gates_summary.write_tsv(f'{output_directory_name}/gates.tsv')
-    for gate_id, cut_set_summary in cut_set_summary_from_gate_id.items():
-        cut_set_summary.write_tsv(
+    events_table.write_tsv(f'{output_directory_name}/events.tsv')
+    gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
+    for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
+        cut_set_table.write_tsv(
             f'{output_cut_sets_directory_name}/{gate_id}.tsv'
         )
 
