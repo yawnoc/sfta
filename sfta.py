@@ -14,10 +14,34 @@ import itertools
 import os
 import re
 import sys
+from decimal import Decimal
+from math import floor, isfinite, log10
 from math import prod as product
 
 
 __version__ = '0.0.0'
+
+
+def blunt(number, max_significant_figures=1):
+    """
+    Blunt a number to at most certain significant figures, as a string.
+    """
+    if number is None:
+        return None
+
+    if number == 0 or not isfinite(number):
+        return number
+
+    exponent = 1 + floor(log10(abs(number)))  # for mantissa less than unity
+    target_places = max_significant_figures - exponent
+
+    rounded_decimal = round(Decimal(number), target_places)
+    if rounded_decimal == rounded_decimal.to_integral():
+        nice_decimal = rounded_decimal.quantize(1)
+    else:
+        nice_decimal = rounded_decimal.normalize()
+
+    return str(nice_decimal)
 
 
 def find_cycles(adjacency_dict):
@@ -652,6 +676,7 @@ class FaultTree:
         ) \
             = FaultTree.build(fault_tree_text)
 
+    MAX_SIGNIFICANT_FIGURES = 4
     KEY_EXPLAINER = (
         'Recognised keys for a fault tree property setting are:\n'
         '    time_unit (optional).'
@@ -933,7 +958,7 @@ class FaultTree:
                 event.id_,
                 event.id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
-                event.quantity_value,
+                blunt(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
@@ -958,7 +983,7 @@ class FaultTree:
                 gate.id_,
                 gate.id_ in self.top_gate_ids,
                 Event.STR_FROM_TYPE[gate.quantity_type],
-                gate.quantity_value,
+                blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                 Gate.STR_FROM_TYPE[gate.type],
                 ','.join(gate.input_ids),
@@ -981,7 +1006,7 @@ class FaultTree:
             rows = [
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    quantity_value,
+                    blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                     Event.quantity_unit_str(
                         gate.quantity_type,
                         self.time_unit
@@ -994,7 +1019,7 @@ class FaultTree:
                 for cut_set_indices, quantity_value
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
-            rows.sort(key=lambda row: -row[1])  # quantity_value
+            rows.sort(key=lambda row: -float(row[1]))  # quantity_value
             cut_set_table_from_gate_id[gate.id_] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
@@ -1102,7 +1127,6 @@ def main():
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
-    # TODO: implement rounding
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
