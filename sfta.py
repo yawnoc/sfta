@@ -1103,6 +1103,8 @@ def main():
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
 
+    # TODO: implement SVG generation
+
 
 if __name__ == '__main__':
     main()
