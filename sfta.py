@@ -1067,6 +1067,7 @@ def create_directory_robust(directory_name):
 def main():
     parsed_arguments = parse_command_line_arguments()
     text_file_name = parsed_arguments.fault_tree_text_file_name
+    # TODO: make robust (input file might be directory)
     with open(text_file_name, 'r', encoding='utf-8') as file:
         fault_tree_text = file.read()
 
