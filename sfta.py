@@ -1067,9 +1067,20 @@ def create_directory_robust(directory_name):
 def main():
     parsed_arguments = parse_command_line_arguments()
     text_file_name = parsed_arguments.fault_tree_text_file_name
-    # TODO: make robust (input file might be directory)
-    with open(text_file_name, 'r', encoding='utf-8') as file:
-        fault_tree_text = file.read()
+
+    if os.path.isdir(text_file_name):
+        print(
+            f'Error: `{text_file_name}` is a directory, not a file',
+            file=sys.stderr,
+        )
+        sys.exit()
+
+    try:
+        with open(text_file_name, 'r', encoding='utf-8') as file:
+            fault_tree_text = file.read()
+    except FileNotFoundError:
+        print(f'Error: file `{text_file_name}` existeth not', file=sys.stderr)
+        sys.exit()
 
     try:
         fault_tree = FaultTree(fault_tree_text)
