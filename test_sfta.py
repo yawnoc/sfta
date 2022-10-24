@@ -33,6 +33,11 @@ class TestSfta(unittest.TestCase):
         self.assertNotEqual(str(0.1 + 0.2), '0.3')
         self.assertEqual(blunt(0.1 + 0.2, 1), '0.3')
 
+        self.assertEqual(blunt(89640, 1), '90000')
+        self.assertEqual(blunt(89640, 2), '90000')
+        self.assertEqual(blunt(89640, 3), '89600')
+        self.assertEqual(blunt(89640, 4), '89640')
+
         self.assertEqual(blunt(69.42069, 1), '70')
         self.assertEqual(blunt(69.42069, 2), '69')
         self.assertEqual(blunt(69.42069, 3), '69.4')
