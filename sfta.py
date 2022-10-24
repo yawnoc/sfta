@@ -1047,7 +1047,10 @@ def parse_command_line_arguments():
     )
     argument_parser.add_argument(
         'fault_tree_text_file_name',
-        help='name of fault tree text file',
+        help=(
+          'name of fault tree text file; '
+          'output is written unto the directory `{ft.txt}.out/`'
+        ),
         metavar='ft.txt',
     )
 
