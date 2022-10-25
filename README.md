@@ -1,11 +1,51 @@
 # Slow Fault Tree Analyser (SFTA)
 
-A slow (also shitty) fault tree analyser based on the idea presented in
+A slow (also shitty) fault tree analyser inspired by the idea presented in
 [Wheeler et al. (1977). Fault Tree Analysis Using Bit Manipulation.
 IEEE Transactions on Reliability, Volume R-26, Issue 2.
 <<https://doi.org/10.1109/TR.1977.5220060>>]
 
-For coherent fault trees (which have only AND gates and OR gates).
+
+## Text-driven
+
+SFTA reads a textual representation of a fault tree. For example:
+
+```txt
+Gate: SYS
+- label: System fails
+- type: OR
+- inputs: A, SUB
+
+Event: A
+- label: Component A fails
+- probability: 0.01
+
+Gate: SUB
+- label: Subsystem fails
+- type: AND
+- inputs: B, C
+
+Event: B
+- label: Component B fails
+- probability: 0.2
+
+Event: C
+- label: Component C fails
+- probability: 0.3
+```
+
+This allows for sensible diffing between two versions of a fault tree.
+
+
+## Limitations
+
+- Only supports coherent fault trees, which have only AND gates and OR gates.
+
+- The probability or rate for a gate is approximated by simply summing the
+  contributions from each minimal cut set (rare event approximation).
+  The higher-order terms (subtraction of pairwise intersections, addition of
+  triplet-wise intersections, etc.) have been neglected. This is conservative,
+  as the first-order sum is an upper bound for the actual probability or rate.
 
 
 ## Usage

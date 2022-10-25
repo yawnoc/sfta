@@ -1,0 +1,4 @@
+id	is_used	quantity_type	quantity_value	quantity_unit	label
+A	True	probability	0.01	1	Component A fails
+B	True	probability	0.2	1	Component B fails
+C	True	probability	0.3	1	Component C fails
