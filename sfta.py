@@ -84,6 +84,22 @@ def find_cycles(adjacency_dict):
     return infection_cycles
 
 
+class DeepRecurse:
+    """
+    Context manager for raising maximum recursion depth.
+    """
+
+    def __init__(self, recursion_limit):
+        self.recursion_limit = recursion_limit
+
+    def __enter__(self):
+        self.old_recursion_limit = sys.getrecursionlimit()
+        sys.setrecursionlimit(self.recursion_limit)
+
+    def __exit__(self, exception_type, exception_value, traceback):
+        sys.setrecursionlimit(self.old_recursion_limit)
+
+
 class Writ:
     """
     Static class for performing calculations with writs.
@@ -1107,7 +1123,8 @@ def main():
         sys.exit()
 
     try:
-        fault_tree = FaultTree(fault_tree_text)
+        with DeepRecurse(recursion_limit=10 ** 4):
+            fault_tree = FaultTree(fault_tree_text)
     except FaultTreeTextException as exception:
         line_number = exception.line_number
         message = exception.message
