@@ -1,0 +1,21 @@
+id	is_top_gate	quantity_type	quantity_value	quantity_unit	type	inputs	label
+AND_1	True	probability	0.01111	1	AND	A_1,OR_1	
+AND_10	False	probability	0.02	1	AND	A_10,OR_10	
+AND_2	False	probability	0.01111	1	AND	A_2,OR_2	
+AND_3	False	probability	0.01111	1	AND	A_3,OR_3	
+AND_4	False	probability	0.01111	1	AND	A_4,OR_4	
+AND_5	False	probability	0.01111	1	AND	A_5,OR_5	
+AND_6	False	probability	0.01111	1	AND	A_6,OR_6	
+AND_7	False	probability	0.01112	1	AND	A_7,OR_7	
+AND_8	False	probability	0.0112	1	AND	A_8,OR_8	
+AND_9	False	probability	0.012	1	AND	A_9,OR_9	
+OR_1	False	probability	0.1111	1	OR	O_1,AND_2	
+OR_10	False	probability	0.2	1	OR	O_10,L	
+OR_2	False	probability	0.1111	1	OR	O_2,AND_3	
+OR_3	False	probability	0.1111	1	OR	O_3,AND_4	
+OR_4	False	probability	0.1111	1	OR	O_4,AND_5	
+OR_5	False	probability	0.1111	1	OR	O_5,AND_6	
+OR_6	False	probability	0.1111	1	OR	O_6,AND_7	
+OR_7	False	probability	0.1112	1	OR	O_7,AND_8	
+OR_8	False	probability	0.112	1	OR	O_8,AND_9	
+OR_9	False	probability	0.12	1	OR	O_9,AND_10	

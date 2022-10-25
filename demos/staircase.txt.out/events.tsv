@@ -1,0 +1,22 @@
+id	is_used	quantity_type	quantity_value	quantity_unit	label
+A_1	True	probability	0.1	1	
+A_10	True	probability	0.1	1	
+A_2	True	probability	0.1	1	
+A_3	True	probability	0.1	1	
+A_4	True	probability	0.1	1	
+A_5	True	probability	0.1	1	
+A_6	True	probability	0.1	1	
+A_7	True	probability	0.1	1	
+A_8	True	probability	0.1	1	
+A_9	True	probability	0.1	1	
+L	True	probability	0.1	1	
+O_1	True	probability	0.1	1	
+O_10	True	probability	0.1	1	
+O_2	True	probability	0.1	1	
+O_3	True	probability	0.1	1	
+O_4	True	probability	0.1	1	
+O_5	True	probability	0.1	1	
+O_6	True	probability	0.1	1	
+O_7	True	probability	0.1	1	
+O_8	True	probability	0.1	1	
+O_9	True	probability	0.1	1	

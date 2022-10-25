@@ -1,0 +1,143 @@
+
+Gate: AND_1
+- type: AND
+- inputs: A_1, OR_1
+
+Gate: AND_2
+- type: AND
+- inputs: A_2, OR_2
+
+Gate: AND_3
+- type: AND
+- inputs: A_3, OR_3
+
+Gate: AND_4
+- type: AND
+- inputs: A_4, OR_4
+
+Gate: AND_5
+- type: AND
+- inputs: A_5, OR_5
+
+Gate: AND_6
+- type: AND
+- inputs: A_6, OR_6
+
+Gate: AND_7
+- type: AND
+- inputs: A_7, OR_7
+
+Gate: AND_8
+- type: AND
+- inputs: A_8, OR_8
+
+Gate: AND_9
+- type: AND
+- inputs: A_9, OR_9
+
+Gate: AND_10
+- type: AND
+- inputs: A_10, OR_10
+
+Gate: OR_1
+- type: OR
+- inputs: O_1, AND_2
+
+Gate: OR_2
+- type: OR
+- inputs: O_2, AND_3
+
+Gate: OR_3
+- type: OR
+- inputs: O_3, AND_4
+
+Gate: OR_4
+- type: OR
+- inputs: O_4, AND_5
+
+Gate: OR_5
+- type: OR
+- inputs: O_5, AND_6
+
+Gate: OR_6
+- type: OR
+- inputs: O_6, AND_7
+
+Gate: OR_7
+- type: OR
+- inputs: O_7, AND_8
+
+Gate: OR_8
+- type: OR
+- inputs: O_8, AND_9
+
+Gate: OR_9
+- type: OR
+- inputs: O_9, AND_10
+
+Gate: OR_10
+- type: OR
+- inputs: O_10, L
+
+Event: A_1
+- probability: 0.1
+
+Event: A_2
+- probability: 0.1
+
+Event: A_3
+- probability: 0.1
+
+Event: A_4
+- probability: 0.1
+
+Event: A_5
+- probability: 0.1
+
+Event: A_6
+- probability: 0.1
+
+Event: A_7
+- probability: 0.1
+
+Event: A_8
+- probability: 0.1
+
+Event: A_9
+- probability: 0.1
+
+Event: A_10
+- probability: 0.1
+
+Event: O_1
+- probability: 0.1
+
+Event: O_2
+- probability: 0.1
+
+Event: O_3
+- probability: 0.1
+
+Event: O_4
+- probability: 0.1
+
+Event: O_5
+- probability: 0.1
+
+Event: O_6
+- probability: 0.1
+
+Event: O_7
+- probability: 0.1
+
+Event: O_8
+- probability: 0.1
+
+Event: O_9
+- probability: 0.1
+
+Event: O_10
+- probability: 0.1
+
+Event: L
+- probability: 0.1
