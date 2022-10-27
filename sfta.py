@@ -1113,14 +1113,14 @@ def main():
             f'Error: `{text_file_name}` is a directory, not a file',
             file=sys.stderr,
         )
-        sys.exit()
+        sys.exit(1)
 
     try:
         with open(text_file_name, 'r', encoding='utf-8') as file:
             fault_tree_text = file.read()
     except FileNotFoundError:
         print(f'Error: file `{text_file_name}` existeth not', file=sys.stderr)
-        sys.exit()
+        sys.exit(1)
 
     try:
         with DeepRecurse(recursion_limit=10 ** 4):
