@@ -569,16 +569,16 @@ class Gate:
             )
 
     def compute_tome(self, event_from_id, gate_from_id):
-        input_tomes = set()
+        input_tomes = []
         for input_id in self.input_ids:
             if input_id in event_from_id:  # input is Event
                 event = event_from_id[input_id]
-                input_tomes.add(event.tome)
+                input_tomes.append(event.tome)
             elif input_id in gate_from_id:  # input is Gate
                 gate = gate_from_id[input_id]
                 if gate.tome is None:
                     gate.compute_tome(event_from_id, gate_from_id)
-                input_tomes.add(gate.tome)
+                input_tomes.append(gate.tome)
             else:
                 raise RuntimeError(
                     f'Implementation error: '
