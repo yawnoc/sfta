@@ -18,7 +18,7 @@ from decimal import Decimal
 from math import floor, isfinite, log10, prod
 
 
-__version__ = '0.0.0'
+__version__ = '0.1.0'
 
 
 def blunt(number, max_significant_figures=1):
