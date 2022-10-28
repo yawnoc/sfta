@@ -746,7 +746,9 @@ class FaultTree:
     def parse(fault_tree_text):
         events = []
         gates = []
+
         time_unit = None
+        time_unit_line_number = None
 
         event_index = 0
         current_object = FaultTree
@@ -813,7 +815,14 @@ class FaultTree:
 
                 if current_object is FaultTree:
                     if key == 'time_unit':
+                        if time_unit is not None:
+                            raise FaultTree.TimeUnitAlreadySetException(
+                                line_number,
+                                f'time unit hath already been set '
+                                f'at line {time_unit_line_number}'
+                            )
                         time_unit = value
+                        time_unit_line_number = line_number
                     else:
                         raise FaultTree.UnrecognisedKeyException(
                             line_number,
@@ -1052,6 +1061,9 @@ class FaultTree:
         pass
 
     class BadLineException(FaultTreeTextException):
+        pass
+
+    class TimeUnitAlreadySetException(FaultTreeTextException):
         pass
 
     class UnrecognisedKeyException(FaultTreeTextException):

@@ -3,6 +3,7 @@
 
 ## [Unreleased]
 
+- Added check for already set `time_unit`
 - Minor code fixes
 
 

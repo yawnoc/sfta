@@ -458,6 +458,16 @@ class TestSfta(unittest.TestCase):
             ' - key: value',
         )
 
+        # Time unit already set
+        self.assertRaises(
+            FaultTree.TimeUnitAlreadySetException,
+            FaultTree.build,
+            textwrap.dedent('''
+                - time_unit: h
+                - time_unit: yr
+            '''),
+        )
+
         # Unrecognised Key
         self.assertRaises(
             FaultTree.UnrecognisedKeyException,
