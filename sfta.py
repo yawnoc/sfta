@@ -28,7 +28,10 @@ def blunt(number, max_significant_figures=1):
     if number is None:
         return None
 
-    if number == 0 or not isfinite(number):
+    if number == 0:
+        return 0
+
+    if not isfinite(number):
         return number
 
     exponent = 1 + floor(log10(abs(number)))  # with mantissa less than unity
