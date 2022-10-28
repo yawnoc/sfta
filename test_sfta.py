@@ -58,7 +58,7 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(blunt(0.00123456789, 9), '0.00123456789')
         self.assertEqual(blunt(0.00123456789, 10), '0.00123456789')
 
-    def test_find_cycle(self):
+    def test_find_cycles(self):
         self.assertEqual(
             find_cycles({}),
             set()

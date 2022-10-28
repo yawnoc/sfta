@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Minor code fixes
+
 
 ## [v0.1.0] First unstable (2022-10-27)
 
