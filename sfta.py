@@ -73,8 +73,8 @@ def find_cycles(adjacency_dict):
             elif child_node in clean_nodes:
                 infect(child_node)
 
-        infection_chain.pop()
         infected_nodes.discard(node)
+        infection_chain.pop()
 
     while clean_nodes:
         first_clean_node = min(clean_nodes)
