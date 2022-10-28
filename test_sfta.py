@@ -778,6 +778,54 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # OR gate with all rates
+        try:
+            FaultTree.build(
+                textwrap.dedent('''
+                    Event: R1
+                    - rate: 0.1
+
+                    Event: R2
+                    - rate: 0.2
+
+                    Event: R3
+                    - rate: 0.3
+
+                    Event: R4
+                    - rate: 0.4
+
+                    Gate: disjunction
+                    - type: OR
+                    - inputs: R1, R2, R3, R4
+                ''')
+            )
+        except Gate.DisjunctionBadTypesException:
+            self.fail('Gate.DisjunctionBadTypesException raised erroneously')
+
+        # OR gate with all probabilities
+        try:
+            FaultTree.build(
+                textwrap.dedent('''
+                    Event: P1
+                    - probability: 0.1
+
+                    Event: P2
+                    - probability: 0.2
+
+                    Event: P3
+                    - probability: 0.3
+
+                    Event: P4
+                    - probability: 0.4
+
+                    Gate: disjunction
+                    - type: OR
+                    - inputs: P1, P2, P3, P4
+                ''')
+            )
+        except Gate.DisjunctionBadTypesException:
+            self.fail('Gate.DisjunctionBadTypesException raised erroneously')
+
         # OR gate with different-typed input
         self.assertRaises(
             Gate.DisjunctionBadTypesException,
