@@ -134,7 +134,7 @@ class Writ:
         is to convert to a string and check for a match against '1'.
         The slice `[-1:1:-1]` means that the loop:
             -1: starts from the rightmost character (least significant bit)
-             1: stops before '0b' prefix returned by `bin`
+             1: stops before the '0b' prefix returned by `bin`
             -1: travels from right to left
         """
         return frozenset(
