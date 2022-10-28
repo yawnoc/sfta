@@ -731,6 +731,30 @@ class TestSfta(unittest.TestCase):
             ''')
         )
 
+        # AND gate with first rate and non-first probabilities
+        try:
+            FaultTree.build(
+                textwrap.dedent('''
+                    Event: R1
+                    - rate: 0.2
+
+                    Event: P2
+                    - probability: 0.2
+
+                    Event: P3
+                    - probability: 0.3
+
+                    Event: P4
+                    - probability: 0.4
+
+                    Gate: conjunction
+                    - type: AND
+                    - inputs: R1, P2, P3, P4
+                ''')
+            )
+        except Gate.ConjunctionBadTypesException:
+            self.fail('Gate.ConjunctionBadTypesException raised erroneously')
+
         # AND gate with non-first rates
         self.assertRaises(
             Gate.ConjunctionBadTypesException,
