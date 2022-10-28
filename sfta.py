@@ -59,7 +59,7 @@ def find_cycles(adjacency_dict):
 
     clean_nodes = set(adjacency_dict.keys())
     infected_nodes = set()
-    dead_nodes = set()
+    # No point keeping track of dead_nodes, which is never queried
 
     def infect(node):
         clean_nodes.discard(node)
@@ -75,7 +75,6 @@ def find_cycles(adjacency_dict):
 
         infection_chain.pop()
         infected_nodes.discard(node)
-        dead_nodes.add(node)
 
     while clean_nodes:
         first_clean_node = min(clean_nodes)
