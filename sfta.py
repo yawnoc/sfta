@@ -585,6 +585,8 @@ class Gate:
         self.inputs_line_number = line_number
 
     def validate_properties(self, line_number):
+        if self.is_paged is None:
+            self.is_paged = False
         if self.type is None:
             raise Gate.TypeNotSetException(
                 line_number,
@@ -1031,6 +1033,7 @@ class FaultTree:
         field_names = [
             'id',
             'is_top_gate',
+            'is_paged',
             'quantity_type',
             'quantity_value',
             'quantity_unit',
@@ -1042,6 +1045,7 @@ class FaultTree:
             [
                 id_,
                 id_ in self.top_gate_ids,
+                gate.is_paged,
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
