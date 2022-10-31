@@ -1145,6 +1145,8 @@ class Figure:
         """
         A node which instantiates recursively.
         """
+        WIDTH = 100
+
         def __init__(self, event_from_id, gate_from_id, id_, is_top=False):
             if id_ in event_from_id.keys():  # object is Event
                 reference_object = event_from_id[id_]
@@ -1166,8 +1168,14 @@ class Figure:
                     f'neither `event_from_id` nor `gate_from_id`.'
                 )
 
+            if input_nodes:
+                width = sum(node.width for node in input_nodes)
+            else:
+                width = Figure.Node.WIDTH
+
             self.reference_object = reference_object
             self.input_nodes = input_nodes
+            self.width = width
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
