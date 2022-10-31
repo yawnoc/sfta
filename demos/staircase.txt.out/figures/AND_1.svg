@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-100 -200 2200 4400" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="0" text-anchor="middle">AND_1</text><text x="50" y="200" text-anchor="middle">A_1</text>
+<text x="1100" y="200" text-anchor="middle">OR_1</text><text x="50" y="400" text-anchor="middle">O_1</text>
+<text x="1050" y="400" text-anchor="middle">AND_2</text><text x="50" y="600" text-anchor="middle">A_2</text>
+<text x="1000" y="600" text-anchor="middle">OR_2</text><text x="50" y="800" text-anchor="middle">O_2</text>
+<text x="950" y="800" text-anchor="middle">AND_3</text><text x="50" y="1000" text-anchor="middle">A_3</text>
+<text x="900" y="1000" text-anchor="middle">OR_3</text><text x="50" y="1200" text-anchor="middle">O_3</text>
+<text x="850" y="1200" text-anchor="middle">AND_4</text><text x="50" y="1400" text-anchor="middle">A_4</text>
+<text x="800" y="1400" text-anchor="middle">OR_4</text><text x="50" y="1600" text-anchor="middle">O_4</text>
+<text x="750" y="1600" text-anchor="middle">AND_5</text><text x="50" y="1800" text-anchor="middle">A_5</text>
+<text x="700" y="1800" text-anchor="middle">OR_5</text><text x="50" y="2000" text-anchor="middle">O_5</text>
+<text x="650" y="2000" text-anchor="middle">AND_6</text><text x="50" y="2200" text-anchor="middle">A_6</text>
+<text x="600" y="2200" text-anchor="middle">OR_6</text><text x="50" y="2400" text-anchor="middle">O_6</text>
+<text x="550" y="2400" text-anchor="middle">AND_7</text><text x="50" y="2600" text-anchor="middle">A_7</text>
+<text x="500" y="2600" text-anchor="middle">OR_7</text><text x="50" y="2800" text-anchor="middle">O_7</text>
+<text x="450" y="2800" text-anchor="middle">AND_8</text><text x="50" y="3000" text-anchor="middle">A_8</text>
+<text x="400" y="3000" text-anchor="middle">OR_8</text><text x="50" y="3200" text-anchor="middle">O_8</text>
+<text x="350" y="3200" text-anchor="middle">AND_9</text><text x="50" y="3400" text-anchor="middle">A_9</text>
+<text x="300" y="3400" text-anchor="middle">OR_9</text><text x="50" y="3600" text-anchor="middle">O_9</text>
+<text x="250" y="3600" text-anchor="middle">AND_10</text><text x="50" y="3800" text-anchor="middle">A_10</text>
+<text x="200" y="3800" text-anchor="middle">OR_10</text><text x="50" y="4000" text-anchor="middle">O_10</text>
+<text x="150" y="4000" text-anchor="middle">L</text>
+</svg>

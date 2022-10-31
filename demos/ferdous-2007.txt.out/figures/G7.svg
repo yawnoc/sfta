@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-100 -200 1900 3800" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="0" text-anchor="middle">G7</text><text x="100" y="200" text-anchor="middle">G11</text><text x="50" y="400" text-anchor="middle">X30</text>
+<text x="150" y="400" text-anchor="middle">X37</text>
+<text x="1000" y="200" text-anchor="middle">G12</text><text x="50" y="400" text-anchor="middle">X9</text>
+<text x="800" y="400" text-anchor="middle">G15</text><text x="50" y="600" text-anchor="middle">X9</text>
+<text x="700" y="600" text-anchor="middle">G18</text><text x="200" y="800" text-anchor="middle">G20</text><text x="50" y="1000" text-anchor="middle">X43</text>
+<text x="250" y="1000" text-anchor="middle">G23</text><text x="50" y="1200" text-anchor="middle">X10</text>
+<text x="150" y="1200" text-anchor="middle">X11</text>
+<text x="250" y="1200" text-anchor="middle">X12</text>
+<text x="600" y="800" text-anchor="middle">G21</text><text x="50" y="1000" text-anchor="middle">X44</text>
+<text x="250" y="1000" text-anchor="middle">G24</text><text x="50" y="1200" text-anchor="middle">X13</text>
+<text x="150" y="1200" text-anchor="middle">X11</text>
+<text x="250" y="1200" text-anchor="middle">X14</text>
+<text x="1000" y="800" text-anchor="middle">G22</text><text x="50" y="1000" text-anchor="middle">X45</text>
+<text x="250" y="1000" text-anchor="middle">G25</text><text x="50" y="1200" text-anchor="middle">X15</text>
+<text x="150" y="1200" text-anchor="middle">X11</text>
+<text x="250" y="1200" text-anchor="middle">X16</text>
+<text x="1350" y="600" text-anchor="middle">X17</text>
+<text x="1550" y="400" text-anchor="middle">X17</text>
+</svg>

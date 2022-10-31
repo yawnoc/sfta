@@ -1145,6 +1145,31 @@ class Figure:
         top_node.place_horizontally_recursive()
         top_node.place_vertically_recursive()
 
+        self.top_node = top_node
+
+    def get_svg_content(self):
+        top_node = self.top_node
+
+        left = -Figure.Node.WIDTH
+        right = top_node.width + Figure.Node.WIDTH
+        top = -Figure.Node.HEIGHT
+        bottom = top_node.height + Figure.Node.HEIGHT
+
+        xmlns = 'http://www.w3.org/2000/svg'
+        elements = top_node.get_svg_elements_recursive()
+
+        return (
+            f'<?xml version="1.0" encoding="UTF-8"?>\n'
+            f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
+            f'{elements}\n'
+            f'</svg>'
+        )
+
+    def write_svg(self, file_name):
+        svg_content = self.get_svg_content()
+        with open(file_name, 'w', encoding='utf-8') as file:
+            file.write(svg_content)
+
     class Node:
         """
         A node which instantiates recursively.
@@ -1180,13 +1205,16 @@ class Figure:
 
             if input_nodes:
                 width = sum(node.width for node in input_nodes)
+                height = sum(node.height for node in input_nodes)
             else:
                 width = Figure.Node.WIDTH
+                height = Figure.Node.HEIGHT
 
             self.node_above = node_above
             self.reference_object = reference_object
             self.input_nodes = input_nodes
             self.width = width
+            self.height = height
 
             self.x = None
             self.y = None
@@ -1212,6 +1240,22 @@ class Figure:
 
             for input_node in self.input_nodes:
                 input_node.place_vertically_recursive()
+
+        def get_svg_elements_recursive(self):
+            x = self.x
+            y = self.y
+            id_ = self.reference_object.id_
+
+            self_elements = (
+                f'<text x="{x}" y="{y}" text-anchor="middle">{id_}</text>'
+                # TODO: label, symbol, connectors, positioning, escaping
+            )
+            input_elements = '\n'.join(
+                input_node.get_svg_elements_recursive()
+                for input_node in self.input_nodes
+            )
+
+            return ''.join([self_elements, input_elements])
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
@@ -1287,14 +1331,17 @@ def main():
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
+    figures_directory_name = f'{output_directory_name}/figures'
     create_directory_robust(output_directory_name)
     create_directory_robust(cut_sets_directory_name)
+    create_directory_robust(figures_directory_name)
 
     events_table.write_tsv(f'{output_directory_name}/events.tsv')
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
-    # TODO: write SVGs
+    for gate_id, figure in figure_from_gate_id.items():
+        figure.write_svg(f'{figures_directory_name}/{gate_id}.svg')
 
 
 if __name__ == '__main__':
