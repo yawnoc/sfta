@@ -686,7 +686,7 @@ class FaultTree:
     def __init__(self, fault_tree_text):
         (
             self.event_from_id,
-            self.gates,
+            self.gate_from_id,
             self.event_id_from_index,
             self.used_event_ids,
             self.top_gate_ids,
@@ -738,7 +738,7 @@ class FaultTree:
 
         return (
             event_from_id,
-            gates,
+            gate_from_id,
             event_id_from_index,
             used_event_ids,
             top_gate_ids,
@@ -1007,8 +1007,8 @@ class FaultTree:
         ]
         rows = [
             [
-                gate.id_,
-                gate.id_ in self.top_gate_ids,
+                id_,
+                id_ in self.top_gate_ids,
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
@@ -1016,14 +1016,14 @@ class FaultTree:
                 ','.join(gate.input_ids),
                 gate.label,
             ]
-            for gate in self.gates
+            for id_, gate in self.gate_from_id.items()
         ]
         rows.sort(key=lambda row: (-row[1], row[0]))  # is_top_gate, id
         return Table(field_names, rows)
 
     def get_cut_set_tables(self):
         cut_set_table_from_gate_id = {}
-        for gate in self.gates:
+        for gate_id, gate in self.gate_from_id.items():
             field_names = [
                 'quantity_type',
                 'quantity_value',
@@ -1047,7 +1047,7 @@ class FaultTree:
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
             rows.sort(key=lambda row: -float(row[1]))  # quantity_value
-            cut_set_table_from_gate_id[gate.id_] = Table(field_names, rows)
+            cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
 
