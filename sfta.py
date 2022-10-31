@@ -685,7 +685,7 @@ class Gate:
 class FaultTree:
     def __init__(self, fault_tree_text):
         (
-            self.events,
+            self.event_from_id,
             self.gates,
             self.event_id_from_index,
             self.used_event_ids,
@@ -737,7 +737,7 @@ class FaultTree:
         FaultTree.compute_gate_quantities(events, gates)
 
         return (
-            events,
+            event_from_id,
             gates,
             event_id_from_index,
             used_event_ids,
@@ -982,14 +982,14 @@ class FaultTree:
         ]
         rows = [
             [
-                event.id_,
-                event.id_ in self.used_event_ids,
+                id_,
+                id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
                 blunt(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
-            for event in self.events
+            for id_, event in self.event_from_id.items()
         ]
         rows.sort(key=lambda row: row[0])  # id
         return Table(field_names, rows)
