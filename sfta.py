@@ -461,6 +461,9 @@ class Gate:
         self.label = None
         self.label_line_number = None
 
+        self.is_paged = None
+        self.is_paged_line_number = None
+
         self.type = None
         self.type_line_number = None
 
@@ -477,8 +480,13 @@ class Gate:
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
         '    label (optional)\n'
+        '    is_paged (optional)\n'
         '    type (required)\n'
         '    inputs (required).'
+    )
+    IS_PAGED_EXPLAINER = (
+        'Gate is_paged must be either `True` or `False` (case-sensitive). '
+        'The default value is `False`.'
     )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
     AND_INPUTS_EXPLAINER = (
@@ -512,6 +520,23 @@ class Gate:
 
         self.label = label
         self.label_line_number = line_number
+
+    def set_is_paged(self, is_paged, line_number):
+        if self.is_paged is not None:
+            raise Gate.IsPagedAlreadySetException(
+                line_number,
+                f'is_paged hath already been set for `{self.id_}` '
+                f'at line {self.is_paged_line_number}'
+            )
+
+        if is_paged not in ['True', 'False']:
+            raise Gate.BadIsPagedException(
+                line_number,
+                f'bad is_paged `{is_paged}` for Gate `{self.id_}`'
+                f'\n\n{Gate.IS_PAGED_EXPLAINER}'
+            )
+        self.is_paged = is_paged
+        self.is_paged_line_number = line_number
 
     def set_type(self, type_str, line_number):
         if self.type is not None:
@@ -651,10 +676,16 @@ class Gate:
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
+    class IsPagedAlreadySetException(FaultTreeTextException):
+        pass
+
     class TypeAlreadySetException(FaultTreeTextException):
         pass
 
     class InputsAlreadySetException(FaultTreeTextException):
+        pass
+
+    class BadIsPagedException(FaultTreeTextException):
         pass
 
     class BadTypeException(FaultTreeTextException):
@@ -850,6 +881,8 @@ class FaultTree:
                 elif isinstance(current_object, Gate):
                     if key == 'label':
                         current_object.set_label(value, line_number)
+                    elif key == 'is_paged':
+                        current_object.set_is_paged(value, line_number)
                     elif key == 'type':
                         current_object.set_type(value, line_number)
                     elif key == 'inputs':

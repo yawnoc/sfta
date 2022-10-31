@@ -647,6 +647,17 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Is_paged already set
+        self.assertRaises(
+            Gate.IsPagedAlreadySetException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Gate: A
+                - is_paged: True
+                - is_paged: True
+            '''),
+        )
+
         # Type already set
         self.assertRaises(
             Gate.TypeAlreadySetException,
@@ -666,6 +677,16 @@ class TestSfta(unittest.TestCase):
                 Gate: A
                 - inputs: B, C
                 - inputs: B, C
+            '''),
+        )
+
+        # Bad is_paged
+        self.assertRaises(
+            Gate.BadIsPagedException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Gate: A
+                - is_paged: TrUE
             '''),
         )
 
