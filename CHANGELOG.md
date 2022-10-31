@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 - Added check for already set `time_unit`
+- Made `create_directory_robust` remove then make
 - Minor code fixes
 
 

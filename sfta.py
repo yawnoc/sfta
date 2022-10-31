@@ -13,6 +13,7 @@ import csv
 import itertools
 import os
 import re
+import shutil
 import sys
 from decimal import Decimal
 from math import floor, isfinite, log10, prod
@@ -1114,8 +1115,9 @@ def parse_command_line_arguments():
 def create_directory_robust(directory_name):
     if os.path.isfile(directory_name):
         os.remove(directory_name)
-    if not os.path.isdir(directory_name):
-        os.mkdir(directory_name)
+    if os.path.isdir(directory_name):
+        shutil.rmtree(directory_name)
+    os.mkdir(directory_name)
 
 
 def main():
