@@ -1,0 +1,303 @@
+# From Figure 6 in Ferdous, Khan, Veitch, and Amyotte (2007).
+# Methodology for Computer-Aided Fault Tree Analysis.
+# Process Safety and Environmental Protection, Volume 85, Issue 1, Pages 70–80.
+# <https://doi.org/10.1205/psep06002>
+
+# Pagination has been added for G3, G4, G5, G6, and G7 to test `is_paged`.
+# Hyphens have been removed from all IDs.
+
+
+Gate: G1
+- label: Ethylene release due to components rupture
+- type: OR
+- inputs: X31, G2, X33
+# NOTE: Table 2 erroneously has X32 for X33
+
+Gate: G2
+- type: AND
+- inputs: G3, G4, G5
+
+Gate: G3
+- is_paged: True
+- type: OR
+- inputs: X32, G6, G7
+
+Gate: G6
+- is_paged: True
+- type: AND
+- inputs: X35, G10
+
+Gate: G10
+- type: OR
+- inputs: G14, X5
+
+Gate: G14
+- type: AND
+- inputs: X9, G17, X4
+
+Gate: G17
+- type: AND
+- inputs: X46, G19
+
+Gate: G19
+- type: AND
+- inputs: X1, X2, X3
+# NOTE: Table 2 erroneously has X32 for X3
+
+Gate: G7
+- is_paged: True
+- type: AND
+- inputs: G11, G12
+
+Gate: G11
+- type: AND
+- inputs: X30, X37
+
+Gate: G12
+- type: OR
+- inputs: X9, G15, X17
+
+Gate: G15
+- type: AND
+- inputs: X9, G18, X17
+
+Gate: G18
+- type: OR
+- inputs: G20, G21, G22
+
+Gate: G20
+- type: AND
+- inputs: X43, G23
+
+Gate: G23
+- type: AND
+- inputs: X10, X11, X12
+
+Gate: G21
+- type: AND
+- inputs: X44, G24
+# NOTE: Figure 6 erroneously has G21 for G24
+
+Gate: G24
+- type: AND
+- inputs: X13, X11, X14
+
+Gate: G22
+- type: AND
+- inputs: X45, G25
+# NOTE: Table 2 erroneously has G45 for X45
+
+Gate: G25
+- type: AND
+- inputs: X15, X11, X16
+
+Gate: G4
+- is_paged: True
+- type: OR
+- inputs: X24, X26
+
+Gate: G5
+- is_paged: True
+- type: OR
+- inputs: X40, G8, G9
+
+Gate: G8
+- type: AND
+- inputs: X40, G13, X9
+
+Gate: G13
+- type: OR
+- inputs: X8, G16
+
+Gate: G16
+- type: OR
+- inputs: X1, X6, X7
+
+Gate: G9
+- type: AND
+- inputs: X40, X9
+
+
+Event: X1
+- label: Pressure measurement P1 fails
+- probability: 0.58760
+
+Event: X2
+- label: Valve positioner V1 fails
+- probability: 0.31190
+
+Event: X3
+- label: Signal transmission P1-V1 fails
+- probability: 0.56427
+
+Event: X4
+- label: V1 fails closed
+- probability: 0.15148
+
+Event: X5
+- label: V1 fails open
+- probability: 0.08727
+
+Event: X6
+- label: Valve positioner V2 fails
+- probability: 0.31190
+
+Event: X7
+- label: Signal transmission P1-V2 fails
+- probability: 0.56427
+
+Event: X8
+- label: V2 fails closed
+- probability: 0.15148
+
+Event: X9
+- label: Instrument air supply fails
+- probability: 0.73640
+
+Event: X10
+- label: Temperature measurement T1 fails
+- probability: 0.23271
+
+Event: X11
+- label: Valve positioner V3 fails
+- probability: 0.31190
+
+Event: X12
+- label: Signal transmission T1-V3 fails
+- probability: 0.56427
+
+Event: X13
+- label: Pressure measurement P2 fails
+- probability: 0.58767
+
+Event: X14
+- label: Signal transmission P2-V3 fails
+- probability: 0.56427
+
+Event: X15
+- label: Flow measurement F1 fails
+- probability: 0.81704
+
+Event: X16
+- label: Signal transmission F1-V3 fails
+- probability: 0.56427
+
+Event: X17
+- label: V3 fails closed
+- probability: 0.15148
+
+Event: X18
+- label: V3 fails open
+- probability: 0.91272
+
+Event: X19
+- label: Level measurement L1 fails
+- probability: 0.24269
+
+Event: X20
+- label: Signal transmission L1-V4 fails
+- probability: 0.43572
+
+Event: X21
+- label: Valve positioner V4 fails
+- probability: 0.68809
+
+Event: X22
+- label: V4 fails closed
+- probability: 0.84851
+
+Event: X23
+- label: V4 fails open
+- probability: 0.91272
+
+Event: X24
+- label: S1 fails closed
+- probability: 0.40517
+
+Event: X25
+- label: S1 fails open
+- probability: 0.97232
+
+Event: X26
+- label: S1 set point too high
+- probability: 0.21879
+
+Event: X27
+- label: S2 fails closed
+- probability: 0.59482
+
+Event: X28
+- label: S2 fails open
+- probability: 0.06038
+
+Event: X29
+- label: S2 set point too high
+- probability: 0.78120
+
+Event: X30
+- label: Ethylene pump fails
+- probability: 0.03921
+
+Event: X31
+- label: Spontaneous rupture of deposit
+- probability: 0.00079
+
+Event: X32
+- label: Pipe work fire
+- probability: 0.01809
+
+Event: X33
+- label: External & secondary effects
+- probability: 0.04959
+
+Event: X34
+- label: Ethylene vaporizer functioning
+- probability: 0.93750
+
+Event: X35
+- label: Pressure vaporizer not functioning
+- probability: 0.75000
+
+Event: X36
+- label: Heater not functioning
+- probability: 0.75000
+
+Event: X37
+- label: Ethylene pump demanded
+- probability: 1.00000
+
+Event: X38
+- label: Exit to process closed
+- probability: 0.00625
+
+Event: X39
+- label: Exit to recompression closed
+- probability: 0.12500
+
+Event: X40
+- label: No discharge via V2
+- probability: 0.75000
+
+Event: X41
+- label: Pressurization via V1
+- probability: 0.75000
+
+Event: X42
+- label: Supply to deposit functioning
+- probability: 0.75000
+
+Event: X43
+- label: Exit temperature below −10°C
+- probability: 0.02500
+
+Event: X44
+- label: Exit manometric pressure > 16.18 bar
+- probability: 0.10000
+
+Event: X45
+- label: Exit flow > demand
+- probability: 0.10000
+
+Event: X46
+- label: Deposit manometric pressure < 1.96 bar
+- probability: 0.10000

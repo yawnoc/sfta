@@ -1,0 +1,26 @@
+id	is_top_gate	quantity_type	quantity_value	quantity_unit	type	inputs	label
+G1	True	probability	0.1062	1	OR	X31,G2,X33	Ethylene release due to components rupture
+G10	False	probability	0.08842	1	OR	G14,X5	
+G11	False	probability	0.03921	1	AND	X30,X37	
+G12	False	probability	0.8879	1	OR	X9,G15,X17	
+G13	False	probability	1.615	1	OR	X8,G16	
+G14	False	probability	0.001154	1	AND	X9,G17,X4	
+G15	False	probability	0.002872	1	AND	X9,G18,X17	
+G16	False	probability	1.464	1	OR	X1,X6,X7	
+G17	False	probability	0.01034	1	AND	X46,G19	
+G18	False	probability	0.02575	1	OR	G20,G21,G22	
+G19	False	probability	0.1034	1	AND	X1,X2,X3	
+G2	False	probability	0.05579	1	AND	G3,G4,G5	
+G20	False	probability	0.001024	1	AND	X43,G23	
+G21	False	probability	0.01034	1	AND	X44,G24	
+G22	False	probability	0.01438	1	AND	X45,G25	
+G23	False	probability	0.04096	1	AND	X10,X11,X12	
+G24	False	probability	0.1034	1	AND	X13,X11,X14	
+G25	False	probability	0.1438	1	AND	X15,X11,X16	
+G3	False	probability	0.1192	1	OR	X32,G6,G7	
+G4	False	probability	0.624	1	OR	X24,X26	
+G5	False	probability	0.75	1	OR	X40,G8,G9	
+G6	False	probability	0.06632	1	AND	X35,G10	
+G7	False	probability	0.03481	1	AND	G11,G12	
+G8	False	probability	0.8921	1	AND	X40,G13,X9	
+G9	False	probability	0.5523	1	AND	X40,X9	
