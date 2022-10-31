@@ -1142,6 +1142,7 @@ class Figure:
         top_node = (
             Figure.Node(event_from_id, gate_from_id, id_, node_above=None)
         )
+        top_node.place_horizontally_recursive()
 
     class Node:
         """
@@ -1184,6 +1185,21 @@ class Figure:
             self.reference_object = reference_object
             self.input_nodes = input_nodes
             self.width = width
+
+            self.x = None
+
+        def place_horizontally_recursive(self):
+            if self.node_above is None:
+                self.x = 0
+            else:
+                node_above_inputs = self.node_above.input_nodes
+                input_index = node_above_inputs.index(self)
+                nodes_before = node_above_inputs[0:input_index]
+                width_before = sum(node.width for node in nodes_before)
+                self.x = width_before + self.width//2
+
+            for input_node in self.input_nodes:
+                input_node.place_horizontally_recursive()
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
