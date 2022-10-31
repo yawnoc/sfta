@@ -1143,12 +1143,14 @@ class Figure:
             Figure.Node(event_from_id, gate_from_id, id_, node_above=None)
         )
         top_node.place_horizontally_recursive()
+        top_node.place_vertically_recursive()
 
     class Node:
         """
         A node which instantiates recursively.
         """
         WIDTH = 100
+        HEIGHT = 200
 
         def __init__(self, event_from_id, gate_from_id, id_, node_above):
             if id_ in event_from_id.keys():  # object is Event
@@ -1187,6 +1189,7 @@ class Figure:
             self.width = width
 
             self.x = None
+            self.y = None
 
         def place_horizontally_recursive(self):
             if self.node_above is None:
@@ -1200,6 +1203,15 @@ class Figure:
 
             for input_node in self.input_nodes:
                 input_node.place_horizontally_recursive()
+
+        def place_vertically_recursive(self):
+            if self.node_above is None:
+                self.y = 0
+            else:
+                self.y = self.node_above.y + Figure.Node.HEIGHT
+
+            for input_node in self.input_nodes:
+                input_node.place_vertically_recursive()
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
