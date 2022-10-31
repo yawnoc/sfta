@@ -1088,6 +1088,14 @@ class FaultTree:
 
         return cut_set_table_from_gate_id
 
+    def get_figures(self):
+        figure_from_gate_id = {
+            id_: Figure(self, id_)
+            for id_, gate in self.gate_from_id.items()
+            if id_ in self.top_gate_ids or gate.is_paged
+        }
+        return figure_from_gate_id
+
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
 
@@ -1125,6 +1133,41 @@ class Table:
             )
             writer.writerow(self.field_names)
             writer.writerows(self.rows)
+
+
+class Figure:
+    def __init__(self, fault_tree, id_):
+        event_from_id = fault_tree.event_from_id
+        gate_from_id = fault_tree.gate_from_id
+        top_node = Figure.Node(event_from_id, gate_from_id, id_, is_top=True)
+
+    class Node:
+        """
+        A node which instantiates recursively.
+        """
+        def __init__(self, event_from_id, gate_from_id, id_, is_top=False):
+            if id_ in event_from_id.keys():  # object is Event
+                reference_object = event_from_id[id_]
+                input_nodes = []
+            elif id_ in gate_from_id.keys():  # object is Gate
+                reference_object = gate = gate_from_id[id_]
+                if gate.is_paged and not is_top:
+                    input_ids = []
+                else:
+                    input_ids = gate.input_ids
+                input_nodes = [
+                    Figure.Node(event_from_id, gate_from_id, input_id)
+                    for input_id in input_ids
+                ]
+            else:
+                raise RuntimeError(
+                    f'Implementation error: '
+                    f'`{id_}` is in '
+                    f'neither `event_from_id` nor `gate_from_id`.'
+                )
+
+            self.reference_object = reference_object
+            self.input_nodes = input_nodes
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
@@ -1196,6 +1239,7 @@ def main():
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
+    figure_from_gate_id = fault_tree.get_figures()
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
@@ -1206,8 +1250,7 @@ def main():
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
-
-    # TODO: implement SVG generation
+    # TODO: write SVGs
 
 
 if __name__ == '__main__':
