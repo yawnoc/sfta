@@ -1139,7 +1139,9 @@ class Figure:
     def __init__(self, fault_tree, id_):
         event_from_id = fault_tree.event_from_id
         gate_from_id = fault_tree.gate_from_id
-        top_node = Figure.Node(event_from_id, gate_from_id, id_, is_top=True)
+        top_node = (
+            Figure.Node(event_from_id, gate_from_id, id_, node_above=None)
+        )
 
     class Node:
         """
@@ -1147,18 +1149,23 @@ class Figure:
         """
         WIDTH = 100
 
-        def __init__(self, event_from_id, gate_from_id, id_, is_top=False):
+        def __init__(self, event_from_id, gate_from_id, id_, node_above):
             if id_ in event_from_id.keys():  # object is Event
                 reference_object = event_from_id[id_]
                 input_nodes = []
             elif id_ in gate_from_id.keys():  # object is Gate
                 reference_object = gate = gate_from_id[id_]
-                if gate.is_paged and not is_top:
+                if gate.is_paged and node_above is not None:
                     input_ids = []
                 else:
                     input_ids = gate.input_ids
                 input_nodes = [
-                    Figure.Node(event_from_id, gate_from_id, input_id)
+                    Figure.Node(
+                        event_from_id,
+                        gate_from_id,
+                        input_id,
+                        node_above=self,
+                    )
                     for input_id in input_ids
                 ]
             else:
@@ -1173,6 +1180,7 @@ class Figure:
             else:
                 width = Figure.Node.WIDTH
 
+            self.node_above = node_above
             self.reference_object = reference_object
             self.input_nodes = input_nodes
             self.width = width
