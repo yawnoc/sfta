@@ -1219,16 +1219,18 @@ class Figure:
             self.y = None
 
         def position_recursive(self):
-            if self.node_above is None:
+            node_above = self.node_above
+            if node_above is None:
                 self.x = 0
                 self.y = 0
             else:
-                node_above_inputs = self.node_above.input_nodes
+                node_above_inputs = node_above.input_nodes
                 input_index = node_above_inputs.index(self)
                 nodes_before = node_above_inputs[0:input_index]
                 width_before = sum(node.width for node in nodes_before)
-                self.x = width_before + self.width//2
-                self.y = self.node_above.y + Figure.Node.HEIGHT
+                x_offset = -node_above.width//2 + width_before + self.width//2
+                self.x = node_above.x + x_offset
+                self.y = node_above.y + Figure.Node.HEIGHT
 
             for input_node in self.input_nodes:
                 input_node.position_recursive()

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 800 1600" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="0" text-anchor="middle">FPS</text><text x="100" y="200" text-anchor="middle">FDS</text><text x="50" y="400" text-anchor="middle">x1</text>
-<text x="150" y="400" text-anchor="middle">x2</text>
-<text x="450" y="200" text-anchor="middle">FSS</text><text x="50" y="400" text-anchor="middle">x3</text>
-<text x="250" y="400" text-anchor="middle">TS</text><text x="50" y="600" text-anchor="middle">x5</text>
-<text x="200" y="600" text-anchor="middle">RC</text><text x="50" y="800" text-anchor="middle">x6</text>
-<text x="150" y="800" text-anchor="middle">x7</text>
-<text x="450" y="400" text-anchor="middle">x4</text>
+<text x="0" y="0" text-anchor="middle">FPS</text><text x="-250" y="200" text-anchor="middle">FDS</text><text x="-300" y="400" text-anchor="middle">x1</text>
+<text x="-200" y="400" text-anchor="middle">x2</text>
+<text x="100" y="200" text-anchor="middle">FSS</text><text x="-100" y="400" text-anchor="middle">x3</text>
+<text x="100" y="400" text-anchor="middle">TS</text><text x="0" y="600" text-anchor="middle">x5</text>
+<text x="150" y="600" text-anchor="middle">RC</text><text x="100" y="800" text-anchor="middle">x6</text>
+<text x="200" y="800" text-anchor="middle">x7</text>
+<text x="300" y="400" text-anchor="middle">x4</text>
 </svg>
