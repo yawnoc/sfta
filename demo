@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for txt_file in demos/*.txt; do
+  python3 sfta.py $txt_file
+done
