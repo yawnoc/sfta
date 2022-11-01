@@ -4,6 +4,7 @@
 path, rect {
   fill: lightyellow;
   stroke: black;
+  stroke-width: 1.3;
 }
 text {
   dominant-baseline: middle;

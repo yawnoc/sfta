@@ -4,6 +4,7 @@
 path, rect {
   fill: lightyellow;
   stroke: black;
+  stroke-width: 1.3;
 }
 text {
   dominant-baseline: middle;
@@ -16,7 +17,7 @@ text {
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">AND_1</text>
-
+<path d="M-30,72 L30,72 L30,34 C30,-6 -30,-6 -30,34 L-30,72 "/>
 <rect x="-1045" y="107" width="90" height="66"/>
 <text x="-1000" y="140"></text>
 <rect x="-1045" y="176" width="90" height="20"/>
@@ -36,7 +37,7 @@ text {
 <text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">AND_2</text>
-
+<path d="M70,472 L130,472 L130,434 C130,394 70,394 70,434 L70,472 "/>
 <rect x="-845" y="507" width="90" height="66"/>
 <text x="-800" y="540"></text>
 <rect x="-845" y="576" width="90" height="20"/>
@@ -56,7 +57,7 @@ text {
 <text x="200" y="740"></text>
 <rect x="155" y="776" width="90" height="20"/>
 <text x="200" y="786">AND_3</text>
-
+<path d="M170,872 L230,872 L230,834 C230,794 170,794 170,834 L170,872 "/>
 <rect x="-645" y="907" width="90" height="66"/>
 <text x="-600" y="940"></text>
 <rect x="-645" y="976" width="90" height="20"/>
@@ -76,7 +77,7 @@ text {
 <text x="300" y="1140"></text>
 <rect x="255" y="1176" width="90" height="20"/>
 <text x="300" y="1186">AND_4</text>
-
+<path d="M270,1272 L330,1272 L330,1234 C330,1194 270,1194 270,1234 L270,1272 "/>
 <rect x="-445" y="1307" width="90" height="66"/>
 <text x="-400" y="1340"></text>
 <rect x="-445" y="1376" width="90" height="20"/>
@@ -96,7 +97,7 @@ text {
 <text x="400" y="1540"></text>
 <rect x="355" y="1576" width="90" height="20"/>
 <text x="400" y="1586">AND_5</text>
-
+<path d="M370,1672 L430,1672 L430,1634 C430,1594 370,1594 370,1634 L370,1672 "/>
 <rect x="-245" y="1707" width="90" height="66"/>
 <text x="-200" y="1740"></text>
 <rect x="-245" y="1776" width="90" height="20"/>
@@ -116,7 +117,7 @@ text {
 <text x="500" y="1940"></text>
 <rect x="455" y="1976" width="90" height="20"/>
 <text x="500" y="1986">AND_6</text>
-
+<path d="M470,2072 L530,2072 L530,2034 C530,1994 470,1994 470,2034 L470,2072 "/>
 <rect x="-45" y="2107" width="90" height="66"/>
 <text x="0" y="2140"></text>
 <rect x="-45" y="2176" width="90" height="20"/>
@@ -136,7 +137,7 @@ text {
 <text x="600" y="2340"></text>
 <rect x="555" y="2376" width="90" height="20"/>
 <text x="600" y="2386">AND_7</text>
-
+<path d="M570,2472 L630,2472 L630,2434 C630,2394 570,2394 570,2434 L570,2472 "/>
 <rect x="155" y="2507" width="90" height="66"/>
 <text x="200" y="2540"></text>
 <rect x="155" y="2576" width="90" height="20"/>
@@ -156,7 +157,7 @@ text {
 <text x="700" y="2740"></text>
 <rect x="655" y="2776" width="90" height="20"/>
 <text x="700" y="2786">AND_8</text>
-
+<path d="M670,2872 L730,2872 L730,2834 C730,2794 670,2794 670,2834 L670,2872 "/>
 <rect x="355" y="2907" width="90" height="66"/>
 <text x="400" y="2940"></text>
 <rect x="355" y="2976" width="90" height="20"/>
@@ -176,7 +177,7 @@ text {
 <text x="800" y="3140"></text>
 <rect x="755" y="3176" width="90" height="20"/>
 <text x="800" y="3186">AND_9</text>
-
+<path d="M770,3272 L830,3272 L830,3234 C830,3194 770,3194 770,3234 L770,3272 "/>
 <rect x="555" y="3307" width="90" height="66"/>
 <text x="600" y="3340"></text>
 <rect x="555" y="3376" width="90" height="20"/>
@@ -196,7 +197,7 @@ text {
 <text x="900" y="3540"></text>
 <rect x="855" y="3576" width="90" height="20"/>
 <text x="900" y="3586">AND_10</text>
-
+<path d="M870,3672 L930,3672 L930,3634 C930,3594 870,3594 870,3634 L870,3672 "/>
 <rect x="755" y="3707" width="90" height="66"/>
 <text x="800" y="3740"></text>
 <rect x="755" y="3776" width="90" height="20"/>

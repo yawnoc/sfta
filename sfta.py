@@ -1197,6 +1197,7 @@ class Figure:
             f'path, rect {{\n'
             f'  fill: lightyellow;\n'
             f'  stroke: black;\n'
+            f'  stroke-width: 1.3;\n'
             f'}}\n'
             f'text {{\n'
             f'  dominant-baseline: middle;\n'
@@ -1239,11 +1240,16 @@ class Node:
     OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
     OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
     OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
-    OR_SLANT_DROP = round(0.01 * HEIGHT)  # control points, from apex
-    OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, from apex
-    OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, from toes
+    OR_SLANT_DROP = round(0.01 * HEIGHT)  # control points, below apex
+    OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, beside apex
+    OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, above toes
     OR_GROIN_RISE = round(0.13 * HEIGHT)  # control point, between toes
     OR_HALF_WIDTH = round(0.32 * WIDTH)
+
+    AND_NECK_HEIGHT = round(0.03 * HEIGHT)  # ears, above centre
+    AND_BODY_HEIGHT = round(0.16 * HEIGHT)  # toes, below centre
+    AND_SLING_RISE = round(0.2 * HEIGHT)  # control points, above toes
+    AND_HALF_WIDTH = round(0.3 * WIDTH)
 
     SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
 
@@ -1391,7 +1397,7 @@ class Node:
             return Node.or_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_AND:
-            return ''  # TODO: Node.and_symbol_element(x, y)
+            return Node.and_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_EVENT:
             return ''  # TODO: Node.event_symbol_element(x, y)
@@ -1428,6 +1434,26 @@ class Node:
             f'Q{groin_x},{groin_y} {right_x},{toe_y} '
             f'L{right_x},{ear_y} '
             f'C{right_x},{sling_y} {right_slant_x},{slant_y} {apex_x},{apex_y}'
+        )
+
+        return f'<path d="{commands}"/>'
+
+    @staticmethod
+    def and_symbol_element(x, y):
+        left_x = x - Node.AND_HALF_WIDTH
+        right_x = x + Node.AND_HALF_WIDTH
+
+        ear_y = y - Node.AND_NECK_HEIGHT + Node.SYMBOL_Y_OFFSET
+        toe_y = y + Node.AND_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        sling_y = ear_y - Node.AND_SLING_RISE
+
+        commands = (
+            f'M{left_x},{toe_y} '
+            f'L{right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
         )
 
         return f'<path d="{commands}"/>'

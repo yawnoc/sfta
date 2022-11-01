@@ -4,6 +4,7 @@
 path, rect {
   fill: lightyellow;
   stroke: black;
+  stroke-width: 1.3;
 }
 text {
   dominant-baseline: middle;
@@ -16,7 +17,7 @@ text {
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G6</text>
-
+<path d="M-30,72 L30,72 L30,34 C30,-6 -30,-6 -30,34 L-30,72 "/>
 <rect x="-395" y="107" width="90" height="66"/>
 <text x="-350" y="140">Pressure vaporizer not functioning</text>
 <rect x="-395" y="176" width="90" height="20"/>
@@ -31,7 +32,7 @@ text {
 <text x="0" y="340"></text>
 <rect x="-45" y="376" width="90" height="20"/>
 <text x="0" y="386">G14</text>
-
+<path d="M-30,472 L30,472 L30,434 C30,394 -30,394 -30,434 L-30,472 "/>
 <rect x="-295" y="507" width="90" height="66"/>
 <text x="-250" y="540">Instrument air supply fails</text>
 <rect x="-295" y="576" width="90" height="20"/>
@@ -41,7 +42,7 @@ text {
 <text x="0" y="540"></text>
 <rect x="-45" y="576" width="90" height="20"/>
 <text x="0" y="586">G17</text>
-
+<path d="M-30,672 L30,672 L30,634 C30,594 -30,594 -30,634 L-30,672 "/>
 <rect x="-195" y="707" width="90" height="66"/>
 <text x="-150" y="740">Deposit manometric pressure &lt; 1.96 bar</text>
 <rect x="-195" y="776" width="90" height="20"/>
@@ -51,7 +52,7 @@ text {
 <text x="50" y="740"></text>
 <rect x="5" y="776" width="90" height="20"/>
 <text x="50" y="786">G19</text>
-
+<path d="M20,872 L80,872 L80,834 C80,794 20,794 20,834 L20,872 "/>
 <rect x="-95" y="907" width="90" height="66"/>
 <text x="-50" y="940">Pressure measurement P1 fails</text>
 <rect x="-95" y="976" width="90" height="20"/>

@@ -4,6 +4,7 @@
 path, rect {
   fill: lightyellow;
   stroke: black;
+  stroke-width: 1.3;
 }
 text {
   dominant-baseline: middle;
@@ -16,12 +17,12 @@ text {
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G7</text>
-
+<path d="M-30,72 L30,72 L30,34 C30,-6 -30,-6 -30,34 L-30,72 "/>
 <rect x="-845" y="107" width="90" height="66"/>
 <text x="-800" y="140"></text>
 <rect x="-845" y="176" width="90" height="20"/>
 <text x="-800" y="186">G11</text>
-
+<path d="M-830,272 L-770,272 L-770,234 C-770,194 -830,194 -830,234 L-830,272 "/>
 <rect x="-895" y="307" width="90" height="66"/>
 <text x="-850" y="340">Ethylene pump fails</text>
 <rect x="-895" y="376" width="90" height="20"/>
@@ -46,7 +47,7 @@ text {
 <text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">G15</text>
-
+<path d="M70,472 L130,472 L130,434 C130,394 70,394 70,434 L70,472 "/>
 <rect x="-595" y="507" width="90" height="66"/>
 <text x="-550" y="540">Instrument air supply fails</text>
 <rect x="-595" y="576" width="90" height="20"/>
@@ -61,7 +62,7 @@ text {
 <text x="-300" y="740"></text>
 <rect x="-345" y="776" width="90" height="20"/>
 <text x="-300" y="786">G20</text>
-
+<path d="M-330,872 L-270,872 L-270,834 C-270,794 -330,794 -330,834 L-330,872 "/>
 <rect x="-495" y="907" width="90" height="66"/>
 <text x="-450" y="940">Exit temperature below −10°C</text>
 <rect x="-495" y="976" width="90" height="20"/>
@@ -71,7 +72,7 @@ text {
 <text x="-250" y="940"></text>
 <rect x="-295" y="976" width="90" height="20"/>
 <text x="-250" y="986">G23</text>
-
+<path d="M-280,1072 L-220,1072 L-220,1034 C-220,994 -280,994 -280,1034 L-280,1072 "/>
 <rect x="-395" y="1107" width="90" height="66"/>
 <text x="-350" y="1140">Temperature measurement T1 fails</text>
 <rect x="-395" y="1176" width="90" height="20"/>
@@ -91,7 +92,7 @@ text {
 <text x="100" y="740"></text>
 <rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">G21</text>
-
+<path d="M70,872 L130,872 L130,834 C130,794 70,794 70,834 L70,872 "/>
 <rect x="-95" y="907" width="90" height="66"/>
 <text x="-50" y="940">Exit manometric pressure &gt; 16.18 bar</text>
 <rect x="-95" y="976" width="90" height="20"/>
@@ -101,7 +102,7 @@ text {
 <text x="150" y="940"></text>
 <rect x="105" y="976" width="90" height="20"/>
 <text x="150" y="986">G24</text>
-
+<path d="M120,1072 L180,1072 L180,1034 C180,994 120,994 120,1034 L120,1072 "/>
 <rect x="5" y="1107" width="90" height="66"/>
 <text x="50" y="1140">Pressure measurement P2 fails</text>
 <rect x="5" y="1176" width="90" height="20"/>
@@ -121,7 +122,7 @@ text {
 <text x="500" y="740"></text>
 <rect x="455" y="776" width="90" height="20"/>
 <text x="500" y="786">G22</text>
-
+<path d="M470,872 L530,872 L530,834 C530,794 470,794 470,834 L470,872 "/>
 <rect x="305" y="907" width="90" height="66"/>
 <text x="350" y="940">Exit flow &gt; demand</text>
 <rect x="305" y="976" width="90" height="20"/>
@@ -131,7 +132,7 @@ text {
 <text x="550" y="940"></text>
 <rect x="505" y="976" width="90" height="20"/>
 <text x="550" y="986">G25</text>
-
+<path d="M520,1072 L580,1072 L580,1034 C580,994 520,994 520,1034 L520,1072 "/>
 <rect x="405" y="1107" width="90" height="66"/>
 <text x="450" y="1140">Flow measurement F1 fails</text>
 <rect x="405" y="1176" width="90" height="20"/>
