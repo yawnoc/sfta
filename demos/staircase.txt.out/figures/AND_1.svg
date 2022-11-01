@@ -5,25 +5,45 @@ text {
   text-anchor: middle;
 }
 </style>
-<text x="0" y="0">AND_1</text><text x="-1000" y="200">A_1</text>
-<text x="50" y="200">OR_1</text><text x="-900" y="400">O_1</text>
-<text x="100" y="400">AND_2</text><text x="-800" y="600">A_2</text>
-<text x="150" y="600">OR_2</text><text x="-700" y="800">O_2</text>
-<text x="200" y="800">AND_3</text><text x="-600" y="1000">A_3</text>
-<text x="250" y="1000">OR_3</text><text x="-500" y="1200">O_3</text>
-<text x="300" y="1200">AND_4</text><text x="-400" y="1400">A_4</text>
-<text x="350" y="1400">OR_4</text><text x="-300" y="1600">O_4</text>
-<text x="400" y="1600">AND_5</text><text x="-200" y="1800">A_5</text>
-<text x="450" y="1800">OR_5</text><text x="-100" y="2000">O_5</text>
-<text x="500" y="2000">AND_6</text><text x="0" y="2200">A_6</text>
-<text x="550" y="2200">OR_6</text><text x="100" y="2400">O_6</text>
-<text x="600" y="2400">AND_7</text><text x="200" y="2600">A_7</text>
-<text x="650" y="2600">OR_7</text><text x="300" y="2800">O_7</text>
-<text x="700" y="2800">AND_8</text><text x="400" y="3000">A_8</text>
-<text x="750" y="3000">OR_8</text><text x="500" y="3200">O_8</text>
-<text x="800" y="3200">AND_9</text><text x="600" y="3400">A_9</text>
-<text x="850" y="3400">OR_9</text><text x="700" y="3600">O_9</text>
-<text x="900" y="3600">AND_10</text><text x="800" y="3800">A_10</text>
-<text x="950" y="3800">OR_10</text><text x="900" y="4000">O_10</text>
-<text x="1000" y="4000">L</text>
+<text x="0" y="-14">AND_1</text>
+<text x="-1000" y="186">A_1</text>
+<text x="50" y="186">OR_1</text>
+<text x="-900" y="386">O_1</text>
+<text x="100" y="386">AND_2</text>
+<text x="-800" y="586">A_2</text>
+<text x="150" y="586">OR_2</text>
+<text x="-700" y="786">O_2</text>
+<text x="200" y="786">AND_3</text>
+<text x="-600" y="986">A_3</text>
+<text x="250" y="986">OR_3</text>
+<text x="-500" y="1186">O_3</text>
+<text x="300" y="1186">AND_4</text>
+<text x="-400" y="1386">A_4</text>
+<text x="350" y="1386">OR_4</text>
+<text x="-300" y="1586">O_4</text>
+<text x="400" y="1586">AND_5</text>
+<text x="-200" y="1786">A_5</text>
+<text x="450" y="1786">OR_5</text>
+<text x="-100" y="1986">O_5</text>
+<text x="500" y="1986">AND_6</text>
+<text x="0" y="2186">A_6</text>
+<text x="550" y="2186">OR_6</text>
+<text x="100" y="2386">O_6</text>
+<text x="600" y="2386">AND_7</text>
+<text x="200" y="2586">A_7</text>
+<text x="650" y="2586">OR_7</text>
+<text x="300" y="2786">O_7</text>
+<text x="700" y="2786">AND_8</text>
+<text x="400" y="2986">A_8</text>
+<text x="750" y="2986">OR_8</text>
+<text x="500" y="3186">O_8</text>
+<text x="800" y="3186">AND_9</text>
+<text x="600" y="3386">A_9</text>
+<text x="850" y="3386">OR_9</text>
+<text x="700" y="3586">O_9</text>
+<text x="900" y="3586">AND_10</text>
+<text x="800" y="3786">A_10</text>
+<text x="950" y="3786">OR_10</text>
+<text x="900" y="3986">O_10</text>
+<text x="1000" y="3986">L</text>
 </svg>

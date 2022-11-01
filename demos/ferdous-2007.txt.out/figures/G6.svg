@@ -5,12 +5,17 @@ text {
   text-anchor: middle;
 }
 </style>
-<text x="0" y="0">G6</text><text x="-350" y="200">X35</text>
-<text x="50" y="200">G10</text><text x="0" y="400">G14</text><text x="-250" y="600">X9</text>
-<text x="0" y="600">G17</text><text x="-150" y="800">X46</text>
-<text x="50" y="800">G19</text><text x="-50" y="1000">X1</text>
-<text x="50" y="1000">X2</text>
-<text x="150" y="1000">X3</text>
-<text x="250" y="600">X4</text>
-<text x="350" y="400">X5</text>
+<text x="0" y="-14">G6</text>
+<text x="-350" y="186">X35</text>
+<text x="50" y="186">G10</text>
+<text x="0" y="386">G14</text>
+<text x="-250" y="586">X9</text>
+<text x="0" y="586">G17</text>
+<text x="-150" y="786">X46</text>
+<text x="50" y="786">G19</text>
+<text x="-50" y="986">X1</text>
+<text x="50" y="986">X2</text>
+<text x="150" y="986">X3</text>
+<text x="250" y="586">X4</text>
+<text x="350" y="386">X5</text>
 </svg>

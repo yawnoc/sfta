@@ -5,7 +5,9 @@ text {
   text-anchor: middle;
 }
 </style>
-<text x="0" y="0">SYS</text><text x="-100" y="200">A</text>
-<text x="50" y="200">SUB</text><text x="0" y="400">B</text>
-<text x="100" y="400">C</text>
+<text x="0" y="-14">SYS</text>
+<text x="-100" y="186">A</text>
+<text x="50" y="186">SUB</text>
+<text x="0" y="386">B</text>
+<text x="100" y="386">C</text>
 </svg>

@@ -1181,6 +1181,8 @@ class Figure:
         WIDTH = 100
         HEIGHT = 200
 
+        ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
+
         def __init__(self, event_from_id, gate_from_id, id_, node_above):
             if id_ in event_from_id.keys():  # object is Event
                 reference_object = event_from_id[id_]
@@ -1245,16 +1247,24 @@ class Figure:
             y = self.y
             id_ = self.reference_object.id_
 
-            self_elements = (
-                f'<text x="{x}" y="{y}">{id_}</text>'
-                # TODO: label, symbol, connectors, positioning, escaping
-            )
-            input_elements = '\n'.join(
+            self_elements = [
+                Figure.Node.id_text_element(x, y, id_),
+                # TODO: label, symbol, connectors, positioning
+            ]
+            input_elements = [
                 input_node.get_svg_elements_recursive()
                 for input_node in self.input_nodes
-            )
+            ]
 
-            return ''.join([self_elements, input_elements])
+            return '\n'.join(self_elements + input_elements)
+
+        @staticmethod
+        def id_text_element(x, y, id_):
+            centre = x
+            middle = y + Figure.Node.ID_BOX_Y_OFFSET
+            content = id_  # TODO: escape &<>
+
+            return f'<text x="{centre}" y="{middle}">{content}</text>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'

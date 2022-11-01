@@ -5,11 +5,16 @@ text {
   text-anchor: middle;
 }
 </style>
-<text x="0" y="0">FPS</text><text x="-250" y="200">FDS</text><text x="-300" y="400">x1</text>
-<text x="-200" y="400">x2</text>
-<text x="100" y="200">FSS</text><text x="-100" y="400">x3</text>
-<text x="100" y="400">TS</text><text x="0" y="600">x5</text>
-<text x="150" y="600">RC</text><text x="100" y="800">x6</text>
-<text x="200" y="800">x7</text>
-<text x="300" y="400">x4</text>
+<text x="0" y="-14">FPS</text>
+<text x="-250" y="186">FDS</text>
+<text x="-300" y="386">x1</text>
+<text x="-200" y="386">x2</text>
+<text x="100" y="186">FSS</text>
+<text x="-100" y="386">x3</text>
+<text x="100" y="386">TS</text>
+<text x="0" y="586">x5</text>
+<text x="150" y="586">RC</text>
+<text x="100" y="786">x6</text>
+<text x="200" y="786">x7</text>
+<text x="300" y="386">x4</text>
 </svg>
