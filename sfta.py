@@ -1607,7 +1607,7 @@ class Node:
             )
         value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
         unit_str = Event.quantity_unit_str(quantity_type, time_unit)
-        content = escape_xml(f'{lhs} = {value_str}{unit_str}')
+        content = escape_xml(f'{lhs} ≤ {value_str}{unit_str}')
 
         return f'<text x="{centre}" y="{middle}">{content}</text>'
 
