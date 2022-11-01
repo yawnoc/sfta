@@ -3,6 +3,8 @@
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
+}
+circle, path, polygon, polyline, rect {
   stroke: black;
   stroke-width: 1.3;
 }
@@ -13,6 +15,7 @@ text {
   text-anchor: middle;
 }
 </style>
+<polyline points="0,-93 0,40"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60">Failure of Fire Protection System</text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -20,6 +23,7 @@ text {
 <path d="M0,4 C-5,6 -32,20 -32,50 L-32,76 Q0,50 32,76 L32,50 C32,20 5,6 0,4"/>
 <rect x="-45" y="27" width="90" height="26"/>
 <text x="0" y="40">Q = 0.03051</text>
+<polyline points="-250,107 -250,240"/>
 <rect x="-295" y="107" width="90" height="66"/>
 <text x="-250" y="140">Fire detection system fails</text>
 <rect x="-295" y="176" width="90" height="20"/>
@@ -27,6 +31,7 @@ text {
 <path d="M-280,272 L-220,272 L-220,234 C-220,194 -280,194 -280,234 L-280,272 "/>
 <rect x="-295" y="227" width="90" height="26"/>
 <text x="-250" y="240">Q = 0.021</text>
+<polyline points="-300,307 -300,440"/>
 <rect x="-345" y="307" width="90" height="66"/>
 <text x="-300" y="340">Failure of smoke detector sensor</text>
 <rect x="-345" y="376" width="90" height="20"/>
@@ -34,6 +39,7 @@ text {
 <circle cx="-300" cy="440" r="35"/>
 <rect x="-345" y="427" width="90" height="26"/>
 <text x="-300" y="440">Q = 0.21</text>
+<polyline points="-200,307 -200,440"/>
 <rect x="-245" y="307" width="90" height="66"/>
 <text x="-200" y="340">Failure of heat detector sensor</text>
 <rect x="-245" y="376" width="90" height="20"/>
@@ -41,6 +47,7 @@ text {
 <circle cx="-200" cy="440" r="35"/>
 <rect x="-245" y="427" width="90" height="26"/>
 <text x="-200" y="440">Q = 0.11</text>
+<polyline points="100,107 100,240"/>
 <rect x="55" y="107" width="90" height="66"/>
 <text x="100" y="140">Fire suppression system fails</text>
 <rect x="55" y="176" width="90" height="20"/>
@@ -48,6 +55,7 @@ text {
 <path d="M100,204 C95,206 68,220 68,250 L68,276 Q100,250 132,276 L132,250 C132,220 105,206 100,204"/>
 <rect x="55" y="227" width="90" height="26"/>
 <text x="100" y="240">Q = 0.01051</text>
+<polyline points="-100,307 -100,440"/>
 <rect x="-145" y="307" width="90" height="66"/>
 <text x="-100" y="340">No water to sprinkler system</text>
 <rect x="-145" y="376" width="90" height="20"/>
@@ -55,6 +63,7 @@ text {
 <circle cx="-100" cy="440" r="35"/>
 <rect x="-145" y="427" width="90" height="26"/>
 <text x="-100" y="440">Q = 0.0011</text>
+<polyline points="100,307 100,440"/>
 <rect x="55" y="307" width="90" height="66"/>
 <text x="100" y="340">Triggering system fails</text>
 <rect x="55" y="376" width="90" height="20"/>
@@ -62,6 +71,7 @@ text {
 <path d="M70,472 L130,472 L130,434 C130,394 70,394 70,434 L70,472 "/>
 <rect x="55" y="427" width="90" height="26"/>
 <text x="100" y="440">Q = 0.00751</text>
+<polyline points="0,507 0,640"/>
 <rect x="-45" y="507" width="90" height="66"/>
 <text x="0" y="540">Automatic mechanism fails</text>
 <rect x="-45" y="576" width="90" height="20"/>
@@ -69,6 +79,7 @@ text {
 <circle cx="0" cy="640" r="35"/>
 <rect x="-45" y="627" width="90" height="26"/>
 <text x="0" y="640">Q = 0.051</text>
+<polyline points="150,507 150,640"/>
 <rect x="105" y="507" width="90" height="66"/>
 <text x="150" y="540">Remote control fails</text>
 <rect x="105" y="576" width="90" height="20"/>
@@ -76,6 +87,7 @@ text {
 <path d="M150,604 C145,606 118,620 118,650 L118,676 Q150,650 182,676 L182,650 C182,620 155,606 150,604"/>
 <rect x="105" y="627" width="90" height="26"/>
 <text x="150" y="640">Q = 0.151</text>
+<polyline points="100,707 100,840"/>
 <rect x="55" y="707" width="90" height="66"/>
 <text x="100" y="740">Communications failure</text>
 <rect x="55" y="776" width="90" height="20"/>
@@ -83,6 +95,7 @@ text {
 <circle cx="100" cy="840" r="35"/>
 <rect x="55" y="827" width="90" height="26"/>
 <text x="100" y="840">Q = 0.11</text>
+<polyline points="200,707 200,840"/>
 <rect x="155" y="707" width="90" height="66"/>
 <text x="200" y="740">DDoS attack</text>
 <rect x="155" y="776" width="90" height="20"/>
@@ -90,6 +103,7 @@ text {
 <circle cx="200" cy="840" r="35"/>
 <rect x="155" y="827" width="90" height="26"/>
 <text x="200" y="840">Q = 0.051</text>
+<polyline points="300,307 300,440"/>
 <rect x="255" y="307" width="90" height="66"/>
 <text x="300" y="340">Sprinkler nozzles blocked</text>
 <rect x="255" y="376" width="90" height="20"/>

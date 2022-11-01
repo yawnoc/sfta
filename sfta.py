@@ -1197,6 +1197,8 @@ class Figure:
             f'<style>\n'
             f'circle, path, polygon, rect {{\n'
             f'  fill: lightyellow;\n'
+            f'}}\n'
+            f'circle, path, polygon, polyline, rect {{\n'
             f'  stroke: black;\n'
             f'  stroke-width: 1.3;\n'
             f'}}\n'
@@ -1352,6 +1354,8 @@ class Node:
         quantity_type = reference_object.quantity_type
 
         self_elements = [
+            Node.label_symbol_connector_element(x, y),
+            # TODO: Node.input_connector_elements(input_nodes, x, y),
             Node.label_rectangle_element(x, y),
             Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
@@ -1363,7 +1367,6 @@ class Node:
                 quantity_value, quantity_type,
                 time_unit,
             ),
-            # TODO: connectors
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
@@ -1371,6 +1374,16 @@ class Node:
         ]
 
         return '\n'.join(self_elements + input_elements)
+
+    @staticmethod
+    def label_symbol_connector_element(x, y):
+        centre = x
+        label_middle = y - Node.LABEL_BOX_HEIGHT // 2 + Node.LABEL_BOX_Y_OFFSET
+        symbol_middle = y + Node.SYMBOL_Y_OFFSET
+
+        points = f'{centre},{label_middle} {centre},{symbol_middle}'
+
+        return f'<polyline points="{points}"/>'
 
     @staticmethod
     def label_rectangle_element(x, y):
