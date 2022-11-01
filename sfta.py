@@ -1237,6 +1237,8 @@ class Node:
     ID_BOX_WIDTH = round(0.9 * WIDTH)
     ID_BOX_HEIGHT = round(0.1 * HEIGHT)
 
+    SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
+
     OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
     OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
     OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
@@ -1252,8 +1254,6 @@ class Node:
     AND_HALF_WIDTH = round(0.3 * WIDTH)
 
     EVENT_CIRCLE_RADIUS = round(0.35 * WIDTH)
-
-    SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
 
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
