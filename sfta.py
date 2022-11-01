@@ -1174,7 +1174,7 @@ class Figure:
         time_unit = fault_tree.time_unit
 
         top_node = (
-            Node(event_from_id, gate_from_id, time_unit, id_, node_above=None)
+            Node(event_from_id, gate_from_id, time_unit, id_, to_node=None)
         )
         top_node.position_recursive()
 
@@ -1264,14 +1264,14 @@ class Node:
     QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
     QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
 
-    def __init__(self, event_from_id, gate_from_id, time_unit, id_, node_above):
+    def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event
             reference_object = event_from_id[id_]
             symbol_type = Node.SYMBOL_TYPE_EVENT
             input_nodes = []
         elif id_ in gate_from_id.keys():  # object is Gate
             reference_object = gate = gate_from_id[id_]
-            if gate.is_paged and node_above is not None:
+            if gate.is_paged and to_node is not None:
                 input_ids = []
                 symbol_type = Node.SYMBOL_TYPE_PAGED
             else:
@@ -1293,7 +1293,7 @@ class Node:
                     gate_from_id,
                     time_unit,
                     input_id,
-                    node_above=self,
+                    to_node=self,
                 )
                 for input_id in input_ids
             ]
@@ -1311,7 +1311,7 @@ class Node:
             width = Node.WIDTH
             height = Node.HEIGHT
 
-        self.node_above = node_above
+        self.node_above = to_node
         self.reference_object = reference_object
         self.symbol_type = symbol_type
         self.time_unit = time_unit
