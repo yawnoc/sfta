@@ -1334,7 +1334,7 @@ class Node:
     def position_recursive(self):
         node_above = self.node_above
         if node_above is None:
-            self.x = 0
+            self.x = self.width // 2
             self.y = 0
         else:
             node_above_inputs = node_above.input_nodes

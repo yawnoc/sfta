@@ -18,42 +18,42 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="0,-93 0,40"/>
-<polyline points="-14,40 -14,90 -100,90 -100,140"/>
-<polyline points="0,40 0,90 0,90 0,140"/>
-<polyline points="14,40 14,90 100,90 100,140"/>
-<rect x="-45" y="-93" width="90" height="66"/>
-<text x="0" y="-60"></text>
-<rect x="-45" y="-24" width="90" height="20"/>
-<text x="0" y="-14">G3</text>
-<path d="M0,4 C-5,6 -32,20 -32,50 L-32,76 Q0,50 32,76 L32,50 C32,20 5,6 0,4"/>
-<rect x="-45" y="27" width="90" height="26"/>
-<text x="0" y="40">Q ≤ 0.11921</text>
-<polyline points="-100,107 -100,240"/>
+<polyline points="150,-93 150,40"/>
+<polyline points="136,40 136,90 50,90 50,140"/>
+<polyline points="150,40 150,90 150,90 150,140"/>
+<polyline points="164,40 164,90 250,90 250,140"/>
+<rect x="105" y="-93" width="90" height="66"/>
+<text x="150" y="-60"></text>
+<rect x="105" y="-24" width="90" height="20"/>
+<text x="150" y="-14">G3</text>
+<path d="M150,4 C145,6 118,20 118,50 L118,76 Q150,50 182,76 L182,50 C182,20 155,6 150,4"/>
+<rect x="105" y="27" width="90" height="26"/>
+<text x="150" y="40">Q ≤ 0.11921</text>
+<polyline points="50,107 50,240"/>
 
-<rect x="-145" y="107" width="90" height="66"/>
-<text x="-100" y="140">Pipe work fire</text>
-<rect x="-145" y="176" width="90" height="20"/>
-<text x="-100" y="186">X32</text>
-<circle cx="-100" cy="240" r="35"/>
-<rect x="-145" y="227" width="90" height="26"/>
-<text x="-100" y="240">Q = 0.018091</text>
-<polyline points="0,107 0,240"/>
+<rect x="5" y="107" width="90" height="66"/>
+<text x="50" y="140">Pipe work fire</text>
+<rect x="5" y="176" width="90" height="20"/>
+<text x="50" y="186">X32</text>
+<circle cx="50" cy="240" r="35"/>
+<rect x="5" y="227" width="90" height="26"/>
+<text x="50" y="240">Q = 0.018091</text>
+<polyline points="150,107 150,240"/>
 
-<rect x="-45" y="107" width="90" height="66"/>
-<text x="0" y="140"></text>
-<rect x="-45" y="176" width="90" height="20"/>
-<text x="0" y="186">G6</text>
-<polygon points="0,206 -35,274 35,274"/>
-<rect x="-45" y="227" width="90" height="26"/>
-<text x="0" y="240">Q ≤ 0.066321</text>
-<polyline points="100,107 100,240"/>
+<rect x="105" y="107" width="90" height="66"/>
+<text x="150" y="140"></text>
+<rect x="105" y="176" width="90" height="20"/>
+<text x="150" y="186">G6</text>
+<polygon points="150,206 115,274 185,274"/>
+<rect x="105" y="227" width="90" height="26"/>
+<text x="150" y="240">Q ≤ 0.066321</text>
+<polyline points="250,107 250,240"/>
 
-<rect x="55" y="107" width="90" height="66"/>
-<text x="100" y="140"></text>
-<rect x="55" y="176" width="90" height="20"/>
-<text x="100" y="186">G7</text>
-<polygon points="100,206 65,274 135,274"/>
-<rect x="55" y="227" width="90" height="26"/>
-<text x="100" y="240">Q ≤ 0.034811</text>
+<rect x="205" y="107" width="90" height="66"/>
+<text x="250" y="140"></text>
+<rect x="205" y="176" width="90" height="20"/>
+<text x="250" y="186">G7</text>
+<polygon points="250,206 215,274 285,274"/>
+<rect x="205" y="227" width="90" height="26"/>
+<text x="250" y="240">Q ≤ 0.034811</text>
 </svg>
