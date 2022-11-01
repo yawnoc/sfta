@@ -1194,7 +1194,14 @@ class Figure:
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
             f'<style>\n'
+            f'rect {{\n'
+            f'  fill: lightyellow;\n'
+            f'  stroke: black;\n'
+            f'}}\n'
             f'text {{\n'
+            f'  dominant-baseline: middle;\n'
+            f'  font-family: Arial, sans-serif;\n'
+            f'  font-size: 12px;\n'
             f'  text-anchor: middle;\n'
             f'}}\n'
             f'</style>\n'
@@ -1216,6 +1223,8 @@ class Node:
     HEIGHT = 200
 
     ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
+    ID_BOX_WIDTH = round(0.9 * WIDTH)
+    ID_BOX_HEIGHT = round(0.1 * HEIGHT)
 
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
@@ -1282,6 +1291,7 @@ class Node:
         id_ = self.reference_object.id_
 
         self_elements = [
+            Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
             # TODO: label, symbol, connectors, positioning
         ]
@@ -1291,6 +1301,17 @@ class Node:
         ]
 
         return '\n'.join(self_elements + input_elements)
+
+    @staticmethod
+    def id_rectangle_element(x, y):
+        left = x - Node.ID_BOX_WIDTH // 2
+        top = y - Node.ID_BOX_HEIGHT // 2 + Node.ID_BOX_Y_OFFSET
+        width = Node.ID_BOX_WIDTH
+        height = Node.ID_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
 
     @staticmethod
     def id_text_element(x, y, id_):

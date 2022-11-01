@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 800 1600" xmlns="http://www.w3.org/2000/svg">
 <style>
+rect {
+  fill: lightyellow;
+  stroke: black;
+}
 text {
+  dominant-baseline: middle;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
   text-anchor: middle;
 }
 </style>
+<rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">FPS</text>
+<rect x="-295" y="176" width="90" height="20"/>
 <text x="-250" y="186">FDS</text>
+<rect x="-345" y="376" width="90" height="20"/>
 <text x="-300" y="386">x1</text>
+<rect x="-245" y="376" width="90" height="20"/>
 <text x="-200" y="386">x2</text>
+<rect x="55" y="176" width="90" height="20"/>
 <text x="100" y="186">FSS</text>
+<rect x="-145" y="376" width="90" height="20"/>
 <text x="-100" y="386">x3</text>
+<rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">TS</text>
+<rect x="-45" y="576" width="90" height="20"/>
 <text x="0" y="586">x5</text>
+<rect x="105" y="576" width="90" height="20"/>
 <text x="150" y="586">RC</text>
+<rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">x6</text>
+<rect x="155" y="776" width="90" height="20"/>
 <text x="200" y="786">x7</text>
+<rect x="255" y="376" width="90" height="20"/>
 <text x="300" y="386">x4</text>
 </svg>
