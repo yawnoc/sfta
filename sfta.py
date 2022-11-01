@@ -1302,7 +1302,7 @@ class Node:
             Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
-            # TODO: label, symbol, connectors, positioning
+            # TODO: symbol, quantity, connectors
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
