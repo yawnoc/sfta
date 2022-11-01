@@ -1166,7 +1166,7 @@ class Figure:
             f'}}\n'
             f'</style>\n'
             f'{elements}\n'
-            f'</svg>'
+            f'</svg>\n'
         )
 
     def write_svg(self, file_name):
