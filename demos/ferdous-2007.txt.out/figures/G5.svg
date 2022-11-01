@@ -16,56 +16,70 @@ text {
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G5</text>
+
 <rect x="-445" y="107" width="90" height="66"/>
 <text x="-400" y="140">No discharge via V2</text>
 <rect x="-445" y="176" width="90" height="20"/>
 <text x="-400" y="186">X40</text>
+
 <rect x="-95" y="107" width="90" height="66"/>
 <text x="-50" y="140"></text>
 <rect x="-95" y="176" width="90" height="20"/>
 <text x="-50" y="186">G8</text>
+
 <rect x="-345" y="307" width="90" height="66"/>
 <text x="-300" y="340">No discharge via V2</text>
 <rect x="-345" y="376" width="90" height="20"/>
 <text x="-300" y="386">X40</text>
+
 <rect x="-95" y="307" width="90" height="66"/>
 <text x="-50" y="340"></text>
 <rect x="-95" y="376" width="90" height="20"/>
 <text x="-50" y="386">G13</text>
+
 <rect x="-245" y="507" width="90" height="66"/>
 <text x="-200" y="540">V2 fails closed</text>
 <rect x="-245" y="576" width="90" height="20"/>
 <text x="-200" y="586">X8</text>
+
 <rect x="-45" y="507" width="90" height="66"/>
 <text x="0" y="540"></text>
 <rect x="-45" y="576" width="90" height="20"/>
 <text x="0" y="586">G16</text>
+
 <rect x="-145" y="707" width="90" height="66"/>
 <text x="-100" y="740">Pressure measurement P1 fails</text>
 <rect x="-145" y="776" width="90" height="20"/>
 <text x="-100" y="786">X1</text>
+
 <rect x="-45" y="707" width="90" height="66"/>
 <text x="0" y="740">Valve positioner V2 fails</text>
 <rect x="-45" y="776" width="90" height="20"/>
 <text x="0" y="786">X6</text>
+
 <rect x="55" y="707" width="90" height="66"/>
 <text x="100" y="740">Signal transmission P1-V2 fails</text>
 <rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">X7</text>
+
 <rect x="155" y="307" width="90" height="66"/>
 <text x="200" y="340">Instrument air supply fails</text>
 <rect x="155" y="376" width="90" height="20"/>
 <text x="200" y="386">X9</text>
+
 <rect x="305" y="107" width="90" height="66"/>
 <text x="350" y="140"></text>
 <rect x="305" y="176" width="90" height="20"/>
 <text x="350" y="186">G9</text>
+
 <rect x="255" y="307" width="90" height="66"/>
 <text x="300" y="340">No discharge via V2</text>
 <rect x="255" y="376" width="90" height="20"/>
 <text x="300" y="386">X40</text>
+
 <rect x="355" y="307" width="90" height="66"/>
 <text x="400" y="340">Instrument air supply fails</text>
 <rect x="355" y="376" width="90" height="20"/>
 <text x="400" y="386">X9</text>
+
 </svg>

@@ -687,7 +687,7 @@ class Gate:
         else:
             raise RuntimeError(
                 f'Implementation error: '
-                f'Gate `type` is neither `TYPE_AND` nor `TYPE_OR`.'
+                f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
             )
 
     def compute_quantity(self, quantity_value_from_event_index):
@@ -1219,6 +1219,12 @@ class Node:
     """
     A node which instantiates recursively, of a figure.
     """
+    SYMBOL_TYPE_NULL = -1
+    SYMBOL_TYPE_OR = 0
+    SYMBOL_TYPE_AND = 1
+    SYMBOL_TYPE_EVENT = 2
+    SYMBOL_TYPE_PAGED = 3
+
     WIDTH = 100
     HEIGHT = 200
 
@@ -1233,13 +1239,26 @@ class Node:
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
             reference_object = event_from_id[id_]
+            symbol_type = Node.SYMBOL_TYPE_EVENT
             input_nodes = []
         elif id_ in gate_from_id.keys():  # object is Gate
             reference_object = gate = gate_from_id[id_]
             if gate.is_paged and node_above is not None:
                 input_ids = []
+                symbol_type = Node.SYMBOL_TYPE_PAGED
             else:
                 input_ids = gate.input_ids
+                if len(input_ids) == 1:
+                    symbol_type = Node.SYMBOL_TYPE_NULL
+                elif gate.type_ == Gate.TYPE_OR:
+                    symbol_type = Node.SYMBOL_TYPE_OR
+                elif gate.type_ == Gate.TYPE_AND:
+                    symbol_type = Node.SYMBOL_TYPE_AND
+                else:
+                    raise RuntimeError(
+                        f'Implementation error: '
+                        f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
+                    )
             input_nodes = [
                 Node(
                     event_from_id,
@@ -1265,6 +1284,7 @@ class Node:
 
         self.node_above = node_above
         self.reference_object = reference_object
+        self.symbol_type = symbol_type
         self.input_nodes = input_nodes
         self.width = width
         self.height = height
@@ -1292,6 +1312,7 @@ class Node:
     def get_svg_elements_recursive(self):
         x = self.x
         y = self.y
+        symbol_type = self.symbol_type
 
         reference_object = self.reference_object
         id_ = reference_object.id_
@@ -1302,7 +1323,8 @@ class Node:
             Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
-            # TODO: symbol, quantity, connectors
+            Node.symbol_element(x, y, symbol_type)
+            # TODO: quantity, connectors
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
@@ -1351,6 +1373,22 @@ class Node:
         content = escape_xml(id_)
 
         return f'<text x="{centre}" y="{middle}">{content}</text>'
+
+    @staticmethod
+    def symbol_element(x, y, symbol_type):
+        if symbol_type == Node.SYMBOL_TYPE_OR:
+            return ''  # TODO: Node.or_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_AND:
+            return ''  # TODO: Node.and_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_EVENT:
+            return ''  # TODO: Node.event_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_PAGED:
+            return ''  # TODO: Node.paged_symbol_element(x, y)
+
+        return ''
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
