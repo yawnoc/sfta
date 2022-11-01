@@ -18,69 +18,83 @@ text {
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G5</text>
 <path d="M0,4 C-5,6 -32,20 -32,50 L-32,76 Q0,50 32,76 L32,50 C32,20 5,6 0,4"/>
+<rect x="-45" y="27" width="90" height="26"/>
 <rect x="-445" y="107" width="90" height="66"/>
 <text x="-400" y="140">No discharge via V2</text>
 <rect x="-445" y="176" width="90" height="20"/>
 <text x="-400" y="186">X40</text>
 <circle cx="-400" cy="240" r="35"/>
+<rect x="-445" y="227" width="90" height="26"/>
 <rect x="-95" y="107" width="90" height="66"/>
 <text x="-50" y="140"></text>
 <rect x="-95" y="176" width="90" height="20"/>
 <text x="-50" y="186">G8</text>
 <path d="M-80,272 L-20,272 L-20,234 C-20,194 -80,194 -80,234 L-80,272 "/>
+<rect x="-95" y="227" width="90" height="26"/>
 <rect x="-345" y="307" width="90" height="66"/>
 <text x="-300" y="340">No discharge via V2</text>
 <rect x="-345" y="376" width="90" height="20"/>
 <text x="-300" y="386">X40</text>
 <circle cx="-300" cy="440" r="35"/>
+<rect x="-345" y="427" width="90" height="26"/>
 <rect x="-95" y="307" width="90" height="66"/>
 <text x="-50" y="340"></text>
 <rect x="-95" y="376" width="90" height="20"/>
 <text x="-50" y="386">G13</text>
 <path d="M-50,404 C-55,406 -82,420 -82,450 L-82,476 Q-50,450 -18,476 L-18,450 C-18,420 -45,406 -50,404"/>
+<rect x="-95" y="427" width="90" height="26"/>
 <rect x="-245" y="507" width="90" height="66"/>
 <text x="-200" y="540">V2 fails closed</text>
 <rect x="-245" y="576" width="90" height="20"/>
 <text x="-200" y="586">X8</text>
 <circle cx="-200" cy="640" r="35"/>
+<rect x="-245" y="627" width="90" height="26"/>
 <rect x="-45" y="507" width="90" height="66"/>
 <text x="0" y="540"></text>
 <rect x="-45" y="576" width="90" height="20"/>
 <text x="0" y="586">G16</text>
 <path d="M0,604 C-5,606 -32,620 -32,650 L-32,676 Q0,650 32,676 L32,650 C32,620 5,606 0,604"/>
+<rect x="-45" y="627" width="90" height="26"/>
 <rect x="-145" y="707" width="90" height="66"/>
 <text x="-100" y="740">Pressure measurement P1 fails</text>
 <rect x="-145" y="776" width="90" height="20"/>
 <text x="-100" y="786">X1</text>
 <circle cx="-100" cy="840" r="35"/>
+<rect x="-145" y="827" width="90" height="26"/>
 <rect x="-45" y="707" width="90" height="66"/>
 <text x="0" y="740">Valve positioner V2 fails</text>
 <rect x="-45" y="776" width="90" height="20"/>
 <text x="0" y="786">X6</text>
 <circle cx="0" cy="840" r="35"/>
+<rect x="-45" y="827" width="90" height="26"/>
 <rect x="55" y="707" width="90" height="66"/>
 <text x="100" y="740">Signal transmission P1-V2 fails</text>
 <rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">X7</text>
 <circle cx="100" cy="840" r="35"/>
+<rect x="55" y="827" width="90" height="26"/>
 <rect x="155" y="307" width="90" height="66"/>
 <text x="200" y="340">Instrument air supply fails</text>
 <rect x="155" y="376" width="90" height="20"/>
 <text x="200" y="386">X9</text>
 <circle cx="200" cy="440" r="35"/>
+<rect x="155" y="427" width="90" height="26"/>
 <rect x="305" y="107" width="90" height="66"/>
 <text x="350" y="140"></text>
 <rect x="305" y="176" width="90" height="20"/>
 <text x="350" y="186">G9</text>
 <path d="M320,272 L380,272 L380,234 C380,194 320,194 320,234 L320,272 "/>
+<rect x="305" y="227" width="90" height="26"/>
 <rect x="255" y="307" width="90" height="66"/>
 <text x="300" y="340">No discharge via V2</text>
 <rect x="255" y="376" width="90" height="20"/>
 <text x="300" y="386">X40</text>
 <circle cx="300" cy="440" r="35"/>
+<rect x="255" y="427" width="90" height="26"/>
 <rect x="355" y="307" width="90" height="66"/>
 <text x="400" y="340">Instrument air supply fails</text>
 <rect x="355" y="376" width="90" height="20"/>
 <text x="400" y="386">X9</text>
 <circle cx="400" cy="440" r="35"/>
+<rect x="355" y="427" width="90" height="26"/>
 </svg>

@@ -1259,6 +1259,10 @@ class Node:
     PAGED_BODY_HEIGHT = round(0.17 * HEIGHT)  # toes, below centre
     PAGED_HALF_WIDTH = round(0.35 * WIDTH)
 
+    QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
+    QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
+    QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
+
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
             reference_object = event_from_id[id_]
@@ -1347,6 +1351,7 @@ class Node:
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
             Node.symbol_element(x, y, symbol_type),
+            Node.quantity_rectangle_element(x, y),
             # TODO: quantity, connectors
         ]
         input_elements = [
@@ -1484,6 +1489,17 @@ class Node:
         points = f'{apex_x},{apex_y} {left_x},{toe_y} {right_x},{toe_y}'
 
         return f'<polygon points="{points}"/>'
+
+    @staticmethod
+    def quantity_rectangle_element(x, y):
+        left = x - Node.QUANTITY_BOX_WIDTH // 2
+        top = y - Node.QUANTITY_BOX_HEIGHT // 2 + Node.QUANTITY_BOX_Y_OFFSET
+        width = Node.QUANTITY_BOX_WIDTH
+        height = Node.QUANTITY_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
