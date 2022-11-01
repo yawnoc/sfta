@@ -87,6 +87,39 @@ def find_cycles(adjacency_dict):
     return infection_cycles
 
 
+def escape_xml(text):
+    """
+    Escape & (when not used in an entity), <, and >.
+
+    We make the following assumptions:
+    - Entity names are any run of up to 31 letters. As of 2022-04-18,
+      the longest entity name is `CounterClockwiseContourIntegral`
+      according to <https://html.spec.whatwg.org/entities.json>.
+      Actually checking entity names is slow for very little return.
+    - Decimal code points are any run of up to 7 digits.
+    - Hexadecimal code points are any run of up to 6 digits.
+    """
+    ampersand_pattern = re.compile(
+        '''
+            [&]
+            (?!
+                (?:
+                    [a-z]{1,31}
+                        |
+                    [#] (?: [0-9]{1,7} | [x][0-9a-f]{1,6} )
+                )
+                [;]
+            )
+        ''',
+        flags=re.IGNORECASE | re.VERBOSE
+    )
+    text = re.sub(ampersand_pattern, '&amp;', text)
+    text = re.sub('<', '&lt;', text)
+    text = re.sub('>', '&gt;', text)
+
+    return text
+
+
 class DeepRecurse:
     """
     Context manager for raising maximum recursion depth.
@@ -339,8 +372,7 @@ class Event:
 
         raise RuntimeError(
             'Implementation error: '
-            '`quantity_type` is neither '
-            '`Event.TYPE_PROBABILITY` nor `Event.TYPE_RATE`'
+            '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
         )
 
     def set_label(self, label, line_number):
@@ -461,7 +493,10 @@ class Gate:
         self.label = None
         self.label_line_number = None
 
-        self.type = None
+        self.is_paged = None
+        self.is_paged_line_number = None
+
+        self.type_ = None
         self.type_line_number = None
 
         self.input_ids = None
@@ -477,8 +512,13 @@ class Gate:
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
         '    label (optional)\n'
+        '    is_paged (optional)\n'
         '    type (required)\n'
         '    inputs (required).'
+    )
+    IS_PAGED_EXPLAINER = (
+        'Gate is_paged must be either `True` or `False` (case-sensitive). '
+        'The default value is `False`.'
     )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
     AND_INPUTS_EXPLAINER = (
@@ -513,8 +553,25 @@ class Gate:
         self.label = label
         self.label_line_number = line_number
 
+    def set_is_paged(self, is_paged, line_number):
+        if self.is_paged is not None:
+            raise Gate.IsPagedAlreadySetException(
+                line_number,
+                f'is_paged hath already been set for `{self.id_}` '
+                f'at line {self.is_paged_line_number}'
+            )
+
+        if is_paged not in ['True', 'False']:
+            raise Gate.BadIsPagedException(
+                line_number,
+                f'bad is_paged `{is_paged}` for Gate `{self.id_}`'
+                f'\n\n{Gate.IS_PAGED_EXPLAINER}'
+            )
+        self.is_paged = is_paged
+        self.is_paged_line_number = line_number
+
     def set_type(self, type_str, line_number):
-        if self.type is not None:
+        if self.type_ is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
                 f'type hath already been set for Gate `{self.id_}` '
@@ -522,9 +579,9 @@ class Gate:
             )
 
         if type_str == 'OR':
-            self.type = Gate.TYPE_OR
+            self.type_ = Gate.TYPE_OR
         elif type_str == 'AND':
-            self.type = Gate.TYPE_AND
+            self.type_ = Gate.TYPE_AND
         else:
             raise Gate.BadTypeException(
                 line_number,
@@ -560,7 +617,9 @@ class Gate:
         self.inputs_line_number = line_number
 
     def validate_properties(self, line_number):
-        if self.type is None:
+        if self.is_paged is None:
+            self.is_paged = False
+        if self.type_ is None:
             raise Gate.TypeNotSetException(
                 line_number,
                 f'type hath not been set for Gate `{self.id_}`'
@@ -589,7 +648,7 @@ class Gate:
                     f'neither `event_from_id` nor `gate_from_id`.'
                 )
 
-        if self.type == Gate.TYPE_AND:
+        if self.type_ == Gate.TYPE_AND:
             try:
                 self.tome = Tome.and_(*input_tomes)
             except Tome.ConjunctionBadTypesException as exception:
@@ -605,7 +664,7 @@ class Gate:
                     )
                     + f'\n\n{Gate.AND_INPUTS_EXPLAINER}'
                 )
-        elif self.type == Gate.TYPE_OR:
+        elif self.type_ == Gate.TYPE_OR:
             try:
                 self.tome = Tome.or_(*input_tomes)
             except Tome.DisjunctionBadTypesException as exception:
@@ -627,7 +686,7 @@ class Gate:
         else:
             raise RuntimeError(
                 f'Implementation error: '
-                f'Gate `type` is neither `TYPE_AND` nor `TYPE_OR`.'
+                f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
             )
 
     def compute_quantity(self, quantity_value_from_event_index):
@@ -651,10 +710,16 @@ class Gate:
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
+    class IsPagedAlreadySetException(FaultTreeTextException):
+        pass
+
     class TypeAlreadySetException(FaultTreeTextException):
         pass
 
     class InputsAlreadySetException(FaultTreeTextException):
+        pass
+
+    class BadIsPagedException(FaultTreeTextException):
         pass
 
     class BadTypeException(FaultTreeTextException):
@@ -685,8 +750,8 @@ class Gate:
 class FaultTree:
     def __init__(self, fault_tree_text):
         (
-            self.events,
-            self.gates,
+            self.event_from_id,
+            self.gate_from_id,
             self.event_id_from_index,
             self.used_event_ids,
             self.top_gate_ids,
@@ -737,8 +802,8 @@ class FaultTree:
         FaultTree.compute_gate_quantities(events, gates)
 
         return (
-            events,
-            gates,
+            event_from_id,
+            gate_from_id,
             event_id_from_index,
             used_event_ids,
             top_gate_ids,
@@ -850,6 +915,8 @@ class FaultTree:
                 elif isinstance(current_object, Gate):
                     if key == 'label':
                         current_object.set_label(value, line_number)
+                    elif key == 'is_paged':
+                        current_object.set_is_paged(value, line_number)
                     elif key == 'type':
                         current_object.set_type(value, line_number)
                     elif key == 'inputs':
@@ -982,14 +1049,14 @@ class FaultTree:
         ]
         rows = [
             [
-                event.id_,
-                event.id_ in self.used_event_ids,
+                id_,
+                id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
                 blunt(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
-            for event in self.events
+            for id_, event in self.event_from_id.items()
         ]
         rows.sort(key=lambda row: row[0])  # id
         return Table(field_names, rows)
@@ -998,6 +1065,7 @@ class FaultTree:
         field_names = [
             'id',
             'is_top_gate',
+            'is_paged',
             'quantity_type',
             'quantity_value',
             'quantity_unit',
@@ -1007,23 +1075,24 @@ class FaultTree:
         ]
         rows = [
             [
-                gate.id_,
-                gate.id_ in self.top_gate_ids,
+                id_,
+                id_ in self.top_gate_ids,
+                gate.is_paged,
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
-                Gate.STR_FROM_TYPE[gate.type],
+                Gate.STR_FROM_TYPE[gate.type_],
                 ','.join(gate.input_ids),
                 gate.label,
             ]
-            for gate in self.gates
+            for id_, gate in self.gate_from_id.items()
         ]
         rows.sort(key=lambda row: (-row[1], row[0]))  # is_top_gate, id
         return Table(field_names, rows)
 
     def get_cut_set_tables(self):
         cut_set_table_from_gate_id = {}
-        for gate in self.gates:
+        for gate_id, gate in self.gate_from_id.items():
             field_names = [
                 'quantity_type',
                 'quantity_value',
@@ -1047,9 +1116,17 @@ class FaultTree:
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
             rows.sort(key=lambda row: -float(row[1]))  # quantity_value
-            cut_set_table_from_gate_id[gate.id_] = Table(field_names, rows)
+            cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
+
+    def get_figures(self):
+        figure_from_gate_id = {
+            id_: Figure(self, id_)
+            for id_, gate in self.gate_from_id.items()
+            if id_ in self.top_gate_ids or gate.is_paged
+        }
+        return figure_from_gate_id
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
@@ -1088,6 +1165,451 @@ class Table:
             )
             writer.writerow(self.field_names)
             writer.writerows(self.rows)
+
+
+class Figure:
+    def __init__(self, fault_tree, id_):
+        event_from_id = fault_tree.event_from_id
+        gate_from_id = fault_tree.gate_from_id
+        time_unit = fault_tree.time_unit
+
+        top_node = (
+            Node(event_from_id, gate_from_id, time_unit, id_, to_node=None)
+        )
+        top_node.position_recursive()
+
+        self.top_node = top_node
+
+    def get_svg_content(self):
+        top_node = self.top_node
+
+        left = -Node.WIDTH
+        right = top_node.width + Node.WIDTH
+        top = -Node.HEIGHT
+        bottom = top_node.height + Node.HEIGHT
+
+        xmlns = 'http://www.w3.org/2000/svg'
+        elements = top_node.get_svg_elements_recursive()
+
+        return (
+            f'<?xml version="1.0" encoding="UTF-8"?>\n'
+            f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
+            f'<style>\n'
+            f'circle, path, polygon, rect {{\n'
+            f'  fill: lightyellow;\n'
+            f'}}\n'
+            f'circle, path, polygon, polyline, rect {{\n'
+            f'  stroke: black;\n'
+            f'  stroke-width: 1.3;\n'
+            f'}}\n'
+            f'polyline {{\n'
+            f'  fill: none;\n'
+            f'}}\n'
+            f'text {{\n'
+            f'  dominant-baseline: middle;\n'
+            f'  font-family: Arial, sans-serif;\n'
+            f'  font-size: 12px;\n'
+            f'  text-anchor: middle;\n'
+            f'}}\n'
+            f'</style>\n'
+            f'{elements}\n'
+            f'</svg>\n'
+        )
+
+    def write_svg(self, file_name):
+        svg_content = self.get_svg_content()
+        with open(file_name, 'w', encoding='utf-8') as file:
+            file.write(svg_content)
+
+
+class Node:
+    """
+    A node which instantiates recursively, of a figure.
+    """
+    SYMBOL_TYPE_NULL = -1
+    SYMBOL_TYPE_OR = 0
+    SYMBOL_TYPE_AND = 1
+    SYMBOL_TYPE_EVENT = 2
+    SYMBOL_TYPE_PAGED = 3
+
+    WIDTH = 100
+    HEIGHT = 200
+
+    LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
+    LABEL_BOX_WIDTH = round(0.9 * WIDTH)
+    LABEL_BOX_HEIGHT = round(0.33 * HEIGHT)
+
+    ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
+    ID_BOX_WIDTH = round(0.9 * WIDTH)
+    ID_BOX_HEIGHT = round(0.1 * HEIGHT)
+
+    SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
+    SYMBOL_SLOTS_HALF_WIDTH = round(0.29 * WIDTH)
+
+    CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
+    CONNECTOR_BUS_HALF_HEIGHT = round(0.06 * HEIGHT)
+
+    OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
+    OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
+    OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
+    OR_SLANT_DROP = round(0.01 * HEIGHT)  # control points, below apex
+    OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, beside apex
+    OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, above toes
+    OR_GROIN_RISE = round(0.13 * HEIGHT)  # control point, between toes
+    OR_HALF_WIDTH = round(0.32 * WIDTH)
+
+    AND_NECK_HEIGHT = round(0.03 * HEIGHT)  # ears, above centre
+    AND_BODY_HEIGHT = round(0.16 * HEIGHT)  # toes, below centre
+    AND_SLING_RISE = round(0.2 * HEIGHT)  # control points, above toes
+    AND_HALF_WIDTH = round(0.3 * WIDTH)
+
+    EVENT_CIRCLE_RADIUS = round(0.35 * WIDTH)
+
+    PAGED_APEX_HEIGHT = round(0.17 * HEIGHT)  # tip, above centre
+    PAGED_BODY_HEIGHT = round(0.17 * HEIGHT)  # toes, below centre
+    PAGED_HALF_WIDTH = round(0.35 * WIDTH)
+
+    QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
+    QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
+    QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
+
+    def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
+        if id_ in event_from_id.keys():  # object is Event
+            reference_object = event_from_id[id_]
+            symbol_type = Node.SYMBOL_TYPE_EVENT
+            input_nodes = []
+        elif id_ in gate_from_id.keys():  # object is Gate
+            reference_object = gate = gate_from_id[id_]
+            if gate.is_paged and to_node is not None:
+                input_ids = []
+                symbol_type = Node.SYMBOL_TYPE_PAGED
+            else:
+                input_ids = gate.input_ids
+                if len(input_ids) == 1:
+                    symbol_type = Node.SYMBOL_TYPE_NULL
+                elif gate.type_ == Gate.TYPE_OR:
+                    symbol_type = Node.SYMBOL_TYPE_OR
+                elif gate.type_ == Gate.TYPE_AND:
+                    symbol_type = Node.SYMBOL_TYPE_AND
+                else:
+                    raise RuntimeError(
+                        f'Implementation error: '
+                        f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
+                    )
+            input_nodes = [
+                Node(
+                    event_from_id,
+                    gate_from_id,
+                    time_unit,
+                    input_id,
+                    to_node=self,
+                )
+                for input_id in input_ids
+            ]
+        else:
+            raise RuntimeError(
+                f'Implementation error: '
+                f'`{id_}` is in '
+                f'neither `event_from_id` nor `gate_from_id`.'
+            )
+
+        if input_nodes:
+            width = sum(node.width for node in input_nodes)
+            height = sum(node.height for node in input_nodes)
+        else:
+            width = Node.WIDTH
+            height = Node.HEIGHT
+
+        self.node_above = to_node
+        self.reference_object = reference_object
+        self.symbol_type = symbol_type
+        self.time_unit = time_unit
+        self.input_nodes = input_nodes
+        self.width = width
+        self.height = height
+
+        self.x = None
+        self.y = None
+
+    def position_recursive(self):
+        node_above = self.node_above
+        if node_above is None:
+            self.x = 0
+            self.y = 0
+        else:
+            node_above_inputs = node_above.input_nodes
+            input_index = node_above_inputs.index(self)
+            nodes_before = node_above_inputs[0:input_index]
+            width_before = sum(node.width for node in nodes_before)
+            x_offset = -node_above.width // 2 + width_before + self.width // 2
+            self.x = node_above.x + x_offset
+            self.y = node_above.y + Node.HEIGHT
+
+        for input_node in self.input_nodes:
+            input_node.position_recursive()
+
+    def get_svg_elements_recursive(self):
+        x = self.x
+        y = self.y
+        input_nodes = self.input_nodes
+        symbol_type = self.symbol_type
+        time_unit = self.time_unit
+
+        reference_object = self.reference_object
+        id_ = reference_object.id_
+        label = reference_object.label
+        quantity_value = reference_object.quantity_value
+        quantity_type = reference_object.quantity_type
+
+        self_elements = [
+            Node.label_symbol_connector_element(x, y),
+            Node.symbol_input_connector_elements(input_nodes, x, y),
+            Node.label_rectangle_element(x, y),
+            Node.label_text_element(x, y, label),
+            Node.id_rectangle_element(x, y),
+            Node.id_text_element(x, y, id_),
+            Node.symbol_element(x, y, symbol_type),
+            Node.quantity_rectangle_element(x, y),
+            Node.quantity_text_element(
+                x, y,
+                quantity_value, quantity_type,
+                time_unit,
+            ),
+        ]
+        input_elements = [
+            input_node.get_svg_elements_recursive()
+            for input_node in self.input_nodes
+        ]
+
+        return '\n'.join(self_elements + input_elements)
+
+    @staticmethod
+    def label_symbol_connector_element(x, y):
+        centre = x
+        label_middle = y - Node.LABEL_BOX_HEIGHT // 2 + Node.LABEL_BOX_Y_OFFSET
+        symbol_middle = y + Node.SYMBOL_Y_OFFSET
+
+        points = f'{centre},{label_middle} {centre},{symbol_middle}'
+
+        return f'<polyline points="{points}"/>'
+
+    @staticmethod
+    def symbol_input_connector_elements(input_nodes, x, y):
+        if not input_nodes:
+            return ''
+
+        symbol_centre = x
+        symbol_middle = y + Node.SYMBOL_Y_OFFSET
+        bus_middle = y + Node.CONNECTOR_BUS_Y_OFFSET
+
+        input_numbers_left = []
+        input_numbers_right = []
+        for input_number, input_node in enumerate(input_nodes, start=1):
+            input_node_centre = input_node.x
+            if input_node_centre < symbol_centre:
+                input_numbers_left.append(input_number)
+            elif input_node_centre > symbol_centre:
+                input_numbers_right.append(input_number)
+
+        input_count = len(input_nodes)
+        left_input_count = len(input_numbers_left)
+        right_input_count = len(input_numbers_right)
+
+        points_by_input = []
+        for input_number, input_node in enumerate(input_nodes, start=1):
+            slot_bias = 2 * input_number / (1 + input_count) - 1
+            slot_x = round(
+                symbol_centre + slot_bias * Node.SYMBOL_SLOTS_HALF_WIDTH
+            )
+
+            if input_number in input_numbers_left:
+                left_number = input_numbers_left.index(input_number) + 1
+                bus_bias = 2 * left_number / (1 + left_input_count) - 1
+            elif input_number in input_numbers_right:
+                right_number = input_numbers_right.index(input_number) + 1
+                bus_bias = 1 - 2 * right_number / (1 + right_input_count)
+            else:
+                bus_bias = 0
+            bus_y = round(
+                bus_middle + bus_bias * Node.CONNECTOR_BUS_HALF_HEIGHT
+            )
+
+            input_label_centre = input_node.x
+            input_label_middle = input_node.y + Node.LABEL_BOX_Y_OFFSET
+
+            points_by_input.append(
+                ' '.join([
+                    f'{slot_x},{symbol_middle}',
+                    f'{slot_x},{bus_y}',
+                    f'{input_label_centre},{bus_y}',
+                    f'{input_label_centre},{input_label_middle}',
+                ])
+            )
+
+        return '\n'.join(
+            f'<polyline points="{points}"/>'
+            for points in points_by_input
+        )
+
+    @staticmethod
+    def label_rectangle_element(x, y):
+        left = x - Node.LABEL_BOX_WIDTH // 2
+        top = y - Node.LABEL_BOX_HEIGHT // 2 + Node.LABEL_BOX_Y_OFFSET
+        width = Node.LABEL_BOX_WIDTH
+        height = Node.LABEL_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
+
+    @staticmethod
+    def label_text_element(x, y, label):
+        centre = x
+        middle = y + Node.LABEL_BOX_Y_OFFSET
+        if label is None:
+            content = ''
+        else:
+            content = escape_xml(label)  # TODO: wrapping and font size
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
+
+    @staticmethod
+    def id_rectangle_element(x, y):
+        left = x - Node.ID_BOX_WIDTH // 2
+        top = y - Node.ID_BOX_HEIGHT // 2 + Node.ID_BOX_Y_OFFSET
+        width = Node.ID_BOX_WIDTH
+        height = Node.ID_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
+
+    @staticmethod
+    def id_text_element(x, y, id_):
+        centre = x
+        middle = y + Node.ID_BOX_Y_OFFSET
+        content = escape_xml(id_)
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
+
+    @staticmethod
+    def symbol_element(x, y, symbol_type):
+        if symbol_type == Node.SYMBOL_TYPE_OR:
+            return Node.or_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_AND:
+            return Node.and_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_EVENT:
+            return Node.event_symbol_element(x, y)
+
+        if symbol_type == Node.SYMBOL_TYPE_PAGED:
+            return Node.paged_symbol_element(x, y)
+
+        return ''
+
+    @staticmethod
+    def or_symbol_element(x, y):
+        apex_x = x
+        apex_y = y - Node.OR_APEX_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_x = x - Node.OR_HALF_WIDTH
+        right_x = x + Node.OR_HALF_WIDTH
+
+        ear_y = y - Node.OR_NECK_HEIGHT + Node.SYMBOL_Y_OFFSET
+        toe_y = y + Node.OR_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_slant_x = apex_x - Node.OR_SLANT_RUN
+        right_slant_x = apex_x + Node.OR_SLANT_RUN
+        slant_y = apex_y + Node.OR_SLANT_DROP
+
+        sling_y = ear_y - Node.OR_SLING_RISE
+
+        groin_x = x
+        groin_y = toe_y - Node.OR_GROIN_RISE
+
+        commands = (
+            f'M{apex_x},{apex_y} '
+            f'C{left_slant_x},{slant_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
+            f'Q{groin_x},{groin_y} {right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {right_slant_x},{slant_y} {apex_x},{apex_y}'
+        )
+
+        return f'<path d="{commands}"/>'
+
+    @staticmethod
+    def and_symbol_element(x, y):
+        left_x = x - Node.AND_HALF_WIDTH
+        right_x = x + Node.AND_HALF_WIDTH
+
+        ear_y = y - Node.AND_NECK_HEIGHT + Node.SYMBOL_Y_OFFSET
+        toe_y = y + Node.AND_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        sling_y = ear_y - Node.AND_SLING_RISE
+
+        commands = (
+            f'M{left_x},{toe_y} '
+            f'L{right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
+        )
+
+        return f'<path d="{commands}"/>'
+
+    @staticmethod
+    def event_symbol_element(x, y):
+        centre = x
+        middle = y + Node.SYMBOL_Y_OFFSET
+        radius = Node.EVENT_CIRCLE_RADIUS
+
+        return f'<circle cx="{centre}" cy="{middle}" r="{radius}"/>'
+
+    @staticmethod
+    def paged_symbol_element(x, y):
+        apex_x = x
+        apex_y = y - Node.PAGED_APEX_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_x = x - Node.PAGED_HALF_WIDTH
+        right_x = x + Node.PAGED_HALF_WIDTH
+        toe_y = y + Node.PAGED_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        points = f'{apex_x},{apex_y} {left_x},{toe_y} {right_x},{toe_y}'
+
+        return f'<polygon points="{points}"/>'
+
+    @staticmethod
+    def quantity_rectangle_element(x, y):
+        left = x - Node.QUANTITY_BOX_WIDTH // 2
+        top = y - Node.QUANTITY_BOX_HEIGHT // 2 + Node.QUANTITY_BOX_Y_OFFSET
+        width = Node.QUANTITY_BOX_WIDTH
+        height = Node.QUANTITY_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
+
+    @staticmethod
+    def quantity_text_element(x, y, quantity_value, quantity_type, time_unit):
+        centre = x
+        middle = y + Node.QUANTITY_BOX_Y_OFFSET
+
+        if quantity_type == Event.TYPE_PROBABILITY:
+            lhs = 'Q'
+        elif quantity_value == Event.TYPE_RATE:
+            lhs = 'w'
+        else:
+            raise RuntimeError(
+                'Implementation error: '
+                '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
+            )
+        value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
+        unit_str = Event.quantity_unit_str(quantity_type, time_unit)
+        content = escape_xml(f'{lhs} = {value_str}{unit_str}')
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
@@ -1159,18 +1681,21 @@ def main():
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
+    figure_from_gate_id = fault_tree.get_figures()
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
+    figures_directory_name = f'{output_directory_name}/figures'
     create_directory_robust(output_directory_name)
     create_directory_robust(cut_sets_directory_name)
+    create_directory_robust(figures_directory_name)
 
     events_table.write_tsv(f'{output_directory_name}/events.tsv')
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
-
-    # TODO: implement SVG generation
+    for gate_id, figure in figure_from_gate_id.items():
+        figure.write_svg(f'{figures_directory_name}/{gate_id}.svg')
 
 
 if __name__ == '__main__':

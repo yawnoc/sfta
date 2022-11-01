@@ -1,0 +1,47 @@
+id	is_used	quantity_type	quantity_value	quantity_unit	label
+X1	True	probability	0.5876	1	Pressure measurement P1 fails
+X10	True	probability	0.2327	1	Temperature measurement T1 fails
+X11	True	probability	0.3119	1	Valve positioner V3 fails
+X12	True	probability	0.5643	1	Signal transmission T1-V3 fails
+X13	True	probability	0.5877	1	Pressure measurement P2 fails
+X14	True	probability	0.5643	1	Signal transmission P2-V3 fails
+X15	True	probability	0.817	1	Flow measurement F1 fails
+X16	True	probability	0.5643	1	Signal transmission F1-V3 fails
+X17	True	probability	0.1515	1	V3 fails closed
+X18	False	probability	0.9127	1	V3 fails open
+X19	False	probability	0.2427	1	Level measurement L1 fails
+X2	True	probability	0.3119	1	Valve positioner V1 fails
+X20	False	probability	0.4357	1	Signal transmission L1-V4 fails
+X21	False	probability	0.6881	1	Valve positioner V4 fails
+X22	False	probability	0.8485	1	V4 fails closed
+X23	False	probability	0.9127	1	V4 fails open
+X24	True	probability	0.4052	1	S1 fails closed
+X25	False	probability	0.9723	1	S1 fails open
+X26	True	probability	0.2188	1	S1 set point too high
+X27	False	probability	0.5948	1	S2 fails closed
+X28	False	probability	0.06038	1	S2 fails open
+X29	False	probability	0.7812	1	S2 set point too high
+X3	True	probability	0.5643	1	Signal transmission P1-V1 fails
+X30	True	probability	0.03921	1	Ethylene pump fails
+X31	True	probability	0.00079	1	Spontaneous rupture of deposit
+X32	True	probability	0.01809	1	Pipe work fire
+X33	True	probability	0.04959	1	External & secondary effects
+X34	False	probability	0.9375	1	Ethylene vaporizer functioning
+X35	True	probability	0.75	1	Pressure vaporizer not functioning
+X36	False	probability	0.75	1	Heater not functioning
+X37	True	probability	1	1	Ethylene pump demanded
+X38	False	probability	0.00625	1	Exit to process closed
+X39	False	probability	0.125	1	Exit to recompression closed
+X4	True	probability	0.1515	1	V1 fails closed
+X40	True	probability	0.75	1	No discharge via V2
+X41	False	probability	0.75	1	Pressurization via V1
+X42	False	probability	0.75	1	Supply to deposit functioning
+X43	True	probability	0.025	1	Exit temperature below −10°C
+X44	True	probability	0.1	1	Exit manometric pressure > 16.18 bar
+X45	True	probability	0.1	1	Exit flow > demand
+X46	True	probability	0.1	1	Deposit manometric pressure < 1.96 bar
+X5	True	probability	0.08727	1	V1 fails open
+X6	True	probability	0.3119	1	Valve positioner V2 fails
+X7	True	probability	0.5643	1	Signal transmission P1-V2 fails
+X8	True	probability	0.1515	1	V2 fails closed
+X9	True	probability	0.7364	1	Instrument air supply fails
