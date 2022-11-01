@@ -372,8 +372,7 @@ class Event:
 
         raise RuntimeError(
             'Implementation error: '
-            '`quantity_type` is neither '
-            '`Event.TYPE_PROBABILITY` nor `Event.TYPE_RATE`'
+            '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
         )
 
     def set_label(self, label, line_number):
@@ -1172,8 +1171,10 @@ class Figure:
     def __init__(self, fault_tree, id_):
         event_from_id = fault_tree.event_from_id
         gate_from_id = fault_tree.gate_from_id
+        time_unit = fault_tree.time_unit
+
         top_node = (
-            Node(event_from_id, gate_from_id, id_, node_above=None)
+            Node(event_from_id, gate_from_id, time_unit, id_, node_above=None)
         )
         top_node.position_recursive()
 
@@ -1263,7 +1264,7 @@ class Node:
     QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
     QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
 
-    def __init__(self, event_from_id, gate_from_id, id_, node_above):
+    def __init__(self, event_from_id, gate_from_id, time_unit, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
             reference_object = event_from_id[id_]
             symbol_type = Node.SYMBOL_TYPE_EVENT
@@ -1290,6 +1291,7 @@ class Node:
                 Node(
                     event_from_id,
                     gate_from_id,
+                    time_unit,
                     input_id,
                     node_above=self,
                 )
@@ -1312,6 +1314,7 @@ class Node:
         self.node_above = node_above
         self.reference_object = reference_object
         self.symbol_type = symbol_type
+        self.time_unit = time_unit
         self.input_nodes = input_nodes
         self.width = width
         self.height = height
@@ -1340,10 +1343,13 @@ class Node:
         x = self.x
         y = self.y
         symbol_type = self.symbol_type
+        time_unit = self.time_unit
 
         reference_object = self.reference_object
         id_ = reference_object.id_
         label = reference_object.label
+        quantity_value = reference_object.quantity_value
+        quantity_type = reference_object.quantity_type
 
         self_elements = [
             Node.label_rectangle_element(x, y),
@@ -1352,7 +1358,12 @@ class Node:
             Node.id_text_element(x, y, id_),
             Node.symbol_element(x, y, symbol_type),
             Node.quantity_rectangle_element(x, y),
-            # TODO: quantity, connectors
+            Node.quantity_text_element(
+                x, y,
+                quantity_value, quantity_type,
+                time_unit,
+            ),
+            # TODO: connectors
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
@@ -1500,6 +1511,26 @@ class Node:
         return (
             f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
         )
+
+    @staticmethod
+    def quantity_text_element(x, y, quantity_value, quantity_type, time_unit):
+        centre = x
+        middle = y + Node.QUANTITY_BOX_Y_OFFSET
+
+        if quantity_type == Event.TYPE_PROBABILITY:
+            lhs = 'Q'
+        elif quantity_value == Event.TYPE_RATE:
+            lhs = 'w'
+        else:
+            raise RuntimeError(
+                'Implementation error: '
+                '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
+            )
+        value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
+        unit_str = Event.quantity_unit_str(quantity_type, time_unit)
+        content = escape_xml(f'{lhs} = {value_str}{unit_str}')
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
