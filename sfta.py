@@ -87,6 +87,39 @@ def find_cycles(adjacency_dict):
     return infection_cycles
 
 
+def escape_xml(text):
+    """
+    Escape & (when not used in an entity), <, and >.
+
+    We make the following assumptions:
+    - Entity names are any run of up to 31 letters. As of 2022-04-18,
+      the longest entity name is `CounterClockwiseContourIntegral`
+      according to <https://html.spec.whatwg.org/entities.json>.
+      Actually checking entity names is slow for very little return.
+    - Decimal code points are any run of up to 7 digits.
+    - Hexadecimal code points are any run of up to 6 digits.
+    """
+    ampersand_pattern = re.compile(
+        '''
+            [&]
+            (?!
+                (?:
+                    [a-z]{1,31}
+                        |
+                    [#] (?: [0-9]{1,7} | [x][0-9a-f]{1,6} )
+                )
+                [;]
+            )
+        ''',
+        flags=re.IGNORECASE | re.VERBOSE
+    )
+    text = re.sub(ampersand_pattern, '&amp;', text)
+    text = re.sub('<', '&lt;', text)
+    text = re.sub('>', '&gt;', text)
+
+    return text
+
+
 class DeepRecurse:
     """
     Context manager for raising maximum recursion depth.
@@ -1263,7 +1296,7 @@ class Node:
     def id_text_element(x, y, id_):
         centre = x
         middle = y + Node.ID_BOX_Y_OFFSET
-        content = id_  # TODO: escape &<>
+        content = escape_xml(id_)
 
         return f'<text x="{centre}" y="{middle}">{content}</text>'
 

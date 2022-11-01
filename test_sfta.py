@@ -15,7 +15,7 @@ import textwrap
 import unittest
 
 from sfta import Event, FaultTree, Gate, Tome, Writ
-from sfta import blunt, find_cycles
+from sfta import blunt, escape_xml, find_cycles
 
 
 class TestSfta(unittest.TestCase):
@@ -102,6 +102,15 @@ class TestSfta(unittest.TestCase):
             }),
             {(1, 2, 5, 4), (2, 5, 4), (6,), (2, 5, 6, 3)},
         )
+
+    def test_escape_xml(self):
+        self.assertEqual(escape_xml('&<>'), '&amp;&lt;&gt;')
+        self.assertEqual(escape_xml('&amp;'), '&amp;')
+        self.assertEqual(escape_xml('&&amp;'), '&amp;&amp;')
+        self.assertEqual(escape_xml('&#1234567;'), '&#1234567;')
+        self.assertEqual(escape_xml('&#12345678;'), '&amp;#12345678;')
+        self.assertEqual(escape_xml('&#xABC123;'), '&#xABC123;')
+        self.assertEqual(escape_xml('&#xABC123F;'), '&amp;#xABC123F;')
 
     def test_writ_to_writs(self):
         self.assertEqual(Writ.to_writs(0), {2 ** 0})
