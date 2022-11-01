@@ -1315,7 +1315,7 @@ class Node:
 
         if input_nodes:
             width = sum(node.width for node in input_nodes)
-            height = sum(node.height for node in input_nodes)
+            height = Node.HEIGHT + max(node.height for node in input_nodes)
         else:
             width = Node.WIDTH
             height = Node.HEIGHT
