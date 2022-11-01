@@ -1320,7 +1320,7 @@ class Node:
             width = Node.WIDTH
             height = Node.HEIGHT
 
-        self.node_above = to_node
+        self.to_node = to_node
         self.reference_object = reference_object
         self.symbol_type = symbol_type
         self.time_unit = time_unit
@@ -1332,18 +1332,18 @@ class Node:
         self.y = None
 
     def position_recursive(self):
-        node_above = self.node_above
-        if node_above is None:
+        to_node = self.to_node
+        if to_node is None:
             self.x = self.width // 2
             self.y = 0
         else:
-            node_above_inputs = node_above.input_nodes
-            input_index = node_above_inputs.index(self)
-            nodes_before = node_above_inputs[0:input_index]
+            to_node_inputs = to_node.input_nodes
+            input_index = to_node_inputs.index(self)
+            nodes_before = to_node_inputs[0:input_index]
             width_before = sum(node.width for node in nodes_before)
-            x_offset = -node_above.width // 2 + width_before + self.width // 2
-            self.x = node_above.x + x_offset
-            self.y = node_above.y + Node.HEIGHT
+            x_offset = -to_node.width // 2 + width_before + self.width // 2
+            self.x = to_node.x + x_offset
+            self.y = to_node.y + Node.HEIGHT
 
         for input_node in self.input_nodes:
             input_node.position_recursive()
