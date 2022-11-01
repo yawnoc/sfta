@@ -1194,7 +1194,7 @@ class Figure:
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
             f'<style>\n'
-            f'circle, path, rect {{\n'
+            f'circle, path, polygon, rect {{\n'
             f'  fill: lightyellow;\n'
             f'  stroke: black;\n'
             f'  stroke-width: 1.3;\n'
@@ -1254,6 +1254,10 @@ class Node:
     AND_HALF_WIDTH = round(0.3 * WIDTH)
 
     EVENT_CIRCLE_RADIUS = round(0.35 * WIDTH)
+
+    PAGED_APEX_HEIGHT = round(0.17 * HEIGHT)  # tip, above centre
+    PAGED_BODY_HEIGHT = round(0.17 * HEIGHT)  # toes, below centre
+    PAGED_HALF_WIDTH = round(0.35 * WIDTH)
 
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
@@ -1405,7 +1409,7 @@ class Node:
             return Node.event_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_PAGED:
-            return ''  # TODO: Node.paged_symbol_element(x, y)
+            return Node.paged_symbol_element(x, y)
 
         return ''
 
@@ -1467,6 +1471,19 @@ class Node:
         radius = Node.EVENT_CIRCLE_RADIUS
 
         return f'<circle cx="{centre}" cy="{middle}" r="{radius}"/>'
+
+    @staticmethod
+    def paged_symbol_element(x, y):
+        apex_x = x
+        apex_y = y - Node.PAGED_APEX_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_x = x - Node.PAGED_HALF_WIDTH
+        right_x = x + Node.PAGED_HALF_WIDTH
+        toe_y = y + Node.PAGED_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        points = f'{apex_x},{apex_y} {left_x},{toe_y} {right_x},{toe_y}'
+
+        return f'<polygon points="{points}"/>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 400 800" xmlns="http://www.w3.org/2000/svg">
 <style>
-circle, path, rect {
+circle, path, polygon, rect {
   fill: lightyellow;
   stroke: black;
   stroke-width: 1.3;
