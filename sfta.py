@@ -1168,6 +1168,8 @@ class Table:
 
 
 class Figure:
+    MARGIN = 50
+
     def __init__(self, fault_tree, id_):
         event_from_id = fault_tree.event_from_id
         gate_from_id = fault_tree.gate_from_id
@@ -1183,17 +1185,17 @@ class Figure:
     def get_svg_content(self):
         top_node = self.top_node
 
-        left = -Node.WIDTH
-        right = top_node.width + Node.WIDTH
-        top = -Node.HEIGHT
-        bottom = top_node.height + Node.HEIGHT
+        left = -Figure.MARGIN
+        top = -Figure.MARGIN
+        width = top_node.width + 2 * Figure.MARGIN
+        height = top_node.height + 2 * Figure.MARGIN
 
         xmlns = 'http://www.w3.org/2000/svg'
         elements = top_node.get_svg_elements_recursive()
 
         return (
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
-            f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
+            f'<svg viewBox="{left} {top} {width} {height}" xmlns="{xmlns}">\n'
             f'<style>\n'
             f'circle, path, polygon, rect {{\n'
             f'  fill: lightyellow;\n'
@@ -1335,7 +1337,7 @@ class Node:
         to_node = self.to_node
         if to_node is None:
             self.x = self.width // 2
-            self.y = 0
+            self.y = Node.HEIGHT // 2
         else:
             to_node_inputs = to_node.input_nodes
             input_index = to_node_inputs.index(self)

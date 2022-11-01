@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="-100 -200 400 800" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-50 -50 400 700" xmlns="http://www.w3.org/2000/svg">
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
@@ -18,51 +18,51 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="150,-93 150,40"/>
-<polyline points="140,40 140,90 50,90 50,140"/>
-<polyline points="160,40 160,90 200,90 200,140"/>
-<rect x="105" y="-93" width="90" height="66"/>
-<text x="150" y="-60">System fails</text>
-<rect x="105" y="-24" width="90" height="20"/>
-<text x="150" y="-14">SYS</text>
-<path d="M150,4 C145,6 118,20 118,50 L118,76 Q150,50 182,76 L182,50 C182,20 155,6 150,4"/>
-<rect x="105" y="27" width="90" height="26"/>
-<text x="150" y="40">Q ≤ 0.071</text>
-<polyline points="50,107 50,240"/>
+<polyline points="150,7 150,140"/>
+<polyline points="140,140 140,190 50,190 50,240"/>
+<polyline points="160,140 160,190 200,190 200,240"/>
+<rect x="105" y="7" width="90" height="66"/>
+<text x="150" y="40">System fails</text>
+<rect x="105" y="76" width="90" height="20"/>
+<text x="150" y="86">SYS</text>
+<path d="M150,104 C145,106 118,120 118,150 L118,176 Q150,150 182,176 L182,150 C182,120 155,106 150,104"/>
+<rect x="105" y="127" width="90" height="26"/>
+<text x="150" y="140">Q ≤ 0.071</text>
+<polyline points="50,207 50,340"/>
 
-<rect x="5" y="107" width="90" height="66"/>
-<text x="50" y="140">Component A fails</text>
-<rect x="5" y="176" width="90" height="20"/>
-<text x="50" y="186">A</text>
-<circle cx="50" cy="240" r="35"/>
-<rect x="5" y="227" width="90" height="26"/>
-<text x="50" y="240">Q = 0.011</text>
-<polyline points="200,107 200,240"/>
-<polyline points="190,240 190,290 150,290 150,340"/>
-<polyline points="210,240 210,290 250,290 250,340"/>
-<rect x="155" y="107" width="90" height="66"/>
-<text x="200" y="140">Subsystem fails</text>
-<rect x="155" y="176" width="90" height="20"/>
-<text x="200" y="186">SUB</text>
-<path d="M170,272 L230,272 L230,234 C230,194 170,194 170,234 L170,272 "/>
-<rect x="155" y="227" width="90" height="26"/>
-<text x="200" y="240">Q = 0.061</text>
-<polyline points="150,307 150,440"/>
+<rect x="5" y="207" width="90" height="66"/>
+<text x="50" y="240">Component A fails</text>
+<rect x="5" y="276" width="90" height="20"/>
+<text x="50" y="286">A</text>
+<circle cx="50" cy="340" r="35"/>
+<rect x="5" y="327" width="90" height="26"/>
+<text x="50" y="340">Q = 0.011</text>
+<polyline points="200,207 200,340"/>
+<polyline points="190,340 190,390 150,390 150,440"/>
+<polyline points="210,340 210,390 250,390 250,440"/>
+<rect x="155" y="207" width="90" height="66"/>
+<text x="200" y="240">Subsystem fails</text>
+<rect x="155" y="276" width="90" height="20"/>
+<text x="200" y="286">SUB</text>
+<path d="M170,372 L230,372 L230,334 C230,294 170,294 170,334 L170,372 "/>
+<rect x="155" y="327" width="90" height="26"/>
+<text x="200" y="340">Q = 0.061</text>
+<polyline points="150,407 150,540"/>
 
-<rect x="105" y="307" width="90" height="66"/>
-<text x="150" y="340">Component B fails</text>
-<rect x="105" y="376" width="90" height="20"/>
-<text x="150" y="386">B</text>
-<circle cx="150" cy="440" r="35"/>
-<rect x="105" y="427" width="90" height="26"/>
-<text x="150" y="440">Q = 0.21</text>
-<polyline points="250,307 250,440"/>
+<rect x="105" y="407" width="90" height="66"/>
+<text x="150" y="440">Component B fails</text>
+<rect x="105" y="476" width="90" height="20"/>
+<text x="150" y="486">B</text>
+<circle cx="150" cy="540" r="35"/>
+<rect x="105" y="527" width="90" height="26"/>
+<text x="150" y="540">Q = 0.21</text>
+<polyline points="250,407 250,540"/>
 
-<rect x="205" y="307" width="90" height="66"/>
-<text x="250" y="340">Component C fails</text>
-<rect x="205" y="376" width="90" height="20"/>
-<text x="250" y="386">C</text>
-<circle cx="250" cy="440" r="35"/>
-<rect x="205" y="427" width="90" height="26"/>
-<text x="250" y="440">Q = 0.31</text>
+<rect x="205" y="407" width="90" height="66"/>
+<text x="250" y="440">Component C fails</text>
+<rect x="205" y="476" width="90" height="20"/>
+<text x="250" y="486">C</text>
+<circle cx="250" cy="540" r="35"/>
+<rect x="205" y="527" width="90" height="26"/>
+<text x="250" y="540">Q = 0.31</text>
 </svg>

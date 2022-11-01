@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="-100 -200 600 800" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-50 -50 600 700" xmlns="http://www.w3.org/2000/svg">
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
@@ -18,71 +18,71 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="250,-93 250,40"/>
-<polyline points="236,40 236,90 50,90 50,140"/>
-<polyline points="250,40 250,90 250,90 250,140"/>
-<polyline points="264,40 264,90 450,90 450,140"/>
-<rect x="205" y="-93" width="90" height="66"/>
-<text x="250" y="-60">Ethylene release due to components rupture</text>
-<rect x="205" y="-24" width="90" height="20"/>
-<text x="250" y="-14">G1</text>
-<path d="M250,4 C245,6 218,20 218,50 L218,76 Q250,50 282,76 L282,50 C282,20 255,6 250,4"/>
-<rect x="205" y="27" width="90" height="26"/>
-<text x="250" y="40">Q ≤ 0.10621</text>
-<polyline points="50,107 50,240"/>
+<polyline points="250,7 250,140"/>
+<polyline points="236,140 236,190 50,190 50,240"/>
+<polyline points="250,140 250,190 250,190 250,240"/>
+<polyline points="264,140 264,190 450,190 450,240"/>
+<rect x="205" y="7" width="90" height="66"/>
+<text x="250" y="40">Ethylene release due to components rupture</text>
+<rect x="205" y="76" width="90" height="20"/>
+<text x="250" y="86">G1</text>
+<path d="M250,104 C245,106 218,120 218,150 L218,176 Q250,150 282,176 L282,150 C282,120 255,106 250,104"/>
+<rect x="205" y="127" width="90" height="26"/>
+<text x="250" y="140">Q ≤ 0.10621</text>
+<polyline points="50,207 50,340"/>
 
-<rect x="5" y="107" width="90" height="66"/>
-<text x="50" y="140">Spontaneous rupture of deposit</text>
-<rect x="5" y="176" width="90" height="20"/>
-<text x="50" y="186">X31</text>
-<circle cx="50" cy="240" r="35"/>
-<rect x="5" y="227" width="90" height="26"/>
-<text x="50" y="240">Q = 0.000791</text>
-<polyline points="250,107 250,240"/>
-<polyline points="236,240 236,290 150,290 150,340"/>
-<polyline points="250,240 250,290 250,290 250,340"/>
-<polyline points="264,240 264,290 350,290 350,340"/>
-<rect x="205" y="107" width="90" height="66"/>
-<text x="250" y="140"></text>
-<rect x="205" y="176" width="90" height="20"/>
-<text x="250" y="186">G2</text>
-<path d="M220,272 L280,272 L280,234 C280,194 220,194 220,234 L220,272 "/>
-<rect x="205" y="227" width="90" height="26"/>
-<text x="250" y="240">Q ≤ 0.055791</text>
-<polyline points="150,307 150,440"/>
+<rect x="5" y="207" width="90" height="66"/>
+<text x="50" y="240">Spontaneous rupture of deposit</text>
+<rect x="5" y="276" width="90" height="20"/>
+<text x="50" y="286">X31</text>
+<circle cx="50" cy="340" r="35"/>
+<rect x="5" y="327" width="90" height="26"/>
+<text x="50" y="340">Q = 0.000791</text>
+<polyline points="250,207 250,340"/>
+<polyline points="236,340 236,390 150,390 150,440"/>
+<polyline points="250,340 250,390 250,390 250,440"/>
+<polyline points="264,340 264,390 350,390 350,440"/>
+<rect x="205" y="207" width="90" height="66"/>
+<text x="250" y="240"></text>
+<rect x="205" y="276" width="90" height="20"/>
+<text x="250" y="286">G2</text>
+<path d="M220,372 L280,372 L280,334 C280,294 220,294 220,334 L220,372 "/>
+<rect x="205" y="327" width="90" height="26"/>
+<text x="250" y="340">Q ≤ 0.055791</text>
+<polyline points="150,407 150,540"/>
 
-<rect x="105" y="307" width="90" height="66"/>
-<text x="150" y="340"></text>
-<rect x="105" y="376" width="90" height="20"/>
-<text x="150" y="386">G3</text>
-<polygon points="150,406 115,474 185,474"/>
-<rect x="105" y="427" width="90" height="26"/>
-<text x="150" y="440">Q ≤ 0.11921</text>
-<polyline points="250,307 250,440"/>
+<rect x="105" y="407" width="90" height="66"/>
+<text x="150" y="440"></text>
+<rect x="105" y="476" width="90" height="20"/>
+<text x="150" y="486">G3</text>
+<polygon points="150,506 115,574 185,574"/>
+<rect x="105" y="527" width="90" height="26"/>
+<text x="150" y="540">Q ≤ 0.11921</text>
+<polyline points="250,407 250,540"/>
 
-<rect x="205" y="307" width="90" height="66"/>
-<text x="250" y="340"></text>
-<rect x="205" y="376" width="90" height="20"/>
-<text x="250" y="386">G4</text>
-<polygon points="250,406 215,474 285,474"/>
-<rect x="205" y="427" width="90" height="26"/>
-<text x="250" y="440">Q ≤ 0.6241</text>
-<polyline points="350,307 350,440"/>
+<rect x="205" y="407" width="90" height="66"/>
+<text x="250" y="440"></text>
+<rect x="205" y="476" width="90" height="20"/>
+<text x="250" y="486">G4</text>
+<polygon points="250,506 215,574 285,574"/>
+<rect x="205" y="527" width="90" height="26"/>
+<text x="250" y="540">Q ≤ 0.6241</text>
+<polyline points="350,407 350,540"/>
 
-<rect x="305" y="307" width="90" height="66"/>
-<text x="350" y="340"></text>
-<rect x="305" y="376" width="90" height="20"/>
-<text x="350" y="386">G5</text>
-<polygon points="350,406 315,474 385,474"/>
-<rect x="305" y="427" width="90" height="26"/>
-<text x="350" y="440">Q = 0.751</text>
-<polyline points="450,107 450,240"/>
+<rect x="305" y="407" width="90" height="66"/>
+<text x="350" y="440"></text>
+<rect x="305" y="476" width="90" height="20"/>
+<text x="350" y="486">G5</text>
+<polygon points="350,506 315,574 385,574"/>
+<rect x="305" y="527" width="90" height="26"/>
+<text x="350" y="540">Q = 0.751</text>
+<polyline points="450,207 450,340"/>
 
-<rect x="405" y="107" width="90" height="66"/>
-<text x="450" y="140">External &amp; secondary effects</text>
-<rect x="405" y="176" width="90" height="20"/>
-<text x="450" y="186">X33</text>
-<circle cx="450" cy="240" r="35"/>
-<rect x="405" y="227" width="90" height="26"/>
-<text x="450" y="240">Q = 0.049591</text>
+<rect x="405" y="207" width="90" height="66"/>
+<text x="450" y="240">External &amp; secondary effects</text>
+<rect x="405" y="276" width="90" height="20"/>
+<text x="450" y="286">X33</text>
+<circle cx="450" cy="340" r="35"/>
+<rect x="405" y="327" width="90" height="26"/>
+<text x="450" y="340">Q = 0.049591</text>
 </svg>
