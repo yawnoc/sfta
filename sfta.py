@@ -1246,6 +1246,9 @@ class Node:
     SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
     SYMBOL_SLOTS_HALF_WIDTH = round(0.29 * WIDTH)
 
+    CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
+    CONNECTOR_BUS_HALF_HEIGHT = round(0.06 * HEIGHT)
+
     OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
     OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
     OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
@@ -1269,8 +1272,6 @@ class Node:
     QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
     QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
     QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
-
-    CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
 
     def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event
@@ -1399,14 +1400,38 @@ class Node:
 
         symbol_centre = x
         symbol_middle = y + Node.SYMBOL_Y_OFFSET
-        bus_y = y + Node.CONNECTOR_BUS_Y_OFFSET
+        bus_middle = y + Node.CONNECTOR_BUS_Y_OFFSET
+
+        input_numbers_left = []
+        input_numbers_right = []
+        for input_number, input_node in enumerate(input_nodes, start=1):
+            input_node_centre = input_node.x
+            if input_node_centre < symbol_centre:
+                input_numbers_left.append(input_number)
+            elif input_node_centre > symbol_centre:
+                input_numbers_right.append(input_number)
+
+        input_count = len(input_nodes)
+        left_input_count = len(input_numbers_left)
+        right_input_count = len(input_numbers_right)
 
         points_by_input = []
-        input_count = len(input_nodes)
         for input_number, input_node in enumerate(input_nodes, start=1):
             slot_bias = 2 * input_number / (1 + input_count) - 1
             slot_x = round(
                 symbol_centre + slot_bias * Node.SYMBOL_SLOTS_HALF_WIDTH
+            )
+
+            if input_number in input_numbers_left:
+                left_number = input_numbers_left.index(input_number) + 1
+                bus_bias = 2 * left_number / (1 + left_input_count) - 1
+            elif input_number in input_numbers_right:
+                right_number = input_numbers_right.index(input_number) + 1
+                bus_bias = 1 - 2 * right_number / (1 + right_input_count)
+            else:
+                bus_bias = 0
+            bus_y = round(
+                bus_middle + bus_bias * Node.CONNECTOR_BUS_HALF_HEIGHT
             )
 
             input_label_centre = input_node.x
