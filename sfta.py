@@ -464,7 +464,7 @@ class Gate:
         self.is_paged = None
         self.is_paged_line_number = None
 
-        self.type = None
+        self.type_ = None
         self.type_line_number = None
 
         self.input_ids = None
@@ -539,7 +539,7 @@ class Gate:
         self.is_paged_line_number = line_number
 
     def set_type(self, type_str, line_number):
-        if self.type is not None:
+        if self.type_ is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
                 f'type hath already been set for Gate `{self.id_}` '
@@ -547,9 +547,9 @@ class Gate:
             )
 
         if type_str == 'OR':
-            self.type = Gate.TYPE_OR
+            self.type_ = Gate.TYPE_OR
         elif type_str == 'AND':
-            self.type = Gate.TYPE_AND
+            self.type_ = Gate.TYPE_AND
         else:
             raise Gate.BadTypeException(
                 line_number,
@@ -587,7 +587,7 @@ class Gate:
     def validate_properties(self, line_number):
         if self.is_paged is None:
             self.is_paged = False
-        if self.type is None:
+        if self.type_ is None:
             raise Gate.TypeNotSetException(
                 line_number,
                 f'type hath not been set for Gate `{self.id_}`'
@@ -616,7 +616,7 @@ class Gate:
                     f'neither `event_from_id` nor `gate_from_id`.'
                 )
 
-        if self.type == Gate.TYPE_AND:
+        if self.type_ == Gate.TYPE_AND:
             try:
                 self.tome = Tome.and_(*input_tomes)
             except Tome.ConjunctionBadTypesException as exception:
@@ -632,7 +632,7 @@ class Gate:
                     )
                     + f'\n\n{Gate.AND_INPUTS_EXPLAINER}'
                 )
-        elif self.type == Gate.TYPE_OR:
+        elif self.type_ == Gate.TYPE_OR:
             try:
                 self.tome = Tome.or_(*input_tomes)
             except Tome.DisjunctionBadTypesException as exception:
@@ -1049,7 +1049,7 @@ class FaultTree:
                 Event.STR_FROM_TYPE[gate.quantity_type],
                 blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
-                Gate.STR_FROM_TYPE[gate.type],
+                Gate.STR_FROM_TYPE[gate.type_],
                 ','.join(gate.input_ids),
                 gate.label,
             ]
