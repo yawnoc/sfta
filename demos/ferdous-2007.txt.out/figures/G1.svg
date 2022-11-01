@@ -37,7 +37,7 @@ text {
 <text x="-200" y="186">X31</text>
 <circle cx="-200" cy="240" r="35"/>
 <rect x="-245" y="227" width="90" height="26"/>
-<text x="-200" y="240">Q ≤ 0.000791</text>
+<text x="-200" y="240">Q = 0.000791</text>
 <polyline points="0,107 0,240"/>
 <polyline points="-14,240 -14,290 -100,290 -100,340"/>
 <polyline points="0,240 0,290 0,290 0,340"/>
@@ -75,7 +75,7 @@ text {
 <text x="100" y="386">G5</text>
 <polygon points="100,406 65,474 135,474"/>
 <rect x="55" y="427" width="90" height="26"/>
-<text x="100" y="440">Q ≤ 0.751</text>
+<text x="100" y="440">Q = 0.751</text>
 <polyline points="200,107 200,240"/>
 
 <rect x="155" y="107" width="90" height="66"/>
@@ -84,5 +84,5 @@ text {
 <text x="200" y="186">X33</text>
 <circle cx="200" cy="240" r="35"/>
 <rect x="155" y="227" width="90" height="26"/>
-<text x="200" y="240">Q ≤ 0.049591</text>
+<text x="200" y="240">Q = 0.049591</text>
 </svg>

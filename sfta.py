@@ -1360,6 +1360,7 @@ class Node:
         label = reference_object.label
         quantity_value = reference_object.quantity_value
         quantity_type = reference_object.quantity_type
+        has_multiple_writs = len(reference_object.tome.writs) > 1
 
         self_elements = [
             Node.label_symbol_connector_element(x, y),
@@ -1372,7 +1373,7 @@ class Node:
             Node.quantity_rectangle_element(x, y),
             Node.quantity_text_element(
                 x, y,
-                quantity_value, quantity_type,
+                quantity_value, quantity_type, has_multiple_writs,
                 time_unit,
             ),
         ]
@@ -1592,7 +1593,11 @@ class Node:
         )
 
     @staticmethod
-    def quantity_text_element(x, y, quantity_value, quantity_type, time_unit):
+    def quantity_text_element(
+        x, y,
+        quantity_value, quantity_type, has_multiple_writs,
+        time_unit,
+    ):
         centre = x
         middle = y + Node.QUANTITY_BOX_Y_OFFSET
 
@@ -1605,9 +1610,16 @@ class Node:
                 'Implementation error: '
                 '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
             )
+
+        if has_multiple_writs:
+            relation = '≤'
+        else:
+            relation = '='
+
         value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
         unit_str = Event.quantity_unit_str(quantity_type, time_unit)
-        content = escape_xml(f'{lhs} ≤ {value_str}{unit_str}')
+
+        content = escape_xml(f'{lhs} {relation} {value_str}{unit_str}')
 
         return f'<text x="{centre}" y="{middle}">{content}</text>'
 

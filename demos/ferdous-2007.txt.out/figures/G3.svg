@@ -37,7 +37,7 @@ text {
 <text x="-100" y="186">X32</text>
 <circle cx="-100" cy="240" r="35"/>
 <rect x="-145" y="227" width="90" height="26"/>
-<text x="-100" y="240">Q ≤ 0.018091</text>
+<text x="-100" y="240">Q = 0.018091</text>
 <polyline points="0,107 0,240"/>
 
 <rect x="-45" y="107" width="90" height="66"/>
