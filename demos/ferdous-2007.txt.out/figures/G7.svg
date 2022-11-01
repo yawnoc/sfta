@@ -12,62 +12,91 @@ text {
   text-anchor: middle;
 }
 </style>
+<rect x="-45" y="-93" width="90" height="66"/>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G7</text>
+<rect x="-845" y="107" width="90" height="66"/>
 <rect x="-845" y="176" width="90" height="20"/>
 <text x="-800" y="186">G11</text>
+<rect x="-895" y="307" width="90" height="66"/>
 <rect x="-895" y="376" width="90" height="20"/>
 <text x="-850" y="386">X30</text>
+<rect x="-795" y="307" width="90" height="66"/>
 <rect x="-795" y="376" width="90" height="20"/>
 <text x="-750" y="386">X37</text>
+<rect x="55" y="107" width="90" height="66"/>
 <rect x="55" y="176" width="90" height="20"/>
 <text x="100" y="186">G12</text>
+<rect x="-695" y="307" width="90" height="66"/>
 <rect x="-695" y="376" width="90" height="20"/>
 <text x="-650" y="386">X9</text>
+<rect x="55" y="307" width="90" height="66"/>
 <rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">G15</text>
+<rect x="-595" y="507" width="90" height="66"/>
 <rect x="-595" y="576" width="90" height="20"/>
 <text x="-550" y="586">X9</text>
+<rect x="55" y="507" width="90" height="66"/>
 <rect x="55" y="576" width="90" height="20"/>
 <text x="100" y="586">G18</text>
+<rect x="-345" y="707" width="90" height="66"/>
 <rect x="-345" y="776" width="90" height="20"/>
 <text x="-300" y="786">G20</text>
+<rect x="-495" y="907" width="90" height="66"/>
 <rect x="-495" y="976" width="90" height="20"/>
 <text x="-450" y="986">X43</text>
+<rect x="-295" y="907" width="90" height="66"/>
 <rect x="-295" y="976" width="90" height="20"/>
 <text x="-250" y="986">G23</text>
+<rect x="-395" y="1107" width="90" height="66"/>
 <rect x="-395" y="1176" width="90" height="20"/>
 <text x="-350" y="1186">X10</text>
+<rect x="-295" y="1107" width="90" height="66"/>
 <rect x="-295" y="1176" width="90" height="20"/>
 <text x="-250" y="1186">X11</text>
+<rect x="-195" y="1107" width="90" height="66"/>
 <rect x="-195" y="1176" width="90" height="20"/>
 <text x="-150" y="1186">X12</text>
+<rect x="55" y="707" width="90" height="66"/>
 <rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">G21</text>
+<rect x="-95" y="907" width="90" height="66"/>
 <rect x="-95" y="976" width="90" height="20"/>
 <text x="-50" y="986">X44</text>
+<rect x="105" y="907" width="90" height="66"/>
 <rect x="105" y="976" width="90" height="20"/>
 <text x="150" y="986">G24</text>
+<rect x="5" y="1107" width="90" height="66"/>
 <rect x="5" y="1176" width="90" height="20"/>
 <text x="50" y="1186">X13</text>
+<rect x="105" y="1107" width="90" height="66"/>
 <rect x="105" y="1176" width="90" height="20"/>
 <text x="150" y="1186">X11</text>
+<rect x="205" y="1107" width="90" height="66"/>
 <rect x="205" y="1176" width="90" height="20"/>
 <text x="250" y="1186">X14</text>
+<rect x="455" y="707" width="90" height="66"/>
 <rect x="455" y="776" width="90" height="20"/>
 <text x="500" y="786">G22</text>
+<rect x="305" y="907" width="90" height="66"/>
 <rect x="305" y="976" width="90" height="20"/>
 <text x="350" y="986">X45</text>
+<rect x="505" y="907" width="90" height="66"/>
 <rect x="505" y="976" width="90" height="20"/>
 <text x="550" y="986">G25</text>
+<rect x="405" y="1107" width="90" height="66"/>
 <rect x="405" y="1176" width="90" height="20"/>
 <text x="450" y="1186">X15</text>
+<rect x="505" y="1107" width="90" height="66"/>
 <rect x="505" y="1176" width="90" height="20"/>
 <text x="550" y="1186">X11</text>
+<rect x="605" y="1107" width="90" height="66"/>
 <rect x="605" y="1176" width="90" height="20"/>
 <text x="650" y="1186">X16</text>
+<rect x="705" y="507" width="90" height="66"/>
 <rect x="705" y="576" width="90" height="20"/>
 <text x="750" y="586">X17</text>
+<rect x="805" y="307" width="90" height="66"/>
 <rect x="805" y="376" width="90" height="20"/>
 <text x="850" y="386">X17</text>
 </svg>

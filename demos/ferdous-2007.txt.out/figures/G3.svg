@@ -12,12 +12,16 @@ text {
   text-anchor: middle;
 }
 </style>
+<rect x="-45" y="-93" width="90" height="66"/>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">G3</text>
+<rect x="-145" y="107" width="90" height="66"/>
 <rect x="-145" y="176" width="90" height="20"/>
 <text x="-100" y="186">X32</text>
+<rect x="-45" y="107" width="90" height="66"/>
 <rect x="-45" y="176" width="90" height="20"/>
 <text x="0" y="186">G6</text>
+<rect x="55" y="107" width="90" height="66"/>
 <rect x="55" y="176" width="90" height="20"/>
 <text x="100" y="186">G7</text>
 </svg>

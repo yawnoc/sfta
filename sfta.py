@@ -1222,6 +1222,10 @@ class Node:
     WIDTH = 100
     HEIGHT = 200
 
+    LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
+    LABEL_BOX_WIDTH = round(0.9 * WIDTH)
+    LABEL_BOX_HEIGHT = round(0.33 * HEIGHT)
+
     ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
     ID_BOX_WIDTH = round(0.9 * WIDTH)
     ID_BOX_HEIGHT = round(0.1 * HEIGHT)
@@ -1291,6 +1295,7 @@ class Node:
         id_ = self.reference_object.id_
 
         self_elements = [
+            Node.label_rectangle_element(x, y),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
             # TODO: label, symbol, connectors, positioning
@@ -1301,6 +1306,17 @@ class Node:
         ]
 
         return '\n'.join(self_elements + input_elements)
+
+    @staticmethod
+    def label_rectangle_element(x, y):
+        left = x - Node.LABEL_BOX_WIDTH // 2
+        top = y - Node.LABEL_BOX_HEIGHT // 2 + Node.LABEL_BOX_Y_OFFSET
+        width = Node.LABEL_BOX_WIDTH
+        height = Node.LABEL_BOX_HEIGHT
+
+        return (
+            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
+        )
 
     @staticmethod
     def id_rectangle_element(x, y):
