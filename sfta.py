@@ -1360,7 +1360,7 @@ class Node:
         label = reference_object.label
         quantity_value = reference_object.quantity_value
         quantity_type = reference_object.quantity_type
-        has_multiple_writs = len(reference_object.tome.writs) > 1
+        hath_multiple_writs = len(reference_object.tome.writs) > 1
 
         self_elements = [
             Node.label_symbol_connector_element(x, y),
@@ -1373,7 +1373,7 @@ class Node:
             Node.quantity_rectangle_element(x, y),
             Node.quantity_text_element(
                 x, y,
-                quantity_value, quantity_type, has_multiple_writs,
+                quantity_value, quantity_type, hath_multiple_writs,
                 time_unit,
             ),
         ]
@@ -1595,7 +1595,7 @@ class Node:
     @staticmethod
     def quantity_text_element(
         x, y,
-        quantity_value, quantity_type, has_multiple_writs,
+        quantity_value, quantity_type, hath_multiple_writs,
         time_unit,
     ):
         centre = x
@@ -1611,7 +1611,7 @@ class Node:
                 '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
             )
 
-        if has_multiple_writs:
+        if hath_multiple_writs:
             relation = '≤'
         else:
             relation = '='
