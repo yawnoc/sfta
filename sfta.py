@@ -1292,10 +1292,14 @@ class Node:
     def get_svg_elements_recursive(self):
         x = self.x
         y = self.y
-        id_ = self.reference_object.id_
+
+        reference_object = self.reference_object
+        id_ = reference_object.id_
+        label = reference_object.label
 
         self_elements = [
             Node.label_rectangle_element(x, y),
+            Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
             # TODO: label, symbol, connectors, positioning
@@ -1317,6 +1321,17 @@ class Node:
         return (
             f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
         )
+
+    @staticmethod
+    def label_text_element(x, y, label):
+        centre = x
+        middle = y + Node.LABEL_BOX_Y_OFFSET
+        if label is None:
+            content = ''
+        else:
+            content = escape_xml(label)  # TODO: wrapping and font size
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
 
     @staticmethod
     def id_rectangle_element(x, y):

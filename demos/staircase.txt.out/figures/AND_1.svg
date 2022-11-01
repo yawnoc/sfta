@@ -13,126 +13,167 @@ text {
 }
 </style>
 <rect x="-45" y="-93" width="90" height="66"/>
+<text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">AND_1</text>
 <rect x="-1045" y="107" width="90" height="66"/>
+<text x="-1000" y="140"></text>
 <rect x="-1045" y="176" width="90" height="20"/>
 <text x="-1000" y="186">A_1</text>
 <rect x="5" y="107" width="90" height="66"/>
+<text x="50" y="140"></text>
 <rect x="5" y="176" width="90" height="20"/>
 <text x="50" y="186">OR_1</text>
 <rect x="-945" y="307" width="90" height="66"/>
+<text x="-900" y="340"></text>
 <rect x="-945" y="376" width="90" height="20"/>
 <text x="-900" y="386">O_1</text>
 <rect x="55" y="307" width="90" height="66"/>
+<text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">AND_2</text>
 <rect x="-845" y="507" width="90" height="66"/>
+<text x="-800" y="540"></text>
 <rect x="-845" y="576" width="90" height="20"/>
 <text x="-800" y="586">A_2</text>
 <rect x="105" y="507" width="90" height="66"/>
+<text x="150" y="540"></text>
 <rect x="105" y="576" width="90" height="20"/>
 <text x="150" y="586">OR_2</text>
 <rect x="-745" y="707" width="90" height="66"/>
+<text x="-700" y="740"></text>
 <rect x="-745" y="776" width="90" height="20"/>
 <text x="-700" y="786">O_2</text>
 <rect x="155" y="707" width="90" height="66"/>
+<text x="200" y="740"></text>
 <rect x="155" y="776" width="90" height="20"/>
 <text x="200" y="786">AND_3</text>
 <rect x="-645" y="907" width="90" height="66"/>
+<text x="-600" y="940"></text>
 <rect x="-645" y="976" width="90" height="20"/>
 <text x="-600" y="986">A_3</text>
 <rect x="205" y="907" width="90" height="66"/>
+<text x="250" y="940"></text>
 <rect x="205" y="976" width="90" height="20"/>
 <text x="250" y="986">OR_3</text>
 <rect x="-545" y="1107" width="90" height="66"/>
+<text x="-500" y="1140"></text>
 <rect x="-545" y="1176" width="90" height="20"/>
 <text x="-500" y="1186">O_3</text>
 <rect x="255" y="1107" width="90" height="66"/>
+<text x="300" y="1140"></text>
 <rect x="255" y="1176" width="90" height="20"/>
 <text x="300" y="1186">AND_4</text>
 <rect x="-445" y="1307" width="90" height="66"/>
+<text x="-400" y="1340"></text>
 <rect x="-445" y="1376" width="90" height="20"/>
 <text x="-400" y="1386">A_4</text>
 <rect x="305" y="1307" width="90" height="66"/>
+<text x="350" y="1340"></text>
 <rect x="305" y="1376" width="90" height="20"/>
 <text x="350" y="1386">OR_4</text>
 <rect x="-345" y="1507" width="90" height="66"/>
+<text x="-300" y="1540"></text>
 <rect x="-345" y="1576" width="90" height="20"/>
 <text x="-300" y="1586">O_4</text>
 <rect x="355" y="1507" width="90" height="66"/>
+<text x="400" y="1540"></text>
 <rect x="355" y="1576" width="90" height="20"/>
 <text x="400" y="1586">AND_5</text>
 <rect x="-245" y="1707" width="90" height="66"/>
+<text x="-200" y="1740"></text>
 <rect x="-245" y="1776" width="90" height="20"/>
 <text x="-200" y="1786">A_5</text>
 <rect x="405" y="1707" width="90" height="66"/>
+<text x="450" y="1740"></text>
 <rect x="405" y="1776" width="90" height="20"/>
 <text x="450" y="1786">OR_5</text>
 <rect x="-145" y="1907" width="90" height="66"/>
+<text x="-100" y="1940"></text>
 <rect x="-145" y="1976" width="90" height="20"/>
 <text x="-100" y="1986">O_5</text>
 <rect x="455" y="1907" width="90" height="66"/>
+<text x="500" y="1940"></text>
 <rect x="455" y="1976" width="90" height="20"/>
 <text x="500" y="1986">AND_6</text>
 <rect x="-45" y="2107" width="90" height="66"/>
+<text x="0" y="2140"></text>
 <rect x="-45" y="2176" width="90" height="20"/>
 <text x="0" y="2186">A_6</text>
 <rect x="505" y="2107" width="90" height="66"/>
+<text x="550" y="2140"></text>
 <rect x="505" y="2176" width="90" height="20"/>
 <text x="550" y="2186">OR_6</text>
 <rect x="55" y="2307" width="90" height="66"/>
+<text x="100" y="2340"></text>
 <rect x="55" y="2376" width="90" height="20"/>
 <text x="100" y="2386">O_6</text>
 <rect x="555" y="2307" width="90" height="66"/>
+<text x="600" y="2340"></text>
 <rect x="555" y="2376" width="90" height="20"/>
 <text x="600" y="2386">AND_7</text>
 <rect x="155" y="2507" width="90" height="66"/>
+<text x="200" y="2540"></text>
 <rect x="155" y="2576" width="90" height="20"/>
 <text x="200" y="2586">A_7</text>
 <rect x="605" y="2507" width="90" height="66"/>
+<text x="650" y="2540"></text>
 <rect x="605" y="2576" width="90" height="20"/>
 <text x="650" y="2586">OR_7</text>
 <rect x="255" y="2707" width="90" height="66"/>
+<text x="300" y="2740"></text>
 <rect x="255" y="2776" width="90" height="20"/>
 <text x="300" y="2786">O_7</text>
 <rect x="655" y="2707" width="90" height="66"/>
+<text x="700" y="2740"></text>
 <rect x="655" y="2776" width="90" height="20"/>
 <text x="700" y="2786">AND_8</text>
 <rect x="355" y="2907" width="90" height="66"/>
+<text x="400" y="2940"></text>
 <rect x="355" y="2976" width="90" height="20"/>
 <text x="400" y="2986">A_8</text>
 <rect x="705" y="2907" width="90" height="66"/>
+<text x="750" y="2940"></text>
 <rect x="705" y="2976" width="90" height="20"/>
 <text x="750" y="2986">OR_8</text>
 <rect x="455" y="3107" width="90" height="66"/>
+<text x="500" y="3140"></text>
 <rect x="455" y="3176" width="90" height="20"/>
 <text x="500" y="3186">O_8</text>
 <rect x="755" y="3107" width="90" height="66"/>
+<text x="800" y="3140"></text>
 <rect x="755" y="3176" width="90" height="20"/>
 <text x="800" y="3186">AND_9</text>
 <rect x="555" y="3307" width="90" height="66"/>
+<text x="600" y="3340"></text>
 <rect x="555" y="3376" width="90" height="20"/>
 <text x="600" y="3386">A_9</text>
 <rect x="805" y="3307" width="90" height="66"/>
+<text x="850" y="3340"></text>
 <rect x="805" y="3376" width="90" height="20"/>
 <text x="850" y="3386">OR_9</text>
 <rect x="655" y="3507" width="90" height="66"/>
+<text x="700" y="3540"></text>
 <rect x="655" y="3576" width="90" height="20"/>
 <text x="700" y="3586">O_9</text>
 <rect x="855" y="3507" width="90" height="66"/>
+<text x="900" y="3540"></text>
 <rect x="855" y="3576" width="90" height="20"/>
 <text x="900" y="3586">AND_10</text>
 <rect x="755" y="3707" width="90" height="66"/>
+<text x="800" y="3740"></text>
 <rect x="755" y="3776" width="90" height="20"/>
 <text x="800" y="3786">A_10</text>
 <rect x="905" y="3707" width="90" height="66"/>
+<text x="950" y="3740"></text>
 <rect x="905" y="3776" width="90" height="20"/>
 <text x="950" y="3786">OR_10</text>
 <rect x="855" y="3907" width="90" height="66"/>
+<text x="900" y="3940"></text>
 <rect x="855" y="3976" width="90" height="20"/>
 <text x="900" y="3986">O_10</text>
 <rect x="955" y="3907" width="90" height="66"/>
+<text x="1000" y="3940"></text>
 <rect x="955" y="3976" width="90" height="20"/>
 <text x="1000" y="3986">L</text>
 </svg>

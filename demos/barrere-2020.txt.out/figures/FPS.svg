@@ -13,39 +13,51 @@ text {
 }
 </style>
 <rect x="-45" y="-93" width="90" height="66"/>
+<text x="0" y="-60">Failure of Fire Protection System</text>
 <rect x="-45" y="-24" width="90" height="20"/>
 <text x="0" y="-14">FPS</text>
 <rect x="-295" y="107" width="90" height="66"/>
+<text x="-250" y="140">Fire detection system fails</text>
 <rect x="-295" y="176" width="90" height="20"/>
 <text x="-250" y="186">FDS</text>
 <rect x="-345" y="307" width="90" height="66"/>
+<text x="-300" y="340">Failure of smoke detector sensor</text>
 <rect x="-345" y="376" width="90" height="20"/>
 <text x="-300" y="386">x1</text>
 <rect x="-245" y="307" width="90" height="66"/>
+<text x="-200" y="340">Failure of heat detector sensor</text>
 <rect x="-245" y="376" width="90" height="20"/>
 <text x="-200" y="386">x2</text>
 <rect x="55" y="107" width="90" height="66"/>
+<text x="100" y="140">Fire suppression system fails</text>
 <rect x="55" y="176" width="90" height="20"/>
 <text x="100" y="186">FSS</text>
 <rect x="-145" y="307" width="90" height="66"/>
+<text x="-100" y="340">No water to sprinkler system</text>
 <rect x="-145" y="376" width="90" height="20"/>
 <text x="-100" y="386">x3</text>
 <rect x="55" y="307" width="90" height="66"/>
+<text x="100" y="340">Triggering system fails</text>
 <rect x="55" y="376" width="90" height="20"/>
 <text x="100" y="386">TS</text>
 <rect x="-45" y="507" width="90" height="66"/>
+<text x="0" y="540">Automatic mechanism fails</text>
 <rect x="-45" y="576" width="90" height="20"/>
 <text x="0" y="586">x5</text>
 <rect x="105" y="507" width="90" height="66"/>
+<text x="150" y="540">Remote control fails</text>
 <rect x="105" y="576" width="90" height="20"/>
 <text x="150" y="586">RC</text>
 <rect x="55" y="707" width="90" height="66"/>
+<text x="100" y="740">Communications failure</text>
 <rect x="55" y="776" width="90" height="20"/>
 <text x="100" y="786">x6</text>
 <rect x="155" y="707" width="90" height="66"/>
+<text x="200" y="740">DDoS attack</text>
 <rect x="155" y="776" width="90" height="20"/>
 <text x="200" y="786">x7</text>
 <rect x="255" y="307" width="90" height="66"/>
+<text x="300" y="340">Sprinkler nozzles blocked</text>
 <rect x="255" y="376" width="90" height="20"/>
 <text x="300" y="386">x4</text>
 </svg>
