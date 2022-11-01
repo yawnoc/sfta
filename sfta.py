@@ -1194,7 +1194,7 @@ class Figure:
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
             f'<style>\n'
-            f'path, rect {{\n'
+            f'circle, path, rect {{\n'
             f'  fill: lightyellow;\n'
             f'  stroke: black;\n'
             f'  stroke-width: 1.3;\n'
@@ -1250,6 +1250,8 @@ class Node:
     AND_BODY_HEIGHT = round(0.16 * HEIGHT)  # toes, below centre
     AND_SLING_RISE = round(0.2 * HEIGHT)  # control points, above toes
     AND_HALF_WIDTH = round(0.3 * WIDTH)
+
+    EVENT_CIRCLE_RADIUS = round(0.35 * WIDTH)
 
     SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
 
@@ -1400,7 +1402,7 @@ class Node:
             return Node.and_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_EVENT:
-            return ''  # TODO: Node.event_symbol_element(x, y)
+            return Node.event_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_PAGED:
             return ''  # TODO: Node.paged_symbol_element(x, y)
@@ -1457,6 +1459,14 @@ class Node:
         )
 
         return f'<path d="{commands}"/>'
+
+    @staticmethod
+    def event_symbol_element(x, y):
+        centre = x
+        middle = y + Node.SYMBOL_Y_OFFSET
+        radius = Node.EVENT_CIRCLE_RADIUS
+
+        return f'<circle cx="{centre}" cy="{middle}" r="{radius}"/>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'

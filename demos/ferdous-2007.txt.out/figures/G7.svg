@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 1900 3800" xmlns="http://www.w3.org/2000/svg">
 <style>
-path, rect {
+circle, path, rect {
   fill: lightyellow;
   stroke: black;
   stroke-width: 1.3;
@@ -27,12 +27,12 @@ text {
 <text x="-850" y="340">Ethylene pump fails</text>
 <rect x="-895" y="376" width="90" height="20"/>
 <text x="-850" y="386">X30</text>
-
+<circle cx="-850" cy="440" r="35"/>
 <rect x="-795" y="307" width="90" height="66"/>
 <text x="-750" y="340">Ethylene pump demanded</text>
 <rect x="-795" y="376" width="90" height="20"/>
 <text x="-750" y="386">X37</text>
-
+<circle cx="-750" cy="440" r="35"/>
 <rect x="55" y="107" width="90" height="66"/>
 <text x="100" y="140"></text>
 <rect x="55" y="176" width="90" height="20"/>
@@ -42,7 +42,7 @@ text {
 <text x="-650" y="340">Instrument air supply fails</text>
 <rect x="-695" y="376" width="90" height="20"/>
 <text x="-650" y="386">X9</text>
-
+<circle cx="-650" cy="440" r="35"/>
 <rect x="55" y="307" width="90" height="66"/>
 <text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
@@ -52,7 +52,7 @@ text {
 <text x="-550" y="540">Instrument air supply fails</text>
 <rect x="-595" y="576" width="90" height="20"/>
 <text x="-550" y="586">X9</text>
-
+<circle cx="-550" cy="640" r="35"/>
 <rect x="55" y="507" width="90" height="66"/>
 <text x="100" y="540"></text>
 <rect x="55" y="576" width="90" height="20"/>
@@ -67,7 +67,7 @@ text {
 <text x="-450" y="940">Exit temperature below −10°C</text>
 <rect x="-495" y="976" width="90" height="20"/>
 <text x="-450" y="986">X43</text>
-
+<circle cx="-450" cy="1040" r="35"/>
 <rect x="-295" y="907" width="90" height="66"/>
 <text x="-250" y="940"></text>
 <rect x="-295" y="976" width="90" height="20"/>
@@ -77,17 +77,17 @@ text {
 <text x="-350" y="1140">Temperature measurement T1 fails</text>
 <rect x="-395" y="1176" width="90" height="20"/>
 <text x="-350" y="1186">X10</text>
-
+<circle cx="-350" cy="1240" r="35"/>
 <rect x="-295" y="1107" width="90" height="66"/>
 <text x="-250" y="1140">Valve positioner V3 fails</text>
 <rect x="-295" y="1176" width="90" height="20"/>
 <text x="-250" y="1186">X11</text>
-
+<circle cx="-250" cy="1240" r="35"/>
 <rect x="-195" y="1107" width="90" height="66"/>
 <text x="-150" y="1140">Signal transmission T1-V3 fails</text>
 <rect x="-195" y="1176" width="90" height="20"/>
 <text x="-150" y="1186">X12</text>
-
+<circle cx="-150" cy="1240" r="35"/>
 <rect x="55" y="707" width="90" height="66"/>
 <text x="100" y="740"></text>
 <rect x="55" y="776" width="90" height="20"/>
@@ -97,7 +97,7 @@ text {
 <text x="-50" y="940">Exit manometric pressure &gt; 16.18 bar</text>
 <rect x="-95" y="976" width="90" height="20"/>
 <text x="-50" y="986">X44</text>
-
+<circle cx="-50" cy="1040" r="35"/>
 <rect x="105" y="907" width="90" height="66"/>
 <text x="150" y="940"></text>
 <rect x="105" y="976" width="90" height="20"/>
@@ -107,17 +107,17 @@ text {
 <text x="50" y="1140">Pressure measurement P2 fails</text>
 <rect x="5" y="1176" width="90" height="20"/>
 <text x="50" y="1186">X13</text>
-
+<circle cx="50" cy="1240" r="35"/>
 <rect x="105" y="1107" width="90" height="66"/>
 <text x="150" y="1140">Valve positioner V3 fails</text>
 <rect x="105" y="1176" width="90" height="20"/>
 <text x="150" y="1186">X11</text>
-
+<circle cx="150" cy="1240" r="35"/>
 <rect x="205" y="1107" width="90" height="66"/>
 <text x="250" y="1140">Signal transmission P2-V3 fails</text>
 <rect x="205" y="1176" width="90" height="20"/>
 <text x="250" y="1186">X14</text>
-
+<circle cx="250" cy="1240" r="35"/>
 <rect x="455" y="707" width="90" height="66"/>
 <text x="500" y="740"></text>
 <rect x="455" y="776" width="90" height="20"/>
@@ -127,7 +127,7 @@ text {
 <text x="350" y="940">Exit flow &gt; demand</text>
 <rect x="305" y="976" width="90" height="20"/>
 <text x="350" y="986">X45</text>
-
+<circle cx="350" cy="1040" r="35"/>
 <rect x="505" y="907" width="90" height="66"/>
 <text x="550" y="940"></text>
 <rect x="505" y="976" width="90" height="20"/>
@@ -137,25 +137,25 @@ text {
 <text x="450" y="1140">Flow measurement F1 fails</text>
 <rect x="405" y="1176" width="90" height="20"/>
 <text x="450" y="1186">X15</text>
-
+<circle cx="450" cy="1240" r="35"/>
 <rect x="505" y="1107" width="90" height="66"/>
 <text x="550" y="1140">Valve positioner V3 fails</text>
 <rect x="505" y="1176" width="90" height="20"/>
 <text x="550" y="1186">X11</text>
-
+<circle cx="550" cy="1240" r="35"/>
 <rect x="605" y="1107" width="90" height="66"/>
 <text x="650" y="1140">Signal transmission F1-V3 fails</text>
 <rect x="605" y="1176" width="90" height="20"/>
 <text x="650" y="1186">X16</text>
-
+<circle cx="650" cy="1240" r="35"/>
 <rect x="705" y="507" width="90" height="66"/>
 <text x="750" y="540">V3 fails closed</text>
 <rect x="705" y="576" width="90" height="20"/>
 <text x="750" y="586">X17</text>
-
+<circle cx="750" cy="640" r="35"/>
 <rect x="805" y="307" width="90" height="66"/>
 <text x="850" y="340">V3 fails closed</text>
 <rect x="805" y="376" width="90" height="20"/>
 <text x="850" y="386">X17</text>
-
+<circle cx="850" cy="440" r="35"/>
 </svg>
