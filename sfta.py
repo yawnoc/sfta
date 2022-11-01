@@ -1140,7 +1140,7 @@ class Figure:
         event_from_id = fault_tree.event_from_id
         gate_from_id = fault_tree.gate_from_id
         top_node = (
-            Figure.Node(event_from_id, gate_from_id, id_, node_above=None)
+            Node(event_from_id, gate_from_id, id_, node_above=None)
         )
         top_node.position_recursive()
 
@@ -1149,10 +1149,10 @@ class Figure:
     def get_svg_content(self):
         top_node = self.top_node
 
-        left = -Figure.Node.WIDTH
-        right = top_node.width + Figure.Node.WIDTH
-        top = -Figure.Node.HEIGHT
-        bottom = top_node.height + Figure.Node.HEIGHT
+        left = -Node.WIDTH
+        right = top_node.width + Node.WIDTH
+        top = -Node.HEIGHT
+        bottom = top_node.height + Node.HEIGHT
 
         xmlns = 'http://www.w3.org/2000/svg'
         elements = top_node.get_svg_elements_recursive()
@@ -1174,97 +1174,98 @@ class Figure:
         with open(file_name, 'w', encoding='utf-8') as file:
             file.write(svg_content)
 
-    class Node:
-        """
-        A node which instantiates recursively.
-        """
-        WIDTH = 100
-        HEIGHT = 200
 
-        ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
+class Node:
+    """
+    A node which instantiates recursively, of a figure.
+    """
+    WIDTH = 100
+    HEIGHT = 200
 
-        def __init__(self, event_from_id, gate_from_id, id_, node_above):
-            if id_ in event_from_id.keys():  # object is Event
-                reference_object = event_from_id[id_]
-                input_nodes = []
-            elif id_ in gate_from_id.keys():  # object is Gate
-                reference_object = gate = gate_from_id[id_]
-                if gate.is_paged and node_above is not None:
-                    input_ids = []
-                else:
-                    input_ids = gate.input_ids
-                input_nodes = [
-                    Figure.Node(
-                        event_from_id,
-                        gate_from_id,
-                        input_id,
-                        node_above=self,
-                    )
-                    for input_id in input_ids
-                ]
+    ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
+
+    def __init__(self, event_from_id, gate_from_id, id_, node_above):
+        if id_ in event_from_id.keys():  # object is Event
+            reference_object = event_from_id[id_]
+            input_nodes = []
+        elif id_ in gate_from_id.keys():  # object is Gate
+            reference_object = gate = gate_from_id[id_]
+            if gate.is_paged and node_above is not None:
+                input_ids = []
             else:
-                raise RuntimeError(
-                    f'Implementation error: '
-                    f'`{id_}` is in '
-                    f'neither `event_from_id` nor `gate_from_id`.'
+                input_ids = gate.input_ids
+            input_nodes = [
+                Node(
+                    event_from_id,
+                    gate_from_id,
+                    input_id,
+                    node_above=self,
                 )
-
-            if input_nodes:
-                width = sum(node.width for node in input_nodes)
-                height = sum(node.height for node in input_nodes)
-            else:
-                width = Figure.Node.WIDTH
-                height = Figure.Node.HEIGHT
-
-            self.node_above = node_above
-            self.reference_object = reference_object
-            self.input_nodes = input_nodes
-            self.width = width
-            self.height = height
-
-            self.x = None
-            self.y = None
-
-        def position_recursive(self):
-            node_above = self.node_above
-            if node_above is None:
-                self.x = 0
-                self.y = 0
-            else:
-                node_above_inputs = node_above.input_nodes
-                input_index = node_above_inputs.index(self)
-                nodes_before = node_above_inputs[0:input_index]
-                width_before = sum(node.width for node in nodes_before)
-                x_offset = -node_above.width//2 + width_before + self.width//2
-                self.x = node_above.x + x_offset
-                self.y = node_above.y + Figure.Node.HEIGHT
-
-            for input_node in self.input_nodes:
-                input_node.position_recursive()
-
-        def get_svg_elements_recursive(self):
-            x = self.x
-            y = self.y
-            id_ = self.reference_object.id_
-
-            self_elements = [
-                Figure.Node.id_text_element(x, y, id_),
-                # TODO: label, symbol, connectors, positioning
+                for input_id in input_ids
             ]
-            input_elements = [
-                input_node.get_svg_elements_recursive()
-                for input_node in self.input_nodes
-            ]
+        else:
+            raise RuntimeError(
+                f'Implementation error: '
+                f'`{id_}` is in '
+                f'neither `event_from_id` nor `gate_from_id`.'
+            )
 
-            return '\n'.join(self_elements + input_elements)
+        if input_nodes:
+            width = sum(node.width for node in input_nodes)
+            height = sum(node.height for node in input_nodes)
+        else:
+            width = Node.WIDTH
+            height = Node.HEIGHT
 
-        @staticmethod
-        def id_text_element(x, y, id_):
-            centre = x
-            middle = y + Figure.Node.ID_BOX_Y_OFFSET
-            content = id_  # TODO: escape &<>
+        self.node_above = node_above
+        self.reference_object = reference_object
+        self.input_nodes = input_nodes
+        self.width = width
+        self.height = height
 
-            return f'<text x="{centre}" y="{middle}">{content}</text>'
+        self.x = None
+        self.y = None
+
+    def position_recursive(self):
+        node_above = self.node_above
+        if node_above is None:
+            self.x = 0
+            self.y = 0
+        else:
+            node_above_inputs = node_above.input_nodes
+            input_index = node_above_inputs.index(self)
+            nodes_before = node_above_inputs[0:input_index]
+            width_before = sum(node.width for node in nodes_before)
+            x_offset = -node_above.width//2 + width_before + self.width//2
+            self.x = node_above.x + x_offset
+            self.y = node_above.y + Node.HEIGHT
+
+        for input_node in self.input_nodes:
+            input_node.position_recursive()
+
+    def get_svg_elements_recursive(self):
+        x = self.x
+        y = self.y
+        id_ = self.reference_object.id_
+
+        self_elements = [
+            Node.id_text_element(x, y, id_),
+            # TODO: label, symbol, connectors, positioning
+        ]
+        input_elements = [
+            input_node.get_svg_elements_recursive()
+            for input_node in self.input_nodes
+        ]
+
+        return '\n'.join(self_elements + input_elements)
+
+    @staticmethod
+    def id_text_element(x, y, id_):
+        centre = x
+        middle = y + Node.ID_BOX_Y_OFFSET
+        content = id_  # TODO: escape &<>
+
+        return f'<text x="{centre}" y="{middle}">{content}</text>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
