@@ -1346,7 +1346,7 @@ class Node:
             Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
-            Node.symbol_element(x, y, symbol_type)
+            Node.symbol_element(x, y, symbol_type),
             # TODO: quantity, connectors
         ]
         input_elements = [
