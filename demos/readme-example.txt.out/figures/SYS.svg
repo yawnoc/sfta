@@ -19,8 +19,8 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -100,90 -100,140"/>
-<polyline points="0,40 0,90 50,90 50,140"/>
+<polyline points="-10,40 -10,90 -100,90 -100,140"/>
+<polyline points="10,40 10,90 50,90 50,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60">System fails</text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -38,8 +38,8 @@ text {
 <rect x="-145" y="227" width="90" height="26"/>
 <text x="-100" y="240">Q = 0.011</text>
 <polyline points="50,107 50,240"/>
-<polyline points="50,240 50,290 0,290 0,340"/>
-<polyline points="50,240 50,290 100,290 100,340"/>
+<polyline points="40,240 40,290 0,290 0,340"/>
+<polyline points="60,240 60,290 100,290 100,340"/>
 <rect x="5" y="107" width="90" height="66"/>
 <text x="50" y="140">Subsystem fails</text>
 <rect x="5" y="176" width="90" height="20"/>

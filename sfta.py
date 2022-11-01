@@ -1244,6 +1244,7 @@ class Node:
     ID_BOX_HEIGHT = round(0.1 * HEIGHT)
 
     SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
+    SYMBOL_SLOTS_HALF_WIDTH = round(0.29 * WIDTH)
 
     OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
     OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
@@ -1401,13 +1402,21 @@ class Node:
         bus_y = y + Node.CONNECTOR_BUS_Y_OFFSET
 
         points_by_input = []
-        for input_node in input_nodes:
+        input_count = len(input_nodes)
+        for input_number, input_node in enumerate(input_nodes, start=1):
+            symbol_slot_bias = 2 * input_number / (1 + input_count) - 1
+            symbol_slot_x = round(
+                symbol_centre
+                + symbol_slot_bias * Node.SYMBOL_SLOTS_HALF_WIDTH
+            )
+
             input_label_centre = input_node.x
             input_label_middle = input_node.y + Node.LABEL_BOX_Y_OFFSET
+
             points_by_input.append(
                 ' '.join([
-                    f'{symbol_centre},{symbol_middle}',
-                    f'{symbol_centre},{bus_y}',
+                    f'{symbol_slot_x},{symbol_middle}',
+                    f'{symbol_slot_x},{bus_y}',
                     f'{input_label_centre},{bus_y}',
                     f'{input_label_centre},{input_label_middle}',
                 ])

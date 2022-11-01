@@ -19,8 +19,8 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -1000,90 -1000,140"/>
-<polyline points="0,40 0,90 50,90 50,140"/>
+<polyline points="-10,40 -10,90 -1000,90 -1000,140"/>
+<polyline points="10,40 10,90 50,90 50,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -38,8 +38,8 @@ text {
 <rect x="-1045" y="227" width="90" height="26"/>
 <text x="-1000" y="240">Q = 0.11</text>
 <polyline points="50,107 50,240"/>
-<polyline points="50,240 50,290 -900,290 -900,340"/>
-<polyline points="50,240 50,290 100,290 100,340"/>
+<polyline points="40,240 40,290 -900,290 -900,340"/>
+<polyline points="60,240 60,290 100,290 100,340"/>
 <rect x="5" y="107" width="90" height="66"/>
 <text x="50" y="140"></text>
 <rect x="5" y="176" width="90" height="20"/>
@@ -57,8 +57,8 @@ text {
 <rect x="-945" y="427" width="90" height="26"/>
 <text x="-900" y="440">Q = 0.11</text>
 <polyline points="100,307 100,440"/>
-<polyline points="100,440 100,490 -800,490 -800,540"/>
-<polyline points="100,440 100,490 150,490 150,540"/>
+<polyline points="90,440 90,490 -800,490 -800,540"/>
+<polyline points="110,440 110,490 150,490 150,540"/>
 <rect x="55" y="307" width="90" height="66"/>
 <text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
@@ -76,8 +76,8 @@ text {
 <rect x="-845" y="627" width="90" height="26"/>
 <text x="-800" y="640">Q = 0.11</text>
 <polyline points="150,507 150,640"/>
-<polyline points="150,640 150,690 -700,690 -700,740"/>
-<polyline points="150,640 150,690 200,690 200,740"/>
+<polyline points="140,640 140,690 -700,690 -700,740"/>
+<polyline points="160,640 160,690 200,690 200,740"/>
 <rect x="105" y="507" width="90" height="66"/>
 <text x="150" y="540"></text>
 <rect x="105" y="576" width="90" height="20"/>
@@ -95,8 +95,8 @@ text {
 <rect x="-745" y="827" width="90" height="26"/>
 <text x="-700" y="840">Q = 0.11</text>
 <polyline points="200,707 200,840"/>
-<polyline points="200,840 200,890 -600,890 -600,940"/>
-<polyline points="200,840 200,890 250,890 250,940"/>
+<polyline points="190,840 190,890 -600,890 -600,940"/>
+<polyline points="210,840 210,890 250,890 250,940"/>
 <rect x="155" y="707" width="90" height="66"/>
 <text x="200" y="740"></text>
 <rect x="155" y="776" width="90" height="20"/>
@@ -114,8 +114,8 @@ text {
 <rect x="-645" y="1027" width="90" height="26"/>
 <text x="-600" y="1040">Q = 0.11</text>
 <polyline points="250,907 250,1040"/>
-<polyline points="250,1040 250,1090 -500,1090 -500,1140"/>
-<polyline points="250,1040 250,1090 300,1090 300,1140"/>
+<polyline points="240,1040 240,1090 -500,1090 -500,1140"/>
+<polyline points="260,1040 260,1090 300,1090 300,1140"/>
 <rect x="205" y="907" width="90" height="66"/>
 <text x="250" y="940"></text>
 <rect x="205" y="976" width="90" height="20"/>
@@ -133,8 +133,8 @@ text {
 <rect x="-545" y="1227" width="90" height="26"/>
 <text x="-500" y="1240">Q = 0.11</text>
 <polyline points="300,1107 300,1240"/>
-<polyline points="300,1240 300,1290 -400,1290 -400,1340"/>
-<polyline points="300,1240 300,1290 350,1290 350,1340"/>
+<polyline points="290,1240 290,1290 -400,1290 -400,1340"/>
+<polyline points="310,1240 310,1290 350,1290 350,1340"/>
 <rect x="255" y="1107" width="90" height="66"/>
 <text x="300" y="1140"></text>
 <rect x="255" y="1176" width="90" height="20"/>
@@ -152,8 +152,8 @@ text {
 <rect x="-445" y="1427" width="90" height="26"/>
 <text x="-400" y="1440">Q = 0.11</text>
 <polyline points="350,1307 350,1440"/>
-<polyline points="350,1440 350,1490 -300,1490 -300,1540"/>
-<polyline points="350,1440 350,1490 400,1490 400,1540"/>
+<polyline points="340,1440 340,1490 -300,1490 -300,1540"/>
+<polyline points="360,1440 360,1490 400,1490 400,1540"/>
 <rect x="305" y="1307" width="90" height="66"/>
 <text x="350" y="1340"></text>
 <rect x="305" y="1376" width="90" height="20"/>
@@ -171,8 +171,8 @@ text {
 <rect x="-345" y="1627" width="90" height="26"/>
 <text x="-300" y="1640">Q = 0.11</text>
 <polyline points="400,1507 400,1640"/>
-<polyline points="400,1640 400,1690 -200,1690 -200,1740"/>
-<polyline points="400,1640 400,1690 450,1690 450,1740"/>
+<polyline points="390,1640 390,1690 -200,1690 -200,1740"/>
+<polyline points="410,1640 410,1690 450,1690 450,1740"/>
 <rect x="355" y="1507" width="90" height="66"/>
 <text x="400" y="1540"></text>
 <rect x="355" y="1576" width="90" height="20"/>
@@ -190,8 +190,8 @@ text {
 <rect x="-245" y="1827" width="90" height="26"/>
 <text x="-200" y="1840">Q = 0.11</text>
 <polyline points="450,1707 450,1840"/>
-<polyline points="450,1840 450,1890 -100,1890 -100,1940"/>
-<polyline points="450,1840 450,1890 500,1890 500,1940"/>
+<polyline points="440,1840 440,1890 -100,1890 -100,1940"/>
+<polyline points="460,1840 460,1890 500,1890 500,1940"/>
 <rect x="405" y="1707" width="90" height="66"/>
 <text x="450" y="1740"></text>
 <rect x="405" y="1776" width="90" height="20"/>
@@ -209,8 +209,8 @@ text {
 <rect x="-145" y="2027" width="90" height="26"/>
 <text x="-100" y="2040">Q = 0.11</text>
 <polyline points="500,1907 500,2040"/>
-<polyline points="500,2040 500,2090 0,2090 0,2140"/>
-<polyline points="500,2040 500,2090 550,2090 550,2140"/>
+<polyline points="490,2040 490,2090 0,2090 0,2140"/>
+<polyline points="510,2040 510,2090 550,2090 550,2140"/>
 <rect x="455" y="1907" width="90" height="66"/>
 <text x="500" y="1940"></text>
 <rect x="455" y="1976" width="90" height="20"/>
@@ -228,8 +228,8 @@ text {
 <rect x="-45" y="2227" width="90" height="26"/>
 <text x="0" y="2240">Q = 0.11</text>
 <polyline points="550,2107 550,2240"/>
-<polyline points="550,2240 550,2290 100,2290 100,2340"/>
-<polyline points="550,2240 550,2290 600,2290 600,2340"/>
+<polyline points="540,2240 540,2290 100,2290 100,2340"/>
+<polyline points="560,2240 560,2290 600,2290 600,2340"/>
 <rect x="505" y="2107" width="90" height="66"/>
 <text x="550" y="2140"></text>
 <rect x="505" y="2176" width="90" height="20"/>
@@ -247,8 +247,8 @@ text {
 <rect x="55" y="2427" width="90" height="26"/>
 <text x="100" y="2440">Q = 0.11</text>
 <polyline points="600,2307 600,2440"/>
-<polyline points="600,2440 600,2490 200,2490 200,2540"/>
-<polyline points="600,2440 600,2490 650,2490 650,2540"/>
+<polyline points="590,2440 590,2490 200,2490 200,2540"/>
+<polyline points="610,2440 610,2490 650,2490 650,2540"/>
 <rect x="555" y="2307" width="90" height="66"/>
 <text x="600" y="2340"></text>
 <rect x="555" y="2376" width="90" height="20"/>
@@ -266,8 +266,8 @@ text {
 <rect x="155" y="2627" width="90" height="26"/>
 <text x="200" y="2640">Q = 0.11</text>
 <polyline points="650,2507 650,2640"/>
-<polyline points="650,2640 650,2690 300,2690 300,2740"/>
-<polyline points="650,2640 650,2690 700,2690 700,2740"/>
+<polyline points="640,2640 640,2690 300,2690 300,2740"/>
+<polyline points="660,2640 660,2690 700,2690 700,2740"/>
 <rect x="605" y="2507" width="90" height="66"/>
 <text x="650" y="2540"></text>
 <rect x="605" y="2576" width="90" height="20"/>
@@ -285,8 +285,8 @@ text {
 <rect x="255" y="2827" width="90" height="26"/>
 <text x="300" y="2840">Q = 0.11</text>
 <polyline points="700,2707 700,2840"/>
-<polyline points="700,2840 700,2890 400,2890 400,2940"/>
-<polyline points="700,2840 700,2890 750,2890 750,2940"/>
+<polyline points="690,2840 690,2890 400,2890 400,2940"/>
+<polyline points="710,2840 710,2890 750,2890 750,2940"/>
 <rect x="655" y="2707" width="90" height="66"/>
 <text x="700" y="2740"></text>
 <rect x="655" y="2776" width="90" height="20"/>
@@ -304,8 +304,8 @@ text {
 <rect x="355" y="3027" width="90" height="26"/>
 <text x="400" y="3040">Q = 0.11</text>
 <polyline points="750,2907 750,3040"/>
-<polyline points="750,3040 750,3090 500,3090 500,3140"/>
-<polyline points="750,3040 750,3090 800,3090 800,3140"/>
+<polyline points="740,3040 740,3090 500,3090 500,3140"/>
+<polyline points="760,3040 760,3090 800,3090 800,3140"/>
 <rect x="705" y="2907" width="90" height="66"/>
 <text x="750" y="2940"></text>
 <rect x="705" y="2976" width="90" height="20"/>
@@ -323,8 +323,8 @@ text {
 <rect x="455" y="3227" width="90" height="26"/>
 <text x="500" y="3240">Q = 0.11</text>
 <polyline points="800,3107 800,3240"/>
-<polyline points="800,3240 800,3290 600,3290 600,3340"/>
-<polyline points="800,3240 800,3290 850,3290 850,3340"/>
+<polyline points="790,3240 790,3290 600,3290 600,3340"/>
+<polyline points="810,3240 810,3290 850,3290 850,3340"/>
 <rect x="755" y="3107" width="90" height="66"/>
 <text x="800" y="3140"></text>
 <rect x="755" y="3176" width="90" height="20"/>
@@ -342,8 +342,8 @@ text {
 <rect x="555" y="3427" width="90" height="26"/>
 <text x="600" y="3440">Q = 0.11</text>
 <polyline points="850,3307 850,3440"/>
-<polyline points="850,3440 850,3490 700,3490 700,3540"/>
-<polyline points="850,3440 850,3490 900,3490 900,3540"/>
+<polyline points="840,3440 840,3490 700,3490 700,3540"/>
+<polyline points="860,3440 860,3490 900,3490 900,3540"/>
 <rect x="805" y="3307" width="90" height="66"/>
 <text x="850" y="3340"></text>
 <rect x="805" y="3376" width="90" height="20"/>
@@ -361,8 +361,8 @@ text {
 <rect x="655" y="3627" width="90" height="26"/>
 <text x="700" y="3640">Q = 0.11</text>
 <polyline points="900,3507 900,3640"/>
-<polyline points="900,3640 900,3690 800,3690 800,3740"/>
-<polyline points="900,3640 900,3690 950,3690 950,3740"/>
+<polyline points="890,3640 890,3690 800,3690 800,3740"/>
+<polyline points="910,3640 910,3690 950,3690 950,3740"/>
 <rect x="855" y="3507" width="90" height="66"/>
 <text x="900" y="3540"></text>
 <rect x="855" y="3576" width="90" height="20"/>
@@ -380,8 +380,8 @@ text {
 <rect x="755" y="3827" width="90" height="26"/>
 <text x="800" y="3840">Q = 0.11</text>
 <polyline points="950,3707 950,3840"/>
-<polyline points="950,3840 950,3890 900,3890 900,3940"/>
-<polyline points="950,3840 950,3890 1000,3890 1000,3940"/>
+<polyline points="940,3840 940,3890 900,3890 900,3940"/>
+<polyline points="960,3840 960,3890 1000,3890 1000,3940"/>
 <rect x="905" y="3707" width="90" height="66"/>
 <text x="950" y="3740"></text>
 <rect x="905" y="3776" width="90" height="20"/>

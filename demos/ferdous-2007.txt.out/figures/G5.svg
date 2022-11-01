@@ -19,9 +19,9 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -400,90 -400,140"/>
+<polyline points="-14,40 -14,90 -400,90 -400,140"/>
 <polyline points="0,40 0,90 -50,90 -50,140"/>
-<polyline points="0,40 0,90 350,90 350,140"/>
+<polyline points="14,40 14,90 350,90 350,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -39,9 +39,9 @@ text {
 <rect x="-445" y="227" width="90" height="26"/>
 <text x="-400" y="240">Q = 0.751</text>
 <polyline points="-50,107 -50,240"/>
-<polyline points="-50,240 -50,290 -300,290 -300,340"/>
+<polyline points="-64,240 -64,290 -300,290 -300,340"/>
 <polyline points="-50,240 -50,290 -50,290 -50,340"/>
-<polyline points="-50,240 -50,290 200,290 200,340"/>
+<polyline points="-36,240 -36,290 200,290 200,340"/>
 <rect x="-95" y="107" width="90" height="66"/>
 <text x="-50" y="140"></text>
 <rect x="-95" y="176" width="90" height="20"/>
@@ -59,8 +59,8 @@ text {
 <rect x="-345" y="427" width="90" height="26"/>
 <text x="-300" y="440">Q = 0.751</text>
 <polyline points="-50,307 -50,440"/>
-<polyline points="-50,440 -50,490 -200,490 -200,540"/>
-<polyline points="-50,440 -50,490 0,490 0,540"/>
+<polyline points="-60,440 -60,490 -200,490 -200,540"/>
+<polyline points="-40,440 -40,490 0,490 0,540"/>
 <rect x="-95" y="307" width="90" height="66"/>
 <text x="-50" y="340"></text>
 <rect x="-95" y="376" width="90" height="20"/>
@@ -78,9 +78,9 @@ text {
 <rect x="-245" y="627" width="90" height="26"/>
 <text x="-200" y="640">Q = 0.15151</text>
 <polyline points="0,507 0,640"/>
-<polyline points="0,640 0,690 -100,690 -100,740"/>
+<polyline points="-14,640 -14,690 -100,690 -100,740"/>
 <polyline points="0,640 0,690 0,690 0,740"/>
-<polyline points="0,640 0,690 100,690 100,740"/>
+<polyline points="14,640 14,690 100,690 100,740"/>
 <rect x="-45" y="507" width="90" height="66"/>
 <text x="0" y="540"></text>
 <rect x="-45" y="576" width="90" height="20"/>
@@ -125,8 +125,8 @@ text {
 <rect x="155" y="427" width="90" height="26"/>
 <text x="200" y="440">Q = 0.73641</text>
 <polyline points="350,107 350,240"/>
-<polyline points="350,240 350,290 300,290 300,340"/>
-<polyline points="350,240 350,290 400,290 400,340"/>
+<polyline points="340,240 340,290 300,290 300,340"/>
+<polyline points="360,240 360,290 400,290 400,340"/>
 <rect x="305" y="107" width="90" height="66"/>
 <text x="350" y="140"></text>
 <rect x="305" y="176" width="90" height="20"/>

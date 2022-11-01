@@ -19,8 +19,8 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -250,90 -250,140"/>
-<polyline points="0,40 0,90 100,90 100,140"/>
+<polyline points="-10,40 -10,90 -250,90 -250,140"/>
+<polyline points="10,40 10,90 100,90 100,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60">Failure of Fire Protection System</text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -29,8 +29,8 @@ text {
 <rect x="-45" y="27" width="90" height="26"/>
 <text x="0" y="40">Q = 0.03051</text>
 <polyline points="-250,107 -250,240"/>
-<polyline points="-250,240 -250,290 -300,290 -300,340"/>
-<polyline points="-250,240 -250,290 -200,290 -200,340"/>
+<polyline points="-260,240 -260,290 -300,290 -300,340"/>
+<polyline points="-240,240 -240,290 -200,290 -200,340"/>
 <rect x="-295" y="107" width="90" height="66"/>
 <text x="-250" y="140">Fire detection system fails</text>
 <rect x="-295" y="176" width="90" height="20"/>
@@ -57,9 +57,9 @@ text {
 <rect x="-245" y="427" width="90" height="26"/>
 <text x="-200" y="440">Q = 0.11</text>
 <polyline points="100,107 100,240"/>
-<polyline points="100,240 100,290 -100,290 -100,340"/>
+<polyline points="86,240 86,290 -100,290 -100,340"/>
 <polyline points="100,240 100,290 100,290 100,340"/>
-<polyline points="100,240 100,290 300,290 300,340"/>
+<polyline points="114,240 114,290 300,290 300,340"/>
 <rect x="55" y="107" width="90" height="66"/>
 <text x="100" y="140">Fire suppression system fails</text>
 <rect x="55" y="176" width="90" height="20"/>
@@ -77,8 +77,8 @@ text {
 <rect x="-145" y="427" width="90" height="26"/>
 <text x="-100" y="440">Q = 0.0011</text>
 <polyline points="100,307 100,440"/>
-<polyline points="100,440 100,490 0,490 0,540"/>
-<polyline points="100,440 100,490 150,490 150,540"/>
+<polyline points="90,440 90,490 0,490 0,540"/>
+<polyline points="110,440 110,490 150,490 150,540"/>
 <rect x="55" y="307" width="90" height="66"/>
 <text x="100" y="340">Triggering system fails</text>
 <rect x="55" y="376" width="90" height="20"/>
@@ -96,8 +96,8 @@ text {
 <rect x="-45" y="627" width="90" height="26"/>
 <text x="0" y="640">Q = 0.051</text>
 <polyline points="150,507 150,640"/>
-<polyline points="150,640 150,690 100,690 100,740"/>
-<polyline points="150,640 150,690 200,690 200,740"/>
+<polyline points="140,640 140,690 100,690 100,740"/>
+<polyline points="160,640 160,690 200,690 200,740"/>
 <rect x="105" y="507" width="90" height="66"/>
 <text x="150" y="540">Remote control fails</text>
 <rect x="105" y="576" width="90" height="20"/>

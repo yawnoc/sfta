@@ -19,9 +19,9 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -200,90 -200,140"/>
+<polyline points="-14,40 -14,90 -200,90 -200,140"/>
 <polyline points="0,40 0,90 0,90 0,140"/>
-<polyline points="0,40 0,90 200,90 200,140"/>
+<polyline points="14,40 14,90 200,90 200,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60">Ethylene release due to components rupture</text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -39,9 +39,9 @@ text {
 <rect x="-245" y="227" width="90" height="26"/>
 <text x="-200" y="240">Q = 0.000791</text>
 <polyline points="0,107 0,240"/>
-<polyline points="0,240 0,290 -100,290 -100,340"/>
+<polyline points="-14,240 -14,290 -100,290 -100,340"/>
 <polyline points="0,240 0,290 0,290 0,340"/>
-<polyline points="0,240 0,290 100,290 100,340"/>
+<polyline points="14,240 14,290 100,290 100,340"/>
 <rect x="-45" y="107" width="90" height="66"/>
 <text x="0" y="140"></text>
 <rect x="-45" y="176" width="90" height="20"/>

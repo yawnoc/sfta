@@ -19,9 +19,9 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
-<polyline points="0,40 0,90 -100,90 -100,140"/>
+<polyline points="-14,40 -14,90 -100,90 -100,140"/>
 <polyline points="0,40 0,90 0,90 0,140"/>
-<polyline points="0,40 0,90 100,90 100,140"/>
+<polyline points="14,40 14,90 100,90 100,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
