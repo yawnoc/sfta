@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 300 600" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="0" text-anchor="middle">G4</text><text x="-50" y="200" text-anchor="middle">X24</text>
-<text x="50" y="200" text-anchor="middle">X26</text>
+<style>
+text {
+  text-anchor: middle;
+}
+</style>
+<text x="0" y="0">G4</text><text x="-50" y="200">X24</text>
+<text x="50" y="200">X26</text>
 </svg>

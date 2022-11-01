@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 900 1800" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="0" text-anchor="middle">G6</text><text x="-350" y="200" text-anchor="middle">X35</text>
-<text x="50" y="200" text-anchor="middle">G10</text><text x="0" y="400" text-anchor="middle">G14</text><text x="-250" y="600" text-anchor="middle">X9</text>
-<text x="0" y="600" text-anchor="middle">G17</text><text x="-150" y="800" text-anchor="middle">X46</text>
-<text x="50" y="800" text-anchor="middle">G19</text><text x="-50" y="1000" text-anchor="middle">X1</text>
-<text x="50" y="1000" text-anchor="middle">X2</text>
-<text x="150" y="1000" text-anchor="middle">X3</text>
-<text x="250" y="600" text-anchor="middle">X4</text>
-<text x="350" y="400" text-anchor="middle">X5</text>
+<style>
+text {
+  text-anchor: middle;
+}
+</style>
+<text x="0" y="0">G6</text><text x="-350" y="200">X35</text>
+<text x="50" y="200">G10</text><text x="0" y="400">G14</text><text x="-250" y="600">X9</text>
+<text x="0" y="600">G17</text><text x="-150" y="800">X46</text>
+<text x="50" y="800">G19</text><text x="-50" y="1000">X1</text>
+<text x="50" y="1000">X2</text>
+<text x="150" y="1000">X3</text>
+<text x="250" y="600">X4</text>
+<text x="350" y="400">X5</text>
 </svg>

@@ -1160,6 +1160,11 @@ class Figure:
         return (
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
+            f'<style>\n'
+            f'text {{\n'
+            f'  text-anchor: middle;\n'
+            f'}}\n'
+            f'</style>\n'
             f'{elements}\n'
             f'</svg>'
         )
@@ -1241,7 +1246,7 @@ class Figure:
             id_ = self.reference_object.id_
 
             self_elements = (
-                f'<text x="{x}" y="{y}" text-anchor="middle">{id_}</text>'
+                f'<text x="{x}" y="{y}">{id_}</text>'
                 # TODO: label, symbol, connectors, positioning, escaping
             )
             input_elements = '\n'.join(

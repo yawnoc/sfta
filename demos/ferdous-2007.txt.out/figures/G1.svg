@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 600 1200" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="0" text-anchor="middle">G1</text><text x="-200" y="200" text-anchor="middle">X31</text>
-<text x="0" y="200" text-anchor="middle">G2</text><text x="-100" y="400" text-anchor="middle">G3</text>
-<text x="0" y="400" text-anchor="middle">G4</text>
-<text x="100" y="400" text-anchor="middle">G5</text>
-<text x="200" y="200" text-anchor="middle">X33</text>
+<style>
+text {
+  text-anchor: middle;
+}
+</style>
+<text x="0" y="0">G1</text><text x="-200" y="200">X31</text>
+<text x="0" y="200">G2</text><text x="-100" y="400">G3</text>
+<text x="0" y="400">G4</text>
+<text x="100" y="400">G5</text>
+<text x="200" y="200">X33</text>
 </svg>

@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="-100 -200 1900 3800" xmlns="http://www.w3.org/2000/svg">
-<text x="0" y="0" text-anchor="middle">G7</text><text x="-800" y="200" text-anchor="middle">G11</text><text x="-850" y="400" text-anchor="middle">X30</text>
-<text x="-750" y="400" text-anchor="middle">X37</text>
-<text x="100" y="200" text-anchor="middle">G12</text><text x="-650" y="400" text-anchor="middle">X9</text>
-<text x="100" y="400" text-anchor="middle">G15</text><text x="-550" y="600" text-anchor="middle">X9</text>
-<text x="100" y="600" text-anchor="middle">G18</text><text x="-300" y="800" text-anchor="middle">G20</text><text x="-450" y="1000" text-anchor="middle">X43</text>
-<text x="-250" y="1000" text-anchor="middle">G23</text><text x="-350" y="1200" text-anchor="middle">X10</text>
-<text x="-250" y="1200" text-anchor="middle">X11</text>
-<text x="-150" y="1200" text-anchor="middle">X12</text>
-<text x="100" y="800" text-anchor="middle">G21</text><text x="-50" y="1000" text-anchor="middle">X44</text>
-<text x="150" y="1000" text-anchor="middle">G24</text><text x="50" y="1200" text-anchor="middle">X13</text>
-<text x="150" y="1200" text-anchor="middle">X11</text>
-<text x="250" y="1200" text-anchor="middle">X14</text>
-<text x="500" y="800" text-anchor="middle">G22</text><text x="350" y="1000" text-anchor="middle">X45</text>
-<text x="550" y="1000" text-anchor="middle">G25</text><text x="450" y="1200" text-anchor="middle">X15</text>
-<text x="550" y="1200" text-anchor="middle">X11</text>
-<text x="650" y="1200" text-anchor="middle">X16</text>
-<text x="750" y="600" text-anchor="middle">X17</text>
-<text x="850" y="400" text-anchor="middle">X17</text>
+<style>
+text {
+  text-anchor: middle;
+}
+</style>
+<text x="0" y="0">G7</text><text x="-800" y="200">G11</text><text x="-850" y="400">X30</text>
+<text x="-750" y="400">X37</text>
+<text x="100" y="200">G12</text><text x="-650" y="400">X9</text>
+<text x="100" y="400">G15</text><text x="-550" y="600">X9</text>
+<text x="100" y="600">G18</text><text x="-300" y="800">G20</text><text x="-450" y="1000">X43</text>
+<text x="-250" y="1000">G23</text><text x="-350" y="1200">X10</text>
+<text x="-250" y="1200">X11</text>
+<text x="-150" y="1200">X12</text>
+<text x="100" y="800">G21</text><text x="-50" y="1000">X44</text>
+<text x="150" y="1000">G24</text><text x="50" y="1200">X13</text>
+<text x="150" y="1200">X11</text>
+<text x="250" y="1200">X14</text>
+<text x="500" y="800">G22</text><text x="350" y="1000">X45</text>
+<text x="550" y="1000">G25</text><text x="450" y="1200">X15</text>
+<text x="550" y="1200">X11</text>
+<text x="650" y="1200">X16</text>
+<text x="750" y="600">X17</text>
+<text x="850" y="400">X17</text>
 </svg>
