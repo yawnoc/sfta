@@ -1194,7 +1194,7 @@ class Figure:
             f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg viewBox="{left} {top} {right} {bottom}" xmlns="{xmlns}">\n'
             f'<style>\n'
-            f'rect {{\n'
+            f'path, rect {{\n'
             f'  fill: lightyellow;\n'
             f'  stroke: black;\n'
             f'}}\n'
@@ -1235,6 +1235,17 @@ class Node:
     ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
     ID_BOX_WIDTH = round(0.9 * WIDTH)
     ID_BOX_HEIGHT = round(0.1 * HEIGHT)
+
+    OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
+    OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
+    OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
+    OR_SLANT_DROP = round(0.01 * HEIGHT)  # control points, from apex
+    OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, from apex
+    OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, from toes
+    OR_GROIN_RISE = round(0.13 * HEIGHT)  # control point, between toes
+    OR_HALF_WIDTH = round(0.32 * WIDTH)
+
+    SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
 
     def __init__(self, event_from_id, gate_from_id, id_, node_above):
         if id_ in event_from_id.keys():  # object is Event
@@ -1377,7 +1388,7 @@ class Node:
     @staticmethod
     def symbol_element(x, y, symbol_type):
         if symbol_type == Node.SYMBOL_TYPE_OR:
-            return ''  # TODO: Node.or_symbol_element(x, y)
+            return Node.or_symbol_element(x, y)
 
         if symbol_type == Node.SYMBOL_TYPE_AND:
             return ''  # TODO: Node.and_symbol_element(x, y)
@@ -1389,6 +1400,37 @@ class Node:
             return ''  # TODO: Node.paged_symbol_element(x, y)
 
         return ''
+
+    @staticmethod
+    def or_symbol_element(x, y):
+        apex_x = x
+        apex_y = y - Node.OR_APEX_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_x = x - Node.OR_HALF_WIDTH
+        right_x = x + Node.OR_HALF_WIDTH
+
+        ear_y = y - Node.OR_NECK_HEIGHT + Node.SYMBOL_Y_OFFSET
+        toe_y = y + Node.OR_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
+
+        left_slant_x = apex_x - Node.OR_SLANT_RUN
+        right_slant_x = apex_x + Node.OR_SLANT_RUN
+        slant_y = apex_y + Node.OR_SLANT_DROP
+
+        sling_y = ear_y - Node.OR_SLING_RISE
+
+        groin_x = x
+        groin_y = toe_y - Node.OR_GROIN_RISE
+
+        commands = (
+            f'M{apex_x},{apex_y} '
+            f'C{left_slant_x},{slant_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
+            f'Q{groin_x},{groin_y} {right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {right_slant_x},{slant_y} {apex_x},{apex_y}'
+        )
+
+        return f'<path d="{commands}"/>'
 
 
 DESCRIPTION = 'Perform a slow fault tree analysis.'
