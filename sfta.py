@@ -1202,6 +1202,9 @@ class Figure:
             f'  stroke: black;\n'
             f'  stroke-width: 1.3;\n'
             f'}}\n'
+            f'polyline {{\n'
+            f'  fill: none;\n'
+            f'}}\n'
             f'text {{\n'
             f'  dominant-baseline: middle;\n'
             f'  font-family: Arial, sans-serif;\n'
@@ -1265,6 +1268,8 @@ class Node:
     QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
     QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
     QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
+
+    CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
 
     def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event
@@ -1344,6 +1349,7 @@ class Node:
     def get_svg_elements_recursive(self):
         x = self.x
         y = self.y
+        input_nodes = self.input_nodes
         symbol_type = self.symbol_type
         time_unit = self.time_unit
 
@@ -1355,7 +1361,7 @@ class Node:
 
         self_elements = [
             Node.label_symbol_connector_element(x, y),
-            # TODO: Node.input_connector_elements(input_nodes, x, y),
+            Node.symbol_input_connector_elements(input_nodes, x, y),
             Node.label_rectangle_element(x, y),
             Node.label_text_element(x, y, label),
             Node.id_rectangle_element(x, y),
@@ -1384,6 +1390,33 @@ class Node:
         points = f'{centre},{label_middle} {centre},{symbol_middle}'
 
         return f'<polyline points="{points}"/>'
+
+    @staticmethod
+    def symbol_input_connector_elements(input_nodes, x, y):
+        if not input_nodes:
+            return ''
+
+        symbol_centre = x
+        symbol_middle = y + Node.SYMBOL_Y_OFFSET
+        bus_y = y + Node.CONNECTOR_BUS_Y_OFFSET
+
+        points_by_input = []
+        for input_node in input_nodes:
+            input_label_centre = input_node.x
+            input_label_middle = input_node.y + Node.LABEL_BOX_Y_OFFSET
+            points_by_input.append(
+                ' '.join([
+                    f'{symbol_centre},{symbol_middle}',
+                    f'{symbol_centre},{bus_y}',
+                    f'{input_label_centre},{bus_y}',
+                    f'{input_label_centre},{input_label_middle}',
+                ])
+            )
+
+        return '\n'.join(
+            f'<polyline points="{points}"/>'
+            for points in points_by_input
+        )
 
     @staticmethod
     def label_rectangle_element(x, y):

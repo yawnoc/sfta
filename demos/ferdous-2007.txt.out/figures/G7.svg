@@ -8,6 +8,9 @@ circle, path, polygon, polyline, rect {
   stroke: black;
   stroke-width: 1.3;
 }
+polyline {
+  fill: none;
+}
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
@@ -16,6 +19,8 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
+<polyline points="0,40 0,90 -800,90 -800,140"/>
+<polyline points="0,40 0,90 100,90 100,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -24,6 +29,8 @@ text {
 <rect x="-45" y="27" width="90" height="26"/>
 <text x="0" y="40">Q = 0.034811</text>
 <polyline points="-800,107 -800,240"/>
+<polyline points="-800,240 -800,290 -850,290 -850,340"/>
+<polyline points="-800,240 -800,290 -750,290 -750,340"/>
 <rect x="-845" y="107" width="90" height="66"/>
 <text x="-800" y="140"></text>
 <rect x="-845" y="176" width="90" height="20"/>
@@ -32,6 +39,7 @@ text {
 <rect x="-845" y="227" width="90" height="26"/>
 <text x="-800" y="240">Q = 0.039211</text>
 <polyline points="-850,307 -850,440"/>
+
 <rect x="-895" y="307" width="90" height="66"/>
 <text x="-850" y="340">Ethylene pump fails</text>
 <rect x="-895" y="376" width="90" height="20"/>
@@ -40,6 +48,7 @@ text {
 <rect x="-895" y="427" width="90" height="26"/>
 <text x="-850" y="440">Q = 0.039211</text>
 <polyline points="-750,307 -750,440"/>
+
 <rect x="-795" y="307" width="90" height="66"/>
 <text x="-750" y="340">Ethylene pump demanded</text>
 <rect x="-795" y="376" width="90" height="20"/>
@@ -48,6 +57,9 @@ text {
 <rect x="-795" y="427" width="90" height="26"/>
 <text x="-750" y="440">Q = 11</text>
 <polyline points="100,107 100,240"/>
+<polyline points="100,240 100,290 -650,290 -650,340"/>
+<polyline points="100,240 100,290 100,290 100,340"/>
+<polyline points="100,240 100,290 850,290 850,340"/>
 <rect x="55" y="107" width="90" height="66"/>
 <text x="100" y="140"></text>
 <rect x="55" y="176" width="90" height="20"/>
@@ -56,6 +68,7 @@ text {
 <rect x="55" y="227" width="90" height="26"/>
 <text x="100" y="240">Q = 0.88791</text>
 <polyline points="-650,307 -650,440"/>
+
 <rect x="-695" y="307" width="90" height="66"/>
 <text x="-650" y="340">Instrument air supply fails</text>
 <rect x="-695" y="376" width="90" height="20"/>
@@ -64,6 +77,9 @@ text {
 <rect x="-695" y="427" width="90" height="26"/>
 <text x="-650" y="440">Q = 0.73641</text>
 <polyline points="100,307 100,440"/>
+<polyline points="100,440 100,490 -550,490 -550,540"/>
+<polyline points="100,440 100,490 100,490 100,540"/>
+<polyline points="100,440 100,490 750,490 750,540"/>
 <rect x="55" y="307" width="90" height="66"/>
 <text x="100" y="340"></text>
 <rect x="55" y="376" width="90" height="20"/>
@@ -72,6 +88,7 @@ text {
 <rect x="55" y="427" width="90" height="26"/>
 <text x="100" y="440">Q = 0.0028721</text>
 <polyline points="-550,507 -550,640"/>
+
 <rect x="-595" y="507" width="90" height="66"/>
 <text x="-550" y="540">Instrument air supply fails</text>
 <rect x="-595" y="576" width="90" height="20"/>
@@ -80,6 +97,9 @@ text {
 <rect x="-595" y="627" width="90" height="26"/>
 <text x="-550" y="640">Q = 0.73641</text>
 <polyline points="100,507 100,640"/>
+<polyline points="100,640 100,690 -300,690 -300,740"/>
+<polyline points="100,640 100,690 100,690 100,740"/>
+<polyline points="100,640 100,690 500,690 500,740"/>
 <rect x="55" y="507" width="90" height="66"/>
 <text x="100" y="540"></text>
 <rect x="55" y="576" width="90" height="20"/>
@@ -88,6 +108,8 @@ text {
 <rect x="55" y="627" width="90" height="26"/>
 <text x="100" y="640">Q = 0.025751</text>
 <polyline points="-300,707 -300,840"/>
+<polyline points="-300,840 -300,890 -450,890 -450,940"/>
+<polyline points="-300,840 -300,890 -250,890 -250,940"/>
 <rect x="-345" y="707" width="90" height="66"/>
 <text x="-300" y="740"></text>
 <rect x="-345" y="776" width="90" height="20"/>
@@ -96,6 +118,7 @@ text {
 <rect x="-345" y="827" width="90" height="26"/>
 <text x="-300" y="840">Q = 0.0010241</text>
 <polyline points="-450,907 -450,1040"/>
+
 <rect x="-495" y="907" width="90" height="66"/>
 <text x="-450" y="940">Exit temperature below −10°C</text>
 <rect x="-495" y="976" width="90" height="20"/>
@@ -104,6 +127,9 @@ text {
 <rect x="-495" y="1027" width="90" height="26"/>
 <text x="-450" y="1040">Q = 0.0251</text>
 <polyline points="-250,907 -250,1040"/>
+<polyline points="-250,1040 -250,1090 -350,1090 -350,1140"/>
+<polyline points="-250,1040 -250,1090 -250,1090 -250,1140"/>
+<polyline points="-250,1040 -250,1090 -150,1090 -150,1140"/>
 <rect x="-295" y="907" width="90" height="66"/>
 <text x="-250" y="940"></text>
 <rect x="-295" y="976" width="90" height="20"/>
@@ -112,6 +138,7 @@ text {
 <rect x="-295" y="1027" width="90" height="26"/>
 <text x="-250" y="1040">Q = 0.040961</text>
 <polyline points="-350,1107 -350,1240"/>
+
 <rect x="-395" y="1107" width="90" height="66"/>
 <text x="-350" y="1140">Temperature measurement T1 fails</text>
 <rect x="-395" y="1176" width="90" height="20"/>
@@ -120,6 +147,7 @@ text {
 <rect x="-395" y="1227" width="90" height="26"/>
 <text x="-350" y="1240">Q = 0.23271</text>
 <polyline points="-250,1107 -250,1240"/>
+
 <rect x="-295" y="1107" width="90" height="66"/>
 <text x="-250" y="1140">Valve positioner V3 fails</text>
 <rect x="-295" y="1176" width="90" height="20"/>
@@ -128,6 +156,7 @@ text {
 <rect x="-295" y="1227" width="90" height="26"/>
 <text x="-250" y="1240">Q = 0.31191</text>
 <polyline points="-150,1107 -150,1240"/>
+
 <rect x="-195" y="1107" width="90" height="66"/>
 <text x="-150" y="1140">Signal transmission T1-V3 fails</text>
 <rect x="-195" y="1176" width="90" height="20"/>
@@ -136,6 +165,8 @@ text {
 <rect x="-195" y="1227" width="90" height="26"/>
 <text x="-150" y="1240">Q = 0.56431</text>
 <polyline points="100,707 100,840"/>
+<polyline points="100,840 100,890 -50,890 -50,940"/>
+<polyline points="100,840 100,890 150,890 150,940"/>
 <rect x="55" y="707" width="90" height="66"/>
 <text x="100" y="740"></text>
 <rect x="55" y="776" width="90" height="20"/>
@@ -144,6 +175,7 @@ text {
 <rect x="55" y="827" width="90" height="26"/>
 <text x="100" y="840">Q = 0.010341</text>
 <polyline points="-50,907 -50,1040"/>
+
 <rect x="-95" y="907" width="90" height="66"/>
 <text x="-50" y="940">Exit manometric pressure &gt; 16.18 bar</text>
 <rect x="-95" y="976" width="90" height="20"/>
@@ -152,6 +184,9 @@ text {
 <rect x="-95" y="1027" width="90" height="26"/>
 <text x="-50" y="1040">Q = 0.11</text>
 <polyline points="150,907 150,1040"/>
+<polyline points="150,1040 150,1090 50,1090 50,1140"/>
+<polyline points="150,1040 150,1090 150,1090 150,1140"/>
+<polyline points="150,1040 150,1090 250,1090 250,1140"/>
 <rect x="105" y="907" width="90" height="66"/>
 <text x="150" y="940"></text>
 <rect x="105" y="976" width="90" height="20"/>
@@ -160,6 +195,7 @@ text {
 <rect x="105" y="1027" width="90" height="26"/>
 <text x="150" y="1040">Q = 0.10341</text>
 <polyline points="50,1107 50,1240"/>
+
 <rect x="5" y="1107" width="90" height="66"/>
 <text x="50" y="1140">Pressure measurement P2 fails</text>
 <rect x="5" y="1176" width="90" height="20"/>
@@ -168,6 +204,7 @@ text {
 <rect x="5" y="1227" width="90" height="26"/>
 <text x="50" y="1240">Q = 0.58771</text>
 <polyline points="150,1107 150,1240"/>
+
 <rect x="105" y="1107" width="90" height="66"/>
 <text x="150" y="1140">Valve positioner V3 fails</text>
 <rect x="105" y="1176" width="90" height="20"/>
@@ -176,6 +213,7 @@ text {
 <rect x="105" y="1227" width="90" height="26"/>
 <text x="150" y="1240">Q = 0.31191</text>
 <polyline points="250,1107 250,1240"/>
+
 <rect x="205" y="1107" width="90" height="66"/>
 <text x="250" y="1140">Signal transmission P2-V3 fails</text>
 <rect x="205" y="1176" width="90" height="20"/>
@@ -184,6 +222,8 @@ text {
 <rect x="205" y="1227" width="90" height="26"/>
 <text x="250" y="1240">Q = 0.56431</text>
 <polyline points="500,707 500,840"/>
+<polyline points="500,840 500,890 350,890 350,940"/>
+<polyline points="500,840 500,890 550,890 550,940"/>
 <rect x="455" y="707" width="90" height="66"/>
 <text x="500" y="740"></text>
 <rect x="455" y="776" width="90" height="20"/>
@@ -192,6 +232,7 @@ text {
 <rect x="455" y="827" width="90" height="26"/>
 <text x="500" y="840">Q = 0.014381</text>
 <polyline points="350,907 350,1040"/>
+
 <rect x="305" y="907" width="90" height="66"/>
 <text x="350" y="940">Exit flow &gt; demand</text>
 <rect x="305" y="976" width="90" height="20"/>
@@ -200,6 +241,9 @@ text {
 <rect x="305" y="1027" width="90" height="26"/>
 <text x="350" y="1040">Q = 0.11</text>
 <polyline points="550,907 550,1040"/>
+<polyline points="550,1040 550,1090 450,1090 450,1140"/>
+<polyline points="550,1040 550,1090 550,1090 550,1140"/>
+<polyline points="550,1040 550,1090 650,1090 650,1140"/>
 <rect x="505" y="907" width="90" height="66"/>
 <text x="550" y="940"></text>
 <rect x="505" y="976" width="90" height="20"/>
@@ -208,6 +252,7 @@ text {
 <rect x="505" y="1027" width="90" height="26"/>
 <text x="550" y="1040">Q = 0.14381</text>
 <polyline points="450,1107 450,1240"/>
+
 <rect x="405" y="1107" width="90" height="66"/>
 <text x="450" y="1140">Flow measurement F1 fails</text>
 <rect x="405" y="1176" width="90" height="20"/>
@@ -216,6 +261,7 @@ text {
 <rect x="405" y="1227" width="90" height="26"/>
 <text x="450" y="1240">Q = 0.8171</text>
 <polyline points="550,1107 550,1240"/>
+
 <rect x="505" y="1107" width="90" height="66"/>
 <text x="550" y="1140">Valve positioner V3 fails</text>
 <rect x="505" y="1176" width="90" height="20"/>
@@ -224,6 +270,7 @@ text {
 <rect x="505" y="1227" width="90" height="26"/>
 <text x="550" y="1240">Q = 0.31191</text>
 <polyline points="650,1107 650,1240"/>
+
 <rect x="605" y="1107" width="90" height="66"/>
 <text x="650" y="1140">Signal transmission F1-V3 fails</text>
 <rect x="605" y="1176" width="90" height="20"/>
@@ -232,6 +279,7 @@ text {
 <rect x="605" y="1227" width="90" height="26"/>
 <text x="650" y="1240">Q = 0.56431</text>
 <polyline points="750,507 750,640"/>
+
 <rect x="705" y="507" width="90" height="66"/>
 <text x="750" y="540">V3 fails closed</text>
 <rect x="705" y="576" width="90" height="20"/>
@@ -240,6 +288,7 @@ text {
 <rect x="705" y="627" width="90" height="26"/>
 <text x="750" y="640">Q = 0.15151</text>
 <polyline points="850,307 850,440"/>
+
 <rect x="805" y="307" width="90" height="66"/>
 <text x="850" y="340">V3 fails closed</text>
 <rect x="805" y="376" width="90" height="20"/>

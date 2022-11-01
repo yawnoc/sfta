@@ -8,6 +8,9 @@ circle, path, polygon, polyline, rect {
   stroke: black;
   stroke-width: 1.3;
 }
+polyline {
+  fill: none;
+}
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
@@ -16,6 +19,9 @@ text {
 }
 </style>
 <polyline points="0,-93 0,40"/>
+<polyline points="0,40 0,90 -100,90 -100,140"/>
+<polyline points="0,40 0,90 0,90 0,140"/>
+<polyline points="0,40 0,90 100,90 100,140"/>
 <rect x="-45" y="-93" width="90" height="66"/>
 <text x="0" y="-60"></text>
 <rect x="-45" y="-24" width="90" height="20"/>
@@ -24,6 +30,7 @@ text {
 <rect x="-45" y="27" width="90" height="26"/>
 <text x="0" y="40">Q = 0.11921</text>
 <polyline points="-100,107 -100,240"/>
+
 <rect x="-145" y="107" width="90" height="66"/>
 <text x="-100" y="140">Pipe work fire</text>
 <rect x="-145" y="176" width="90" height="20"/>
@@ -32,6 +39,7 @@ text {
 <rect x="-145" y="227" width="90" height="26"/>
 <text x="-100" y="240">Q = 0.018091</text>
 <polyline points="0,107 0,240"/>
+
 <rect x="-45" y="107" width="90" height="66"/>
 <text x="0" y="140"></text>
 <rect x="-45" y="176" width="90" height="20"/>
@@ -40,6 +48,7 @@ text {
 <rect x="-45" y="227" width="90" height="26"/>
 <text x="0" y="240">Q = 0.066321</text>
 <polyline points="100,107 100,240"/>
+
 <rect x="55" y="107" width="90" height="66"/>
 <text x="100" y="140"></text>
 <rect x="55" y="176" width="90" height="20"/>
