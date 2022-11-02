@@ -10,7 +10,6 @@ Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
 This is free software with NO WARRANTY etc. etc., see LICENSE.
 """
 
-import math
 import textwrap
 import unittest
 
@@ -22,13 +21,13 @@ class TestSfta(unittest.TestCase):
     def test_dull(self):
         self.assertEqual(dull(None), None)
 
-        self.assertEqual(dull(0), 0)
-        self.assertEqual(dull(0.), 0)
-        self.assertEqual(dull(-0.), 0)
+        self.assertEqual(dull(0), '0')
+        self.assertEqual(dull(0.), '0')
+        self.assertEqual(dull(-0.), '0')
 
-        self.assertEqual(dull(float('inf')), float('inf'))
-        self.assertEqual(dull(float('-inf')), float('-inf'))
-        self.assertTrue(math.isnan(dull(float('nan'))))
+        self.assertEqual(dull(float('inf')), 'inf')
+        self.assertEqual(dull(float('-inf')), '-inf')
+        self.assertEqual(dull(float('nan')), 'nan')
 
         self.assertNotEqual(str(0.1 + 0.2), '0.3')
         self.assertEqual(dull(0.1 + 0.2, 1), '0.3')

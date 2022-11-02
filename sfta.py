@@ -30,10 +30,10 @@ def dull(number, max_significant_figures=1):
         return None
 
     if number == 0:
-        return 0
+        return '0'
 
     if not isfinite(number):
-        return number
+        return str(number)
 
     exponent = 1 + floor(log10(abs(number)))  # with mantissa less than unity
     target_places = max_significant_figures - exponent
