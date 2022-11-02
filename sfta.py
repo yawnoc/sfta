@@ -22,9 +22,9 @@ from math import floor, isfinite, log10, prod
 __version__ = '0.1.0'
 
 
-def blunt(number, max_significant_figures=1):
+def dull(number, max_significant_figures=1):
     """
-    Blunt a number to at most certain significant figures, as a string.
+    Dull a number to at most certain significant figures, as a string.
     """
     if number is None:
         return None
@@ -1055,7 +1055,7 @@ class FaultTree:
                 id_,
                 id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
-                blunt(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                dull(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
@@ -1082,7 +1082,7 @@ class FaultTree:
                 id_ in self.top_gate_ids,
                 gate.is_paged,
                 Event.STR_FROM_TYPE[gate.quantity_type],
-                blunt(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                dull(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                 Gate.STR_FROM_TYPE[gate.type_],
                 ','.join(gate.input_ids),
@@ -1105,7 +1105,7 @@ class FaultTree:
             rows = [
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                    dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                     Event.quantity_unit_str(
                         gate.quantity_type,
                         self.time_unit,
@@ -1621,7 +1621,7 @@ class Node:
         else:
             relation = '='
 
-        value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
+        value_str = dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
         unit_str = Event.quantity_unit_str(
             quantity_type,
             time_unit,
