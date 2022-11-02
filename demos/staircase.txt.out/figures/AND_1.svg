@@ -22,7 +22,9 @@ text {
 <polyline points="1040,140 1040,190 50,190 50,240"/>
 <polyline points="1060,140 1060,190 1100,190 1100,240"/>
 <rect x="1005" y="7" width="90" height="66"/>
-<text x="1050" y="40"></text>
+<text x="1050" y="40">
+
+</text>
 <rect x="1005" y="76" width="90" height="20"/>
 <text x="1050" y="86">AND_1</text>
 <path d="M1020,172 L1080,172 L1080,134 C1080,94 1020,94 1020,134 L1020,172 "/>
@@ -31,7 +33,9 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240"></text>
+<text x="50" y="240">
+
+</text>
 <rect x="5" y="276" width="90" height="20"/>
 <text x="50" y="286">A_1</text>
 <circle cx="50" cy="340" r="35"/>
@@ -41,7 +45,9 @@ text {
 <polyline points="1090,340 1090,390 150,390 150,440"/>
 <polyline points="1110,340 1110,390 1150,390 1150,440"/>
 <rect x="1055" y="207" width="90" height="66"/>
-<text x="1100" y="240"></text>
+<text x="1100" y="240">
+
+</text>
 <rect x="1055" y="276" width="90" height="20"/>
 <text x="1100" y="286">OR_1</text>
 <path d="M1100,304 C1095,306 1068,320 1068,350 L1068,376 Q1100,350 1132,376 L1132,350 C1132,320 1105,306 1100,304"/>
@@ -50,7 +56,9 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440"></text>
+<text x="150" y="440">
+
+</text>
 <rect x="105" y="476" width="90" height="20"/>
 <text x="150" y="486">O_1</text>
 <circle cx="150" cy="540" r="35"/>
@@ -60,7 +68,9 @@ text {
 <polyline points="1140,540 1140,590 250,590 250,640"/>
 <polyline points="1160,540 1160,590 1200,590 1200,640"/>
 <rect x="1105" y="407" width="90" height="66"/>
-<text x="1150" y="440"></text>
+<text x="1150" y="440">
+
+</text>
 <rect x="1105" y="476" width="90" height="20"/>
 <text x="1150" y="486">AND_2</text>
 <path d="M1120,572 L1180,572 L1180,534 C1180,494 1120,494 1120,534 L1120,572 "/>
@@ -69,7 +79,9 @@ text {
 <polyline points="250,607 250,740"/>
 
 <rect x="205" y="607" width="90" height="66"/>
-<text x="250" y="640"></text>
+<text x="250" y="640">
+
+</text>
 <rect x="205" y="676" width="90" height="20"/>
 <text x="250" y="686">A_2</text>
 <circle cx="250" cy="740" r="35"/>
@@ -79,7 +91,9 @@ text {
 <polyline points="1190,740 1190,790 350,790 350,840"/>
 <polyline points="1210,740 1210,790 1250,790 1250,840"/>
 <rect x="1155" y="607" width="90" height="66"/>
-<text x="1200" y="640"></text>
+<text x="1200" y="640">
+
+</text>
 <rect x="1155" y="676" width="90" height="20"/>
 <text x="1200" y="686">OR_2</text>
 <path d="M1200,704 C1195,706 1168,720 1168,750 L1168,776 Q1200,750 1232,776 L1232,750 C1232,720 1205,706 1200,704"/>
@@ -88,7 +102,9 @@ text {
 <polyline points="350,807 350,940"/>
 
 <rect x="305" y="807" width="90" height="66"/>
-<text x="350" y="840"></text>
+<text x="350" y="840">
+
+</text>
 <rect x="305" y="876" width="90" height="20"/>
 <text x="350" y="886">O_2</text>
 <circle cx="350" cy="940" r="35"/>
@@ -98,7 +114,9 @@ text {
 <polyline points="1240,940 1240,990 450,990 450,1040"/>
 <polyline points="1260,940 1260,990 1300,990 1300,1040"/>
 <rect x="1205" y="807" width="90" height="66"/>
-<text x="1250" y="840"></text>
+<text x="1250" y="840">
+
+</text>
 <rect x="1205" y="876" width="90" height="20"/>
 <text x="1250" y="886">AND_3</text>
 <path d="M1220,972 L1280,972 L1280,934 C1280,894 1220,894 1220,934 L1220,972 "/>
@@ -107,7 +125,9 @@ text {
 <polyline points="450,1007 450,1140"/>
 
 <rect x="405" y="1007" width="90" height="66"/>
-<text x="450" y="1040"></text>
+<text x="450" y="1040">
+
+</text>
 <rect x="405" y="1076" width="90" height="20"/>
 <text x="450" y="1086">A_3</text>
 <circle cx="450" cy="1140" r="35"/>
@@ -117,7 +137,9 @@ text {
 <polyline points="1290,1140 1290,1190 550,1190 550,1240"/>
 <polyline points="1310,1140 1310,1190 1350,1190 1350,1240"/>
 <rect x="1255" y="1007" width="90" height="66"/>
-<text x="1300" y="1040"></text>
+<text x="1300" y="1040">
+
+</text>
 <rect x="1255" y="1076" width="90" height="20"/>
 <text x="1300" y="1086">OR_3</text>
 <path d="M1300,1104 C1295,1106 1268,1120 1268,1150 L1268,1176 Q1300,1150 1332,1176 L1332,1150 C1332,1120 1305,1106 1300,1104"/>
@@ -126,7 +148,9 @@ text {
 <polyline points="550,1207 550,1340"/>
 
 <rect x="505" y="1207" width="90" height="66"/>
-<text x="550" y="1240"></text>
+<text x="550" y="1240">
+
+</text>
 <rect x="505" y="1276" width="90" height="20"/>
 <text x="550" y="1286">O_3</text>
 <circle cx="550" cy="1340" r="35"/>
@@ -136,7 +160,9 @@ text {
 <polyline points="1340,1340 1340,1390 650,1390 650,1440"/>
 <polyline points="1360,1340 1360,1390 1400,1390 1400,1440"/>
 <rect x="1305" y="1207" width="90" height="66"/>
-<text x="1350" y="1240"></text>
+<text x="1350" y="1240">
+
+</text>
 <rect x="1305" y="1276" width="90" height="20"/>
 <text x="1350" y="1286">AND_4</text>
 <path d="M1320,1372 L1380,1372 L1380,1334 C1380,1294 1320,1294 1320,1334 L1320,1372 "/>
@@ -145,7 +171,9 @@ text {
 <polyline points="650,1407 650,1540"/>
 
 <rect x="605" y="1407" width="90" height="66"/>
-<text x="650" y="1440"></text>
+<text x="650" y="1440">
+
+</text>
 <rect x="605" y="1476" width="90" height="20"/>
 <text x="650" y="1486">A_4</text>
 <circle cx="650" cy="1540" r="35"/>
@@ -155,7 +183,9 @@ text {
 <polyline points="1390,1540 1390,1590 750,1590 750,1640"/>
 <polyline points="1410,1540 1410,1590 1450,1590 1450,1640"/>
 <rect x="1355" y="1407" width="90" height="66"/>
-<text x="1400" y="1440"></text>
+<text x="1400" y="1440">
+
+</text>
 <rect x="1355" y="1476" width="90" height="20"/>
 <text x="1400" y="1486">OR_4</text>
 <path d="M1400,1504 C1395,1506 1368,1520 1368,1550 L1368,1576 Q1400,1550 1432,1576 L1432,1550 C1432,1520 1405,1506 1400,1504"/>
@@ -164,7 +194,9 @@ text {
 <polyline points="750,1607 750,1740"/>
 
 <rect x="705" y="1607" width="90" height="66"/>
-<text x="750" y="1640"></text>
+<text x="750" y="1640">
+
+</text>
 <rect x="705" y="1676" width="90" height="20"/>
 <text x="750" y="1686">O_4</text>
 <circle cx="750" cy="1740" r="35"/>
@@ -174,7 +206,9 @@ text {
 <polyline points="1440,1740 1440,1790 850,1790 850,1840"/>
 <polyline points="1460,1740 1460,1790 1500,1790 1500,1840"/>
 <rect x="1405" y="1607" width="90" height="66"/>
-<text x="1450" y="1640"></text>
+<text x="1450" y="1640">
+
+</text>
 <rect x="1405" y="1676" width="90" height="20"/>
 <text x="1450" y="1686">AND_5</text>
 <path d="M1420,1772 L1480,1772 L1480,1734 C1480,1694 1420,1694 1420,1734 L1420,1772 "/>
@@ -183,7 +217,9 @@ text {
 <polyline points="850,1807 850,1940"/>
 
 <rect x="805" y="1807" width="90" height="66"/>
-<text x="850" y="1840"></text>
+<text x="850" y="1840">
+
+</text>
 <rect x="805" y="1876" width="90" height="20"/>
 <text x="850" y="1886">A_5</text>
 <circle cx="850" cy="1940" r="35"/>
@@ -193,7 +229,9 @@ text {
 <polyline points="1490,1940 1490,1990 950,1990 950,2040"/>
 <polyline points="1510,1940 1510,1990 1550,1990 1550,2040"/>
 <rect x="1455" y="1807" width="90" height="66"/>
-<text x="1500" y="1840"></text>
+<text x="1500" y="1840">
+
+</text>
 <rect x="1455" y="1876" width="90" height="20"/>
 <text x="1500" y="1886">OR_5</text>
 <path d="M1500,1904 C1495,1906 1468,1920 1468,1950 L1468,1976 Q1500,1950 1532,1976 L1532,1950 C1532,1920 1505,1906 1500,1904"/>
@@ -202,7 +240,9 @@ text {
 <polyline points="950,2007 950,2140"/>
 
 <rect x="905" y="2007" width="90" height="66"/>
-<text x="950" y="2040"></text>
+<text x="950" y="2040">
+
+</text>
 <rect x="905" y="2076" width="90" height="20"/>
 <text x="950" y="2086">O_5</text>
 <circle cx="950" cy="2140" r="35"/>
@@ -212,7 +252,9 @@ text {
 <polyline points="1540,2140 1540,2190 1050,2190 1050,2240"/>
 <polyline points="1560,2140 1560,2190 1600,2190 1600,2240"/>
 <rect x="1505" y="2007" width="90" height="66"/>
-<text x="1550" y="2040"></text>
+<text x="1550" y="2040">
+
+</text>
 <rect x="1505" y="2076" width="90" height="20"/>
 <text x="1550" y="2086">AND_6</text>
 <path d="M1520,2172 L1580,2172 L1580,2134 C1580,2094 1520,2094 1520,2134 L1520,2172 "/>
@@ -221,7 +263,9 @@ text {
 <polyline points="1050,2207 1050,2340"/>
 
 <rect x="1005" y="2207" width="90" height="66"/>
-<text x="1050" y="2240"></text>
+<text x="1050" y="2240">
+
+</text>
 <rect x="1005" y="2276" width="90" height="20"/>
 <text x="1050" y="2286">A_6</text>
 <circle cx="1050" cy="2340" r="35"/>
@@ -231,7 +275,9 @@ text {
 <polyline points="1590,2340 1590,2390 1150,2390 1150,2440"/>
 <polyline points="1610,2340 1610,2390 1650,2390 1650,2440"/>
 <rect x="1555" y="2207" width="90" height="66"/>
-<text x="1600" y="2240"></text>
+<text x="1600" y="2240">
+
+</text>
 <rect x="1555" y="2276" width="90" height="20"/>
 <text x="1600" y="2286">OR_6</text>
 <path d="M1600,2304 C1595,2306 1568,2320 1568,2350 L1568,2376 Q1600,2350 1632,2376 L1632,2350 C1632,2320 1605,2306 1600,2304"/>
@@ -240,7 +286,9 @@ text {
 <polyline points="1150,2407 1150,2540"/>
 
 <rect x="1105" y="2407" width="90" height="66"/>
-<text x="1150" y="2440"></text>
+<text x="1150" y="2440">
+
+</text>
 <rect x="1105" y="2476" width="90" height="20"/>
 <text x="1150" y="2486">O_6</text>
 <circle cx="1150" cy="2540" r="35"/>
@@ -250,7 +298,9 @@ text {
 <polyline points="1640,2540 1640,2590 1250,2590 1250,2640"/>
 <polyline points="1660,2540 1660,2590 1700,2590 1700,2640"/>
 <rect x="1605" y="2407" width="90" height="66"/>
-<text x="1650" y="2440"></text>
+<text x="1650" y="2440">
+
+</text>
 <rect x="1605" y="2476" width="90" height="20"/>
 <text x="1650" y="2486">AND_7</text>
 <path d="M1620,2572 L1680,2572 L1680,2534 C1680,2494 1620,2494 1620,2534 L1620,2572 "/>
@@ -259,7 +309,9 @@ text {
 <polyline points="1250,2607 1250,2740"/>
 
 <rect x="1205" y="2607" width="90" height="66"/>
-<text x="1250" y="2640"></text>
+<text x="1250" y="2640">
+
+</text>
 <rect x="1205" y="2676" width="90" height="20"/>
 <text x="1250" y="2686">A_7</text>
 <circle cx="1250" cy="2740" r="35"/>
@@ -269,7 +321,9 @@ text {
 <polyline points="1690,2740 1690,2790 1350,2790 1350,2840"/>
 <polyline points="1710,2740 1710,2790 1750,2790 1750,2840"/>
 <rect x="1655" y="2607" width="90" height="66"/>
-<text x="1700" y="2640"></text>
+<text x="1700" y="2640">
+
+</text>
 <rect x="1655" y="2676" width="90" height="20"/>
 <text x="1700" y="2686">OR_7</text>
 <path d="M1700,2704 C1695,2706 1668,2720 1668,2750 L1668,2776 Q1700,2750 1732,2776 L1732,2750 C1732,2720 1705,2706 1700,2704"/>
@@ -278,7 +332,9 @@ text {
 <polyline points="1350,2807 1350,2940"/>
 
 <rect x="1305" y="2807" width="90" height="66"/>
-<text x="1350" y="2840"></text>
+<text x="1350" y="2840">
+
+</text>
 <rect x="1305" y="2876" width="90" height="20"/>
 <text x="1350" y="2886">O_7</text>
 <circle cx="1350" cy="2940" r="35"/>
@@ -288,7 +344,9 @@ text {
 <polyline points="1740,2940 1740,2990 1450,2990 1450,3040"/>
 <polyline points="1760,2940 1760,2990 1800,2990 1800,3040"/>
 <rect x="1705" y="2807" width="90" height="66"/>
-<text x="1750" y="2840"></text>
+<text x="1750" y="2840">
+
+</text>
 <rect x="1705" y="2876" width="90" height="20"/>
 <text x="1750" y="2886">AND_8</text>
 <path d="M1720,2972 L1780,2972 L1780,2934 C1780,2894 1720,2894 1720,2934 L1720,2972 "/>
@@ -297,7 +355,9 @@ text {
 <polyline points="1450,3007 1450,3140"/>
 
 <rect x="1405" y="3007" width="90" height="66"/>
-<text x="1450" y="3040"></text>
+<text x="1450" y="3040">
+
+</text>
 <rect x="1405" y="3076" width="90" height="20"/>
 <text x="1450" y="3086">A_8</text>
 <circle cx="1450" cy="3140" r="35"/>
@@ -307,7 +367,9 @@ text {
 <polyline points="1790,3140 1790,3190 1550,3190 1550,3240"/>
 <polyline points="1810,3140 1810,3190 1850,3190 1850,3240"/>
 <rect x="1755" y="3007" width="90" height="66"/>
-<text x="1800" y="3040"></text>
+<text x="1800" y="3040">
+
+</text>
 <rect x="1755" y="3076" width="90" height="20"/>
 <text x="1800" y="3086">OR_8</text>
 <path d="M1800,3104 C1795,3106 1768,3120 1768,3150 L1768,3176 Q1800,3150 1832,3176 L1832,3150 C1832,3120 1805,3106 1800,3104"/>
@@ -316,7 +378,9 @@ text {
 <polyline points="1550,3207 1550,3340"/>
 
 <rect x="1505" y="3207" width="90" height="66"/>
-<text x="1550" y="3240"></text>
+<text x="1550" y="3240">
+
+</text>
 <rect x="1505" y="3276" width="90" height="20"/>
 <text x="1550" y="3286">O_8</text>
 <circle cx="1550" cy="3340" r="35"/>
@@ -326,7 +390,9 @@ text {
 <polyline points="1840,3340 1840,3390 1650,3390 1650,3440"/>
 <polyline points="1860,3340 1860,3390 1900,3390 1900,3440"/>
 <rect x="1805" y="3207" width="90" height="66"/>
-<text x="1850" y="3240"></text>
+<text x="1850" y="3240">
+
+</text>
 <rect x="1805" y="3276" width="90" height="20"/>
 <text x="1850" y="3286">AND_9</text>
 <path d="M1820,3372 L1880,3372 L1880,3334 C1880,3294 1820,3294 1820,3334 L1820,3372 "/>
@@ -335,7 +401,9 @@ text {
 <polyline points="1650,3407 1650,3540"/>
 
 <rect x="1605" y="3407" width="90" height="66"/>
-<text x="1650" y="3440"></text>
+<text x="1650" y="3440">
+
+</text>
 <rect x="1605" y="3476" width="90" height="20"/>
 <text x="1650" y="3486">A_9</text>
 <circle cx="1650" cy="3540" r="35"/>
@@ -345,7 +413,9 @@ text {
 <polyline points="1890,3540 1890,3590 1750,3590 1750,3640"/>
 <polyline points="1910,3540 1910,3590 1950,3590 1950,3640"/>
 <rect x="1855" y="3407" width="90" height="66"/>
-<text x="1900" y="3440"></text>
+<text x="1900" y="3440">
+
+</text>
 <rect x="1855" y="3476" width="90" height="20"/>
 <text x="1900" y="3486">OR_9</text>
 <path d="M1900,3504 C1895,3506 1868,3520 1868,3550 L1868,3576 Q1900,3550 1932,3576 L1932,3550 C1932,3520 1905,3506 1900,3504"/>
@@ -354,7 +424,9 @@ text {
 <polyline points="1750,3607 1750,3740"/>
 
 <rect x="1705" y="3607" width="90" height="66"/>
-<text x="1750" y="3640"></text>
+<text x="1750" y="3640">
+
+</text>
 <rect x="1705" y="3676" width="90" height="20"/>
 <text x="1750" y="3686">O_9</text>
 <circle cx="1750" cy="3740" r="35"/>
@@ -364,7 +436,9 @@ text {
 <polyline points="1940,3740 1940,3790 1850,3790 1850,3840"/>
 <polyline points="1960,3740 1960,3790 2000,3790 2000,3840"/>
 <rect x="1905" y="3607" width="90" height="66"/>
-<text x="1950" y="3640"></text>
+<text x="1950" y="3640">
+
+</text>
 <rect x="1905" y="3676" width="90" height="20"/>
 <text x="1950" y="3686">AND_10</text>
 <path d="M1920,3772 L1980,3772 L1980,3734 C1980,3694 1920,3694 1920,3734 L1920,3772 "/>
@@ -373,7 +447,9 @@ text {
 <polyline points="1850,3807 1850,3940"/>
 
 <rect x="1805" y="3807" width="90" height="66"/>
-<text x="1850" y="3840"></text>
+<text x="1850" y="3840">
+
+</text>
 <rect x="1805" y="3876" width="90" height="20"/>
 <text x="1850" y="3886">A_10</text>
 <circle cx="1850" cy="3940" r="35"/>
@@ -383,7 +459,9 @@ text {
 <polyline points="1990,3940 1990,3990 1950,3990 1950,4040"/>
 <polyline points="2010,3940 2010,3990 2050,3990 2050,4040"/>
 <rect x="1955" y="3807" width="90" height="66"/>
-<text x="2000" y="3840"></text>
+<text x="2000" y="3840">
+
+</text>
 <rect x="1955" y="3876" width="90" height="20"/>
 <text x="2000" y="3886">OR_10</text>
 <path d="M2000,3904 C1995,3906 1968,3920 1968,3950 L1968,3976 Q2000,3950 2032,3976 L2032,3950 C2032,3920 2005,3906 2000,3904"/>
@@ -392,7 +470,9 @@ text {
 <polyline points="1950,4007 1950,4140"/>
 
 <rect x="1905" y="4007" width="90" height="66"/>
-<text x="1950" y="4040"></text>
+<text x="1950" y="4040">
+
+</text>
 <rect x="1905" y="4076" width="90" height="20"/>
 <text x="1950" y="4086">O_10</text>
 <circle cx="1950" cy="4140" r="35"/>
@@ -401,7 +481,9 @@ text {
 <polyline points="2050,4007 2050,4140"/>
 
 <rect x="2005" y="4007" width="90" height="66"/>
-<text x="2050" y="4040"></text>
+<text x="2050" y="4040">
+
+</text>
 <rect x="2005" y="4076" width="90" height="20"/>
 <text x="2050" y="4086">L</text>
 <circle cx="2050" cy="4140" r="35"/>

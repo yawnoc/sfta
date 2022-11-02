@@ -22,7 +22,9 @@ text {
 <polyline points="890,140 890,190 100,190 100,240"/>
 <polyline points="910,140 910,190 1000,190 1000,240"/>
 <rect x="855" y="7" width="90" height="66"/>
-<text x="900" y="40"></text>
+<text x="900" y="40">
+
+</text>
 <rect x="855" y="76" width="90" height="20"/>
 <text x="900" y="86">G7</text>
 <path d="M870,172 L930,172 L930,134 C930,94 870,94 870,134 L870,172 "/>
@@ -32,7 +34,9 @@ text {
 <polyline points="90,340 90,390 50,390 50,440"/>
 <polyline points="110,340 110,390 150,390 150,440"/>
 <rect x="55" y="207" width="90" height="66"/>
-<text x="100" y="240"></text>
+<text x="100" y="240">
+
+</text>
 <rect x="55" y="276" width="90" height="20"/>
 <text x="100" y="286">G11</text>
 <path d="M70,372 L130,372 L130,334 C130,294 70,294 70,334 L70,372 "/>
@@ -41,7 +45,10 @@ text {
 <polyline points="50,407 50,540"/>
 
 <rect x="5" y="407" width="90" height="66"/>
-<text x="50" y="440">Ethylene pump fails</text>
+<text x="50" y="440">
+<tspan x="50" dy="-0.5em">Ethylene pump</tspan>
+<tspan x="50" dy="1em">fails</tspan>
+</text>
 <rect x="5" y="476" width="90" height="20"/>
 <text x="50" y="486">X30</text>
 <circle cx="50" cy="540" r="35"/>
@@ -50,7 +57,10 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440">Ethylene pump demanded</text>
+<text x="150" y="440">
+<tspan x="150" dy="-0.5em">Ethylene pump</tspan>
+<tspan x="150" dy="1em">demanded</tspan>
+</text>
 <rect x="105" y="476" width="90" height="20"/>
 <text x="150" y="486">X37</text>
 <circle cx="150" cy="540" r="35"/>
@@ -61,7 +71,9 @@ text {
 <polyline points="1000,340 1000,390 1000,390 1000,440"/>
 <polyline points="1014,340 1014,390 1750,390 1750,440"/>
 <rect x="955" y="207" width="90" height="66"/>
-<text x="1000" y="240"></text>
+<text x="1000" y="240">
+
+</text>
 <rect x="955" y="276" width="90" height="20"/>
 <text x="1000" y="286">G12</text>
 <path d="M1000,304 C995,306 968,320 968,350 L968,376 Q1000,350 1032,376 L1032,350 C1032,320 1005,306 1000,304"/>
@@ -70,7 +82,10 @@ text {
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440">Instrument air supply fails</text>
+<text x="250" y="440">
+<tspan x="250" dy="-0.5em">Instrument air</tspan>
+<tspan x="250" dy="1em">supply fails</tspan>
+</text>
 <rect x="205" y="476" width="90" height="20"/>
 <text x="250" y="486">X9</text>
 <circle cx="250" cy="540" r="35"/>
@@ -81,7 +96,9 @@ text {
 <polyline points="1000,540 1000,590 1000,590 1000,640"/>
 <polyline points="1014,540 1014,590 1650,590 1650,640"/>
 <rect x="955" y="407" width="90" height="66"/>
-<text x="1000" y="440"></text>
+<text x="1000" y="440">
+
+</text>
 <rect x="955" y="476" width="90" height="20"/>
 <text x="1000" y="486">G15</text>
 <path d="M970,572 L1030,572 L1030,534 C1030,494 970,494 970,534 L970,572 "/>
@@ -90,7 +107,10 @@ text {
 <polyline points="350,607 350,740"/>
 
 <rect x="305" y="607" width="90" height="66"/>
-<text x="350" y="640">Instrument air supply fails</text>
+<text x="350" y="640">
+<tspan x="350" dy="-0.5em">Instrument air</tspan>
+<tspan x="350" dy="1em">supply fails</tspan>
+</text>
 <rect x="305" y="676" width="90" height="20"/>
 <text x="350" y="686">X9</text>
 <circle cx="350" cy="740" r="35"/>
@@ -101,7 +121,9 @@ text {
 <polyline points="1000,740 1000,790 1000,790 1000,840"/>
 <polyline points="1014,740 1014,790 1400,790 1400,840"/>
 <rect x="955" y="607" width="90" height="66"/>
-<text x="1000" y="640"></text>
+<text x="1000" y="640">
+
+</text>
 <rect x="955" y="676" width="90" height="20"/>
 <text x="1000" y="686">G18</text>
 <path d="M1000,704 C995,706 968,720 968,750 L968,776 Q1000,750 1032,776 L1032,750 C1032,720 1005,706 1000,704"/>
@@ -111,7 +133,9 @@ text {
 <polyline points="590,940 590,990 450,990 450,1040"/>
 <polyline points="610,940 610,990 650,990 650,1040"/>
 <rect x="555" y="807" width="90" height="66"/>
-<text x="600" y="840"></text>
+<text x="600" y="840">
+
+</text>
 <rect x="555" y="876" width="90" height="20"/>
 <text x="600" y="886">G20</text>
 <path d="M570,972 L630,972 L630,934 C630,894 570,894 570,934 L570,972 "/>
@@ -120,7 +144,10 @@ text {
 <polyline points="450,1007 450,1140"/>
 
 <rect x="405" y="1007" width="90" height="66"/>
-<text x="450" y="1040">Exit temperature below −10°C</text>
+<text x="450" y="1040">
+<tspan x="450" dy="-0.5em">Exit temperature</tspan>
+<tspan x="450" dy="1em">below −10°C</tspan>
+</text>
 <rect x="405" y="1076" width="90" height="20"/>
 <text x="450" y="1086">X43</text>
 <circle cx="450" cy="1140" r="35"/>
@@ -131,7 +158,9 @@ text {
 <polyline points="650,1140 650,1190 650,1190 650,1240"/>
 <polyline points="664,1140 664,1190 750,1190 750,1240"/>
 <rect x="605" y="1007" width="90" height="66"/>
-<text x="650" y="1040"></text>
+<text x="650" y="1040">
+
+</text>
 <rect x="605" y="1076" width="90" height="20"/>
 <text x="650" y="1086">G23</text>
 <path d="M620,1172 L680,1172 L680,1134 C680,1094 620,1094 620,1134 L620,1172 "/>
@@ -140,7 +169,11 @@ text {
 <polyline points="550,1207 550,1340"/>
 
 <rect x="505" y="1207" width="90" height="66"/>
-<text x="550" y="1240">Temperature measurement T1 fails</text>
+<text x="550" y="1240">
+<tspan x="550" dy="-1em">Temperature</tspan>
+<tspan x="550" dy="1em">measurement T1</tspan>
+<tspan x="550" dy="1em">fails</tspan>
+</text>
 <rect x="505" y="1276" width="90" height="20"/>
 <text x="550" y="1286">X10</text>
 <circle cx="550" cy="1340" r="35"/>
@@ -149,7 +182,10 @@ text {
 <polyline points="650,1207 650,1340"/>
 
 <rect x="605" y="1207" width="90" height="66"/>
-<text x="650" y="1240">Valve positioner V3 fails</text>
+<text x="650" y="1240">
+<tspan x="650" dy="-0.5em">Valve positioner</tspan>
+<tspan x="650" dy="1em">V3 fails</tspan>
+</text>
 <rect x="605" y="1276" width="90" height="20"/>
 <text x="650" y="1286">X11</text>
 <circle cx="650" cy="1340" r="35"/>
@@ -158,7 +194,11 @@ text {
 <polyline points="750,1207 750,1340"/>
 
 <rect x="705" y="1207" width="90" height="66"/>
-<text x="750" y="1240">Signal transmission T1-V3 fails</text>
+<text x="750" y="1240">
+<tspan x="750" dy="-1em">Signal</tspan>
+<tspan x="750" dy="1em">transmission</tspan>
+<tspan x="750" dy="1em">T1-V3 fails</tspan>
+</text>
 <rect x="705" y="1276" width="90" height="20"/>
 <text x="750" y="1286">X12</text>
 <circle cx="750" cy="1340" r="35"/>
@@ -168,7 +208,9 @@ text {
 <polyline points="990,940 990,990 850,990 850,1040"/>
 <polyline points="1010,940 1010,990 1050,990 1050,1040"/>
 <rect x="955" y="807" width="90" height="66"/>
-<text x="1000" y="840"></text>
+<text x="1000" y="840">
+
+</text>
 <rect x="955" y="876" width="90" height="20"/>
 <text x="1000" y="886">G21</text>
 <path d="M970,972 L1030,972 L1030,934 C1030,894 970,894 970,934 L970,972 "/>
@@ -177,7 +219,11 @@ text {
 <polyline points="850,1007 850,1140"/>
 
 <rect x="805" y="1007" width="90" height="66"/>
-<text x="850" y="1040">Exit manometric pressure &gt; 16.18 bar</text>
+<text x="850" y="1040">
+<tspan x="850" dy="-1em">Exit manometric</tspan>
+<tspan x="850" dy="1em">pressure &gt; 16.18</tspan>
+<tspan x="850" dy="1em">bar</tspan>
+</text>
 <rect x="805" y="1076" width="90" height="20"/>
 <text x="850" y="1086">X44</text>
 <circle cx="850" cy="1140" r="35"/>
@@ -188,7 +234,9 @@ text {
 <polyline points="1050,1140 1050,1190 1050,1190 1050,1240"/>
 <polyline points="1064,1140 1064,1190 1150,1190 1150,1240"/>
 <rect x="1005" y="1007" width="90" height="66"/>
-<text x="1050" y="1040"></text>
+<text x="1050" y="1040">
+
+</text>
 <rect x="1005" y="1076" width="90" height="20"/>
 <text x="1050" y="1086">G24</text>
 <path d="M1020,1172 L1080,1172 L1080,1134 C1080,1094 1020,1094 1020,1134 L1020,1172 "/>
@@ -197,7 +245,11 @@ text {
 <polyline points="950,1207 950,1340"/>
 
 <rect x="905" y="1207" width="90" height="66"/>
-<text x="950" y="1240">Pressure measurement P2 fails</text>
+<text x="950" y="1240">
+<tspan x="950" dy="-1em">Pressure</tspan>
+<tspan x="950" dy="1em">measurement P2</tspan>
+<tspan x="950" dy="1em">fails</tspan>
+</text>
 <rect x="905" y="1276" width="90" height="20"/>
 <text x="950" y="1286">X13</text>
 <circle cx="950" cy="1340" r="35"/>
@@ -206,7 +258,10 @@ text {
 <polyline points="1050,1207 1050,1340"/>
 
 <rect x="1005" y="1207" width="90" height="66"/>
-<text x="1050" y="1240">Valve positioner V3 fails</text>
+<text x="1050" y="1240">
+<tspan x="1050" dy="-0.5em">Valve positioner</tspan>
+<tspan x="1050" dy="1em">V3 fails</tspan>
+</text>
 <rect x="1005" y="1276" width="90" height="20"/>
 <text x="1050" y="1286">X11</text>
 <circle cx="1050" cy="1340" r="35"/>
@@ -215,7 +270,11 @@ text {
 <polyline points="1150,1207 1150,1340"/>
 
 <rect x="1105" y="1207" width="90" height="66"/>
-<text x="1150" y="1240">Signal transmission P2-V3 fails</text>
+<text x="1150" y="1240">
+<tspan x="1150" dy="-1em">Signal</tspan>
+<tspan x="1150" dy="1em">transmission</tspan>
+<tspan x="1150" dy="1em">P2-V3 fails</tspan>
+</text>
 <rect x="1105" y="1276" width="90" height="20"/>
 <text x="1150" y="1286">X14</text>
 <circle cx="1150" cy="1340" r="35"/>
@@ -225,7 +284,9 @@ text {
 <polyline points="1390,940 1390,990 1250,990 1250,1040"/>
 <polyline points="1410,940 1410,990 1450,990 1450,1040"/>
 <rect x="1355" y="807" width="90" height="66"/>
-<text x="1400" y="840"></text>
+<text x="1400" y="840">
+
+</text>
 <rect x="1355" y="876" width="90" height="20"/>
 <text x="1400" y="886">G22</text>
 <path d="M1370,972 L1430,972 L1430,934 C1430,894 1370,894 1370,934 L1370,972 "/>
@@ -234,7 +295,10 @@ text {
 <polyline points="1250,1007 1250,1140"/>
 
 <rect x="1205" y="1007" width="90" height="66"/>
-<text x="1250" y="1040">Exit flow &gt; demand</text>
+<text x="1250" y="1040">
+<tspan x="1250" dy="-0.5em">Exit flow &gt;</tspan>
+<tspan x="1250" dy="1em">demand</tspan>
+</text>
 <rect x="1205" y="1076" width="90" height="20"/>
 <text x="1250" y="1086">X45</text>
 <circle cx="1250" cy="1140" r="35"/>
@@ -245,7 +309,9 @@ text {
 <polyline points="1450,1140 1450,1190 1450,1190 1450,1240"/>
 <polyline points="1464,1140 1464,1190 1550,1190 1550,1240"/>
 <rect x="1405" y="1007" width="90" height="66"/>
-<text x="1450" y="1040"></text>
+<text x="1450" y="1040">
+
+</text>
 <rect x="1405" y="1076" width="90" height="20"/>
 <text x="1450" y="1086">G25</text>
 <path d="M1420,1172 L1480,1172 L1480,1134 C1480,1094 1420,1094 1420,1134 L1420,1172 "/>
@@ -254,7 +320,10 @@ text {
 <polyline points="1350,1207 1350,1340"/>
 
 <rect x="1305" y="1207" width="90" height="66"/>
-<text x="1350" y="1240">Flow measurement F1 fails</text>
+<text x="1350" y="1240">
+<tspan x="1350" dy="-0.5em">Flow measurement</tspan>
+<tspan x="1350" dy="1em">F1 fails</tspan>
+</text>
 <rect x="1305" y="1276" width="90" height="20"/>
 <text x="1350" y="1286">X15</text>
 <circle cx="1350" cy="1340" r="35"/>
@@ -263,7 +332,10 @@ text {
 <polyline points="1450,1207 1450,1340"/>
 
 <rect x="1405" y="1207" width="90" height="66"/>
-<text x="1450" y="1240">Valve positioner V3 fails</text>
+<text x="1450" y="1240">
+<tspan x="1450" dy="-0.5em">Valve positioner</tspan>
+<tspan x="1450" dy="1em">V3 fails</tspan>
+</text>
 <rect x="1405" y="1276" width="90" height="20"/>
 <text x="1450" y="1286">X11</text>
 <circle cx="1450" cy="1340" r="35"/>
@@ -272,7 +344,11 @@ text {
 <polyline points="1550,1207 1550,1340"/>
 
 <rect x="1505" y="1207" width="90" height="66"/>
-<text x="1550" y="1240">Signal transmission F1-V3 fails</text>
+<text x="1550" y="1240">
+<tspan x="1550" dy="-1em">Signal</tspan>
+<tspan x="1550" dy="1em">transmission</tspan>
+<tspan x="1550" dy="1em">F1-V3 fails</tspan>
+</text>
 <rect x="1505" y="1276" width="90" height="20"/>
 <text x="1550" y="1286">X16</text>
 <circle cx="1550" cy="1340" r="35"/>
@@ -281,7 +357,9 @@ text {
 <polyline points="1650,607 1650,740"/>
 
 <rect x="1605" y="607" width="90" height="66"/>
-<text x="1650" y="640">V3 fails closed</text>
+<text x="1650" y="640">
+<tspan x="1650" dy="0em">V3 fails closed</tspan>
+</text>
 <rect x="1605" y="676" width="90" height="20"/>
 <text x="1650" y="686">X17</text>
 <circle cx="1650" cy="740" r="35"/>
@@ -290,7 +368,9 @@ text {
 <polyline points="1750,407 1750,540"/>
 
 <rect x="1705" y="407" width="90" height="66"/>
-<text x="1750" y="440">V3 fails closed</text>
+<text x="1750" y="440">
+<tspan x="1750" dy="0em">V3 fails closed</tspan>
+</text>
 <rect x="1705" y="476" width="90" height="20"/>
 <text x="1750" y="486">X17</text>
 <circle cx="1750" cy="540" r="35"/>

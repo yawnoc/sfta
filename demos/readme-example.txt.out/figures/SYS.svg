@@ -22,7 +22,9 @@ text {
 <polyline points="140,140 140,190 50,190 50,240"/>
 <polyline points="160,140 160,190 200,190 200,240"/>
 <rect x="105" y="7" width="90" height="66"/>
-<text x="150" y="40">System fails</text>
+<text x="150" y="40">
+<tspan x="150" dy="0em">System fails</tspan>
+</text>
 <rect x="105" y="76" width="90" height="20"/>
 <text x="150" y="86">SYS</text>
 <path d="M150,104 C145,106 118,120 118,150 L118,176 Q150,150 182,176 L182,150 C182,120 155,106 150,104"/>
@@ -31,7 +33,10 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">Component A fails</text>
+<text x="50" y="240">
+<tspan x="50" dy="-0.5em">Component A</tspan>
+<tspan x="50" dy="1em">fails</tspan>
+</text>
 <rect x="5" y="276" width="90" height="20"/>
 <text x="50" y="286">A</text>
 <circle cx="50" cy="340" r="35"/>
@@ -41,7 +46,9 @@ text {
 <polyline points="190,340 190,390 150,390 150,440"/>
 <polyline points="210,340 210,390 250,390 250,440"/>
 <rect x="155" y="207" width="90" height="66"/>
-<text x="200" y="240">Subsystem fails</text>
+<text x="200" y="240">
+<tspan x="200" dy="0em">Subsystem fails</tspan>
+</text>
 <rect x="155" y="276" width="90" height="20"/>
 <text x="200" y="286">SUB</text>
 <path d="M170,372 L230,372 L230,334 C230,294 170,294 170,334 L170,372 "/>
@@ -50,7 +57,10 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440">Component B fails</text>
+<text x="150" y="440">
+<tspan x="150" dy="-0.5em">Component B</tspan>
+<tspan x="150" dy="1em">fails</tspan>
+</text>
 <rect x="105" y="476" width="90" height="20"/>
 <text x="150" y="486">B</text>
 <circle cx="150" cy="540" r="35"/>
@@ -59,7 +69,10 @@ text {
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440">Component C fails</text>
+<text x="250" y="440">
+<tspan x="250" dy="-0.5em">Component C</tspan>
+<tspan x="250" dy="1em">fails</tspan>
+</text>
 <rect x="205" y="476" width="90" height="20"/>
 <text x="250" y="486">C</text>
 <circle cx="250" cy="540" r="35"/>

@@ -15,8 +15,9 @@ import os
 import re
 import shutil
 import sys
+import textwrap
 from decimal import Decimal
-from math import floor, isfinite, log10, prod
+from math import floor, isfinite, log10, prod, sqrt
 
 
 __version__ = '0.1.0'
@@ -848,7 +849,7 @@ class FaultTree:
         ids = set()
 
         lines = (fault_tree_text + '\n\n').splitlines()
-        for line_number, line in enumerate(lines, 1):
+        for line_number, line in enumerate(lines, start=1):
 
             object_line_regex = r'^(?P<class_>Event|Gate): \s*(?P<id_>.+?)\s*$'
             object_line_match = re.match(object_line_regex, line)
@@ -1265,6 +1266,8 @@ class Node:
     LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
     LABEL_BOX_WIDTH = round(0.9 * WIDTH)
     LABEL_BOX_HEIGHT = round(0.33 * HEIGHT)
+    LABEL_BOX_TARGET_RATIO = 4  # line length divided by line count
+    LABEL_MIN_LINE_LENGTH = 16
 
     ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
     ID_BOX_WIDTH = round(0.9 * WIDTH)
@@ -1497,9 +1500,29 @@ class Node:
         if label is None:
             content = ''
         else:
-            content = escape_xml(label)  # TODO: wrapping and font size
+            line_length = max(
+                Node.LABEL_MIN_LINE_LENGTH,
+                round(sqrt(Node.LABEL_BOX_TARGET_RATIO * len(label))),
+            )
+            lines = textwrap.wrap(label, line_length)
+            line_count = len(lines)
 
-        return f'<text x="{centre}" y="{middle}">{content}</text>'
+            tspans = []
+            for line_number, line in enumerate(lines, start=1):
+                if line_number == 1:
+                    bias = (1 - line_count)/2
+                    ems = blunt(bias, max_decimal_places=1)
+                    dy = f'{ems}em'
+                else:
+                    dy = '1em'
+                tspans.append(
+                    f'<tspan x="{centre}" dy="{dy}">{escape_xml(line)}</tspan>'
+                )
+
+            content = '\n'.join(tspans)
+
+        # TODO: font size
+        return f'<text x="{centre}" y="{middle}">\n{content}\n</text>'
 
     @staticmethod
     def id_rectangle_element(x, y):
