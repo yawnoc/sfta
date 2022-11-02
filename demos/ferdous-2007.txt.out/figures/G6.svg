@@ -27,7 +27,7 @@ text {
 <text x="400" y="86">G6</text>
 <path d="M370,172 L430,172 L430,134 C430,94 370,94 370,134 L370,172 "/>
 <rect x="355" y="127" width="90" height="26"/>
-<text x="400" y="140">Q ≤ 0.066321</text>
+<text x="400" y="140">Q ≤ 0.06632</text>
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
@@ -36,7 +36,7 @@ text {
 <text x="50" y="286">X35</text>
 <circle cx="50" cy="340" r="35"/>
 <rect x="5" y="327" width="90" height="26"/>
-<text x="50" y="340">Q = 0.751</text>
+<text x="50" y="340">Q = 0.75</text>
 <polyline points="450,207 450,340"/>
 <polyline points="440,340 440,390 400,390 400,440"/>
 <polyline points="460,340 460,390 750,390 750,440"/>
@@ -46,7 +46,7 @@ text {
 <text x="450" y="286">G10</text>
 <path d="M450,304 C445,306 418,320 418,350 L418,376 Q450,350 482,376 L482,350 C482,320 455,306 450,304"/>
 <rect x="405" y="327" width="90" height="26"/>
-<text x="450" y="340">Q ≤ 0.088421</text>
+<text x="450" y="340">Q ≤ 0.08842</text>
 <polyline points="400,407 400,540"/>
 <polyline points="386,540 386,590 150,590 150,640"/>
 <polyline points="400,540 400,590 400,590 400,640"/>
@@ -57,7 +57,7 @@ text {
 <text x="400" y="486">G14</text>
 <path d="M370,572 L430,572 L430,534 C430,494 370,494 370,534 L370,572 "/>
 <rect x="355" y="527" width="90" height="26"/>
-<text x="400" y="540">Q = 0.0011541</text>
+<text x="400" y="540">Q = 0.001154</text>
 <polyline points="150,607 150,740"/>
 
 <rect x="105" y="607" width="90" height="66"/>
@@ -66,7 +66,7 @@ text {
 <text x="150" y="686">X9</text>
 <circle cx="150" cy="740" r="35"/>
 <rect x="105" y="727" width="90" height="26"/>
-<text x="150" y="740">Q = 0.73641</text>
+<text x="150" y="740">Q = 0.7364</text>
 <polyline points="400,607 400,740"/>
 <polyline points="390,740 390,790 250,790 250,840"/>
 <polyline points="410,740 410,790 450,790 450,840"/>
@@ -76,7 +76,7 @@ text {
 <text x="400" y="686">G17</text>
 <path d="M370,772 L430,772 L430,734 C430,694 370,694 370,734 L370,772 "/>
 <rect x="355" y="727" width="90" height="26"/>
-<text x="400" y="740">Q = 0.010341</text>
+<text x="400" y="740">Q = 0.01034</text>
 <polyline points="250,807 250,940"/>
 
 <rect x="205" y="807" width="90" height="66"/>
@@ -85,7 +85,7 @@ text {
 <text x="250" y="886">X46</text>
 <circle cx="250" cy="940" r="35"/>
 <rect x="205" y="927" width="90" height="26"/>
-<text x="250" y="940">Q = 0.11</text>
+<text x="250" y="940">Q = 0.1</text>
 <polyline points="450,807 450,940"/>
 <polyline points="436,940 436,990 350,990 350,1040"/>
 <polyline points="450,940 450,990 450,990 450,1040"/>
@@ -96,7 +96,7 @@ text {
 <text x="450" y="886">G19</text>
 <path d="M420,972 L480,972 L480,934 C480,894 420,894 420,934 L420,972 "/>
 <rect x="405" y="927" width="90" height="26"/>
-<text x="450" y="940">Q = 0.10341</text>
+<text x="450" y="940">Q = 0.1034</text>
 <polyline points="350,1007 350,1140"/>
 
 <rect x="305" y="1007" width="90" height="66"/>
@@ -105,7 +105,7 @@ text {
 <text x="350" y="1086">X1</text>
 <circle cx="350" cy="1140" r="35"/>
 <rect x="305" y="1127" width="90" height="26"/>
-<text x="350" y="1140">Q = 0.58761</text>
+<text x="350" y="1140">Q = 0.5876</text>
 <polyline points="450,1007 450,1140"/>
 
 <rect x="405" y="1007" width="90" height="66"/>
@@ -114,7 +114,7 @@ text {
 <text x="450" y="1086">X2</text>
 <circle cx="450" cy="1140" r="35"/>
 <rect x="405" y="1127" width="90" height="26"/>
-<text x="450" y="1140">Q = 0.31191</text>
+<text x="450" y="1140">Q = 0.3119</text>
 <polyline points="550,1007 550,1140"/>
 
 <rect x="505" y="1007" width="90" height="66"/>
@@ -123,7 +123,7 @@ text {
 <text x="550" y="1086">X3</text>
 <circle cx="550" cy="1140" r="35"/>
 <rect x="505" y="1127" width="90" height="26"/>
-<text x="550" y="1140">Q = 0.56431</text>
+<text x="550" y="1140">Q = 0.5643</text>
 <polyline points="650,607 650,740"/>
 
 <rect x="605" y="607" width="90" height="66"/>
@@ -132,7 +132,7 @@ text {
 <text x="650" y="686">X4</text>
 <circle cx="650" cy="740" r="35"/>
 <rect x="605" y="727" width="90" height="26"/>
-<text x="650" y="740">Q = 0.15151</text>
+<text x="650" y="740">Q = 0.1515</text>
 <polyline points="750,407 750,540"/>
 
 <rect x="705" y="407" width="90" height="66"/>
@@ -141,5 +141,5 @@ text {
 <text x="750" y="486">X5</text>
 <circle cx="750" cy="540" r="35"/>
 <rect x="705" y="527" width="90" height="26"/>
-<text x="750" y="540">Q = 0.087271</text>
+<text x="750" y="540">Q = 0.08727</text>
 </svg>

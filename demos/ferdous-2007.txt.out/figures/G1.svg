@@ -28,7 +28,7 @@ text {
 <text x="250" y="86">G1</text>
 <path d="M250,104 C245,106 218,120 218,150 L218,176 Q250,150 282,176 L282,150 C282,120 255,106 250,104"/>
 <rect x="205" y="127" width="90" height="26"/>
-<text x="250" y="140">Q ≤ 0.10621</text>
+<text x="250" y="140">Q ≤ 0.1062</text>
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
@@ -37,7 +37,7 @@ text {
 <text x="50" y="286">X31</text>
 <circle cx="50" cy="340" r="35"/>
 <rect x="5" y="327" width="90" height="26"/>
-<text x="50" y="340">Q = 0.000791</text>
+<text x="50" y="340">Q = 0.00079</text>
 <polyline points="250,207 250,340"/>
 <polyline points="236,340 236,390 150,390 150,440"/>
 <polyline points="250,340 250,390 250,390 250,440"/>
@@ -48,7 +48,7 @@ text {
 <text x="250" y="286">G2</text>
 <path d="M220,372 L280,372 L280,334 C280,294 220,294 220,334 L220,372 "/>
 <rect x="205" y="327" width="90" height="26"/>
-<text x="250" y="340">Q ≤ 0.055791</text>
+<text x="250" y="340">Q ≤ 0.05579</text>
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
@@ -57,7 +57,7 @@ text {
 <text x="150" y="486">G3</text>
 <polygon points="150,506 115,574 185,574"/>
 <rect x="105" y="527" width="90" height="26"/>
-<text x="150" y="540">Q ≤ 0.11921</text>
+<text x="150" y="540">Q ≤ 0.1192</text>
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
@@ -66,7 +66,7 @@ text {
 <text x="250" y="486">G4</text>
 <polygon points="250,506 215,574 285,574"/>
 <rect x="205" y="527" width="90" height="26"/>
-<text x="250" y="540">Q ≤ 0.6241</text>
+<text x="250" y="540">Q ≤ 0.624</text>
 <polyline points="350,407 350,540"/>
 
 <rect x="305" y="407" width="90" height="66"/>
@@ -75,7 +75,7 @@ text {
 <text x="350" y="486">G5</text>
 <polygon points="350,506 315,574 385,574"/>
 <rect x="305" y="527" width="90" height="26"/>
-<text x="350" y="540">Q = 0.751</text>
+<text x="350" y="540">Q = 0.75</text>
 <polyline points="450,207 450,340"/>
 
 <rect x="405" y="207" width="90" height="66"/>
@@ -84,5 +84,5 @@ text {
 <text x="450" y="286">X33</text>
 <circle cx="450" cy="340" r="35"/>
 <rect x="405" y="327" width="90" height="26"/>
-<text x="450" y="340">Q = 0.049591</text>
+<text x="450" y="340">Q = 0.04959</text>
 </svg>

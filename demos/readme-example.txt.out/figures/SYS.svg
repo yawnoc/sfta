@@ -27,7 +27,7 @@ text {
 <text x="150" y="86">SYS</text>
 <path d="M150,104 C145,106 118,120 118,150 L118,176 Q150,150 182,176 L182,150 C182,120 155,106 150,104"/>
 <rect x="105" y="127" width="90" height="26"/>
-<text x="150" y="140">Q ≤ 0.071</text>
+<text x="150" y="140">Q ≤ 0.07</text>
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
@@ -36,7 +36,7 @@ text {
 <text x="50" y="286">A</text>
 <circle cx="50" cy="340" r="35"/>
 <rect x="5" y="327" width="90" height="26"/>
-<text x="50" y="340">Q = 0.011</text>
+<text x="50" y="340">Q = 0.01</text>
 <polyline points="200,207 200,340"/>
 <polyline points="190,340 190,390 150,390 150,440"/>
 <polyline points="210,340 210,390 250,390 250,440"/>
@@ -46,7 +46,7 @@ text {
 <text x="200" y="286">SUB</text>
 <path d="M170,372 L230,372 L230,334 C230,294 170,294 170,334 L170,372 "/>
 <rect x="155" y="327" width="90" height="26"/>
-<text x="200" y="340">Q = 0.061</text>
+<text x="200" y="340">Q = 0.06</text>
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
@@ -55,7 +55,7 @@ text {
 <text x="150" y="486">B</text>
 <circle cx="150" cy="540" r="35"/>
 <rect x="105" y="527" width="90" height="26"/>
-<text x="150" y="540">Q = 0.21</text>
+<text x="150" y="540">Q = 0.2</text>
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
@@ -64,5 +64,5 @@ text {
 <text x="250" y="486">C</text>
 <circle cx="250" cy="540" r="35"/>
 <rect x="205" y="527" width="90" height="26"/>
-<text x="250" y="540">Q = 0.31</text>
+<text x="250" y="540">Q = 0.3</text>
 </svg>

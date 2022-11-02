@@ -360,9 +360,12 @@ class Event:
     }
 
     @staticmethod
-    def quantity_unit_str(quantity_type, time_unit):
+    def quantity_unit_str(quantity_type, time_unit, suppress_unity=False):
         if quantity_type == Event.TYPE_PROBABILITY:
-            return '1'
+            if suppress_unity:
+                return ''
+            else:
+                return '1'
 
         if quantity_type == Event.TYPE_RATE:
             if time_unit is None:
@@ -1105,7 +1108,7 @@ class FaultTree:
                     blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                     Event.quantity_unit_str(
                         gate.quantity_type,
-                        self.time_unit
+                        self.time_unit,
                     ),
                     '.'.join(
                         self.event_id_from_index[event_index]
@@ -1619,7 +1622,11 @@ class Node:
             relation = '='
 
         value_str = blunt(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
-        unit_str = Event.quantity_unit_str(quantity_type, time_unit)
+        unit_str = Event.quantity_unit_str(
+            quantity_type,
+            time_unit,
+            suppress_unity=True,
+        )
 
         content = escape_xml(f'{lhs} {relation} {value_str}{unit_str}')
 
