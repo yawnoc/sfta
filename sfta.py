@@ -1264,11 +1264,12 @@ class Node:
     WIDTH = 120
     HEIGHT = 210
     DEFAULT_FONT_SIZE = 10
+    LINE_SPACING = 1.3
 
     LABEL_BOX_Y_OFFSET = -65
     LABEL_BOX_WIDTH = 108
     LABEL_BOX_HEIGHT = 70
-    LABEL_BOX_TARGET_RATIO = 3  # line length divided by line count
+    LABEL_BOX_TARGET_RATIO = 4  # line length divided by line count
     LABEL_MIN_LINE_LENGTH = 16
 
     ID_BOX_Y_OFFSET = -13
@@ -1523,7 +1524,7 @@ class Node:
         for line_number, line in enumerate(lines, start=1):
             bias = line_number - (1 + line_count) / 2
             line_middle = blunt(
-                middle + bias * font_size,
+                middle + bias * font_size * Node.LINE_SPACING,
                 max_decimal_places=1,
             )
             content = escape_xml(line)

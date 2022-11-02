@@ -40,8 +40,8 @@ text {
 <polyline points="180,215 180,360"/>
 
 <rect x="126" y="215" width="108" height="70"/>
-<text x="180" y="245" style="font-size: 10px">S1 set point too</text>
-<text x="180" y="255" style="font-size: 10px">high</text>
+<text x="180" y="243.5" style="font-size: 10px">S1 set point too</text>
+<text x="180" y="256.5" style="font-size: 10px">high</text>
 <rect x="126" y="290" width="108" height="24"/>
 <text x="180" y="302">X26</text>
 <circle cx="180" cy="360" r="38"/>

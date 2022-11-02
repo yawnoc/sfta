@@ -31,9 +31,9 @@ text {
 <polyline points="60,215 60,360"/>
 
 <rect x="6" y="215" width="108" height="70"/>
-<text x="60" y="240" style="font-size: 10px">Pressure</text>
+<text x="60" y="237" style="font-size: 10px">Pressure</text>
 <text x="60" y="250" style="font-size: 10px">vaporizer not</text>
-<text x="60" y="260" style="font-size: 10px">functioning</text>
+<text x="60" y="263" style="font-size: 10px">functioning</text>
 <rect x="6" y="290" width="108" height="24"/>
 <text x="60" y="302">X35</text>
 <circle cx="60" cy="360" r="38"/>
@@ -63,8 +63,8 @@ text {
 <polyline points="180,635 180,780"/>
 
 <rect x="126" y="635" width="108" height="70"/>
-<text x="180" y="665" style="font-size: 10px">Instrument air</text>
-<text x="180" y="675" style="font-size: 10px">supply fails</text>
+<text x="180" y="663.5" style="font-size: 10px">Instrument air</text>
+<text x="180" y="676.5" style="font-size: 10px">supply fails</text>
 <rect x="126" y="710" width="108" height="24"/>
 <text x="180" y="722">X9</text>
 <circle cx="180" cy="780" r="38"/>
@@ -83,10 +83,10 @@ text {
 <polyline points="300,845 300,990"/>
 
 <rect x="246" y="845" width="108" height="70"/>
-<text x="300" y="865" style="font-size: 10px">Deposit</text>
-<text x="300" y="875" style="font-size: 10px">manometric</text>
-<text x="300" y="885" style="font-size: 10px">pressure &lt; 1.96</text>
-<text x="300" y="895" style="font-size: 10px">bar</text>
+<text x="300" y="860.5" style="font-size: 10px">Deposit</text>
+<text x="300" y="873.5" style="font-size: 10px">manometric</text>
+<text x="300" y="886.5" style="font-size: 10px">pressure &lt; 1.96</text>
+<text x="300" y="899.5" style="font-size: 10px">bar</text>
 <rect x="246" y="920" width="108" height="24"/>
 <text x="300" y="932">X46</text>
 <circle cx="300" cy="990" r="38"/>
@@ -106,9 +106,9 @@ text {
 <polyline points="420,1055 420,1200"/>
 
 <rect x="366" y="1055" width="108" height="70"/>
-<text x="420" y="1080" style="font-size: 10px">Pressure</text>
+<text x="420" y="1077" style="font-size: 10px">Pressure</text>
 <text x="420" y="1090" style="font-size: 10px">measurement P1</text>
-<text x="420" y="1100" style="font-size: 10px">fails</text>
+<text x="420" y="1103" style="font-size: 10px">fails</text>
 <rect x="366" y="1130" width="108" height="24"/>
 <text x="420" y="1142">X1</text>
 <circle cx="420" cy="1200" r="38"/>
@@ -117,8 +117,8 @@ text {
 <polyline points="540,1055 540,1200"/>
 
 <rect x="486" y="1055" width="108" height="70"/>
-<text x="540" y="1085" style="font-size: 10px">Valve positioner</text>
-<text x="540" y="1095" style="font-size: 10px">V1 fails</text>
+<text x="540" y="1083.5" style="font-size: 10px">Valve positioner</text>
+<text x="540" y="1096.5" style="font-size: 10px">V1 fails</text>
 <rect x="486" y="1130" width="108" height="24"/>
 <text x="540" y="1142">X2</text>
 <circle cx="540" cy="1200" r="38"/>
@@ -127,9 +127,9 @@ text {
 <polyline points="660,1055 660,1200"/>
 
 <rect x="606" y="1055" width="108" height="70"/>
-<text x="660" y="1080" style="font-size: 10px">Signal</text>
+<text x="660" y="1077" style="font-size: 10px">Signal</text>
 <text x="660" y="1090" style="font-size: 10px">transmission</text>
-<text x="660" y="1100" style="font-size: 10px">P1-V1 fails</text>
+<text x="660" y="1103" style="font-size: 10px">P1-V1 fails</text>
 <rect x="606" y="1130" width="108" height="24"/>
 <text x="660" y="1142">X3</text>
 <circle cx="660" cy="1200" r="38"/>

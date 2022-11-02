@@ -22,9 +22,9 @@ text {
 <polyline points="410,150 410,200 120,200 120,250"/>
 <polyline points="430,150 430,200 540,200 540,250"/>
 <rect x="366" y="5" width="108" height="70"/>
-<text x="420" y="30" style="font-size: 10px">Failure of Fire</text>
+<text x="420" y="27" style="font-size: 10px">Failure of Fire</text>
 <text x="420" y="40" style="font-size: 10px">Protection</text>
-<text x="420" y="50" style="font-size: 10px">System</text>
+<text x="420" y="53" style="font-size: 10px">System</text>
 <rect x="366" y="80" width="108" height="24"/>
 <text x="420" y="92">FPS</text>
 <path d="M420,112 C414,114 387,125 387,160 L387,186 Q420,156 453,186 L453,160 C453,125 426,114 420,112"/>
@@ -34,8 +34,8 @@ text {
 <polyline points="110,360 110,410 60,410 60,460"/>
 <polyline points="130,360 130,410 180,410 180,460"/>
 <rect x="66" y="215" width="108" height="70"/>
-<text x="120" y="245" style="font-size: 10px">Fire detection</text>
-<text x="120" y="255" style="font-size: 10px">system fails</text>
+<text x="120" y="243.5" style="font-size: 10px">Fire detection</text>
+<text x="120" y="256.5" style="font-size: 10px">system fails</text>
 <rect x="66" y="290" width="108" height="24"/>
 <text x="120" y="302">FDS</text>
 <path d="M88,394 L152,394 L152,354 C152,312 88,312 88,354 L88,394 "/>
@@ -44,8 +44,8 @@ text {
 <polyline points="60,425 60,570"/>
 
 <rect x="6" y="425" width="108" height="70"/>
-<text x="60" y="455" style="font-size: 10px">Failure of smoke</text>
-<text x="60" y="465" style="font-size: 10px">detector sensor</text>
+<text x="60" y="453.5" style="font-size: 10px">Failure of smoke</text>
+<text x="60" y="466.5" style="font-size: 10px">detector sensor</text>
 <rect x="6" y="500" width="108" height="24"/>
 <text x="60" y="512">x1</text>
 <circle cx="60" cy="570" r="38"/>
@@ -54,8 +54,8 @@ text {
 <polyline points="180,425 180,570"/>
 
 <rect x="126" y="425" width="108" height="70"/>
-<text x="180" y="455" style="font-size: 10px">Failure of heat</text>
-<text x="180" y="465" style="font-size: 10px">detector sensor</text>
+<text x="180" y="453.5" style="font-size: 10px">Failure of heat</text>
+<text x="180" y="466.5" style="font-size: 10px">detector sensor</text>
 <rect x="126" y="500" width="108" height="24"/>
 <text x="180" y="512">x2</text>
 <circle cx="180" cy="570" r="38"/>
@@ -66,8 +66,8 @@ text {
 <polyline points="540,360 540,410 540,410 540,460"/>
 <polyline points="555,360 555,410 780,410 780,460"/>
 <rect x="486" y="215" width="108" height="70"/>
-<text x="540" y="245" style="font-size: 10px">Fire suppression</text>
-<text x="540" y="255" style="font-size: 10px">system fails</text>
+<text x="540" y="243.5" style="font-size: 10px">Fire suppression</text>
+<text x="540" y="256.5" style="font-size: 10px">system fails</text>
 <rect x="486" y="290" width="108" height="24"/>
 <text x="540" y="302">FSS</text>
 <path d="M540,322 C534,324 507,335 507,370 L507,396 Q540,366 573,396 L573,370 C573,335 546,324 540,322"/>
@@ -76,8 +76,8 @@ text {
 <polyline points="300,425 300,570"/>
 
 <rect x="246" y="425" width="108" height="70"/>
-<text x="300" y="455" style="font-size: 10px">No water to</text>
-<text x="300" y="465" style="font-size: 10px">sprinkler system</text>
+<text x="300" y="453.5" style="font-size: 10px">No water to</text>
+<text x="300" y="466.5" style="font-size: 10px">sprinkler system</text>
 <rect x="246" y="500" width="108" height="24"/>
 <text x="300" y="512">x3</text>
 <circle cx="300" cy="570" r="38"/>
@@ -87,8 +87,8 @@ text {
 <polyline points="530,570 530,620 420,620 420,670"/>
 <polyline points="550,570 550,620 600,620 600,670"/>
 <rect x="486" y="425" width="108" height="70"/>
-<text x="540" y="455" style="font-size: 10px">Triggering</text>
-<text x="540" y="465" style="font-size: 10px">system fails</text>
+<text x="540" y="453.5" style="font-size: 10px">Triggering</text>
+<text x="540" y="466.5" style="font-size: 10px">system fails</text>
 <rect x="486" y="500" width="108" height="24"/>
 <text x="540" y="512">TS</text>
 <path d="M508,604 L572,604 L572,564 C572,522 508,522 508,564 L508,604 "/>
@@ -97,8 +97,8 @@ text {
 <polyline points="420,635 420,780"/>
 
 <rect x="366" y="635" width="108" height="70"/>
-<text x="420" y="665" style="font-size: 10px">Automatic</text>
-<text x="420" y="675" style="font-size: 10px">mechanism fails</text>
+<text x="420" y="663.5" style="font-size: 10px">Automatic</text>
+<text x="420" y="676.5" style="font-size: 10px">mechanism fails</text>
 <rect x="366" y="710" width="108" height="24"/>
 <text x="420" y="722">x5</text>
 <circle cx="420" cy="780" r="38"/>
@@ -108,8 +108,8 @@ text {
 <polyline points="590,780 590,830 540,830 540,880"/>
 <polyline points="610,780 610,830 660,830 660,880"/>
 <rect x="546" y="635" width="108" height="70"/>
-<text x="600" y="665" style="font-size: 10px">Remote control</text>
-<text x="600" y="675" style="font-size: 10px">fails</text>
+<text x="600" y="663.5" style="font-size: 10px">Remote control</text>
+<text x="600" y="676.5" style="font-size: 10px">fails</text>
 <rect x="546" y="710" width="108" height="24"/>
 <text x="600" y="722">RC</text>
 <path d="M600,742 C594,744 567,755 567,790 L567,816 Q600,786 633,816 L633,790 C633,755 606,744 600,742"/>
@@ -118,8 +118,8 @@ text {
 <polyline points="540,845 540,990"/>
 
 <rect x="486" y="845" width="108" height="70"/>
-<text x="540" y="875" style="font-size: 10px">Communications</text>
-<text x="540" y="885" style="font-size: 10px">failure</text>
+<text x="540" y="873.5" style="font-size: 10px">Communications</text>
+<text x="540" y="886.5" style="font-size: 10px">failure</text>
 <rect x="486" y="920" width="108" height="24"/>
 <text x="540" y="932">x6</text>
 <circle cx="540" cy="990" r="38"/>
@@ -137,8 +137,8 @@ text {
 <polyline points="780,425 780,570"/>
 
 <rect x="726" y="425" width="108" height="70"/>
-<text x="780" y="455" style="font-size: 10px">Sprinkler</text>
-<text x="780" y="465" style="font-size: 10px">nozzles blocked</text>
+<text x="780" y="453.5" style="font-size: 10px">Sprinkler</text>
+<text x="780" y="466.5" style="font-size: 10px">nozzles blocked</text>
 <rect x="726" y="500" width="108" height="24"/>
 <text x="780" y="512">x4</text>
 <circle cx="780" cy="570" r="38"/>

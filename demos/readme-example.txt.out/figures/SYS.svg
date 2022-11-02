@@ -31,8 +31,8 @@ text {
 <polyline points="60,215 60,360"/>
 
 <rect x="6" y="215" width="108" height="70"/>
-<text x="60" y="245" style="font-size: 10px">Component A</text>
-<text x="60" y="255" style="font-size: 10px">fails</text>
+<text x="60" y="243.5" style="font-size: 10px">Component A</text>
+<text x="60" y="256.5" style="font-size: 10px">fails</text>
 <rect x="6" y="290" width="108" height="24"/>
 <text x="60" y="302">A</text>
 <circle cx="60" cy="360" r="38"/>
@@ -51,8 +51,8 @@ text {
 <polyline points="180,425 180,570"/>
 
 <rect x="126" y="425" width="108" height="70"/>
-<text x="180" y="455" style="font-size: 10px">Component B</text>
-<text x="180" y="465" style="font-size: 10px">fails</text>
+<text x="180" y="453.5" style="font-size: 10px">Component B</text>
+<text x="180" y="466.5" style="font-size: 10px">fails</text>
 <rect x="126" y="500" width="108" height="24"/>
 <text x="180" y="512">B</text>
 <circle cx="180" cy="570" r="38"/>
@@ -61,8 +61,8 @@ text {
 <polyline points="300,425 300,570"/>
 
 <rect x="246" y="425" width="108" height="70"/>
-<text x="300" y="455" style="font-size: 10px">Component C</text>
-<text x="300" y="465" style="font-size: 10px">fails</text>
+<text x="300" y="453.5" style="font-size: 10px">Component C</text>
+<text x="300" y="466.5" style="font-size: 10px">fails</text>
 <rect x="246" y="500" width="108" height="24"/>
 <text x="300" y="512">C</text>
 <circle cx="300" cy="570" r="38"/>

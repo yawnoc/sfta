@@ -23,10 +23,10 @@ text {
 <polyline points="300,150 300,200 300,200 300,250"/>
 <polyline points="315,150 315,200 540,200 540,250"/>
 <rect x="246" y="5" width="108" height="70"/>
-<text x="300" y="25" style="font-size: 10px">Ethylene release</text>
-<text x="300" y="35" style="font-size: 10px">due to</text>
-<text x="300" y="45" style="font-size: 10px">components</text>
-<text x="300" y="55" style="font-size: 10px">rupture</text>
+<text x="300" y="20.5" style="font-size: 10px">Ethylene release</text>
+<text x="300" y="33.5" style="font-size: 10px">due to</text>
+<text x="300" y="46.5" style="font-size: 10px">components</text>
+<text x="300" y="59.5" style="font-size: 10px">rupture</text>
 <rect x="246" y="80" width="108" height="24"/>
 <text x="300" y="92">G1</text>
 <path d="M300,112 C294,114 267,125 267,160 L267,186 Q300,156 333,186 L333,160 C333,125 306,114 300,112"/>
@@ -35,9 +35,9 @@ text {
 <polyline points="60,215 60,360"/>
 
 <rect x="6" y="215" width="108" height="70"/>
-<text x="60" y="240" style="font-size: 10px">Spontaneous</text>
+<text x="60" y="237" style="font-size: 10px">Spontaneous</text>
 <text x="60" y="250" style="font-size: 10px">rupture of</text>
-<text x="60" y="260" style="font-size: 10px">deposit</text>
+<text x="60" y="263" style="font-size: 10px">deposit</text>
 <rect x="6" y="290" width="108" height="24"/>
 <text x="60" y="302">X31</text>
 <circle cx="60" cy="360" r="38"/>
@@ -84,9 +84,9 @@ text {
 <polyline points="540,215 540,360"/>
 
 <rect x="486" y="215" width="108" height="70"/>
-<text x="540" y="240" style="font-size: 10px">External &amp;</text>
+<text x="540" y="237" style="font-size: 10px">External &amp;</text>
 <text x="540" y="250" style="font-size: 10px">secondary</text>
-<text x="540" y="260" style="font-size: 10px">effects</text>
+<text x="540" y="263" style="font-size: 10px">effects</text>
 <rect x="486" y="290" width="108" height="24"/>
 <text x="540" y="302">X33</text>
 <circle cx="540" cy="360" r="38"/>

@@ -32,8 +32,8 @@ text {
 <polyline points="60,215 60,360"/>
 
 <rect x="6" y="215" width="108" height="70"/>
-<text x="60" y="245" style="font-size: 10px">No discharge via</text>
-<text x="60" y="255" style="font-size: 10px">V2</text>
+<text x="60" y="243.5" style="font-size: 10px">No discharge via</text>
+<text x="60" y="256.5" style="font-size: 10px">V2</text>
 <rect x="6" y="290" width="108" height="24"/>
 <text x="60" y="302">X40</text>
 <circle cx="60" cy="360" r="38"/>
@@ -53,8 +53,8 @@ text {
 <polyline points="180,425 180,570"/>
 
 <rect x="126" y="425" width="108" height="70"/>
-<text x="180" y="455" style="font-size: 10px">No discharge via</text>
-<text x="180" y="465" style="font-size: 10px">V2</text>
+<text x="180" y="453.5" style="font-size: 10px">No discharge via</text>
+<text x="180" y="466.5" style="font-size: 10px">V2</text>
 <rect x="126" y="500" width="108" height="24"/>
 <text x="180" y="512">X40</text>
 <circle cx="180" cy="570" r="38"/>
@@ -93,9 +93,9 @@ text {
 <polyline points="420,845 420,990"/>
 
 <rect x="366" y="845" width="108" height="70"/>
-<text x="420" y="870" style="font-size: 10px">Pressure</text>
+<text x="420" y="867" style="font-size: 10px">Pressure</text>
 <text x="420" y="880" style="font-size: 10px">measurement P1</text>
-<text x="420" y="890" style="font-size: 10px">fails</text>
+<text x="420" y="893" style="font-size: 10px">fails</text>
 <rect x="366" y="920" width="108" height="24"/>
 <text x="420" y="932">X1</text>
 <circle cx="420" cy="990" r="38"/>
@@ -104,8 +104,8 @@ text {
 <polyline points="540,845 540,990"/>
 
 <rect x="486" y="845" width="108" height="70"/>
-<text x="540" y="875" style="font-size: 10px">Valve positioner</text>
-<text x="540" y="885" style="font-size: 10px">V2 fails</text>
+<text x="540" y="873.5" style="font-size: 10px">Valve positioner</text>
+<text x="540" y="886.5" style="font-size: 10px">V2 fails</text>
 <rect x="486" y="920" width="108" height="24"/>
 <text x="540" y="932">X6</text>
 <circle cx="540" cy="990" r="38"/>
@@ -114,9 +114,9 @@ text {
 <polyline points="660,845 660,990"/>
 
 <rect x="606" y="845" width="108" height="70"/>
-<text x="660" y="870" style="font-size: 10px">Signal</text>
+<text x="660" y="867" style="font-size: 10px">Signal</text>
 <text x="660" y="880" style="font-size: 10px">transmission</text>
-<text x="660" y="890" style="font-size: 10px">P1-V2 fails</text>
+<text x="660" y="893" style="font-size: 10px">P1-V2 fails</text>
 <rect x="606" y="920" width="108" height="24"/>
 <text x="660" y="932">X7</text>
 <circle cx="660" cy="990" r="38"/>
@@ -125,8 +125,8 @@ text {
 <polyline points="780,425 780,570"/>
 
 <rect x="726" y="425" width="108" height="70"/>
-<text x="780" y="455" style="font-size: 10px">Instrument air</text>
-<text x="780" y="465" style="font-size: 10px">supply fails</text>
+<text x="780" y="453.5" style="font-size: 10px">Instrument air</text>
+<text x="780" y="466.5" style="font-size: 10px">supply fails</text>
 <rect x="726" y="500" width="108" height="24"/>
 <text x="780" y="512">X9</text>
 <circle cx="780" cy="570" r="38"/>
@@ -145,8 +145,8 @@ text {
 <polyline points="900,425 900,570"/>
 
 <rect x="846" y="425" width="108" height="70"/>
-<text x="900" y="455" style="font-size: 10px">No discharge via</text>
-<text x="900" y="465" style="font-size: 10px">V2</text>
+<text x="900" y="453.5" style="font-size: 10px">No discharge via</text>
+<text x="900" y="466.5" style="font-size: 10px">V2</text>
 <rect x="846" y="500" width="108" height="24"/>
 <text x="900" y="512">X40</text>
 <circle cx="900" cy="570" r="38"/>
@@ -155,8 +155,8 @@ text {
 <polyline points="1020,425 1020,570"/>
 
 <rect x="966" y="425" width="108" height="70"/>
-<text x="1020" y="455" style="font-size: 10px">Instrument air</text>
-<text x="1020" y="465" style="font-size: 10px">supply fails</text>
+<text x="1020" y="453.5" style="font-size: 10px">Instrument air</text>
+<text x="1020" y="466.5" style="font-size: 10px">supply fails</text>
 <rect x="966" y="500" width="108" height="24"/>
 <text x="1020" y="512">X9</text>
 <circle cx="1020" cy="570" r="38"/>

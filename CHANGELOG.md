@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Increased label line spacing
+
 
 ## [v0.2.0] SVG output (2022-11-02)
 
