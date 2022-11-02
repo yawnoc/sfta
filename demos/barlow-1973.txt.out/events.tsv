@@ -1,0 +1,17 @@
+id	is_used	quantity_type	quantity_value	quantity_unit	label
+1	True	probability	1E-8	1	Pressure Tank Ruptures Under Load
+10	True	probability	0.00001	1	S1 Switch Contacts Fail to Open
+11	True	probability	0.00001	1	External Reset Actuation Force Remains on Switch S1
+12	True	probability	0.00001	1	K1 Relay Contacts Fail to Open
+13	True	probability	0.00001	1	K1 Relay Secondary Failure
+14	True	probability	0.00001	1	"Timer Does not ""Time Out"" Due to Improper Setting Installation"
+15	True	probability	0.00001	1	Timer Relay Contacts Fail to Open
+16	True	probability	0.00001	1	Timer Relay Secondary Failure
+2	True	probability	0.00001	1	Tank Ruptures Due to Improper Selection Installation
+3	True	probability	0.00001	1	Sec. Failure of Tank from Other Out-of-Tolerance Conditions
+4	True	probability	0.00001	1	K2 Relay Contacts Fail to Open
+5	True	probability	0.00001	1	K2 Relay Secondary Failure
+6	True	probability	0.00001	1	Pressure Switch Secondary Failure
+7	True	probability	0.00001	1	Pressure Switch Contacts Fail to Open
+8	True	probability	0.00001	1	Excess Pressure not Sensed by Pressure Actuated Switch
+9	True	probability	0.00001	1	S1 Switch Secondary Failure

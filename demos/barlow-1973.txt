@@ -1,0 +1,115 @@
+# From Figures 6, 7, and 10 in Barlow & Chatterjee (1973).
+# Introduction to Fault Tree Analysis.
+# AD0774072, Office of Naval Research Air Force Systems Command.
+# National Technical Information Service, U.S. Department of Commerce.
+# <https://apps.dtic.mil/sti/citations/AD0774072>
+# <https://apps.dtic.mil/sti/pdfs/AD0774072.pdf>
+
+Gate: TOP_EVENT
+- label: Pressure Tank Rupture
+- type: OR
+- inputs: 1, G1, 2
+
+Gate: G1
+- label: Secondary Failure of Pressure Tank - Ruptured
+- type: OR
+- inputs: G2, 3
+
+Gate: G2
+- label: K2 Relay Contacts Remain Closed for T > 60 sec.
+- type: OR
+- inputs: 4, 5, G3
+
+Gate: G3
+- label: EMF to K2 Relay Cell for T > 60 sec.
+- type: AND
+- inputs: G4, G5
+
+Gate: G4
+- label: EMF Remains on Pressure Switch Contacts When P/S Cont. Closed T > 60 sec.
+- type: OR
+- inputs: G6, G7
+
+Gate: G5
+- label: Pressure Switch Contacts Closed for T > 60 sec.
+- type: OR
+- inputs: 6, 7, 8
+
+Gate: G6
+- label: EMF Thru S1 Switch Contacts When P/S Cont. Closed T > 60 sec.
+- type: OR
+- inputs: 9, 10, 11
+
+Gate: G7
+- label: EMF Thru K1 Relay Contacts When P/S Cont. Closed T > 60 sec.
+- type: OR
+- inputs: 12, G8, 13
+
+Gate: G8
+- label: Timer Relay Contacts Fail to Open When P/S Cont. Closed T > 60 sec.
+- type: OR
+- inputs: 14, 15, 16
+
+Event: 1
+- label: Pressure Tank Ruptures Under Load
+- probability: 1e-8
+
+Event: 2
+- label: Tank Ruptures Due to Improper Selection Installation
+- probability: 1e-5
+
+Event: 3
+- label: Sec. Failure of Tank from Other Out-of-Tolerance Conditions
+- probability: 1e-5
+
+Event: 4
+- label: K2 Relay Contacts Fail to Open
+- probability: 1e-5
+
+Event: 5
+- label: K2 Relay Secondary Failure
+- probability: 1e-5
+
+Event: 6
+- label: Pressure Switch Secondary Failure
+- probability: 1e-5
+
+Event: 7
+- label: Pressure Switch Contacts Fail to Open
+- probability: 1e-5
+
+Event: 8
+- label: Excess Pressure not Sensed by Pressure Actuated Switch
+- probability: 1e-5
+
+Event: 9
+- label: S1 Switch Secondary Failure
+- probability: 1e-5
+
+Event: 10
+- label: S1 Switch Contacts Fail to Open
+- probability: 1e-5
+
+Event: 11
+- label: External Reset Actuation Force Remains on Switch S1
+- probability: 1e-5
+
+Event: 12
+- label: K1 Relay Contacts Fail to Open
+- probability: 1e-5
+
+Event: 13
+- label: K1 Relay Secondary Failure
+- probability: 1e-5
+
+Event: 14
+- label: Timer Does not "Time Out" Due to Improper Setting Installation
+- probability: 1e-5
+
+Event: 15
+- label: Timer Relay Contacts Fail to Open
+- probability: 1e-5
+
+Event: 16
+- label: Timer Relay Secondary Failure
+- probability: 1e-5

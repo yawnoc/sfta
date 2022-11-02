@@ -1,0 +1,10 @@
+id	is_top_gate	is_paged	quantity_type	quantity_value	quantity_unit	type	inputs	label
+TOP_EVENT	True	False	probability	0.00004001	1	OR	1,G1,2	Pressure Tank Rupture
+G1	False	False	probability	0.00003	1	OR	G2,3	Secondary Failure of Pressure Tank - Ruptured
+G2	False	False	probability	0.00002	1	OR	4,5,G3	K2 Relay Contacts Remain Closed for T > 60 sec.
+G3	False	False	probability	2.4E-9	1	AND	G4,G5	EMF to K2 Relay Cell for T > 60 sec.
+G4	False	False	probability	0.00008	1	OR	G6,G7	EMF Remains on Pressure Switch Contacts When P/S Cont. Closed T > 60 sec.
+G5	False	False	probability	0.00003	1	OR	6,7,8	Pressure Switch Contacts Closed for T > 60 sec.
+G6	False	False	probability	0.00003	1	OR	9,10,11	EMF Thru S1 Switch Contacts When P/S Cont. Closed T > 60 sec.
+G7	False	False	probability	0.00005	1	OR	12,G8,13	EMF Thru K1 Relay Contacts When P/S Cont. Closed T > 60 sec.
+G8	False	False	probability	0.00003	1	OR	14,15,16	Timer Relay Contacts Fail to Open When P/S Cont. Closed T > 60 sec.
