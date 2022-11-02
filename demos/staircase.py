@@ -14,9 +14,16 @@ def main():
     n_max = 10
     n_values = range(1, 1 + n_max)
 
+    long_label = (
+        'Its label shall be exceeding long, that the capabilities of SFTA '
+        'to properly wrap and size a long label might be tested, '
+        'and be proved functional and not unpleasing.'
+    )
+
     and_gates = ''.join(
         textwrap.dedent(f'''
             Gate: AND_{n}
+            - label: And this be the AND gate of level {n}. {long_label}
             - type: AND
             - inputs: A_{n}, OR_{n}
         ''')
@@ -26,6 +33,7 @@ def main():
     or_gates = ''.join(
         textwrap.dedent(f'''
             Gate: OR_{n}
+            - label: And this be the OR gate of level {n}. {long_label}
             - type: OR
             - inputs: O_{n}, {f'AND_{n+1}' if n < n_max else 'L'}
         ''')

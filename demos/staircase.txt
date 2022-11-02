@@ -1,81 +1,101 @@
 
 Gate: AND_1
+- label: And this be the AND gate of level 1. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_1, OR_1
 
 Gate: AND_2
+- label: And this be the AND gate of level 2. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_2, OR_2
 
 Gate: AND_3
+- label: And this be the AND gate of level 3. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_3, OR_3
 
 Gate: AND_4
+- label: And this be the AND gate of level 4. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_4, OR_4
 
 Gate: AND_5
+- label: And this be the AND gate of level 5. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_5, OR_5
 
 Gate: AND_6
+- label: And this be the AND gate of level 6. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_6, OR_6
 
 Gate: AND_7
+- label: And this be the AND gate of level 7. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_7, OR_7
 
 Gate: AND_8
+- label: And this be the AND gate of level 8. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_8, OR_8
 
 Gate: AND_9
+- label: And this be the AND gate of level 9. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_9, OR_9
 
 Gate: AND_10
+- label: And this be the AND gate of level 10. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: AND
 - inputs: A_10, OR_10
 
 Gate: OR_1
+- label: And this be the OR gate of level 1. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_1, AND_2
 
 Gate: OR_2
+- label: And this be the OR gate of level 2. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_2, AND_3
 
 Gate: OR_3
+- label: And this be the OR gate of level 3. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_3, AND_4
 
 Gate: OR_4
+- label: And this be the OR gate of level 4. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_4, AND_5
 
 Gate: OR_5
+- label: And this be the OR gate of level 5. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_5, AND_6
 
 Gate: OR_6
+- label: And this be the OR gate of level 6. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_6, AND_7
 
 Gate: OR_7
+- label: And this be the OR gate of level 7. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_7, AND_8
 
 Gate: OR_8
+- label: And this be the OR gate of level 8. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_8, AND_9
 
 Gate: OR_9
+- label: And this be the OR gate of level 9. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_9, AND_10
 
 Gate: OR_10
+- label: And this be the OR gate of level 10. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
 - type: OR
 - inputs: O_10, L
 
