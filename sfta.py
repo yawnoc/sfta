@@ -1608,7 +1608,7 @@ class Node:
 
         if quantity_type == Event.TYPE_PROBABILITY:
             lhs = 'Q'
-        elif quantity_value == Event.TYPE_RATE:
+        elif quantity_type == Event.TYPE_RATE:
             lhs = 'w'
         else:
             raise RuntimeError(
