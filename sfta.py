@@ -1194,7 +1194,7 @@ class Table:
 
 
 class Figure:
-    MARGIN = 50
+    MARGIN = 10
 
     def __init__(self, fault_tree, id_):
         event_from_id = fault_tree.event_from_id
