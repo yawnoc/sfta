@@ -1276,7 +1276,7 @@ class Node:
     ID_BOX_HEIGHT = round(0.1 * HEIGHT)
 
     SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
-    SYMBOL_SLOTS_HALF_WIDTH = round(0.29 * WIDTH)
+    SYMBOL_SLOTS_HALF_WIDTH = round(0.25 * WIDTH)
 
     CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
     CONNECTOR_BUS_HALF_HEIGHT = round(0.06 * HEIGHT)
@@ -1288,18 +1288,18 @@ class Node:
     OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, beside apex
     OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, above toes
     OR_GROIN_RISE = round(0.13 * HEIGHT)  # control point, between toes
-    OR_HALF_WIDTH = round(0.32 * WIDTH)
+    OR_HALF_WIDTH = round(0.27 * WIDTH)
 
     AND_NECK_HEIGHT = round(0.03 * HEIGHT)  # ears, above centre
     AND_BODY_HEIGHT = round(0.16 * HEIGHT)  # toes, below centre
     AND_SLING_RISE = round(0.2 * HEIGHT)  # control points, above toes
-    AND_HALF_WIDTH = round(0.3 * WIDTH)
+    AND_HALF_WIDTH = round(0.27 * WIDTH)
 
-    EVENT_CIRCLE_RADIUS = round(0.35 * WIDTH)
+    EVENT_CIRCLE_RADIUS = round(0.32 * WIDTH)
 
     PAGED_APEX_HEIGHT = round(0.17 * HEIGHT)  # tip, above centre
     PAGED_BODY_HEIGHT = round(0.17 * HEIGHT)  # toes, below centre
-    PAGED_HALF_WIDTH = round(0.35 * WIDTH)
+    PAGED_HALF_WIDTH = round(0.33 * WIDTH)
 
     QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
     QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)

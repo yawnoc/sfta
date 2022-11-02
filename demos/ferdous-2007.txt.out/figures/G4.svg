@@ -19,15 +19,15 @@ text {
 }
 </style>
 <polyline points="120,8 120,147"/>
-<polyline points="108,147 108,199 60,199 60,252"/>
-<polyline points="132,147 132,199 180,199 180,252"/>
+<polyline points="110,147 110,199 60,199 60,252"/>
+<polyline points="130,147 130,199 180,199 180,252"/>
 <rect x="66" y="8" width="108" height="69"/>
 <text x="120" y="42" style="font-size: 10px">
 
 </text>
 <rect x="66" y="80" width="108" height="21"/>
 <text x="120" y="90">G4</text>
-<path d="M120,109 C114,111 82,125 82,157 L82,185 Q120,158 158,185 L158,157 C158,125 126,111 120,109"/>
+<path d="M120,109 C114,111 88,125 88,157 L88,185 Q120,158 152,185 L152,157 C152,125 126,111 120,109"/>
 <rect x="66" y="134" width="108" height="27"/>
 <text x="120" y="147">Q ≤ 0.624</text>
 <polyline points="60,218 60,357"/>
@@ -38,7 +38,7 @@ text {
 </text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">X24</text>
-<circle cx="60" cy="357" r="42"/>
+<circle cx="60" cy="357" r="38"/>
 <rect x="6" y="344" width="108" height="27"/>
 <text x="60" y="357">Q = 0.4052</text>
 <polyline points="180,218 180,357"/>
@@ -50,7 +50,7 @@ text {
 </text>
 <rect x="126" y="290" width="108" height="21"/>
 <text x="180" y="300">X26</text>
-<circle cx="180" cy="357" r="42"/>
+<circle cx="180" cy="357" r="38"/>
 <rect x="126" y="344" width="108" height="27"/>
 <text x="180" y="357">Q = 0.2188</text>
 </svg>

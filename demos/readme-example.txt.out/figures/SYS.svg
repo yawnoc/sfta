@@ -19,15 +19,15 @@ text {
 }
 </style>
 <polyline points="180,8 180,147"/>
-<polyline points="168,147 168,199 60,199 60,252"/>
-<polyline points="192,147 192,199 240,199 240,252"/>
+<polyline points="170,147 170,199 60,199 60,252"/>
+<polyline points="190,147 190,199 240,199 240,252"/>
 <rect x="126" y="8" width="108" height="69"/>
 <text x="180" y="42" style="font-size: 10px">
 <tspan x="180" dy="0em">System fails</tspan>
 </text>
 <rect x="126" y="80" width="108" height="21"/>
 <text x="180" y="90">SYS</text>
-<path d="M180,109 C174,111 142,125 142,157 L142,185 Q180,158 218,185 L218,157 C218,125 186,111 180,109"/>
+<path d="M180,109 C174,111 148,125 148,157 L148,185 Q180,158 212,185 L212,157 C212,125 186,111 180,109"/>
 <rect x="126" y="134" width="108" height="27"/>
 <text x="180" y="147">Q ≤ 0.07</text>
 <polyline points="60,218 60,357"/>
@@ -39,19 +39,19 @@ text {
 </text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">A</text>
-<circle cx="60" cy="357" r="42"/>
+<circle cx="60" cy="357" r="38"/>
 <rect x="6" y="344" width="108" height="27"/>
 <text x="60" y="357">Q = 0.01</text>
 <polyline points="240,218 240,357"/>
-<polyline points="228,357 228,409 180,409 180,462"/>
-<polyline points="252,357 252,409 300,409 300,462"/>
+<polyline points="230,357 230,409 180,409 180,462"/>
+<polyline points="250,357 250,409 300,409 300,462"/>
 <rect x="186" y="218" width="108" height="69"/>
 <text x="240" y="252" style="font-size: 10px">
 <tspan x="240" dy="0em">Subsystem fails</tspan>
 </text>
 <rect x="186" y="290" width="108" height="21"/>
 <text x="240" y="300">SUB</text>
-<path d="M204,391 L276,391 L276,351 C276,309 204,309 204,351 L204,391 "/>
+<path d="M208,391 L272,391 L272,351 C272,309 208,309 208,351 L208,391 "/>
 <rect x="186" y="344" width="108" height="27"/>
 <text x="240" y="357">Q = 0.06</text>
 <polyline points="180,428 180,567"/>
@@ -63,7 +63,7 @@ text {
 </text>
 <rect x="126" y="500" width="108" height="21"/>
 <text x="180" y="510">B</text>
-<circle cx="180" cy="567" r="42"/>
+<circle cx="180" cy="567" r="38"/>
 <rect x="126" y="554" width="108" height="27"/>
 <text x="180" y="567">Q = 0.2</text>
 <polyline points="300,428 300,567"/>
@@ -75,7 +75,7 @@ text {
 </text>
 <rect x="246" y="500" width="108" height="21"/>
 <text x="300" y="510">C</text>
-<circle cx="300" cy="567" r="42"/>
+<circle cx="300" cy="567" r="38"/>
 <rect x="246" y="554" width="108" height="27"/>
 <text x="300" y="567">Q = 0.3</text>
 </svg>
