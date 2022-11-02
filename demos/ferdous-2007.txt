@@ -1,4 +1,4 @@
-# From Figure 6 in Ferdous, Khan, Veitch, and Amyotte (2007).
+# From Figure 6 in Ferdous, Khan, Veitch, & Amyotte (2007).
 # Methodology for Computer-Aided Fault Tree Analysis.
 # Process Safety and Environmental Protection, Volume 85, Issue 1, Pages 70–80.
 # <https://doi.org/10.1205/psep06002>
