@@ -18,54 +18,54 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="180,8 180,147"/>
-<polyline points="170,147 170,199 60,199 60,252"/>
-<polyline points="190,147 190,199 240,199 240,252"/>
-<rect x="126" y="8" width="108" height="69"/>
-<text x="180" y="42" style="font-size: 10px">System fails</text>
-<rect x="126" y="80" width="108" height="21"/>
-<text x="180" y="90">SYS</text>
-<path d="M180,109 C174,111 148,125 148,157 L148,185 Q180,158 212,185 L212,157 C212,125 186,111 180,109"/>
-<rect x="126" y="134" width="108" height="27"/>
-<text x="180" y="147">Q ≤ 0.07</text>
-<polyline points="60,218 60,357"/>
+<polyline points="180,5 180,150"/>
+<polyline points="170,150 170,200 60,200 60,250"/>
+<polyline points="190,150 190,200 240,200 240,250"/>
+<rect x="126" y="5" width="108" height="70"/>
+<text x="180" y="40" style="font-size: 10px">System fails</text>
+<rect x="126" y="80" width="108" height="24"/>
+<text x="180" y="92">SYS</text>
+<path d="M180,112 C174,114 147,125 147,160 L147,186 Q180,156 213,186 L213,160 C213,125 186,114 180,112"/>
+<rect x="126" y="138" width="108" height="24"/>
+<text x="180" y="150">Q ≤ 0.07</text>
+<polyline points="60,215 60,360"/>
 
-<rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="247" style="font-size: 10px">Component A</text>
-<text x="60" y="257" style="font-size: 10px">fails</text>
-<rect x="6" y="290" width="108" height="21"/>
-<text x="60" y="300">A</text>
-<circle cx="60" cy="357" r="38"/>
-<rect x="6" y="344" width="108" height="27"/>
-<text x="60" y="357">Q = 0.01</text>
-<polyline points="240,218 240,357"/>
-<polyline points="230,357 230,409 180,409 180,462"/>
-<polyline points="250,357 250,409 300,409 300,462"/>
-<rect x="186" y="218" width="108" height="69"/>
-<text x="240" y="252" style="font-size: 10px">Subsystem fails</text>
-<rect x="186" y="290" width="108" height="21"/>
-<text x="240" y="300">SUB</text>
-<path d="M208,391 L272,391 L272,351 C272,309 208,309 208,351 L208,391 "/>
-<rect x="186" y="344" width="108" height="27"/>
-<text x="240" y="357">Q = 0.06</text>
-<polyline points="180,428 180,567"/>
+<rect x="6" y="215" width="108" height="70"/>
+<text x="60" y="245" style="font-size: 10px">Component A</text>
+<text x="60" y="255" style="font-size: 10px">fails</text>
+<rect x="6" y="290" width="108" height="24"/>
+<text x="60" y="302">A</text>
+<circle cx="60" cy="360" r="38"/>
+<rect x="6" y="348" width="108" height="24"/>
+<text x="60" y="360">Q = 0.01</text>
+<polyline points="240,215 240,360"/>
+<polyline points="230,360 230,410 180,410 180,460"/>
+<polyline points="250,360 250,410 300,410 300,460"/>
+<rect x="186" y="215" width="108" height="70"/>
+<text x="240" y="250" style="font-size: 10px">Subsystem fails</text>
+<rect x="186" y="290" width="108" height="24"/>
+<text x="240" y="302">SUB</text>
+<path d="M208,394 L272,394 L272,354 C272,312 208,312 208,354 L208,394 "/>
+<rect x="186" y="348" width="108" height="24"/>
+<text x="240" y="360">Q = 0.06</text>
+<polyline points="180,425 180,570"/>
 
-<rect x="126" y="428" width="108" height="69"/>
-<text x="180" y="457" style="font-size: 10px">Component B</text>
-<text x="180" y="467" style="font-size: 10px">fails</text>
-<rect x="126" y="500" width="108" height="21"/>
-<text x="180" y="510">B</text>
-<circle cx="180" cy="567" r="38"/>
-<rect x="126" y="554" width="108" height="27"/>
-<text x="180" y="567">Q = 0.2</text>
-<polyline points="300,428 300,567"/>
+<rect x="126" y="425" width="108" height="70"/>
+<text x="180" y="455" style="font-size: 10px">Component B</text>
+<text x="180" y="465" style="font-size: 10px">fails</text>
+<rect x="126" y="500" width="108" height="24"/>
+<text x="180" y="512">B</text>
+<circle cx="180" cy="570" r="38"/>
+<rect x="126" y="558" width="108" height="24"/>
+<text x="180" y="570">Q = 0.2</text>
+<polyline points="300,425 300,570"/>
 
-<rect x="246" y="428" width="108" height="69"/>
-<text x="300" y="457" style="font-size: 10px">Component C</text>
-<text x="300" y="467" style="font-size: 10px">fails</text>
-<rect x="246" y="500" width="108" height="21"/>
-<text x="300" y="510">C</text>
-<circle cx="300" cy="567" r="38"/>
-<rect x="246" y="554" width="108" height="27"/>
-<text x="300" y="567">Q = 0.3</text>
+<rect x="246" y="425" width="108" height="70"/>
+<text x="300" y="455" style="font-size: 10px">Component C</text>
+<text x="300" y="465" style="font-size: 10px">fails</text>
+<rect x="246" y="500" width="108" height="24"/>
+<text x="300" y="512">C</text>
+<circle cx="300" cy="570" r="38"/>
+<rect x="246" y="558" width="108" height="24"/>
+<text x="300" y="570">Q = 0.3</text>
 </svg>

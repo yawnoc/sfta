@@ -1265,30 +1265,30 @@ class Node:
     HEIGHT = 210
     DEFAULT_FONT_SIZE = 10
 
-    LABEL_BOX_Y_OFFSET = -63
+    LABEL_BOX_Y_OFFSET = -65
     LABEL_BOX_WIDTH = 108
-    LABEL_BOX_HEIGHT = 69
-    LABEL_BOX_TARGET_RATIO = 4  # line length divided by line count
+    LABEL_BOX_HEIGHT = 70
+    LABEL_BOX_TARGET_RATIO = 3  # line length divided by line count
     LABEL_MIN_LINE_LENGTH = 16
 
-    ID_BOX_Y_OFFSET = -15
+    ID_BOX_Y_OFFSET = -13
     ID_BOX_WIDTH = 108
-    ID_BOX_HEIGHT = 21
+    ID_BOX_HEIGHT = 24
 
-    SYMBOL_Y_OFFSET = 42
+    SYMBOL_Y_OFFSET = 45
     SYMBOL_SLOTS_HALF_WIDTH = 30
 
-    CONNECTOR_BUS_Y_OFFSET = 94
-    CONNECTOR_BUS_HALF_HEIGHT = 13
+    CONNECTOR_BUS_Y_OFFSET = 95
+    CONNECTOR_BUS_HALF_HEIGHT = 10
 
     OR_APEX_HEIGHT = 38  # tip, above centre
     OR_NECK_HEIGHT = -10  # ears, above centre
-    OR_BODY_HEIGHT = 38  # toes, below centre
+    OR_BODY_HEIGHT = 36  # toes, below centre
     OR_SLANT_DROP = 2  # control points, below apex
     OR_SLANT_RUN = 6  # control points, beside apex
-    OR_SLING_RISE = 32  # control points, above toes
-    OR_GROIN_RISE = 27  # control point, between toes
-    OR_HALF_WIDTH = 32
+    OR_SLING_RISE = 35  # control points, above toes
+    OR_GROIN_RISE = 30  # control point, between toes
+    OR_HALF_WIDTH = 33
 
     AND_NECK_HEIGHT = 6  # ears, above centre
     AND_BODY_HEIGHT = 34  # toes, below centre
@@ -1298,12 +1298,12 @@ class Node:
     EVENT_CIRCLE_RADIUS = 38
 
     PAGED_APEX_HEIGHT = 36  # tip, above centre
-    PAGED_BODY_HEIGHT = 36  # toes, below centre
+    PAGED_BODY_HEIGHT = 32  # toes, below centre
     PAGED_HALF_WIDTH = 40
 
-    QUANTITY_BOX_Y_OFFSET = 42
+    QUANTITY_BOX_Y_OFFSET = 45
     QUANTITY_BOX_WIDTH = 108
-    QUANTITY_BOX_HEIGHT = 27
+    QUANTITY_BOX_HEIGHT = 24
 
     def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event

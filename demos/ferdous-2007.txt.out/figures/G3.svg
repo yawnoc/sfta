@@ -18,42 +18,42 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="180,8 180,147"/>
-<polyline points="165,147 165,199 60,199 60,252"/>
-<polyline points="180,147 180,199 180,199 180,252"/>
-<polyline points="195,147 195,199 300,199 300,252"/>
-<rect x="126" y="8" width="108" height="69"/>
+<polyline points="180,5 180,150"/>
+<polyline points="165,150 165,200 60,200 60,250"/>
+<polyline points="180,150 180,200 180,200 180,250"/>
+<polyline points="195,150 195,200 300,200 300,250"/>
+<rect x="126" y="5" width="108" height="70"/>
 
-<rect x="126" y="80" width="108" height="21"/>
-<text x="180" y="90">G3</text>
-<path d="M180,109 C174,111 148,125 148,157 L148,185 Q180,158 212,185 L212,157 C212,125 186,111 180,109"/>
-<rect x="126" y="134" width="108" height="27"/>
-<text x="180" y="147">Q ≤ 0.1192</text>
-<polyline points="60,218 60,357"/>
+<rect x="126" y="80" width="108" height="24"/>
+<text x="180" y="92">G3</text>
+<path d="M180,112 C174,114 147,125 147,160 L147,186 Q180,156 213,186 L213,160 C213,125 186,114 180,112"/>
+<rect x="126" y="138" width="108" height="24"/>
+<text x="180" y="150">Q ≤ 0.1192</text>
+<polyline points="60,215 60,360"/>
 
-<rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">Pipe work fire</text>
-<rect x="6" y="290" width="108" height="21"/>
-<text x="60" y="300">X32</text>
-<circle cx="60" cy="357" r="38"/>
-<rect x="6" y="344" width="108" height="27"/>
-<text x="60" y="357">Q = 0.01809</text>
-<polyline points="180,218 180,357"/>
+<rect x="6" y="215" width="108" height="70"/>
+<text x="60" y="250" style="font-size: 10px">Pipe work fire</text>
+<rect x="6" y="290" width="108" height="24"/>
+<text x="60" y="302">X32</text>
+<circle cx="60" cy="360" r="38"/>
+<rect x="6" y="348" width="108" height="24"/>
+<text x="60" y="360">Q = 0.01809</text>
+<polyline points="180,215 180,360"/>
 
-<rect x="126" y="218" width="108" height="69"/>
+<rect x="126" y="215" width="108" height="70"/>
 
-<rect x="126" y="290" width="108" height="21"/>
-<text x="180" y="300">G6</text>
-<polygon points="180,321 140,393 220,393"/>
-<rect x="126" y="344" width="108" height="27"/>
-<text x="180" y="357">Q ≤ 0.06632</text>
-<polyline points="300,218 300,357"/>
+<rect x="126" y="290" width="108" height="24"/>
+<text x="180" y="302">G6</text>
+<polygon points="180,324 140,392 220,392"/>
+<rect x="126" y="348" width="108" height="24"/>
+<text x="180" y="360">Q ≤ 0.06632</text>
+<polyline points="300,215 300,360"/>
 
-<rect x="246" y="218" width="108" height="69"/>
+<rect x="246" y="215" width="108" height="70"/>
 
-<rect x="246" y="290" width="108" height="21"/>
-<text x="300" y="300">G7</text>
-<polygon points="300,321 260,393 340,393"/>
-<rect x="246" y="344" width="108" height="27"/>
-<text x="300" y="357">Q ≤ 0.03481</text>
+<rect x="246" y="290" width="108" height="24"/>
+<text x="300" y="302">G7</text>
+<polygon points="300,324 260,392 340,392"/>
+<rect x="246" y="348" width="108" height="24"/>
+<text x="300" y="360">Q ≤ 0.03481</text>
 </svg>

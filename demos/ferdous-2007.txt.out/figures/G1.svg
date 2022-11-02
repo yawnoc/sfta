@@ -18,78 +18,78 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="300,8 300,147"/>
-<polyline points="285,147 285,199 60,199 60,252"/>
-<polyline points="300,147 300,199 300,199 300,252"/>
-<polyline points="315,147 315,199 540,199 540,252"/>
-<rect x="246" y="8" width="108" height="69"/>
-<text x="300" y="27" style="font-size: 10px">Ethylene release</text>
-<text x="300" y="37" style="font-size: 10px">due to</text>
-<text x="300" y="47" style="font-size: 10px">components</text>
-<text x="300" y="57" style="font-size: 10px">rupture</text>
-<rect x="246" y="80" width="108" height="21"/>
-<text x="300" y="90">G1</text>
-<path d="M300,109 C294,111 268,125 268,157 L268,185 Q300,158 332,185 L332,157 C332,125 306,111 300,109"/>
-<rect x="246" y="134" width="108" height="27"/>
-<text x="300" y="147">Q ≤ 0.1062</text>
-<polyline points="60,218 60,357"/>
+<polyline points="300,5 300,150"/>
+<polyline points="285,150 285,200 60,200 60,250"/>
+<polyline points="300,150 300,200 300,200 300,250"/>
+<polyline points="315,150 315,200 540,200 540,250"/>
+<rect x="246" y="5" width="108" height="70"/>
+<text x="300" y="25" style="font-size: 10px">Ethylene release</text>
+<text x="300" y="35" style="font-size: 10px">due to</text>
+<text x="300" y="45" style="font-size: 10px">components</text>
+<text x="300" y="55" style="font-size: 10px">rupture</text>
+<rect x="246" y="80" width="108" height="24"/>
+<text x="300" y="92">G1</text>
+<path d="M300,112 C294,114 267,125 267,160 L267,186 Q300,156 333,186 L333,160 C333,125 306,114 300,112"/>
+<rect x="246" y="138" width="108" height="24"/>
+<text x="300" y="150">Q ≤ 0.1062</text>
+<polyline points="60,215 60,360"/>
 
-<rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="242" style="font-size: 10px">Spontaneous</text>
-<text x="60" y="252" style="font-size: 10px">rupture of</text>
-<text x="60" y="262" style="font-size: 10px">deposit</text>
-<rect x="6" y="290" width="108" height="21"/>
-<text x="60" y="300">X31</text>
-<circle cx="60" cy="357" r="38"/>
-<rect x="6" y="344" width="108" height="27"/>
-<text x="60" y="357">Q = 0.00079</text>
-<polyline points="300,218 300,357"/>
-<polyline points="285,357 285,409 180,409 180,462"/>
-<polyline points="300,357 300,409 300,409 300,462"/>
-<polyline points="315,357 315,409 420,409 420,462"/>
-<rect x="246" y="218" width="108" height="69"/>
+<rect x="6" y="215" width="108" height="70"/>
+<text x="60" y="240" style="font-size: 10px">Spontaneous</text>
+<text x="60" y="250" style="font-size: 10px">rupture of</text>
+<text x="60" y="260" style="font-size: 10px">deposit</text>
+<rect x="6" y="290" width="108" height="24"/>
+<text x="60" y="302">X31</text>
+<circle cx="60" cy="360" r="38"/>
+<rect x="6" y="348" width="108" height="24"/>
+<text x="60" y="360">Q = 0.00079</text>
+<polyline points="300,215 300,360"/>
+<polyline points="285,360 285,410 180,410 180,460"/>
+<polyline points="300,360 300,410 300,410 300,460"/>
+<polyline points="315,360 315,410 420,410 420,460"/>
+<rect x="246" y="215" width="108" height="70"/>
 
-<rect x="246" y="290" width="108" height="21"/>
-<text x="300" y="300">G2</text>
-<path d="M268,391 L332,391 L332,351 C332,309 268,309 268,351 L268,391 "/>
-<rect x="246" y="344" width="108" height="27"/>
-<text x="300" y="357">Q ≤ 0.05579</text>
-<polyline points="180,428 180,567"/>
+<rect x="246" y="290" width="108" height="24"/>
+<text x="300" y="302">G2</text>
+<path d="M268,394 L332,394 L332,354 C332,312 268,312 268,354 L268,394 "/>
+<rect x="246" y="348" width="108" height="24"/>
+<text x="300" y="360">Q ≤ 0.05579</text>
+<polyline points="180,425 180,570"/>
 
-<rect x="126" y="428" width="108" height="69"/>
+<rect x="126" y="425" width="108" height="70"/>
 
-<rect x="126" y="500" width="108" height="21"/>
-<text x="180" y="510">G3</text>
-<polygon points="180,531 140,603 220,603"/>
-<rect x="126" y="554" width="108" height="27"/>
-<text x="180" y="567">Q ≤ 0.1192</text>
-<polyline points="300,428 300,567"/>
+<rect x="126" y="500" width="108" height="24"/>
+<text x="180" y="512">G3</text>
+<polygon points="180,534 140,602 220,602"/>
+<rect x="126" y="558" width="108" height="24"/>
+<text x="180" y="570">Q ≤ 0.1192</text>
+<polyline points="300,425 300,570"/>
 
-<rect x="246" y="428" width="108" height="69"/>
+<rect x="246" y="425" width="108" height="70"/>
 
-<rect x="246" y="500" width="108" height="21"/>
-<text x="300" y="510">G4</text>
-<polygon points="300,531 260,603 340,603"/>
-<rect x="246" y="554" width="108" height="27"/>
-<text x="300" y="567">Q ≤ 0.624</text>
-<polyline points="420,428 420,567"/>
+<rect x="246" y="500" width="108" height="24"/>
+<text x="300" y="512">G4</text>
+<polygon points="300,534 260,602 340,602"/>
+<rect x="246" y="558" width="108" height="24"/>
+<text x="300" y="570">Q ≤ 0.624</text>
+<polyline points="420,425 420,570"/>
 
-<rect x="366" y="428" width="108" height="69"/>
+<rect x="366" y="425" width="108" height="70"/>
 
-<rect x="366" y="500" width="108" height="21"/>
-<text x="420" y="510">G5</text>
-<polygon points="420,531 380,603 460,603"/>
-<rect x="366" y="554" width="108" height="27"/>
-<text x="420" y="567">Q = 0.75</text>
-<polyline points="540,218 540,357"/>
+<rect x="366" y="500" width="108" height="24"/>
+<text x="420" y="512">G5</text>
+<polygon points="420,534 380,602 460,602"/>
+<rect x="366" y="558" width="108" height="24"/>
+<text x="420" y="570">Q = 0.75</text>
+<polyline points="540,215 540,360"/>
 
-<rect x="486" y="218" width="108" height="69"/>
-<text x="540" y="242" style="font-size: 10px">External &amp;</text>
-<text x="540" y="252" style="font-size: 10px">secondary</text>
-<text x="540" y="262" style="font-size: 10px">effects</text>
-<rect x="486" y="290" width="108" height="21"/>
-<text x="540" y="300">X33</text>
-<circle cx="540" cy="357" r="38"/>
-<rect x="486" y="344" width="108" height="27"/>
-<text x="540" y="357">Q = 0.04959</text>
+<rect x="486" y="215" width="108" height="70"/>
+<text x="540" y="240" style="font-size: 10px">External &amp;</text>
+<text x="540" y="250" style="font-size: 10px">secondary</text>
+<text x="540" y="260" style="font-size: 10px">effects</text>
+<rect x="486" y="290" width="108" height="24"/>
+<text x="540" y="302">X33</text>
+<circle cx="540" cy="360" r="38"/>
+<rect x="486" y="348" width="108" height="24"/>
+<text x="540" y="360">Q = 0.04959</text>
 </svg>

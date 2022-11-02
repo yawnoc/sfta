@@ -18,33 +18,33 @@ text {
   text-anchor: middle;
 }
 </style>
-<polyline points="120,8 120,147"/>
-<polyline points="110,147 110,199 60,199 60,252"/>
-<polyline points="130,147 130,199 180,199 180,252"/>
-<rect x="66" y="8" width="108" height="69"/>
+<polyline points="120,5 120,150"/>
+<polyline points="110,150 110,200 60,200 60,250"/>
+<polyline points="130,150 130,200 180,200 180,250"/>
+<rect x="66" y="5" width="108" height="70"/>
 
-<rect x="66" y="80" width="108" height="21"/>
-<text x="120" y="90">G4</text>
-<path d="M120,109 C114,111 88,125 88,157 L88,185 Q120,158 152,185 L152,157 C152,125 126,111 120,109"/>
-<rect x="66" y="134" width="108" height="27"/>
-<text x="120" y="147">Q ≤ 0.624</text>
-<polyline points="60,218 60,357"/>
+<rect x="66" y="80" width="108" height="24"/>
+<text x="120" y="92">G4</text>
+<path d="M120,112 C114,114 87,125 87,160 L87,186 Q120,156 153,186 L153,160 C153,125 126,114 120,112"/>
+<rect x="66" y="138" width="108" height="24"/>
+<text x="120" y="150">Q ≤ 0.624</text>
+<polyline points="60,215 60,360"/>
 
-<rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">S1 fails closed</text>
-<rect x="6" y="290" width="108" height="21"/>
-<text x="60" y="300">X24</text>
-<circle cx="60" cy="357" r="38"/>
-<rect x="6" y="344" width="108" height="27"/>
-<text x="60" y="357">Q = 0.4052</text>
-<polyline points="180,218 180,357"/>
+<rect x="6" y="215" width="108" height="70"/>
+<text x="60" y="250" style="font-size: 10px">S1 fails closed</text>
+<rect x="6" y="290" width="108" height="24"/>
+<text x="60" y="302">X24</text>
+<circle cx="60" cy="360" r="38"/>
+<rect x="6" y="348" width="108" height="24"/>
+<text x="60" y="360">Q = 0.4052</text>
+<polyline points="180,215 180,360"/>
 
-<rect x="126" y="218" width="108" height="69"/>
-<text x="180" y="247" style="font-size: 10px">S1 set point too</text>
-<text x="180" y="257" style="font-size: 10px">high</text>
-<rect x="126" y="290" width="108" height="21"/>
-<text x="180" y="300">X26</text>
-<circle cx="180" cy="357" r="38"/>
-<rect x="126" y="344" width="108" height="27"/>
-<text x="180" y="357">Q = 0.2188</text>
+<rect x="126" y="215" width="108" height="70"/>
+<text x="180" y="245" style="font-size: 10px">S1 set point too</text>
+<text x="180" y="255" style="font-size: 10px">high</text>
+<rect x="126" y="290" width="108" height="24"/>
+<text x="180" y="302">X26</text>
+<circle cx="180" cy="360" r="38"/>
+<rect x="126" y="348" width="108" height="24"/>
+<text x="180" y="360">Q = 0.2188</text>
 </svg>
