@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="-50 -50 600 700" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-50 -50 700 730" xmlns="http://www.w3.org/2000/svg">
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
@@ -13,97 +13,97 @@ polyline {
 }
 text {
   dominant-baseline: middle;
-  font-family: Arial, sans-serif;
+  font-family: Cousine, "Courier New", monospace;
   font-size: 10px;
   text-anchor: middle;
 }
 </style>
-<polyline points="250,7 250,140"/>
-<polyline points="236,140 236,190 50,190 50,240"/>
-<polyline points="250,140 250,190 250,190 250,240"/>
-<polyline points="264,140 264,190 450,190 450,240"/>
-<rect x="205" y="7" width="90" height="66"/>
-<text x="250" y="40" style="font-size: 10px">
-<tspan x="250" dy="-1.5em">Ethylene release</tspan>
-<tspan x="250" dy="1em">due to</tspan>
-<tspan x="250" dy="1em">components</tspan>
-<tspan x="250" dy="1em">rupture</tspan>
+<polyline points="300,8 300,147"/>
+<polyline points="282,147 282,199 60,199 60,252"/>
+<polyline points="300,147 300,199 300,199 300,252"/>
+<polyline points="318,147 318,199 540,199 540,252"/>
+<rect x="246" y="8" width="108" height="69"/>
+<text x="300" y="42" style="font-size: 10px">
+<tspan x="300" dy="-1.5em">Ethylene release</tspan>
+<tspan x="300" dy="1em">due to</tspan>
+<tspan x="300" dy="1em">components</tspan>
+<tspan x="300" dy="1em">rupture</tspan>
 </text>
-<rect x="205" y="76" width="90" height="20"/>
-<text x="250" y="86">G1</text>
-<path d="M250,104 C245,106 218,120 218,150 L218,176 Q250,150 282,176 L282,150 C282,120 255,106 250,104"/>
-<rect x="205" y="127" width="90" height="26"/>
-<text x="250" y="140">Q ≤ 0.1062</text>
-<polyline points="50,207 50,340"/>
+<rect x="246" y="80" width="108" height="21"/>
+<text x="300" y="90">G1</text>
+<path d="M300,109 C294,111 262,125 262,157 L262,185 Q300,158 338,185 L338,157 C338,125 306,111 300,109"/>
+<rect x="246" y="134" width="108" height="27"/>
+<text x="300" y="147">Q ≤ 0.1062</text>
+<polyline points="60,218 60,357"/>
 
-<rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240" style="font-size: 10px">
-<tspan x="50" dy="-1em">Spontaneous</tspan>
-<tspan x="50" dy="1em">rupture of</tspan>
-<tspan x="50" dy="1em">deposit</tspan>
+<rect x="6" y="218" width="108" height="69"/>
+<text x="60" y="252" style="font-size: 10px">
+<tspan x="60" dy="-1em">Spontaneous</tspan>
+<tspan x="60" dy="1em">rupture of</tspan>
+<tspan x="60" dy="1em">deposit</tspan>
 </text>
-<rect x="5" y="276" width="90" height="20"/>
-<text x="50" y="286">X31</text>
-<circle cx="50" cy="340" r="35"/>
-<rect x="5" y="327" width="90" height="26"/>
-<text x="50" y="340">Q = 0.00079</text>
-<polyline points="250,207 250,340"/>
-<polyline points="236,340 236,390 150,390 150,440"/>
-<polyline points="250,340 250,390 250,390 250,440"/>
-<polyline points="264,340 264,390 350,390 350,440"/>
-<rect x="205" y="207" width="90" height="66"/>
-<text x="250" y="240" style="font-size: 10px">
-
-</text>
-<rect x="205" y="276" width="90" height="20"/>
-<text x="250" y="286">G2</text>
-<path d="M220,372 L280,372 L280,334 C280,294 220,294 220,334 L220,372 "/>
-<rect x="205" y="327" width="90" height="26"/>
-<text x="250" y="340">Q ≤ 0.05579</text>
-<polyline points="150,407 150,540"/>
-
-<rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440" style="font-size: 10px">
+<rect x="6" y="290" width="108" height="21"/>
+<text x="60" y="300">X31</text>
+<circle cx="60" cy="357" r="42"/>
+<rect x="6" y="344" width="108" height="27"/>
+<text x="60" y="357">Q = 0.00079</text>
+<polyline points="300,218 300,357"/>
+<polyline points="282,357 282,409 180,409 180,462"/>
+<polyline points="300,357 300,409 300,409 300,462"/>
+<polyline points="318,357 318,409 420,409 420,462"/>
+<rect x="246" y="218" width="108" height="69"/>
+<text x="300" y="252" style="font-size: 10px">
 
 </text>
-<rect x="105" y="476" width="90" height="20"/>
-<text x="150" y="486">G3</text>
-<polygon points="150,506 115,574 185,574"/>
-<rect x="105" y="527" width="90" height="26"/>
-<text x="150" y="540">Q ≤ 0.1192</text>
-<polyline points="250,407 250,540"/>
+<rect x="246" y="290" width="108" height="21"/>
+<text x="300" y="300">G2</text>
+<path d="M264,391 L336,391 L336,351 C336,309 264,309 264,351 L264,391 "/>
+<rect x="246" y="344" width="108" height="27"/>
+<text x="300" y="357">Q ≤ 0.05579</text>
+<polyline points="180,428 180,567"/>
 
-<rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440" style="font-size: 10px">
-
-</text>
-<rect x="205" y="476" width="90" height="20"/>
-<text x="250" y="486">G4</text>
-<polygon points="250,506 215,574 285,574"/>
-<rect x="205" y="527" width="90" height="26"/>
-<text x="250" y="540">Q ≤ 0.624</text>
-<polyline points="350,407 350,540"/>
-
-<rect x="305" y="407" width="90" height="66"/>
-<text x="350" y="440" style="font-size: 10px">
+<rect x="126" y="428" width="108" height="69"/>
+<text x="180" y="462" style="font-size: 10px">
 
 </text>
-<rect x="305" y="476" width="90" height="20"/>
-<text x="350" y="486">G5</text>
-<polygon points="350,506 315,574 385,574"/>
-<rect x="305" y="527" width="90" height="26"/>
-<text x="350" y="540">Q = 0.75</text>
-<polyline points="450,207 450,340"/>
+<rect x="126" y="500" width="108" height="21"/>
+<text x="180" y="510">G3</text>
+<polygon points="180,531 138,603 222,603"/>
+<rect x="126" y="554" width="108" height="27"/>
+<text x="180" y="567">Q ≤ 0.1192</text>
+<polyline points="300,428 300,567"/>
 
-<rect x="405" y="207" width="90" height="66"/>
-<text x="450" y="240" style="font-size: 10px">
-<tspan x="450" dy="-1em">External &amp;</tspan>
-<tspan x="450" dy="1em">secondary</tspan>
-<tspan x="450" dy="1em">effects</tspan>
+<rect x="246" y="428" width="108" height="69"/>
+<text x="300" y="462" style="font-size: 10px">
+
 </text>
-<rect x="405" y="276" width="90" height="20"/>
-<text x="450" y="286">X33</text>
-<circle cx="450" cy="340" r="35"/>
-<rect x="405" y="327" width="90" height="26"/>
-<text x="450" y="340">Q = 0.04959</text>
+<rect x="246" y="500" width="108" height="21"/>
+<text x="300" y="510">G4</text>
+<polygon points="300,531 258,603 342,603"/>
+<rect x="246" y="554" width="108" height="27"/>
+<text x="300" y="567">Q ≤ 0.624</text>
+<polyline points="420,428 420,567"/>
+
+<rect x="366" y="428" width="108" height="69"/>
+<text x="420" y="462" style="font-size: 10px">
+
+</text>
+<rect x="366" y="500" width="108" height="21"/>
+<text x="420" y="510">G5</text>
+<polygon points="420,531 378,603 462,603"/>
+<rect x="366" y="554" width="108" height="27"/>
+<text x="420" y="567">Q = 0.75</text>
+<polyline points="540,218 540,357"/>
+
+<rect x="486" y="218" width="108" height="69"/>
+<text x="540" y="252" style="font-size: 10px">
+<tspan x="540" dy="-1em">External &amp;</tspan>
+<tspan x="540" dy="1em">secondary</tspan>
+<tspan x="540" dy="1em">effects</tspan>
+</text>
+<rect x="486" y="290" width="108" height="21"/>
+<text x="540" y="300">X33</text>
+<circle cx="540" cy="357" r="42"/>
+<rect x="486" y="344" width="108" height="27"/>
+<text x="540" y="357">Q = 0.04959</text>
 </svg>

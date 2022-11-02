@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="-50 -50 300 500" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-50 -50 340 520" xmlns="http://www.w3.org/2000/svg">
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
@@ -13,44 +13,44 @@ polyline {
 }
 text {
   dominant-baseline: middle;
-  font-family: Arial, sans-serif;
+  font-family: Cousine, "Courier New", monospace;
   font-size: 10px;
   text-anchor: middle;
 }
 </style>
-<polyline points="100,7 100,140"/>
-<polyline points="90,140 90,190 50,190 50,240"/>
-<polyline points="110,140 110,190 150,190 150,240"/>
-<rect x="55" y="7" width="90" height="66"/>
-<text x="100" y="40" style="font-size: 10px">
+<polyline points="120,8 120,147"/>
+<polyline points="108,147 108,199 60,199 60,252"/>
+<polyline points="132,147 132,199 180,199 180,252"/>
+<rect x="66" y="8" width="108" height="69"/>
+<text x="120" y="42" style="font-size: 10px">
 
 </text>
-<rect x="55" y="76" width="90" height="20"/>
-<text x="100" y="86">G4</text>
-<path d="M100,104 C95,106 68,120 68,150 L68,176 Q100,150 132,176 L132,150 C132,120 105,106 100,104"/>
-<rect x="55" y="127" width="90" height="26"/>
-<text x="100" y="140">Q ≤ 0.624</text>
-<polyline points="50,207 50,340"/>
+<rect x="66" y="80" width="108" height="21"/>
+<text x="120" y="90">G4</text>
+<path d="M120,109 C114,111 82,125 82,157 L82,185 Q120,158 158,185 L158,157 C158,125 126,111 120,109"/>
+<rect x="66" y="134" width="108" height="27"/>
+<text x="120" y="147">Q ≤ 0.624</text>
+<polyline points="60,218 60,357"/>
 
-<rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240" style="font-size: 10px">
-<tspan x="50" dy="0em">S1 fails closed</tspan>
+<rect x="6" y="218" width="108" height="69"/>
+<text x="60" y="252" style="font-size: 10px">
+<tspan x="60" dy="0em">S1 fails closed</tspan>
 </text>
-<rect x="5" y="276" width="90" height="20"/>
-<text x="50" y="286">X24</text>
-<circle cx="50" cy="340" r="35"/>
-<rect x="5" y="327" width="90" height="26"/>
-<text x="50" y="340">Q = 0.4052</text>
-<polyline points="150,207 150,340"/>
+<rect x="6" y="290" width="108" height="21"/>
+<text x="60" y="300">X24</text>
+<circle cx="60" cy="357" r="42"/>
+<rect x="6" y="344" width="108" height="27"/>
+<text x="60" y="357">Q = 0.4052</text>
+<polyline points="180,218 180,357"/>
 
-<rect x="105" y="207" width="90" height="66"/>
-<text x="150" y="240" style="font-size: 10px">
-<tspan x="150" dy="-0.5em">S1 set point too</tspan>
-<tspan x="150" dy="1em">high</tspan>
+<rect x="126" y="218" width="108" height="69"/>
+<text x="180" y="252" style="font-size: 10px">
+<tspan x="180" dy="-0.5em">S1 set point too</tspan>
+<tspan x="180" dy="1em">high</tspan>
 </text>
-<rect x="105" y="276" width="90" height="20"/>
-<text x="150" y="286">X26</text>
-<circle cx="150" cy="340" r="35"/>
-<rect x="105" y="327" width="90" height="26"/>
-<text x="150" y="340">Q = 0.2188</text>
+<rect x="126" y="290" width="108" height="21"/>
+<text x="180" y="300">X26</text>
+<circle cx="180" cy="357" r="42"/>
+<rect x="126" y="344" width="108" height="27"/>
+<text x="180" y="357">Q = 0.2188</text>
 </svg>

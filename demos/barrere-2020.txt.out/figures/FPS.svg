@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="-50 -50 800 1100" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="-50 -50 940 1150" xmlns="http://www.w3.org/2000/svg">
 <style>
 circle, path, polygon, rect {
   fill: lightyellow;
@@ -13,159 +13,159 @@ polyline {
 }
 text {
   dominant-baseline: middle;
-  font-family: Arial, sans-serif;
+  font-family: Cousine, "Courier New", monospace;
   font-size: 10px;
   text-anchor: middle;
 }
 </style>
-<polyline points="350,7 350,140"/>
-<polyline points="340,140 340,190 100,190 100,240"/>
-<polyline points="360,140 360,190 450,190 450,240"/>
-<rect x="305" y="7" width="90" height="66"/>
-<text x="350" y="40" style="font-size: 10px">
-<tspan x="350" dy="-1em">Failure of Fire</tspan>
-<tspan x="350" dy="1em">Protection</tspan>
-<tspan x="350" dy="1em">System</tspan>
+<polyline points="420,8 420,147"/>
+<polyline points="408,147 408,199 120,199 120,252"/>
+<polyline points="432,147 432,199 540,199 540,252"/>
+<rect x="366" y="8" width="108" height="69"/>
+<text x="420" y="42" style="font-size: 10px">
+<tspan x="420" dy="-1em">Failure of Fire</tspan>
+<tspan x="420" dy="1em">Protection</tspan>
+<tspan x="420" dy="1em">System</tspan>
 </text>
-<rect x="305" y="76" width="90" height="20"/>
-<text x="350" y="86">FPS</text>
-<path d="M350,104 C345,106 318,120 318,150 L318,176 Q350,150 382,176 L382,150 C382,120 355,106 350,104"/>
-<rect x="305" y="127" width="90" height="26"/>
-<text x="350" y="140">Q ≤ 0.0305</text>
-<polyline points="100,207 100,340"/>
-<polyline points="90,340 90,390 50,390 50,440"/>
-<polyline points="110,340 110,390 150,390 150,440"/>
-<rect x="55" y="207" width="90" height="66"/>
-<text x="100" y="240" style="font-size: 10px">
-<tspan x="100" dy="-0.5em">Fire detection</tspan>
-<tspan x="100" dy="1em">system fails</tspan>
+<rect x="366" y="80" width="108" height="21"/>
+<text x="420" y="90">FPS</text>
+<path d="M420,109 C414,111 382,125 382,157 L382,185 Q420,158 458,185 L458,157 C458,125 426,111 420,109"/>
+<rect x="366" y="134" width="108" height="27"/>
+<text x="420" y="147">Q ≤ 0.0305</text>
+<polyline points="120,218 120,357"/>
+<polyline points="108,357 108,409 60,409 60,462"/>
+<polyline points="132,357 132,409 180,409 180,462"/>
+<rect x="66" y="218" width="108" height="69"/>
+<text x="120" y="252" style="font-size: 10px">
+<tspan x="120" dy="-0.5em">Fire detection</tspan>
+<tspan x="120" dy="1em">system fails</tspan>
 </text>
-<rect x="55" y="276" width="90" height="20"/>
-<text x="100" y="286">FDS</text>
-<path d="M70,372 L130,372 L130,334 C130,294 70,294 70,334 L70,372 "/>
-<rect x="55" y="327" width="90" height="26"/>
-<text x="100" y="340">Q = 0.02</text>
-<polyline points="50,407 50,540"/>
+<rect x="66" y="290" width="108" height="21"/>
+<text x="120" y="300">FDS</text>
+<path d="M84,391 L156,391 L156,351 C156,309 84,309 84,351 L84,391 "/>
+<rect x="66" y="344" width="108" height="27"/>
+<text x="120" y="357">Q = 0.02</text>
+<polyline points="60,428 60,567"/>
 
-<rect x="5" y="407" width="90" height="66"/>
-<text x="50" y="440" style="font-size: 10px">
-<tspan x="50" dy="-0.5em">Failure of smoke</tspan>
-<tspan x="50" dy="1em">detector sensor</tspan>
+<rect x="6" y="428" width="108" height="69"/>
+<text x="60" y="462" style="font-size: 10px">
+<tspan x="60" dy="-0.5em">Failure of smoke</tspan>
+<tspan x="60" dy="1em">detector sensor</tspan>
 </text>
-<rect x="5" y="476" width="90" height="20"/>
-<text x="50" y="486">x1</text>
-<circle cx="50" cy="540" r="35"/>
-<rect x="5" y="527" width="90" height="26"/>
-<text x="50" y="540">Q = 0.2</text>
-<polyline points="150,407 150,540"/>
+<rect x="6" y="500" width="108" height="21"/>
+<text x="60" y="510">x1</text>
+<circle cx="60" cy="567" r="42"/>
+<rect x="6" y="554" width="108" height="27"/>
+<text x="60" y="567">Q = 0.2</text>
+<polyline points="180,428 180,567"/>
 
-<rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440" style="font-size: 10px">
-<tspan x="150" dy="-0.5em">Failure of heat</tspan>
-<tspan x="150" dy="1em">detector sensor</tspan>
+<rect x="126" y="428" width="108" height="69"/>
+<text x="180" y="462" style="font-size: 10px">
+<tspan x="180" dy="-0.5em">Failure of heat</tspan>
+<tspan x="180" dy="1em">detector sensor</tspan>
 </text>
-<rect x="105" y="476" width="90" height="20"/>
-<text x="150" y="486">x2</text>
-<circle cx="150" cy="540" r="35"/>
-<rect x="105" y="527" width="90" height="26"/>
-<text x="150" y="540">Q = 0.1</text>
-<polyline points="450,207 450,340"/>
-<polyline points="436,340 436,390 250,390 250,440"/>
-<polyline points="450,340 450,390 450,390 450,440"/>
-<polyline points="464,340 464,390 650,390 650,440"/>
-<rect x="405" y="207" width="90" height="66"/>
-<text x="450" y="240" style="font-size: 10px">
-<tspan x="450" dy="-0.5em">Fire suppression</tspan>
-<tspan x="450" dy="1em">system fails</tspan>
+<rect x="126" y="500" width="108" height="21"/>
+<text x="180" y="510">x2</text>
+<circle cx="180" cy="567" r="42"/>
+<rect x="126" y="554" width="108" height="27"/>
+<text x="180" y="567">Q = 0.1</text>
+<polyline points="540,218 540,357"/>
+<polyline points="522,357 522,409 300,409 300,462"/>
+<polyline points="540,357 540,409 540,409 540,462"/>
+<polyline points="558,357 558,409 780,409 780,462"/>
+<rect x="486" y="218" width="108" height="69"/>
+<text x="540" y="252" style="font-size: 10px">
+<tspan x="540" dy="-0.5em">Fire suppression</tspan>
+<tspan x="540" dy="1em">system fails</tspan>
 </text>
-<rect x="405" y="276" width="90" height="20"/>
-<text x="450" y="286">FSS</text>
-<path d="M450,304 C445,306 418,320 418,350 L418,376 Q450,350 482,376 L482,350 C482,320 455,306 450,304"/>
-<rect x="405" y="327" width="90" height="26"/>
-<text x="450" y="340">Q ≤ 0.0105</text>
-<polyline points="250,407 250,540"/>
+<rect x="486" y="290" width="108" height="21"/>
+<text x="540" y="300">FSS</text>
+<path d="M540,319 C534,321 502,335 502,367 L502,395 Q540,368 578,395 L578,367 C578,335 546,321 540,319"/>
+<rect x="486" y="344" width="108" height="27"/>
+<text x="540" y="357">Q ≤ 0.0105</text>
+<polyline points="300,428 300,567"/>
 
-<rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440" style="font-size: 10px">
-<tspan x="250" dy="-0.5em">No water to</tspan>
-<tspan x="250" dy="1em">sprinkler system</tspan>
+<rect x="246" y="428" width="108" height="69"/>
+<text x="300" y="462" style="font-size: 10px">
+<tspan x="300" dy="-0.5em">No water to</tspan>
+<tspan x="300" dy="1em">sprinkler system</tspan>
 </text>
-<rect x="205" y="476" width="90" height="20"/>
-<text x="250" y="486">x3</text>
-<circle cx="250" cy="540" r="35"/>
-<rect x="205" y="527" width="90" height="26"/>
-<text x="250" y="540">Q = 0.001</text>
-<polyline points="450,407 450,540"/>
-<polyline points="440,540 440,590 350,590 350,640"/>
-<polyline points="460,540 460,590 500,590 500,640"/>
-<rect x="405" y="407" width="90" height="66"/>
-<text x="450" y="440" style="font-size: 10px">
-<tspan x="450" dy="-0.5em">Triggering</tspan>
-<tspan x="450" dy="1em">system fails</tspan>
+<rect x="246" y="500" width="108" height="21"/>
+<text x="300" y="510">x3</text>
+<circle cx="300" cy="567" r="42"/>
+<rect x="246" y="554" width="108" height="27"/>
+<text x="300" y="567">Q = 0.001</text>
+<polyline points="540,428 540,567"/>
+<polyline points="528,567 528,619 420,619 420,672"/>
+<polyline points="552,567 552,619 600,619 600,672"/>
+<rect x="486" y="428" width="108" height="69"/>
+<text x="540" y="462" style="font-size: 10px">
+<tspan x="540" dy="-0.5em">Triggering</tspan>
+<tspan x="540" dy="1em">system fails</tspan>
 </text>
-<rect x="405" y="476" width="90" height="20"/>
-<text x="450" y="486">TS</text>
-<path d="M420,572 L480,572 L480,534 C480,494 420,494 420,534 L420,572 "/>
-<rect x="405" y="527" width="90" height="26"/>
-<text x="450" y="540">Q ≤ 0.0075</text>
-<polyline points="350,607 350,740"/>
+<rect x="486" y="500" width="108" height="21"/>
+<text x="540" y="510">TS</text>
+<path d="M504,601 L576,601 L576,561 C576,519 504,519 504,561 L504,601 "/>
+<rect x="486" y="554" width="108" height="27"/>
+<text x="540" y="567">Q ≤ 0.0075</text>
+<polyline points="420,638 420,777"/>
 
-<rect x="305" y="607" width="90" height="66"/>
-<text x="350" y="640" style="font-size: 10px">
-<tspan x="350" dy="-0.5em">Automatic</tspan>
-<tspan x="350" dy="1em">mechanism fails</tspan>
+<rect x="366" y="638" width="108" height="69"/>
+<text x="420" y="672" style="font-size: 10px">
+<tspan x="420" dy="-0.5em">Automatic</tspan>
+<tspan x="420" dy="1em">mechanism fails</tspan>
 </text>
-<rect x="305" y="676" width="90" height="20"/>
-<text x="350" y="686">x5</text>
-<circle cx="350" cy="740" r="35"/>
-<rect x="305" y="727" width="90" height="26"/>
-<text x="350" y="740">Q = 0.05</text>
-<polyline points="500,607 500,740"/>
-<polyline points="490,740 490,790 450,790 450,840"/>
-<polyline points="510,740 510,790 550,790 550,840"/>
-<rect x="455" y="607" width="90" height="66"/>
-<text x="500" y="640" style="font-size: 10px">
-<tspan x="500" dy="-0.5em">Remote control</tspan>
-<tspan x="500" dy="1em">fails</tspan>
+<rect x="366" y="710" width="108" height="21"/>
+<text x="420" y="720">x5</text>
+<circle cx="420" cy="777" r="42"/>
+<rect x="366" y="764" width="108" height="27"/>
+<text x="420" y="777">Q = 0.05</text>
+<polyline points="600,638 600,777"/>
+<polyline points="588,777 588,829 540,829 540,882"/>
+<polyline points="612,777 612,829 660,829 660,882"/>
+<rect x="546" y="638" width="108" height="69"/>
+<text x="600" y="672" style="font-size: 10px">
+<tspan x="600" dy="-0.5em">Remote control</tspan>
+<tspan x="600" dy="1em">fails</tspan>
 </text>
-<rect x="455" y="676" width="90" height="20"/>
-<text x="500" y="686">RC</text>
-<path d="M500,704 C495,706 468,720 468,750 L468,776 Q500,750 532,776 L532,750 C532,720 505,706 500,704"/>
-<rect x="455" y="727" width="90" height="26"/>
-<text x="500" y="740">Q ≤ 0.15</text>
-<polyline points="450,807 450,940"/>
+<rect x="546" y="710" width="108" height="21"/>
+<text x="600" y="720">RC</text>
+<path d="M600,739 C594,741 562,755 562,787 L562,815 Q600,788 638,815 L638,787 C638,755 606,741 600,739"/>
+<rect x="546" y="764" width="108" height="27"/>
+<text x="600" y="777">Q ≤ 0.15</text>
+<polyline points="540,848 540,987"/>
 
-<rect x="405" y="807" width="90" height="66"/>
-<text x="450" y="840" style="font-size: 10px">
-<tspan x="450" dy="-0.5em">Communications</tspan>
-<tspan x="450" dy="1em">failure</tspan>
+<rect x="486" y="848" width="108" height="69"/>
+<text x="540" y="882" style="font-size: 10px">
+<tspan x="540" dy="-0.5em">Communications</tspan>
+<tspan x="540" dy="1em">failure</tspan>
 </text>
-<rect x="405" y="876" width="90" height="20"/>
-<text x="450" y="886">x6</text>
-<circle cx="450" cy="940" r="35"/>
-<rect x="405" y="927" width="90" height="26"/>
-<text x="450" y="940">Q = 0.1</text>
-<polyline points="550,807 550,940"/>
+<rect x="486" y="920" width="108" height="21"/>
+<text x="540" y="930">x6</text>
+<circle cx="540" cy="987" r="42"/>
+<rect x="486" y="974" width="108" height="27"/>
+<text x="540" y="987">Q = 0.1</text>
+<polyline points="660,848 660,987"/>
 
-<rect x="505" y="807" width="90" height="66"/>
-<text x="550" y="840" style="font-size: 10px">
-<tspan x="550" dy="0em">DDoS attack</tspan>
+<rect x="606" y="848" width="108" height="69"/>
+<text x="660" y="882" style="font-size: 10px">
+<tspan x="660" dy="0em">DDoS attack</tspan>
 </text>
-<rect x="505" y="876" width="90" height="20"/>
-<text x="550" y="886">x7</text>
-<circle cx="550" cy="940" r="35"/>
-<rect x="505" y="927" width="90" height="26"/>
-<text x="550" y="940">Q = 0.05</text>
-<polyline points="650,407 650,540"/>
+<rect x="606" y="920" width="108" height="21"/>
+<text x="660" y="930">x7</text>
+<circle cx="660" cy="987" r="42"/>
+<rect x="606" y="974" width="108" height="27"/>
+<text x="660" y="987">Q = 0.05</text>
+<polyline points="780,428 780,567"/>
 
-<rect x="605" y="407" width="90" height="66"/>
-<text x="650" y="440" style="font-size: 10px">
-<tspan x="650" dy="-0.5em">Sprinkler</tspan>
-<tspan x="650" dy="1em">nozzles blocked</tspan>
+<rect x="726" y="428" width="108" height="69"/>
+<text x="780" y="462" style="font-size: 10px">
+<tspan x="780" dy="-0.5em">Sprinkler</tspan>
+<tspan x="780" dy="1em">nozzles blocked</tspan>
 </text>
-<rect x="605" y="476" width="90" height="20"/>
-<text x="650" y="486">x4</text>
-<circle cx="650" cy="540" r="35"/>
-<rect x="605" y="527" width="90" height="26"/>
-<text x="650" y="540">Q = 0.002</text>
+<rect x="726" y="500" width="108" height="21"/>
+<text x="780" y="510">x4</text>
+<circle cx="780" cy="567" r="42"/>
+<rect x="726" y="554" width="108" height="27"/>
+<text x="780" y="567">Q = 0.002</text>
 </svg>

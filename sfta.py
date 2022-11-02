@@ -1236,7 +1236,7 @@ class Figure:
             f'}}\n'
             f'text {{\n'
             f'  dominant-baseline: middle;\n'
-            f'  font-family: Arial, sans-serif;\n'
+            f'  font-family: Cousine, "Courier New", monospace;\n'
             f'  font-size: {font_size}px;\n'
             f'  text-anchor: middle;\n'
             f'}}\n'
@@ -1261,8 +1261,8 @@ class Node:
     SYMBOL_TYPE_EVENT = 2
     SYMBOL_TYPE_PAGED = 3
 
-    WIDTH = 100
-    HEIGHT = 200
+    WIDTH = 120
+    HEIGHT = 210
     DEFAULT_FONT_SIZE = 10
 
     LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
