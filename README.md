@@ -43,7 +43,7 @@ Output consists of:
 - an events summary,
 - a gates summary,
 - cut set listings, and
-- SVGs for each top gate and paged gate.
+- SVGs for all top gates and paged gates.
 
 For the example above, we have the following SVG for the top gate `SYS`:
 
