@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -23,7 +23,7 @@ text {
 <polyline points="250,140 250,190 250,190 250,240"/>
 <polyline points="264,140 264,190 450,190 450,240"/>
 <rect x="205" y="7" width="90" height="66"/>
-<text x="250" y="40">
+<text x="250" y="40" style="font-size: 10px">
 <tspan x="250" dy="-1.5em">Ethylene release</tspan>
 <tspan x="250" dy="1em">due to</tspan>
 <tspan x="250" dy="1em">components</tspan>
@@ -37,7 +37,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="-1em">Spontaneous</tspan>
 <tspan x="50" dy="1em">rupture of</tspan>
 <tspan x="50" dy="1em">deposit</tspan>
@@ -52,7 +52,7 @@ text {
 <polyline points="250,340 250,390 250,390 250,440"/>
 <polyline points="264,340 264,390 350,390 350,440"/>
 <rect x="205" y="207" width="90" height="66"/>
-<text x="250" y="240">
+<text x="250" y="240" style="font-size: 10px">
 
 </text>
 <rect x="205" y="276" width="90" height="20"/>
@@ -63,7 +63,7 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440">
+<text x="150" y="440" style="font-size: 10px">
 
 </text>
 <rect x="105" y="476" width="90" height="20"/>
@@ -74,7 +74,7 @@ text {
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440">
+<text x="250" y="440" style="font-size: 10px">
 
 </text>
 <rect x="205" y="476" width="90" height="20"/>
@@ -85,7 +85,7 @@ text {
 <polyline points="350,407 350,540"/>
 
 <rect x="305" y="407" width="90" height="66"/>
-<text x="350" y="440">
+<text x="350" y="440" style="font-size: 10px">
 
 </text>
 <rect x="305" y="476" width="90" height="20"/>
@@ -96,7 +96,7 @@ text {
 <polyline points="450,207 450,340"/>
 
 <rect x="405" y="207" width="90" height="66"/>
-<text x="450" y="240">
+<text x="450" y="240" style="font-size: 10px">
 <tspan x="450" dy="-1em">External &amp;</tspan>
 <tspan x="450" dy="1em">secondary</tspan>
 <tspan x="450" dy="1em">effects</tspan>

@@ -1217,6 +1217,7 @@ class Figure:
         height = top_node.height + 2 * Figure.MARGIN
 
         xmlns = 'http://www.w3.org/2000/svg'
+        font_size = Node.DEFAULT_FONT_SIZE
         elements = top_node.get_svg_elements_recursive()
 
         return (
@@ -1236,7 +1237,7 @@ class Figure:
             f'text {{\n'
             f'  dominant-baseline: middle;\n'
             f'  font-family: Arial, sans-serif;\n'
-            f'  font-size: 12px;\n'
+            f'  font-size: {font_size}px;\n'
             f'  text-anchor: middle;\n'
             f'}}\n'
             f'</style>\n'
@@ -1262,6 +1263,7 @@ class Node:
 
     WIDTH = 100
     HEIGHT = 200
+    DEFAULT_FONT_SIZE = 10
 
     LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
     LABEL_BOX_WIDTH = round(0.9 * WIDTH)
@@ -1499,12 +1501,13 @@ class Node:
         middle = y + Node.LABEL_BOX_Y_OFFSET
         if label is None:
             content = ''
+            scale_factor = 1
         else:
-            line_length = max(
+            target_line_length = max(
                 Node.LABEL_MIN_LINE_LENGTH,
                 round(sqrt(Node.LABEL_BOX_TARGET_RATIO * len(label))),
             )
-            lines = textwrap.wrap(label, line_length)
+            lines = textwrap.wrap(label, target_line_length)
             line_count = len(lines)
 
             tspans = []
@@ -1520,9 +1523,25 @@ class Node:
                 )
 
             content = '\n'.join(tspans)
+            max_line_length = max(len(line) for line in lines)
+            scale_factor = min(
+                1.,
+                (Node.LABEL_MIN_LINE_LENGTH / max_line_length) ** 2,
+            )
 
-        # TODO: font size
-        return f'<text x="{centre}" y="{middle}">\n{content}\n</text>'
+        font_size = blunt(
+            scale_factor * Node.DEFAULT_FONT_SIZE,
+            max_decimal_places=1,
+        )
+        style = f'font-size: {font_size}px'
+
+        return (
+            f'<text'
+            f' x="{centre}"'
+            f' y="{middle}"'
+            f' style="{style}"'
+            f'>\n{content}\n</text>'
+        )
 
     @staticmethod
     def id_rectangle_element(x, y):

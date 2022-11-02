@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -22,7 +22,7 @@ text {
 <polyline points="90,140 90,190 50,190 50,240"/>
 <polyline points="110,140 110,190 150,190 150,240"/>
 <rect x="55" y="7" width="90" height="66"/>
-<text x="100" y="40">
+<text x="100" y="40" style="font-size: 10px">
 
 </text>
 <rect x="55" y="76" width="90" height="20"/>
@@ -33,7 +33,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="0em">S1 fails closed</tspan>
 </text>
 <rect x="5" y="276" width="90" height="20"/>
@@ -44,7 +44,7 @@ text {
 <polyline points="150,207 150,340"/>
 
 <rect x="105" y="207" width="90" height="66"/>
-<text x="150" y="240">
+<text x="150" y="240" style="font-size: 10px">
 <tspan x="150" dy="-0.5em">S1 set point too</tspan>
 <tspan x="150" dy="1em">high</tspan>
 </text>

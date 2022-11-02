@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -23,7 +23,7 @@ text {
 <polyline points="450,140 450,194 400,194 400,240"/>
 <polyline points="464,140 464,190 800,190 800,240"/>
 <rect x="405" y="7" width="90" height="66"/>
-<text x="450" y="40">
+<text x="450" y="40" style="font-size: 10px">
 
 </text>
 <rect x="405" y="76" width="90" height="20"/>
@@ -34,7 +34,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="-0.5em">No discharge via</tspan>
 <tspan x="50" dy="1em">V2</tspan>
 </text>
@@ -48,7 +48,7 @@ text {
 <polyline points="400,340 400,390 400,390 400,440"/>
 <polyline points="414,340 414,390 650,390 650,440"/>
 <rect x="355" y="207" width="90" height="66"/>
-<text x="400" y="240">
+<text x="400" y="240" style="font-size: 10px">
 
 </text>
 <rect x="355" y="276" width="90" height="20"/>
@@ -59,7 +59,7 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440">
+<text x="150" y="440" style="font-size: 10px">
 <tspan x="150" dy="-0.5em">No discharge via</tspan>
 <tspan x="150" dy="1em">V2</tspan>
 </text>
@@ -72,7 +72,7 @@ text {
 <polyline points="390,540 390,590 250,590 250,640"/>
 <polyline points="410,540 410,590 450,590 450,640"/>
 <rect x="355" y="407" width="90" height="66"/>
-<text x="400" y="440">
+<text x="400" y="440" style="font-size: 10px">
 
 </text>
 <rect x="355" y="476" width="90" height="20"/>
@@ -83,7 +83,7 @@ text {
 <polyline points="250,607 250,740"/>
 
 <rect x="205" y="607" width="90" height="66"/>
-<text x="250" y="640">
+<text x="250" y="640" style="font-size: 10px">
 <tspan x="250" dy="0em">V2 fails closed</tspan>
 </text>
 <rect x="205" y="676" width="90" height="20"/>
@@ -96,7 +96,7 @@ text {
 <polyline points="450,740 450,790 450,790 450,840"/>
 <polyline points="464,740 464,790 550,790 550,840"/>
 <rect x="405" y="607" width="90" height="66"/>
-<text x="450" y="640">
+<text x="450" y="640" style="font-size: 10px">
 
 </text>
 <rect x="405" y="676" width="90" height="20"/>
@@ -107,7 +107,7 @@ text {
 <polyline points="350,807 350,940"/>
 
 <rect x="305" y="807" width="90" height="66"/>
-<text x="350" y="840">
+<text x="350" y="840" style="font-size: 10px">
 <tspan x="350" dy="-1em">Pressure</tspan>
 <tspan x="350" dy="1em">measurement P1</tspan>
 <tspan x="350" dy="1em">fails</tspan>
@@ -120,7 +120,7 @@ text {
 <polyline points="450,807 450,940"/>
 
 <rect x="405" y="807" width="90" height="66"/>
-<text x="450" y="840">
+<text x="450" y="840" style="font-size: 10px">
 <tspan x="450" dy="-0.5em">Valve positioner</tspan>
 <tspan x="450" dy="1em">V2 fails</tspan>
 </text>
@@ -132,7 +132,7 @@ text {
 <polyline points="550,807 550,940"/>
 
 <rect x="505" y="807" width="90" height="66"/>
-<text x="550" y="840">
+<text x="550" y="840" style="font-size: 10px">
 <tspan x="550" dy="-1em">Signal</tspan>
 <tspan x="550" dy="1em">transmission</tspan>
 <tspan x="550" dy="1em">P1-V2 fails</tspan>
@@ -145,7 +145,7 @@ text {
 <polyline points="650,407 650,540"/>
 
 <rect x="605" y="407" width="90" height="66"/>
-<text x="650" y="440">
+<text x="650" y="440" style="font-size: 10px">
 <tspan x="650" dy="-0.5em">Instrument air</tspan>
 <tspan x="650" dy="1em">supply fails</tspan>
 </text>
@@ -158,7 +158,7 @@ text {
 <polyline points="790,340 790,390 750,390 750,440"/>
 <polyline points="810,340 810,390 850,390 850,440"/>
 <rect x="755" y="207" width="90" height="66"/>
-<text x="800" y="240">
+<text x="800" y="240" style="font-size: 10px">
 
 </text>
 <rect x="755" y="276" width="90" height="20"/>
@@ -169,7 +169,7 @@ text {
 <polyline points="750,407 750,540"/>
 
 <rect x="705" y="407" width="90" height="66"/>
-<text x="750" y="440">
+<text x="750" y="440" style="font-size: 10px">
 <tspan x="750" dy="-0.5em">No discharge via</tspan>
 <tspan x="750" dy="1em">V2</tspan>
 </text>
@@ -181,7 +181,7 @@ text {
 <polyline points="850,407 850,540"/>
 
 <rect x="805" y="407" width="90" height="66"/>
-<text x="850" y="440">
+<text x="850" y="440" style="font-size: 10px">
 <tspan x="850" dy="-0.5em">Instrument air</tspan>
 <tspan x="850" dy="1em">supply fails</tspan>
 </text>

@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -22,7 +22,7 @@ text {
 <polyline points="390,140 390,190 50,190 50,240"/>
 <polyline points="410,140 410,190 450,190 450,240"/>
 <rect x="355" y="7" width="90" height="66"/>
-<text x="400" y="40">
+<text x="400" y="40" style="font-size: 10px">
 
 </text>
 <rect x="355" y="76" width="90" height="20"/>
@@ -33,7 +33,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="-1em">Pressure</tspan>
 <tspan x="50" dy="1em">vaporizer not</tspan>
 <tspan x="50" dy="1em">functioning</tspan>
@@ -47,7 +47,7 @@ text {
 <polyline points="440,340 440,390 400,390 400,440"/>
 <polyline points="460,340 460,390 750,390 750,440"/>
 <rect x="405" y="207" width="90" height="66"/>
-<text x="450" y="240">
+<text x="450" y="240" style="font-size: 10px">
 
 </text>
 <rect x="405" y="276" width="90" height="20"/>
@@ -60,7 +60,7 @@ text {
 <polyline points="400,540 400,590 400,590 400,640"/>
 <polyline points="414,540 414,590 650,590 650,640"/>
 <rect x="355" y="407" width="90" height="66"/>
-<text x="400" y="440">
+<text x="400" y="440" style="font-size: 10px">
 
 </text>
 <rect x="355" y="476" width="90" height="20"/>
@@ -71,7 +71,7 @@ text {
 <polyline points="150,607 150,740"/>
 
 <rect x="105" y="607" width="90" height="66"/>
-<text x="150" y="640">
+<text x="150" y="640" style="font-size: 10px">
 <tspan x="150" dy="-0.5em">Instrument air</tspan>
 <tspan x="150" dy="1em">supply fails</tspan>
 </text>
@@ -84,7 +84,7 @@ text {
 <polyline points="390,740 390,790 250,790 250,840"/>
 <polyline points="410,740 410,790 450,790 450,840"/>
 <rect x="355" y="607" width="90" height="66"/>
-<text x="400" y="640">
+<text x="400" y="640" style="font-size: 10px">
 
 </text>
 <rect x="355" y="676" width="90" height="20"/>
@@ -95,7 +95,7 @@ text {
 <polyline points="250,807 250,940"/>
 
 <rect x="205" y="807" width="90" height="66"/>
-<text x="250" y="840">
+<text x="250" y="840" style="font-size: 10px">
 <tspan x="250" dy="-1.5em">Deposit</tspan>
 <tspan x="250" dy="1em">manometric</tspan>
 <tspan x="250" dy="1em">pressure &lt; 1.96</tspan>
@@ -111,7 +111,7 @@ text {
 <polyline points="450,940 450,990 450,990 450,1040"/>
 <polyline points="464,940 464,990 550,990 550,1040"/>
 <rect x="405" y="807" width="90" height="66"/>
-<text x="450" y="840">
+<text x="450" y="840" style="font-size: 10px">
 
 </text>
 <rect x="405" y="876" width="90" height="20"/>
@@ -122,7 +122,7 @@ text {
 <polyline points="350,1007 350,1140"/>
 
 <rect x="305" y="1007" width="90" height="66"/>
-<text x="350" y="1040">
+<text x="350" y="1040" style="font-size: 10px">
 <tspan x="350" dy="-1em">Pressure</tspan>
 <tspan x="350" dy="1em">measurement P1</tspan>
 <tspan x="350" dy="1em">fails</tspan>
@@ -135,7 +135,7 @@ text {
 <polyline points="450,1007 450,1140"/>
 
 <rect x="405" y="1007" width="90" height="66"/>
-<text x="450" y="1040">
+<text x="450" y="1040" style="font-size: 10px">
 <tspan x="450" dy="-0.5em">Valve positioner</tspan>
 <tspan x="450" dy="1em">V1 fails</tspan>
 </text>
@@ -147,7 +147,7 @@ text {
 <polyline points="550,1007 550,1140"/>
 
 <rect x="505" y="1007" width="90" height="66"/>
-<text x="550" y="1040">
+<text x="550" y="1040" style="font-size: 10px">
 <tspan x="550" dy="-1em">Signal</tspan>
 <tspan x="550" dy="1em">transmission</tspan>
 <tspan x="550" dy="1em">P1-V1 fails</tspan>
@@ -160,7 +160,7 @@ text {
 <polyline points="650,607 650,740"/>
 
 <rect x="605" y="607" width="90" height="66"/>
-<text x="650" y="640">
+<text x="650" y="640" style="font-size: 10px">
 <tspan x="650" dy="0em">V1 fails closed</tspan>
 </text>
 <rect x="605" y="676" width="90" height="20"/>
@@ -171,7 +171,7 @@ text {
 <polyline points="750,407 750,540"/>
 
 <rect x="705" y="407" width="90" height="66"/>
-<text x="750" y="440">
+<text x="750" y="440" style="font-size: 10px">
 <tspan x="750" dy="0em">V1 fails open</tspan>
 </text>
 <rect x="705" y="476" width="90" height="20"/>

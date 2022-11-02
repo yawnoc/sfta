@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -22,7 +22,7 @@ text {
 <polyline points="140,140 140,190 50,190 50,240"/>
 <polyline points="160,140 160,190 200,190 200,240"/>
 <rect x="105" y="7" width="90" height="66"/>
-<text x="150" y="40">
+<text x="150" y="40" style="font-size: 10px">
 <tspan x="150" dy="0em">System fails</tspan>
 </text>
 <rect x="105" y="76" width="90" height="20"/>
@@ -33,7 +33,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="-0.5em">Component A</tspan>
 <tspan x="50" dy="1em">fails</tspan>
 </text>
@@ -46,7 +46,7 @@ text {
 <polyline points="190,340 190,390 150,390 150,440"/>
 <polyline points="210,340 210,390 250,390 250,440"/>
 <rect x="155" y="207" width="90" height="66"/>
-<text x="200" y="240">
+<text x="200" y="240" style="font-size: 10px">
 <tspan x="200" dy="0em">Subsystem fails</tspan>
 </text>
 <rect x="155" y="276" width="90" height="20"/>
@@ -57,7 +57,7 @@ text {
 <polyline points="150,407 150,540"/>
 
 <rect x="105" y="407" width="90" height="66"/>
-<text x="150" y="440">
+<text x="150" y="440" style="font-size: 10px">
 <tspan x="150" dy="-0.5em">Component B</tspan>
 <tspan x="150" dy="1em">fails</tspan>
 </text>
@@ -69,7 +69,7 @@ text {
 <polyline points="250,407 250,540"/>
 
 <rect x="205" y="407" width="90" height="66"/>
-<text x="250" y="440">
+<text x="250" y="440" style="font-size: 10px">
 <tspan x="250" dy="-0.5em">Component C</tspan>
 <tspan x="250" dy="1em">fails</tspan>
 </text>

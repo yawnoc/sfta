@@ -14,7 +14,7 @@ polyline {
 text {
   dominant-baseline: middle;
   font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   text-anchor: middle;
 }
 </style>
@@ -23,7 +23,7 @@ text {
 <polyline points="150,140 150,190 150,190 150,240"/>
 <polyline points="164,140 164,190 250,190 250,240"/>
 <rect x="105" y="7" width="90" height="66"/>
-<text x="150" y="40">
+<text x="150" y="40" style="font-size: 10px">
 
 </text>
 <rect x="105" y="76" width="90" height="20"/>
@@ -34,7 +34,7 @@ text {
 <polyline points="50,207 50,340"/>
 
 <rect x="5" y="207" width="90" height="66"/>
-<text x="50" y="240">
+<text x="50" y="240" style="font-size: 10px">
 <tspan x="50" dy="0em">Pipe work fire</tspan>
 </text>
 <rect x="5" y="276" width="90" height="20"/>
@@ -45,7 +45,7 @@ text {
 <polyline points="150,207 150,340"/>
 
 <rect x="105" y="207" width="90" height="66"/>
-<text x="150" y="240">
+<text x="150" y="240" style="font-size: 10px">
 
 </text>
 <rect x="105" y="276" width="90" height="20"/>
@@ -56,7 +56,7 @@ text {
 <polyline points="250,207 250,340"/>
 
 <rect x="205" y="207" width="90" height="66"/>
-<text x="250" y="240">
+<text x="250" y="240" style="font-size: 10px">
 
 </text>
 <rect x="205" y="276" width="90" height="20"/>
