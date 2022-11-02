@@ -23,12 +23,10 @@ text {
 <polyline points="300,147 300,199 300,199 300,252"/>
 <polyline points="315,147 315,199 540,199 540,252"/>
 <rect x="246" y="8" width="108" height="69"/>
-<text x="300" y="42" style="font-size: 10px">
-<tspan x="300" dy="-1.5em">Ethylene release</tspan>
-<tspan x="300" dy="1em">due to</tspan>
-<tspan x="300" dy="1em">components</tspan>
-<tspan x="300" dy="1em">rupture</tspan>
-</text>
+<text x="300" y="27" style="font-size: 10px">Ethylene release</text>
+<text x="300" y="37" style="font-size: 10px">due to</text>
+<text x="300" y="47" style="font-size: 10px">components</text>
+<text x="300" y="57" style="font-size: 10px">rupture</text>
 <rect x="246" y="80" width="108" height="21"/>
 <text x="300" y="90">G1</text>
 <path d="M300,109 C294,111 268,125 268,157 L268,185 Q300,158 332,185 L332,157 C332,125 306,111 300,109"/>
@@ -37,11 +35,9 @@ text {
 <polyline points="60,218 60,357"/>
 
 <rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">
-<tspan x="60" dy="-1em">Spontaneous</tspan>
-<tspan x="60" dy="1em">rupture of</tspan>
-<tspan x="60" dy="1em">deposit</tspan>
-</text>
+<text x="60" y="242" style="font-size: 10px">Spontaneous</text>
+<text x="60" y="252" style="font-size: 10px">rupture of</text>
+<text x="60" y="262" style="font-size: 10px">deposit</text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">X31</text>
 <circle cx="60" cy="357" r="38"/>
@@ -52,9 +48,7 @@ text {
 <polyline points="300,357 300,409 300,409 300,462"/>
 <polyline points="315,357 315,409 420,409 420,462"/>
 <rect x="246" y="218" width="108" height="69"/>
-<text x="300" y="252" style="font-size: 10px">
 
-</text>
 <rect x="246" y="290" width="108" height="21"/>
 <text x="300" y="300">G2</text>
 <path d="M268,391 L332,391 L332,351 C332,309 268,309 268,351 L268,391 "/>
@@ -63,9 +57,7 @@ text {
 <polyline points="180,428 180,567"/>
 
 <rect x="126" y="428" width="108" height="69"/>
-<text x="180" y="462" style="font-size: 10px">
 
-</text>
 <rect x="126" y="500" width="108" height="21"/>
 <text x="180" y="510">G3</text>
 <polygon points="180,531 140,603 220,603"/>
@@ -74,9 +66,7 @@ text {
 <polyline points="300,428 300,567"/>
 
 <rect x="246" y="428" width="108" height="69"/>
-<text x="300" y="462" style="font-size: 10px">
 
-</text>
 <rect x="246" y="500" width="108" height="21"/>
 <text x="300" y="510">G4</text>
 <polygon points="300,531 260,603 340,603"/>
@@ -85,9 +75,7 @@ text {
 <polyline points="420,428 420,567"/>
 
 <rect x="366" y="428" width="108" height="69"/>
-<text x="420" y="462" style="font-size: 10px">
 
-</text>
 <rect x="366" y="500" width="108" height="21"/>
 <text x="420" y="510">G5</text>
 <polygon points="420,531 380,603 460,603"/>
@@ -96,11 +84,9 @@ text {
 <polyline points="540,218 540,357"/>
 
 <rect x="486" y="218" width="108" height="69"/>
-<text x="540" y="252" style="font-size: 10px">
-<tspan x="540" dy="-1em">External &amp;</tspan>
-<tspan x="540" dy="1em">secondary</tspan>
-<tspan x="540" dy="1em">effects</tspan>
-</text>
+<text x="540" y="242" style="font-size: 10px">External &amp;</text>
+<text x="540" y="252" style="font-size: 10px">secondary</text>
+<text x="540" y="262" style="font-size: 10px">effects</text>
 <rect x="486" y="290" width="108" height="21"/>
 <text x="540" y="300">X33</text>
 <circle cx="540" cy="357" r="38"/>

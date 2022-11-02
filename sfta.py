@@ -1398,7 +1398,7 @@ class Node:
             Node.label_symbol_connector_element(x, y),
             Node.symbol_input_connector_elements(input_nodes, x, y),
             Node.label_rectangle_element(x, y),
-            Node.label_text_element(x, y, label),
+            Node.label_text_elements(x, y, label),
             Node.id_rectangle_element(x, y),
             Node.id_text_element(x, y, id_),
             Node.symbol_element(x, y, symbol_type),
@@ -1496,52 +1496,47 @@ class Node:
         )
 
     @staticmethod
-    def label_text_element(x, y, label):
+    def label_text_elements(x, y, label):
+        if label is None:
+            return ''
+
         centre = x
         middle = y + Node.LABEL_BOX_Y_OFFSET
-        if label is None:
-            content = ''
-            scale_factor = 1
-        else:
-            target_line_length = max(
-                Node.LABEL_MIN_LINE_LENGTH,
-                round(sqrt(Node.LABEL_BOX_TARGET_RATIO * len(label))),
-            )
-            lines = textwrap.wrap(label, target_line_length)
-            line_count = len(lines)
 
-            tspans = []
-            for line_number, line in enumerate(lines, start=1):
-                if line_number == 1:
-                    bias = (1 - line_count)/2
-                    ems = blunt(bias, max_decimal_places=1)
-                else:
-                    ems = 1
-                dy = f'{ems}em'
-                tspans.append(
-                    f'<tspan x="{centre}" dy="{dy}">{escape_xml(line)}</tspan>'
-                )
-
-            content = '\n'.join(tspans)
-            max_line_length = max(len(line) for line in lines)
-            scale_factor = min(
-                1.,
-                Node.LABEL_MIN_LINE_LENGTH / max_line_length,
-            )
-
-        font_size = blunt(
-            scale_factor * Node.DEFAULT_FONT_SIZE,
-            max_decimal_places=1,
+        target_line_length = max(
+            Node.LABEL_MIN_LINE_LENGTH,
+            round(sqrt(Node.LABEL_BOX_TARGET_RATIO * len(label))),
         )
-        style = f'font-size: {font_size}px'
+        lines = textwrap.wrap(label, target_line_length)
 
-        return (
-            f'<text'
-            f' x="{centre}"'
-            f' y="{middle}"'
-            f' style="{style}"'
-            f'>\n{content}\n</text>'
+        max_line_length = max(len(line) for line in lines)
+        scale_factor = min(
+            1.,
+            Node.LABEL_MIN_LINE_LENGTH / max_line_length,
         )
+        font_size = scale_factor * Node.DEFAULT_FONT_SIZE
+        font_size_str = blunt(font_size, max_decimal_places=1)
+        style = f'font-size: {font_size_str}px'
+
+        line_count = len(lines)
+        text_elements = []
+        for line_number, line in enumerate(lines, start=1):
+            bias = line_number - (1 + line_count) / 2
+            line_middle = blunt(
+                middle + bias * font_size,
+                max_decimal_places=1,
+            )
+            content = escape_xml(line)
+
+            text_elements.append(
+                f'<text'
+                f' x="{centre}"'
+                f' y="{line_middle}"'
+                f' style="{style}"'
+                f'>{content}</text>'
+            )
+
+        return '\n'.join(text_elements)
 
     @staticmethod
     def id_rectangle_element(x, y):

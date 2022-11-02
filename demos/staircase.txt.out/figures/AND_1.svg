@@ -22,16 +22,14 @@ text {
 <polyline points="1250,147 1250,199 60,199 60,252"/>
 <polyline points="1270,147 1270,199 1320,199 1320,252"/>
 <rect x="1206" y="8" width="108" height="69"/>
-<text x="1260" y="42" style="font-size: 5.7px">
-<tspan x="1260" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1260" dy="1em">level 1. Its label shall be</tspan>
-<tspan x="1260" dy="1em">exceeding long, that the</tspan>
-<tspan x="1260" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1260" dy="1em">properly wrap and size a</tspan>
-<tspan x="1260" dy="1em">long label might be tested,</tspan>
-<tspan x="1260" dy="1em">and be proved functional and</tspan>
-<tspan x="1260" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1260" y="22" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1260" y="27.7" style="font-size: 5.7px">level 1. Its label shall be</text>
+<text x="1260" y="33.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1260" y="39.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1260" y="44.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1260" y="50.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1260" y="56.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1260" y="62" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1206" y="80" width="108" height="21"/>
 <text x="1260" y="90">AND_1</text>
 <path d="M1228,181 L1292,181 L1292,141 C1292,99 1228,99 1228,141 L1228,181 "/>
@@ -40,9 +38,7 @@ text {
 <polyline points="60,218 60,357"/>
 
 <rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">
 
-</text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">A_1</text>
 <circle cx="60" cy="357" r="38"/>
@@ -52,16 +48,14 @@ text {
 <polyline points="1310,357 1310,409 180,409 180,462"/>
 <polyline points="1330,357 1330,409 1380,409 1380,462"/>
 <rect x="1266" y="218" width="108" height="69"/>
-<text x="1320" y="252" style="font-size: 5.7px">
-<tspan x="1320" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1320" dy="1em">level 1. Its label shall be</tspan>
-<tspan x="1320" dy="1em">exceeding long, that the</tspan>
-<tspan x="1320" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1320" dy="1em">properly wrap and size a</tspan>
-<tspan x="1320" dy="1em">long label might be tested,</tspan>
-<tspan x="1320" dy="1em">and be proved functional and</tspan>
-<tspan x="1320" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1320" y="232" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1320" y="237.7" style="font-size: 5.7px">level 1. Its label shall be</text>
+<text x="1320" y="243.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1320" y="249.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1320" y="254.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1320" y="260.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1320" y="266.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1320" y="272" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1266" y="290" width="108" height="21"/>
 <text x="1320" y="300">OR_1</text>
 <path d="M1320,319 C1314,321 1288,335 1288,367 L1288,395 Q1320,368 1352,395 L1352,367 C1352,335 1326,321 1320,319"/>
@@ -70,9 +64,7 @@ text {
 <polyline points="180,428 180,567"/>
 
 <rect x="126" y="428" width="108" height="69"/>
-<text x="180" y="462" style="font-size: 10px">
 
-</text>
 <rect x="126" y="500" width="108" height="21"/>
 <text x="180" y="510">O_1</text>
 <circle cx="180" cy="567" r="38"/>
@@ -82,16 +74,14 @@ text {
 <polyline points="1370,567 1370,619 300,619 300,672"/>
 <polyline points="1390,567 1390,619 1440,619 1440,672"/>
 <rect x="1326" y="428" width="108" height="69"/>
-<text x="1380" y="462" style="font-size: 5.7px">
-<tspan x="1380" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1380" dy="1em">level 2. Its label shall be</tspan>
-<tspan x="1380" dy="1em">exceeding long, that the</tspan>
-<tspan x="1380" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1380" dy="1em">properly wrap and size a</tspan>
-<tspan x="1380" dy="1em">long label might be tested,</tspan>
-<tspan x="1380" dy="1em">and be proved functional and</tspan>
-<tspan x="1380" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1380" y="442" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1380" y="447.7" style="font-size: 5.7px">level 2. Its label shall be</text>
+<text x="1380" y="453.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1380" y="459.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1380" y="464.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1380" y="470.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1380" y="476.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1380" y="482" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1326" y="500" width="108" height="21"/>
 <text x="1380" y="510">AND_2</text>
 <path d="M1348,601 L1412,601 L1412,561 C1412,519 1348,519 1348,561 L1348,601 "/>
@@ -100,9 +90,7 @@ text {
 <polyline points="300,638 300,777"/>
 
 <rect x="246" y="638" width="108" height="69"/>
-<text x="300" y="672" style="font-size: 10px">
 
-</text>
 <rect x="246" y="710" width="108" height="21"/>
 <text x="300" y="720">A_2</text>
 <circle cx="300" cy="777" r="38"/>
@@ -112,16 +100,14 @@ text {
 <polyline points="1430,777 1430,829 420,829 420,882"/>
 <polyline points="1450,777 1450,829 1500,829 1500,882"/>
 <rect x="1386" y="638" width="108" height="69"/>
-<text x="1440" y="672" style="font-size: 5.7px">
-<tspan x="1440" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1440" dy="1em">level 2. Its label shall be</tspan>
-<tspan x="1440" dy="1em">exceeding long, that the</tspan>
-<tspan x="1440" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1440" dy="1em">properly wrap and size a</tspan>
-<tspan x="1440" dy="1em">long label might be tested,</tspan>
-<tspan x="1440" dy="1em">and be proved functional and</tspan>
-<tspan x="1440" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1440" y="652" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1440" y="657.7" style="font-size: 5.7px">level 2. Its label shall be</text>
+<text x="1440" y="663.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1440" y="669.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1440" y="674.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1440" y="680.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1440" y="686.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1440" y="692" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1386" y="710" width="108" height="21"/>
 <text x="1440" y="720">OR_2</text>
 <path d="M1440,739 C1434,741 1408,755 1408,787 L1408,815 Q1440,788 1472,815 L1472,787 C1472,755 1446,741 1440,739"/>
@@ -130,9 +116,7 @@ text {
 <polyline points="420,848 420,987"/>
 
 <rect x="366" y="848" width="108" height="69"/>
-<text x="420" y="882" style="font-size: 10px">
 
-</text>
 <rect x="366" y="920" width="108" height="21"/>
 <text x="420" y="930">O_2</text>
 <circle cx="420" cy="987" r="38"/>
@@ -142,16 +126,14 @@ text {
 <polyline points="1490,987 1490,1039 540,1039 540,1092"/>
 <polyline points="1510,987 1510,1039 1560,1039 1560,1092"/>
 <rect x="1446" y="848" width="108" height="69"/>
-<text x="1500" y="882" style="font-size: 5.7px">
-<tspan x="1500" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1500" dy="1em">level 3. Its label shall be</tspan>
-<tspan x="1500" dy="1em">exceeding long, that the</tspan>
-<tspan x="1500" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1500" dy="1em">properly wrap and size a</tspan>
-<tspan x="1500" dy="1em">long label might be tested,</tspan>
-<tspan x="1500" dy="1em">and be proved functional and</tspan>
-<tspan x="1500" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1500" y="862" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1500" y="867.7" style="font-size: 5.7px">level 3. Its label shall be</text>
+<text x="1500" y="873.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1500" y="879.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1500" y="884.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1500" y="890.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1500" y="896.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1500" y="902" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1446" y="920" width="108" height="21"/>
 <text x="1500" y="930">AND_3</text>
 <path d="M1468,1021 L1532,1021 L1532,981 C1532,939 1468,939 1468,981 L1468,1021 "/>
@@ -160,9 +142,7 @@ text {
 <polyline points="540,1058 540,1197"/>
 
 <rect x="486" y="1058" width="108" height="69"/>
-<text x="540" y="1092" style="font-size: 10px">
 
-</text>
 <rect x="486" y="1130" width="108" height="21"/>
 <text x="540" y="1140">A_3</text>
 <circle cx="540" cy="1197" r="38"/>
@@ -172,16 +152,14 @@ text {
 <polyline points="1550,1197 1550,1249 660,1249 660,1302"/>
 <polyline points="1570,1197 1570,1249 1620,1249 1620,1302"/>
 <rect x="1506" y="1058" width="108" height="69"/>
-<text x="1560" y="1092" style="font-size: 5.7px">
-<tspan x="1560" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1560" dy="1em">level 3. Its label shall be</tspan>
-<tspan x="1560" dy="1em">exceeding long, that the</tspan>
-<tspan x="1560" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1560" dy="1em">properly wrap and size a</tspan>
-<tspan x="1560" dy="1em">long label might be tested,</tspan>
-<tspan x="1560" dy="1em">and be proved functional and</tspan>
-<tspan x="1560" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1560" y="1072" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1560" y="1077.7" style="font-size: 5.7px">level 3. Its label shall be</text>
+<text x="1560" y="1083.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1560" y="1089.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1560" y="1094.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1560" y="1100.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1560" y="1106.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1560" y="1112" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1506" y="1130" width="108" height="21"/>
 <text x="1560" y="1140">OR_3</text>
 <path d="M1560,1159 C1554,1161 1528,1175 1528,1207 L1528,1235 Q1560,1208 1592,1235 L1592,1207 C1592,1175 1566,1161 1560,1159"/>
@@ -190,9 +168,7 @@ text {
 <polyline points="660,1268 660,1407"/>
 
 <rect x="606" y="1268" width="108" height="69"/>
-<text x="660" y="1302" style="font-size: 10px">
 
-</text>
 <rect x="606" y="1340" width="108" height="21"/>
 <text x="660" y="1350">O_3</text>
 <circle cx="660" cy="1407" r="38"/>
@@ -202,16 +178,14 @@ text {
 <polyline points="1610,1407 1610,1459 780,1459 780,1512"/>
 <polyline points="1630,1407 1630,1459 1680,1459 1680,1512"/>
 <rect x="1566" y="1268" width="108" height="69"/>
-<text x="1620" y="1302" style="font-size: 5.7px">
-<tspan x="1620" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1620" dy="1em">level 4. Its label shall be</tspan>
-<tspan x="1620" dy="1em">exceeding long, that the</tspan>
-<tspan x="1620" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1620" dy="1em">properly wrap and size a</tspan>
-<tspan x="1620" dy="1em">long label might be tested,</tspan>
-<tspan x="1620" dy="1em">and be proved functional and</tspan>
-<tspan x="1620" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1620" y="1282" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1620" y="1287.7" style="font-size: 5.7px">level 4. Its label shall be</text>
+<text x="1620" y="1293.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1620" y="1299.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1620" y="1304.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1620" y="1310.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1620" y="1316.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1620" y="1322" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1566" y="1340" width="108" height="21"/>
 <text x="1620" y="1350">AND_4</text>
 <path d="M1588,1441 L1652,1441 L1652,1401 C1652,1359 1588,1359 1588,1401 L1588,1441 "/>
@@ -220,9 +194,7 @@ text {
 <polyline points="780,1478 780,1617"/>
 
 <rect x="726" y="1478" width="108" height="69"/>
-<text x="780" y="1512" style="font-size: 10px">
 
-</text>
 <rect x="726" y="1550" width="108" height="21"/>
 <text x="780" y="1560">A_4</text>
 <circle cx="780" cy="1617" r="38"/>
@@ -232,16 +204,14 @@ text {
 <polyline points="1670,1617 1670,1669 900,1669 900,1722"/>
 <polyline points="1690,1617 1690,1669 1740,1669 1740,1722"/>
 <rect x="1626" y="1478" width="108" height="69"/>
-<text x="1680" y="1512" style="font-size: 5.7px">
-<tspan x="1680" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1680" dy="1em">level 4. Its label shall be</tspan>
-<tspan x="1680" dy="1em">exceeding long, that the</tspan>
-<tspan x="1680" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1680" dy="1em">properly wrap and size a</tspan>
-<tspan x="1680" dy="1em">long label might be tested,</tspan>
-<tspan x="1680" dy="1em">and be proved functional and</tspan>
-<tspan x="1680" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1680" y="1492" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1680" y="1497.7" style="font-size: 5.7px">level 4. Its label shall be</text>
+<text x="1680" y="1503.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1680" y="1509.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1680" y="1514.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1680" y="1520.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1680" y="1526.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1680" y="1532" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1626" y="1550" width="108" height="21"/>
 <text x="1680" y="1560">OR_4</text>
 <path d="M1680,1579 C1674,1581 1648,1595 1648,1627 L1648,1655 Q1680,1628 1712,1655 L1712,1627 C1712,1595 1686,1581 1680,1579"/>
@@ -250,9 +220,7 @@ text {
 <polyline points="900,1688 900,1827"/>
 
 <rect x="846" y="1688" width="108" height="69"/>
-<text x="900" y="1722" style="font-size: 10px">
 
-</text>
 <rect x="846" y="1760" width="108" height="21"/>
 <text x="900" y="1770">O_4</text>
 <circle cx="900" cy="1827" r="38"/>
@@ -262,16 +230,14 @@ text {
 <polyline points="1730,1827 1730,1879 1020,1879 1020,1932"/>
 <polyline points="1750,1827 1750,1879 1800,1879 1800,1932"/>
 <rect x="1686" y="1688" width="108" height="69"/>
-<text x="1740" y="1722" style="font-size: 5.7px">
-<tspan x="1740" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1740" dy="1em">level 5. Its label shall be</tspan>
-<tspan x="1740" dy="1em">exceeding long, that the</tspan>
-<tspan x="1740" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1740" dy="1em">properly wrap and size a</tspan>
-<tspan x="1740" dy="1em">long label might be tested,</tspan>
-<tspan x="1740" dy="1em">and be proved functional and</tspan>
-<tspan x="1740" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1740" y="1702" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1740" y="1707.7" style="font-size: 5.7px">level 5. Its label shall be</text>
+<text x="1740" y="1713.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1740" y="1719.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1740" y="1724.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1740" y="1730.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1740" y="1736.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1740" y="1742" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1686" y="1760" width="108" height="21"/>
 <text x="1740" y="1770">AND_5</text>
 <path d="M1708,1861 L1772,1861 L1772,1821 C1772,1779 1708,1779 1708,1821 L1708,1861 "/>
@@ -280,9 +246,7 @@ text {
 <polyline points="1020,1898 1020,2037"/>
 
 <rect x="966" y="1898" width="108" height="69"/>
-<text x="1020" y="1932" style="font-size: 10px">
 
-</text>
 <rect x="966" y="1970" width="108" height="21"/>
 <text x="1020" y="1980">A_5</text>
 <circle cx="1020" cy="2037" r="38"/>
@@ -292,16 +256,14 @@ text {
 <polyline points="1790,2037 1790,2089 1140,2089 1140,2142"/>
 <polyline points="1810,2037 1810,2089 1860,2089 1860,2142"/>
 <rect x="1746" y="1898" width="108" height="69"/>
-<text x="1800" y="1932" style="font-size: 5.7px">
-<tspan x="1800" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1800" dy="1em">level 5. Its label shall be</tspan>
-<tspan x="1800" dy="1em">exceeding long, that the</tspan>
-<tspan x="1800" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1800" dy="1em">properly wrap and size a</tspan>
-<tspan x="1800" dy="1em">long label might be tested,</tspan>
-<tspan x="1800" dy="1em">and be proved functional and</tspan>
-<tspan x="1800" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1800" y="1912" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1800" y="1917.7" style="font-size: 5.7px">level 5. Its label shall be</text>
+<text x="1800" y="1923.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1800" y="1929.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1800" y="1934.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1800" y="1940.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1800" y="1946.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1800" y="1952" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1746" y="1970" width="108" height="21"/>
 <text x="1800" y="1980">OR_5</text>
 <path d="M1800,1999 C1794,2001 1768,2015 1768,2047 L1768,2075 Q1800,2048 1832,2075 L1832,2047 C1832,2015 1806,2001 1800,1999"/>
@@ -310,9 +272,7 @@ text {
 <polyline points="1140,2108 1140,2247"/>
 
 <rect x="1086" y="2108" width="108" height="69"/>
-<text x="1140" y="2142" style="font-size: 10px">
 
-</text>
 <rect x="1086" y="2180" width="108" height="21"/>
 <text x="1140" y="2190">O_5</text>
 <circle cx="1140" cy="2247" r="38"/>
@@ -322,16 +282,14 @@ text {
 <polyline points="1850,2247 1850,2299 1260,2299 1260,2352"/>
 <polyline points="1870,2247 1870,2299 1920,2299 1920,2352"/>
 <rect x="1806" y="2108" width="108" height="69"/>
-<text x="1860" y="2142" style="font-size: 5.7px">
-<tspan x="1860" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1860" dy="1em">level 6. Its label shall be</tspan>
-<tspan x="1860" dy="1em">exceeding long, that the</tspan>
-<tspan x="1860" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1860" dy="1em">properly wrap and size a</tspan>
-<tspan x="1860" dy="1em">long label might be tested,</tspan>
-<tspan x="1860" dy="1em">and be proved functional and</tspan>
-<tspan x="1860" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1860" y="2122" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1860" y="2127.7" style="font-size: 5.7px">level 6. Its label shall be</text>
+<text x="1860" y="2133.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1860" y="2139.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1860" y="2144.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1860" y="2150.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1860" y="2156.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1860" y="2162" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1806" y="2180" width="108" height="21"/>
 <text x="1860" y="2190">AND_6</text>
 <path d="M1828,2281 L1892,2281 L1892,2241 C1892,2199 1828,2199 1828,2241 L1828,2281 "/>
@@ -340,9 +298,7 @@ text {
 <polyline points="1260,2318 1260,2457"/>
 
 <rect x="1206" y="2318" width="108" height="69"/>
-<text x="1260" y="2352" style="font-size: 10px">
 
-</text>
 <rect x="1206" y="2390" width="108" height="21"/>
 <text x="1260" y="2400">A_6</text>
 <circle cx="1260" cy="2457" r="38"/>
@@ -352,16 +308,14 @@ text {
 <polyline points="1910,2457 1910,2509 1380,2509 1380,2562"/>
 <polyline points="1930,2457 1930,2509 1980,2509 1980,2562"/>
 <rect x="1866" y="2318" width="108" height="69"/>
-<text x="1920" y="2352" style="font-size: 5.7px">
-<tspan x="1920" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="1920" dy="1em">level 6. Its label shall be</tspan>
-<tspan x="1920" dy="1em">exceeding long, that the</tspan>
-<tspan x="1920" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1920" dy="1em">properly wrap and size a</tspan>
-<tspan x="1920" dy="1em">long label might be tested,</tspan>
-<tspan x="1920" dy="1em">and be proved functional and</tspan>
-<tspan x="1920" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1920" y="2332" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="1920" y="2337.7" style="font-size: 5.7px">level 6. Its label shall be</text>
+<text x="1920" y="2343.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1920" y="2349.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1920" y="2354.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1920" y="2360.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1920" y="2366.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1920" y="2372" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1866" y="2390" width="108" height="21"/>
 <text x="1920" y="2400">OR_6</text>
 <path d="M1920,2419 C1914,2421 1888,2435 1888,2467 L1888,2495 Q1920,2468 1952,2495 L1952,2467 C1952,2435 1926,2421 1920,2419"/>
@@ -370,9 +324,7 @@ text {
 <polyline points="1380,2528 1380,2667"/>
 
 <rect x="1326" y="2528" width="108" height="69"/>
-<text x="1380" y="2562" style="font-size: 10px">
 
-</text>
 <rect x="1326" y="2600" width="108" height="21"/>
 <text x="1380" y="2610">O_6</text>
 <circle cx="1380" cy="2667" r="38"/>
@@ -382,16 +334,14 @@ text {
 <polyline points="1970,2667 1970,2719 1500,2719 1500,2772"/>
 <polyline points="1990,2667 1990,2719 2040,2719 2040,2772"/>
 <rect x="1926" y="2528" width="108" height="69"/>
-<text x="1980" y="2562" style="font-size: 5.7px">
-<tspan x="1980" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="1980" dy="1em">level 7. Its label shall be</tspan>
-<tspan x="1980" dy="1em">exceeding long, that the</tspan>
-<tspan x="1980" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="1980" dy="1em">properly wrap and size a</tspan>
-<tspan x="1980" dy="1em">long label might be tested,</tspan>
-<tspan x="1980" dy="1em">and be proved functional and</tspan>
-<tspan x="1980" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="1980" y="2542" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="1980" y="2547.7" style="font-size: 5.7px">level 7. Its label shall be</text>
+<text x="1980" y="2553.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="1980" y="2559.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="1980" y="2564.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="1980" y="2570.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="1980" y="2576.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="1980" y="2582" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1926" y="2600" width="108" height="21"/>
 <text x="1980" y="2610">AND_7</text>
 <path d="M1948,2701 L2012,2701 L2012,2661 C2012,2619 1948,2619 1948,2661 L1948,2701 "/>
@@ -400,9 +350,7 @@ text {
 <polyline points="1500,2738 1500,2877"/>
 
 <rect x="1446" y="2738" width="108" height="69"/>
-<text x="1500" y="2772" style="font-size: 10px">
 
-</text>
 <rect x="1446" y="2810" width="108" height="21"/>
 <text x="1500" y="2820">A_7</text>
 <circle cx="1500" cy="2877" r="38"/>
@@ -412,16 +360,14 @@ text {
 <polyline points="2030,2877 2030,2929 1620,2929 1620,2982"/>
 <polyline points="2050,2877 2050,2929 2100,2929 2100,2982"/>
 <rect x="1986" y="2738" width="108" height="69"/>
-<text x="2040" y="2772" style="font-size: 5.7px">
-<tspan x="2040" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="2040" dy="1em">level 7. Its label shall be</tspan>
-<tspan x="2040" dy="1em">exceeding long, that the</tspan>
-<tspan x="2040" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2040" dy="1em">properly wrap and size a</tspan>
-<tspan x="2040" dy="1em">long label might be tested,</tspan>
-<tspan x="2040" dy="1em">and be proved functional and</tspan>
-<tspan x="2040" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2040" y="2752" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="2040" y="2757.7" style="font-size: 5.7px">level 7. Its label shall be</text>
+<text x="2040" y="2763.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2040" y="2769.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2040" y="2774.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2040" y="2780.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2040" y="2786.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2040" y="2792" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="1986" y="2810" width="108" height="21"/>
 <text x="2040" y="2820">OR_7</text>
 <path d="M2040,2839 C2034,2841 2008,2855 2008,2887 L2008,2915 Q2040,2888 2072,2915 L2072,2887 C2072,2855 2046,2841 2040,2839"/>
@@ -430,9 +376,7 @@ text {
 <polyline points="1620,2948 1620,3087"/>
 
 <rect x="1566" y="2948" width="108" height="69"/>
-<text x="1620" y="2982" style="font-size: 10px">
 
-</text>
 <rect x="1566" y="3020" width="108" height="21"/>
 <text x="1620" y="3030">O_7</text>
 <circle cx="1620" cy="3087" r="38"/>
@@ -442,16 +386,14 @@ text {
 <polyline points="2090,3087 2090,3139 1740,3139 1740,3192"/>
 <polyline points="2110,3087 2110,3139 2160,3139 2160,3192"/>
 <rect x="2046" y="2948" width="108" height="69"/>
-<text x="2100" y="2982" style="font-size: 5.7px">
-<tspan x="2100" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="2100" dy="1em">level 8. Its label shall be</tspan>
-<tspan x="2100" dy="1em">exceeding long, that the</tspan>
-<tspan x="2100" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2100" dy="1em">properly wrap and size a</tspan>
-<tspan x="2100" dy="1em">long label might be tested,</tspan>
-<tspan x="2100" dy="1em">and be proved functional and</tspan>
-<tspan x="2100" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2100" y="2962" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="2100" y="2967.7" style="font-size: 5.7px">level 8. Its label shall be</text>
+<text x="2100" y="2973.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2100" y="2979.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2100" y="2984.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2100" y="2990.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2100" y="2996.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2100" y="3002" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2046" y="3020" width="108" height="21"/>
 <text x="2100" y="3030">AND_8</text>
 <path d="M2068,3121 L2132,3121 L2132,3081 C2132,3039 2068,3039 2068,3081 L2068,3121 "/>
@@ -460,9 +402,7 @@ text {
 <polyline points="1740,3158 1740,3297"/>
 
 <rect x="1686" y="3158" width="108" height="69"/>
-<text x="1740" y="3192" style="font-size: 10px">
 
-</text>
 <rect x="1686" y="3230" width="108" height="21"/>
 <text x="1740" y="3240">A_8</text>
 <circle cx="1740" cy="3297" r="38"/>
@@ -472,16 +412,14 @@ text {
 <polyline points="2150,3297 2150,3349 1860,3349 1860,3402"/>
 <polyline points="2170,3297 2170,3349 2220,3349 2220,3402"/>
 <rect x="2106" y="3158" width="108" height="69"/>
-<text x="2160" y="3192" style="font-size: 5.7px">
-<tspan x="2160" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="2160" dy="1em">level 8. Its label shall be</tspan>
-<tspan x="2160" dy="1em">exceeding long, that the</tspan>
-<tspan x="2160" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2160" dy="1em">properly wrap and size a</tspan>
-<tspan x="2160" dy="1em">long label might be tested,</tspan>
-<tspan x="2160" dy="1em">and be proved functional and</tspan>
-<tspan x="2160" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2160" y="3172" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="2160" y="3177.7" style="font-size: 5.7px">level 8. Its label shall be</text>
+<text x="2160" y="3183.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2160" y="3189.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2160" y="3194.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2160" y="3200.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2160" y="3206.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2160" y="3212" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2106" y="3230" width="108" height="21"/>
 <text x="2160" y="3240">OR_8</text>
 <path d="M2160,3259 C2154,3261 2128,3275 2128,3307 L2128,3335 Q2160,3308 2192,3335 L2192,3307 C2192,3275 2166,3261 2160,3259"/>
@@ -490,9 +428,7 @@ text {
 <polyline points="1860,3368 1860,3507"/>
 
 <rect x="1806" y="3368" width="108" height="69"/>
-<text x="1860" y="3402" style="font-size: 10px">
 
-</text>
 <rect x="1806" y="3440" width="108" height="21"/>
 <text x="1860" y="3450">O_8</text>
 <circle cx="1860" cy="3507" r="38"/>
@@ -502,16 +438,14 @@ text {
 <polyline points="2210,3507 2210,3559 1980,3559 1980,3612"/>
 <polyline points="2230,3507 2230,3559 2280,3559 2280,3612"/>
 <rect x="2166" y="3368" width="108" height="69"/>
-<text x="2220" y="3402" style="font-size: 5.7px">
-<tspan x="2220" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="2220" dy="1em">level 9. Its label shall be</tspan>
-<tspan x="2220" dy="1em">exceeding long, that the</tspan>
-<tspan x="2220" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2220" dy="1em">properly wrap and size a</tspan>
-<tspan x="2220" dy="1em">long label might be tested,</tspan>
-<tspan x="2220" dy="1em">and be proved functional and</tspan>
-<tspan x="2220" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2220" y="3382" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="2220" y="3387.7" style="font-size: 5.7px">level 9. Its label shall be</text>
+<text x="2220" y="3393.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2220" y="3399.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2220" y="3404.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2220" y="3410.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2220" y="3416.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2220" y="3422" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2166" y="3440" width="108" height="21"/>
 <text x="2220" y="3450">AND_9</text>
 <path d="M2188,3541 L2252,3541 L2252,3501 C2252,3459 2188,3459 2188,3501 L2188,3541 "/>
@@ -520,9 +454,7 @@ text {
 <polyline points="1980,3578 1980,3717"/>
 
 <rect x="1926" y="3578" width="108" height="69"/>
-<text x="1980" y="3612" style="font-size: 10px">
 
-</text>
 <rect x="1926" y="3650" width="108" height="21"/>
 <text x="1980" y="3660">A_9</text>
 <circle cx="1980" cy="3717" r="38"/>
@@ -532,16 +464,14 @@ text {
 <polyline points="2270,3717 2270,3769 2100,3769 2100,3822"/>
 <polyline points="2290,3717 2290,3769 2340,3769 2340,3822"/>
 <rect x="2226" y="3578" width="108" height="69"/>
-<text x="2280" y="3612" style="font-size: 5.7px">
-<tspan x="2280" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="2280" dy="1em">level 9. Its label shall be</tspan>
-<tspan x="2280" dy="1em">exceeding long, that the</tspan>
-<tspan x="2280" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2280" dy="1em">properly wrap and size a</tspan>
-<tspan x="2280" dy="1em">long label might be tested,</tspan>
-<tspan x="2280" dy="1em">and be proved functional and</tspan>
-<tspan x="2280" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2280" y="3592" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="2280" y="3597.7" style="font-size: 5.7px">level 9. Its label shall be</text>
+<text x="2280" y="3603.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2280" y="3609.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2280" y="3614.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2280" y="3620.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2280" y="3626.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2280" y="3632" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2226" y="3650" width="108" height="21"/>
 <text x="2280" y="3660">OR_9</text>
 <path d="M2280,3679 C2274,3681 2248,3695 2248,3727 L2248,3755 Q2280,3728 2312,3755 L2312,3727 C2312,3695 2286,3681 2280,3679"/>
@@ -550,9 +480,7 @@ text {
 <polyline points="2100,3788 2100,3927"/>
 
 <rect x="2046" y="3788" width="108" height="69"/>
-<text x="2100" y="3822" style="font-size: 10px">
 
-</text>
 <rect x="2046" y="3860" width="108" height="21"/>
 <text x="2100" y="3870">O_9</text>
 <circle cx="2100" cy="3927" r="38"/>
@@ -562,16 +490,14 @@ text {
 <polyline points="2330,3927 2330,3979 2220,3979 2220,4032"/>
 <polyline points="2350,3927 2350,3979 2400,3979 2400,4032"/>
 <rect x="2286" y="3788" width="108" height="69"/>
-<text x="2340" y="3822" style="font-size: 5.7px">
-<tspan x="2340" dy="-3.5em">And this be the AND gate of</tspan>
-<tspan x="2340" dy="1em">level 10. Its label shall be</tspan>
-<tspan x="2340" dy="1em">exceeding long, that the</tspan>
-<tspan x="2340" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2340" dy="1em">properly wrap and size a</tspan>
-<tspan x="2340" dy="1em">long label might be tested,</tspan>
-<tspan x="2340" dy="1em">and be proved functional and</tspan>
-<tspan x="2340" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2340" y="3802" style="font-size: 5.7px">And this be the AND gate of</text>
+<text x="2340" y="3807.7" style="font-size: 5.7px">level 10. Its label shall be</text>
+<text x="2340" y="3813.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2340" y="3819.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2340" y="3824.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2340" y="3830.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2340" y="3836.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2340" y="3842" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2286" y="3860" width="108" height="21"/>
 <text x="2340" y="3870">AND_10</text>
 <path d="M2308,3961 L2372,3961 L2372,3921 C2372,3879 2308,3879 2308,3921 L2308,3961 "/>
@@ -580,9 +506,7 @@ text {
 <polyline points="2220,3998 2220,4137"/>
 
 <rect x="2166" y="3998" width="108" height="69"/>
-<text x="2220" y="4032" style="font-size: 10px">
 
-</text>
 <rect x="2166" y="4070" width="108" height="21"/>
 <text x="2220" y="4080">A_10</text>
 <circle cx="2220" cy="4137" r="38"/>
@@ -592,16 +516,14 @@ text {
 <polyline points="2390,4137 2390,4189 2340,4189 2340,4242"/>
 <polyline points="2410,4137 2410,4189 2460,4189 2460,4242"/>
 <rect x="2346" y="3998" width="108" height="69"/>
-<text x="2400" y="4032" style="font-size: 5.7px">
-<tspan x="2400" dy="-3.5em">And this be the OR gate of</tspan>
-<tspan x="2400" dy="1em">level 10. Its label shall be</tspan>
-<tspan x="2400" dy="1em">exceeding long, that the</tspan>
-<tspan x="2400" dy="1em">capabilities of SFTA to</tspan>
-<tspan x="2400" dy="1em">properly wrap and size a</tspan>
-<tspan x="2400" dy="1em">long label might be tested,</tspan>
-<tspan x="2400" dy="1em">and be proved functional and</tspan>
-<tspan x="2400" dy="1em">not unpleasing.</tspan>
-</text>
+<text x="2400" y="4012" style="font-size: 5.7px">And this be the OR gate of</text>
+<text x="2400" y="4017.7" style="font-size: 5.7px">level 10. Its label shall be</text>
+<text x="2400" y="4023.4" style="font-size: 5.7px">exceeding long, that the</text>
+<text x="2400" y="4029.1" style="font-size: 5.7px">capabilities of SFTA to</text>
+<text x="2400" y="4034.9" style="font-size: 5.7px">properly wrap and size a</text>
+<text x="2400" y="4040.6" style="font-size: 5.7px">long label might be tested,</text>
+<text x="2400" y="4046.3" style="font-size: 5.7px">and be proved functional and</text>
+<text x="2400" y="4052" style="font-size: 5.7px">not unpleasing.</text>
 <rect x="2346" y="4070" width="108" height="21"/>
 <text x="2400" y="4080">OR_10</text>
 <path d="M2400,4099 C2394,4101 2368,4115 2368,4147 L2368,4175 Q2400,4148 2432,4175 L2432,4147 C2432,4115 2406,4101 2400,4099"/>
@@ -610,9 +532,7 @@ text {
 <polyline points="2340,4208 2340,4347"/>
 
 <rect x="2286" y="4208" width="108" height="69"/>
-<text x="2340" y="4242" style="font-size: 10px">
 
-</text>
 <rect x="2286" y="4280" width="108" height="21"/>
 <text x="2340" y="4290">O_10</text>
 <circle cx="2340" cy="4347" r="38"/>
@@ -621,9 +541,7 @@ text {
 <polyline points="2460,4208 2460,4347"/>
 
 <rect x="2406" y="4208" width="108" height="69"/>
-<text x="2460" y="4242" style="font-size: 10px">
 
-</text>
 <rect x="2406" y="4280" width="108" height="21"/>
 <text x="2460" y="4290">L</text>
 <circle cx="2460" cy="4347" r="38"/>

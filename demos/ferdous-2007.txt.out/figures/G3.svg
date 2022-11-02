@@ -23,9 +23,7 @@ text {
 <polyline points="180,147 180,199 180,199 180,252"/>
 <polyline points="195,147 195,199 300,199 300,252"/>
 <rect x="126" y="8" width="108" height="69"/>
-<text x="180" y="42" style="font-size: 10px">
 
-</text>
 <rect x="126" y="80" width="108" height="21"/>
 <text x="180" y="90">G3</text>
 <path d="M180,109 C174,111 148,125 148,157 L148,185 Q180,158 212,185 L212,157 C212,125 186,111 180,109"/>
@@ -34,9 +32,7 @@ text {
 <polyline points="60,218 60,357"/>
 
 <rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">
-<tspan x="60" dy="0em">Pipe work fire</tspan>
-</text>
+<text x="60" y="252" style="font-size: 10px">Pipe work fire</text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">X32</text>
 <circle cx="60" cy="357" r="38"/>
@@ -45,9 +41,7 @@ text {
 <polyline points="180,218 180,357"/>
 
 <rect x="126" y="218" width="108" height="69"/>
-<text x="180" y="252" style="font-size: 10px">
 
-</text>
 <rect x="126" y="290" width="108" height="21"/>
 <text x="180" y="300">G6</text>
 <polygon points="180,321 140,393 220,393"/>
@@ -56,9 +50,7 @@ text {
 <polyline points="300,218 300,357"/>
 
 <rect x="246" y="218" width="108" height="69"/>
-<text x="300" y="252" style="font-size: 10px">
 
-</text>
 <rect x="246" y="290" width="108" height="21"/>
 <text x="300" y="300">G7</text>
 <polygon points="300,321 260,393 340,393"/>

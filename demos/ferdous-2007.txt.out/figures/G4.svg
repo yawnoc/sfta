@@ -22,9 +22,7 @@ text {
 <polyline points="110,147 110,199 60,199 60,252"/>
 <polyline points="130,147 130,199 180,199 180,252"/>
 <rect x="66" y="8" width="108" height="69"/>
-<text x="120" y="42" style="font-size: 10px">
 
-</text>
 <rect x="66" y="80" width="108" height="21"/>
 <text x="120" y="90">G4</text>
 <path d="M120,109 C114,111 88,125 88,157 L88,185 Q120,158 152,185 L152,157 C152,125 126,111 120,109"/>
@@ -33,9 +31,7 @@ text {
 <polyline points="60,218 60,357"/>
 
 <rect x="6" y="218" width="108" height="69"/>
-<text x="60" y="252" style="font-size: 10px">
-<tspan x="60" dy="0em">S1 fails closed</tspan>
-</text>
+<text x="60" y="252" style="font-size: 10px">S1 fails closed</text>
 <rect x="6" y="290" width="108" height="21"/>
 <text x="60" y="300">X24</text>
 <circle cx="60" cy="357" r="38"/>
@@ -44,10 +40,8 @@ text {
 <polyline points="180,218 180,357"/>
 
 <rect x="126" y="218" width="108" height="69"/>
-<text x="180" y="252" style="font-size: 10px">
-<tspan x="180" dy="-0.5em">S1 set point too</tspan>
-<tspan x="180" dy="1em">high</tspan>
-</text>
+<text x="180" y="247" style="font-size: 10px">S1 set point too</text>
+<text x="180" y="257" style="font-size: 10px">high</text>
 <rect x="126" y="290" width="108" height="21"/>
 <text x="180" y="300">X26</text>
 <circle cx="180" cy="357" r="38"/>

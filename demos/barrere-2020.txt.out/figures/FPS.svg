@@ -22,11 +22,9 @@ text {
 <polyline points="410,147 410,199 120,199 120,252"/>
 <polyline points="430,147 430,199 540,199 540,252"/>
 <rect x="366" y="8" width="108" height="69"/>
-<text x="420" y="42" style="font-size: 10px">
-<tspan x="420" dy="-1em">Failure of Fire</tspan>
-<tspan x="420" dy="1em">Protection</tspan>
-<tspan x="420" dy="1em">System</tspan>
-</text>
+<text x="420" y="32" style="font-size: 10px">Failure of Fire</text>
+<text x="420" y="42" style="font-size: 10px">Protection</text>
+<text x="420" y="52" style="font-size: 10px">System</text>
 <rect x="366" y="80" width="108" height="21"/>
 <text x="420" y="90">FPS</text>
 <path d="M420,109 C414,111 388,125 388,157 L388,185 Q420,158 452,185 L452,157 C452,125 426,111 420,109"/>
@@ -36,10 +34,8 @@ text {
 <polyline points="110,357 110,409 60,409 60,462"/>
 <polyline points="130,357 130,409 180,409 180,462"/>
 <rect x="66" y="218" width="108" height="69"/>
-<text x="120" y="252" style="font-size: 10px">
-<tspan x="120" dy="-0.5em">Fire detection</tspan>
-<tspan x="120" dy="1em">system fails</tspan>
-</text>
+<text x="120" y="247" style="font-size: 10px">Fire detection</text>
+<text x="120" y="257" style="font-size: 10px">system fails</text>
 <rect x="66" y="290" width="108" height="21"/>
 <text x="120" y="300">FDS</text>
 <path d="M88,391 L152,391 L152,351 C152,309 88,309 88,351 L88,391 "/>
@@ -48,10 +44,8 @@ text {
 <polyline points="60,428 60,567"/>
 
 <rect x="6" y="428" width="108" height="69"/>
-<text x="60" y="462" style="font-size: 10px">
-<tspan x="60" dy="-0.5em">Failure of smoke</tspan>
-<tspan x="60" dy="1em">detector sensor</tspan>
-</text>
+<text x="60" y="457" style="font-size: 10px">Failure of smoke</text>
+<text x="60" y="467" style="font-size: 10px">detector sensor</text>
 <rect x="6" y="500" width="108" height="21"/>
 <text x="60" y="510">x1</text>
 <circle cx="60" cy="567" r="38"/>
@@ -60,10 +54,8 @@ text {
 <polyline points="180,428 180,567"/>
 
 <rect x="126" y="428" width="108" height="69"/>
-<text x="180" y="462" style="font-size: 10px">
-<tspan x="180" dy="-0.5em">Failure of heat</tspan>
-<tspan x="180" dy="1em">detector sensor</tspan>
-</text>
+<text x="180" y="457" style="font-size: 10px">Failure of heat</text>
+<text x="180" y="467" style="font-size: 10px">detector sensor</text>
 <rect x="126" y="500" width="108" height="21"/>
 <text x="180" y="510">x2</text>
 <circle cx="180" cy="567" r="38"/>
@@ -74,10 +66,8 @@ text {
 <polyline points="540,357 540,409 540,409 540,462"/>
 <polyline points="555,357 555,409 780,409 780,462"/>
 <rect x="486" y="218" width="108" height="69"/>
-<text x="540" y="252" style="font-size: 10px">
-<tspan x="540" dy="-0.5em">Fire suppression</tspan>
-<tspan x="540" dy="1em">system fails</tspan>
-</text>
+<text x="540" y="247" style="font-size: 10px">Fire suppression</text>
+<text x="540" y="257" style="font-size: 10px">system fails</text>
 <rect x="486" y="290" width="108" height="21"/>
 <text x="540" y="300">FSS</text>
 <path d="M540,319 C534,321 508,335 508,367 L508,395 Q540,368 572,395 L572,367 C572,335 546,321 540,319"/>
@@ -86,10 +76,8 @@ text {
 <polyline points="300,428 300,567"/>
 
 <rect x="246" y="428" width="108" height="69"/>
-<text x="300" y="462" style="font-size: 10px">
-<tspan x="300" dy="-0.5em">No water to</tspan>
-<tspan x="300" dy="1em">sprinkler system</tspan>
-</text>
+<text x="300" y="457" style="font-size: 10px">No water to</text>
+<text x="300" y="467" style="font-size: 10px">sprinkler system</text>
 <rect x="246" y="500" width="108" height="21"/>
 <text x="300" y="510">x3</text>
 <circle cx="300" cy="567" r="38"/>
@@ -99,10 +87,8 @@ text {
 <polyline points="530,567 530,619 420,619 420,672"/>
 <polyline points="550,567 550,619 600,619 600,672"/>
 <rect x="486" y="428" width="108" height="69"/>
-<text x="540" y="462" style="font-size: 10px">
-<tspan x="540" dy="-0.5em">Triggering</tspan>
-<tspan x="540" dy="1em">system fails</tspan>
-</text>
+<text x="540" y="457" style="font-size: 10px">Triggering</text>
+<text x="540" y="467" style="font-size: 10px">system fails</text>
 <rect x="486" y="500" width="108" height="21"/>
 <text x="540" y="510">TS</text>
 <path d="M508,601 L572,601 L572,561 C572,519 508,519 508,561 L508,601 "/>
@@ -111,10 +97,8 @@ text {
 <polyline points="420,638 420,777"/>
 
 <rect x="366" y="638" width="108" height="69"/>
-<text x="420" y="672" style="font-size: 10px">
-<tspan x="420" dy="-0.5em">Automatic</tspan>
-<tspan x="420" dy="1em">mechanism fails</tspan>
-</text>
+<text x="420" y="667" style="font-size: 10px">Automatic</text>
+<text x="420" y="677" style="font-size: 10px">mechanism fails</text>
 <rect x="366" y="710" width="108" height="21"/>
 <text x="420" y="720">x5</text>
 <circle cx="420" cy="777" r="38"/>
@@ -124,10 +108,8 @@ text {
 <polyline points="590,777 590,829 540,829 540,882"/>
 <polyline points="610,777 610,829 660,829 660,882"/>
 <rect x="546" y="638" width="108" height="69"/>
-<text x="600" y="672" style="font-size: 10px">
-<tspan x="600" dy="-0.5em">Remote control</tspan>
-<tspan x="600" dy="1em">fails</tspan>
-</text>
+<text x="600" y="667" style="font-size: 10px">Remote control</text>
+<text x="600" y="677" style="font-size: 10px">fails</text>
 <rect x="546" y="710" width="108" height="21"/>
 <text x="600" y="720">RC</text>
 <path d="M600,739 C594,741 568,755 568,787 L568,815 Q600,788 632,815 L632,787 C632,755 606,741 600,739"/>
@@ -136,10 +118,8 @@ text {
 <polyline points="540,848 540,987"/>
 
 <rect x="486" y="848" width="108" height="69"/>
-<text x="540" y="882" style="font-size: 10px">
-<tspan x="540" dy="-0.5em">Communications</tspan>
-<tspan x="540" dy="1em">failure</tspan>
-</text>
+<text x="540" y="877" style="font-size: 10px">Communications</text>
+<text x="540" y="887" style="font-size: 10px">failure</text>
 <rect x="486" y="920" width="108" height="21"/>
 <text x="540" y="930">x6</text>
 <circle cx="540" cy="987" r="38"/>
@@ -148,9 +128,7 @@ text {
 <polyline points="660,848 660,987"/>
 
 <rect x="606" y="848" width="108" height="69"/>
-<text x="660" y="882" style="font-size: 10px">
-<tspan x="660" dy="0em">DDoS attack</tspan>
-</text>
+<text x="660" y="882" style="font-size: 10px">DDoS attack</text>
 <rect x="606" y="920" width="108" height="21"/>
 <text x="660" y="930">x7</text>
 <circle cx="660" cy="987" r="38"/>
@@ -159,10 +137,8 @@ text {
 <polyline points="780,428 780,567"/>
 
 <rect x="726" y="428" width="108" height="69"/>
-<text x="780" y="462" style="font-size: 10px">
-<tspan x="780" dy="-0.5em">Sprinkler</tspan>
-<tspan x="780" dy="1em">nozzles blocked</tspan>
-</text>
+<text x="780" y="457" style="font-size: 10px">Sprinkler</text>
+<text x="780" y="467" style="font-size: 10px">nozzles blocked</text>
 <rect x="726" y="500" width="108" height="21"/>
 <text x="780" y="510">x4</text>
 <circle cx="780" cy="567" r="38"/>
