@@ -1265,45 +1265,45 @@ class Node:
     HEIGHT = 210
     DEFAULT_FONT_SIZE = 10
 
-    LABEL_BOX_Y_OFFSET = round(-0.3 * HEIGHT)
-    LABEL_BOX_WIDTH = round(0.9 * WIDTH)
-    LABEL_BOX_HEIGHT = round(0.33 * HEIGHT)
+    LABEL_BOX_Y_OFFSET = -63
+    LABEL_BOX_WIDTH = 108
+    LABEL_BOX_HEIGHT = 69
     LABEL_BOX_TARGET_RATIO = 4  # line length divided by line count
     LABEL_MIN_LINE_LENGTH = 16
 
-    ID_BOX_Y_OFFSET = round(-0.07 * HEIGHT)
-    ID_BOX_WIDTH = round(0.9 * WIDTH)
-    ID_BOX_HEIGHT = round(0.1 * HEIGHT)
+    ID_BOX_Y_OFFSET = -15
+    ID_BOX_WIDTH = 108
+    ID_BOX_HEIGHT = 21
 
-    SYMBOL_Y_OFFSET = round(0.2 * HEIGHT)
-    SYMBOL_SLOTS_HALF_WIDTH = round(0.25 * WIDTH)
+    SYMBOL_Y_OFFSET = 42
+    SYMBOL_SLOTS_HALF_WIDTH = 30
 
-    CONNECTOR_BUS_Y_OFFSET = round(0.45 * HEIGHT)
-    CONNECTOR_BUS_HALF_HEIGHT = round(0.06 * HEIGHT)
+    CONNECTOR_BUS_Y_OFFSET = 94
+    CONNECTOR_BUS_HALF_HEIGHT = 13
 
-    OR_APEX_HEIGHT = round(0.18 * HEIGHT)  # tip, above centre
-    OR_NECK_HEIGHT = round(-0.05 * HEIGHT)  # ears, above centre
-    OR_BODY_HEIGHT = round(0.18 * HEIGHT)  # toes, below centre
-    OR_SLANT_DROP = round(0.01 * HEIGHT)  # control points, below apex
-    OR_SLANT_RUN = round(0.05 * WIDTH)  # control points, beside apex
-    OR_SLING_RISE = round(0.15 * HEIGHT)  # control points, above toes
-    OR_GROIN_RISE = round(0.13 * HEIGHT)  # control point, between toes
-    OR_HALF_WIDTH = round(0.27 * WIDTH)
+    OR_APEX_HEIGHT = 38  # tip, above centre
+    OR_NECK_HEIGHT = -10  # ears, above centre
+    OR_BODY_HEIGHT = 38  # toes, below centre
+    OR_SLANT_DROP = 2  # control points, below apex
+    OR_SLANT_RUN = 6  # control points, beside apex
+    OR_SLING_RISE = 32  # control points, above toes
+    OR_GROIN_RISE = 27  # control point, between toes
+    OR_HALF_WIDTH = 32
 
-    AND_NECK_HEIGHT = round(0.03 * HEIGHT)  # ears, above centre
-    AND_BODY_HEIGHT = round(0.16 * HEIGHT)  # toes, below centre
-    AND_SLING_RISE = round(0.2 * HEIGHT)  # control points, above toes
-    AND_HALF_WIDTH = round(0.27 * WIDTH)
+    AND_NECK_HEIGHT = 6  # ears, above centre
+    AND_BODY_HEIGHT = 34  # toes, below centre
+    AND_SLING_RISE = 42  # control points, above toes
+    AND_HALF_WIDTH = 32
 
-    EVENT_CIRCLE_RADIUS = round(0.32 * WIDTH)
+    EVENT_CIRCLE_RADIUS = 38
 
-    PAGED_APEX_HEIGHT = round(0.17 * HEIGHT)  # tip, above centre
-    PAGED_BODY_HEIGHT = round(0.17 * HEIGHT)  # toes, below centre
-    PAGED_HALF_WIDTH = round(0.33 * WIDTH)
+    PAGED_APEX_HEIGHT = 36  # tip, above centre
+    PAGED_BODY_HEIGHT = 36  # toes, below centre
+    PAGED_HALF_WIDTH = 40
 
-    QUANTITY_BOX_Y_OFFSET = round(0.2 * HEIGHT)
-    QUANTITY_BOX_WIDTH = round(0.9 * WIDTH)
-    QUANTITY_BOX_HEIGHT = round(0.13 * HEIGHT)
+    QUANTITY_BOX_Y_OFFSET = 42
+    QUANTITY_BOX_WIDTH = 108
+    QUANTITY_BOX_HEIGHT = 27
 
     def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event
