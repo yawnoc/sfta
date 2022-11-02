@@ -45,7 +45,7 @@ Output consists of:
 - cut set listings, and
 - SVGs for all top gates and paged gates.
 
-For the example above, we have the following SVG for the top gate `SYS`:
+For the example above, we get the following SVG for the top gate `SYS`:
 
 <img
   alt="Nice looking SVG showing the example fault tree."
