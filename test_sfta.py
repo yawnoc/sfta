@@ -14,10 +14,45 @@ import textwrap
 import unittest
 
 from sfta import Event, FaultTree, Gate, Tome, Writ
-from sfta import dull, escape_xml, find_cycles
+from sfta import blunt, dull, escape_xml, find_cycles
 
 
 class TestSfta(unittest.TestCase):
+    def test_blunt(self):
+        self.assertEqual(blunt(None, 1), None)
+
+        self.assertEqual(blunt(0, 1), '0')
+        self.assertEqual(blunt(0., 1), '0')
+        self.assertEqual(blunt(-0., 1), '0')
+
+        self.assertNotEqual(str(0.1 + 0.2), '0.3')
+        self.assertEqual(blunt(0.1 + 0.2, 1), '0.3')
+
+        self.assertEqual(blunt(89640, 1), '89640')
+        self.assertEqual(blunt(89640, 2), '89640')
+        self.assertEqual(blunt(89640, 3), '89640')
+        self.assertEqual(blunt(89640, 4), '89640')
+
+        self.assertEqual(blunt(69.42069, 1), '69.4')
+        self.assertEqual(blunt(69.42069, 2), '69.42')
+        self.assertEqual(blunt(69.42069, 3), '69.421')
+        self.assertEqual(blunt(69.42069, 4), '69.4207')
+        self.assertEqual(blunt(69.42069, 5), '69.42069')
+        self.assertEqual(blunt(69.42069, 6), '69.42069')
+
+        self.assertEqual(blunt(0.00123456789, 1), '0')
+        self.assertEqual(blunt(0.00123456789, 2), '0')
+        self.assertEqual(blunt(0.00123456789, 3), '0.001')
+        self.assertEqual(blunt(0.00123456789, 4), '0.0012')
+        self.assertEqual(blunt(0.00123456789, 5), '0.00123')
+        self.assertEqual(blunt(0.00123456789, 6), '0.001235')
+        self.assertEqual(blunt(0.00123456789, 7), '0.0012346')
+        self.assertEqual(blunt(0.00123456789, 8), '0.00123457')
+        self.assertEqual(blunt(0.00123456789, 9), '0.001234568')
+        self.assertEqual(blunt(0.00123456789, 10), '0.0012345679')
+        self.assertEqual(blunt(0.00123456789, 11), '0.00123456789')
+        self.assertEqual(blunt(0.00123456789, 12), '0.00123456789')
+
     def test_dull(self):
         self.assertEqual(dull(None), None)
 

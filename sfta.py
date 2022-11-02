@@ -22,6 +22,28 @@ from math import floor, isfinite, log10, prod
 __version__ = '0.1.0'
 
 
+def blunt(number, max_decimal_places):
+    """
+    Blunt a number to at most certain decimal places, as a string.
+    """
+    if number is None:
+        return None
+
+    if number == 0:
+        return '0'
+
+    if not isfinite(number):
+        return str(number)
+
+    rounded_decimal = round(Decimal(number), max_decimal_places)
+    if rounded_decimal == rounded_decimal.to_integral():
+        nice_decimal = rounded_decimal.quantize(1)
+    else:
+        nice_decimal = rounded_decimal.normalize()
+
+    return str(nice_decimal)
+
+
 def dull(number, max_significant_figures=1):
     """
     Dull a number to at most certain significant figures, as a string.
