@@ -36,6 +36,15 @@ Event: C
 
 This allows for sensible diffing between two versions of a fault tree.
 
+Output consists of an events summary, a gates summary,
+cut set listings, and SVGs for each top gate and paged gate.
+For the example above, we have the following SVG for the top gate `SYS`:
+
+<img
+  alt="Nice looking SVG showing the example fault tree."
+  src="demos/readme-example.txt.out/figures/SYS.svg"
+  width="480">
+
 
 ## Limitations
 
