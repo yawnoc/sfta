@@ -1526,7 +1526,7 @@ class Node:
             max_line_length = max(len(line) for line in lines)
             scale_factor = min(
                 1.,
-                (Node.LABEL_MIN_LINE_LENGTH / max_line_length) ** 2,
+                Node.LABEL_MIN_LINE_LENGTH / max_line_length,
             )
 
         font_size = blunt(
