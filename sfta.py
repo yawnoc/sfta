@@ -1515,9 +1515,9 @@ class Node:
                 if line_number == 1:
                     bias = (1 - line_count)/2
                     ems = blunt(bias, max_decimal_places=1)
-                    dy = f'{ems}em'
                 else:
-                    dy = '1em'
+                    ems = 1
+                dy = f'{ems}em'
                 tspans.append(
                     f'<tspan x="{centre}" dy="{dy}">{escape_xml(line)}</tspan>'
                 )
