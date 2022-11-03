@@ -9,7 +9,7 @@
 - Actually updated demos for Consolas
 
 
-## [v0.2.2] Consolas (2022-11-03)
+## ~~[v0.2.2] Consolas (2022-11-03)~~ (release cancelled)
 
 - Added Consolas to start of font stack
 
