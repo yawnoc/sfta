@@ -1236,7 +1236,7 @@ class Figure:
             f'}}\n'
             f'text {{\n'
             f'  dominant-baseline: middle;\n'
-            f'  font-family: Cousine, "Courier New", monospace;\n'
+            f'  font-family: Consolas, Cousine, "Courier New", monospace;\n'
             f'  font-size: {font_size}px;\n'
             f'  text-anchor: middle;\n'
             f'}}\n'

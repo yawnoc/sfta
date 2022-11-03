@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Added Consolas to start of font stack
+
 
 ## [v0.2.1] Line spacing (2022-11-02)
 
