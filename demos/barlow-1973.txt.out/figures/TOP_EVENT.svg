@@ -13,7 +13,7 @@ polyline {
 }
 text {
   dominant-baseline: middle;
-  font-family: Cousine, "Courier New", monospace;
+  font-family: Consolas, Cousine, "Courier New", monospace;
   font-size: 10px;
   text-anchor: middle;
 }
