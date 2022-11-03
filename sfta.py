@@ -1269,7 +1269,7 @@ class Node:
     LABEL_BOX_Y_OFFSET = -65
     LABEL_BOX_WIDTH = 108
     LABEL_BOX_HEIGHT = 70
-    LABEL_BOX_TARGET_RATIO = 4  # line length divided by line count
+    LABEL_BOX_TARGET_RATIO = 5.4  # line length divided by line count
     LABEL_MIN_LINE_LENGTH = 16
 
     ID_BOX_Y_OFFSET = -13

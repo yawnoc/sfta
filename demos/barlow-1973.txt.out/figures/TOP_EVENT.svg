@@ -106,11 +106,11 @@ text {
 <polyline points="830,990 830,1040 540,1040 540,1090"/>
 <polyline points="850,990 850,1040 1020,1040 1020,1090"/>
 <rect x="786" y="845" width="108" height="70"/>
-<text x="840" y="855.5" style="font-size: 9.4px">EMF Remains on</text>
-<text x="840" y="867.8" style="font-size: 9.4px">Pressure Switch</text>
-<text x="840" y="880" style="font-size: 9.4px">Contacts When P/S</text>
-<text x="840" y="892.2" style="font-size: 9.4px">Cont. Closed T &gt;</text>
-<text x="840" y="904.5" style="font-size: 9.4px">60 sec.</text>
+<text x="840" y="858.1" style="font-size: 8.4px">EMF Remains on</text>
+<text x="840" y="869.1" style="font-size: 8.4px">Pressure Switch</text>
+<text x="840" y="880" style="font-size: 8.4px">Contacts When P/S</text>
+<text x="840" y="890.9" style="font-size: 8.4px">Cont. Closed T &gt; 60</text>
+<text x="840" y="901.9" style="font-size: 8.4px">sec.</text>
 <rect x="786" y="920" width="108" height="24"/>
 <text x="840" y="932">G4</text>
 <path d="M840,952 C834,954 807,965 807,1000 L807,1026 Q840,996 873,1026 L873,1000 C873,965 846,954 840,952"/>
@@ -121,11 +121,10 @@ text {
 <polyline points="540,1200 540,1250 540,1250 540,1300"/>
 <polyline points="555,1200 555,1250 660,1250 660,1300"/>
 <rect x="486" y="1055" width="108" height="70"/>
-<text x="540" y="1064" style="font-size: 10px">EMF Thru S1</text>
-<text x="540" y="1077" style="font-size: 10px">Switch Contacts</text>
-<text x="540" y="1090" style="font-size: 10px">When P/S Cont.</text>
-<text x="540" y="1103" style="font-size: 10px">Closed T &gt; 60</text>
-<text x="540" y="1116" style="font-size: 10px">sec.</text>
+<text x="540" y="1072.7" style="font-size: 8.9px">EMF Thru S1 Switch</text>
+<text x="540" y="1084.2" style="font-size: 8.9px">Contacts When P/S</text>
+<text x="540" y="1095.8" style="font-size: 8.9px">Cont. Closed T &gt;</text>
+<text x="540" y="1107.3" style="font-size: 8.9px">60 sec.</text>
 <rect x="486" y="1130" width="108" height="24"/>
 <text x="540" y="1142">G6</text>
 <path d="M540,1162 C534,1164 507,1175 507,1210 L507,1236 Q540,1206 573,1236 L573,1210 C573,1175 546,1164 540,1162"/>
@@ -156,10 +155,10 @@ text {
 <polyline points="660,1265 660,1410"/>
 
 <rect x="606" y="1265" width="108" height="70"/>
-<text x="660" y="1280.5" style="font-size: 10px">External Reset</text>
-<text x="660" y="1293.5" style="font-size: 10px">Actuation Force</text>
-<text x="660" y="1306.5" style="font-size: 10px">Remains on</text>
-<text x="660" y="1319.5" style="font-size: 10px">Switch S1</text>
+<text x="660" y="1281.6" style="font-size: 9.4px">External Reset</text>
+<text x="660" y="1293.9" style="font-size: 9.4px">Actuation Force</text>
+<text x="660" y="1306.1" style="font-size: 9.4px">Remains on Switch</text>
+<text x="660" y="1318.4" style="font-size: 9.4px">S1</text>
 <rect x="606" y="1340" width="108" height="24"/>
 <text x="660" y="1352">11</text>
 <circle cx="660" cy="1410" r="38"/>
@@ -170,11 +169,10 @@ text {
 <polyline points="1020,1200 1020,1250 1020,1250 1020,1300"/>
 <polyline points="1035,1200 1035,1250 1260,1250 1260,1300"/>
 <rect x="966" y="1055" width="108" height="70"/>
-<text x="1020" y="1064" style="font-size: 10px">EMF Thru K1</text>
-<text x="1020" y="1077" style="font-size: 10px">Relay Contacts</text>
-<text x="1020" y="1090" style="font-size: 10px">When P/S Cont.</text>
-<text x="1020" y="1103" style="font-size: 10px">Closed T &gt; 60</text>
-<text x="1020" y="1116" style="font-size: 10px">sec.</text>
+<text x="1020" y="1071.6" style="font-size: 9.4px">EMF Thru K1 Relay</text>
+<text x="1020" y="1083.9" style="font-size: 9.4px">Contacts When P/S</text>
+<text x="1020" y="1096.1" style="font-size: 9.4px">Cont. Closed T &gt;</text>
+<text x="1020" y="1108.4" style="font-size: 9.4px">60 sec.</text>
 <rect x="966" y="1130" width="108" height="24"/>
 <text x="1020" y="1142">G7</text>
 <path d="M1020,1162 C1014,1164 987,1175 987,1210 L987,1236 Q1020,1206 1053,1236 L1053,1210 C1053,1175 1026,1164 1020,1162"/>
@@ -196,11 +194,10 @@ text {
 <polyline points="1020,1410 1020,1460 1020,1460 1020,1510"/>
 <polyline points="1035,1410 1035,1460 1140,1460 1140,1510"/>
 <rect x="966" y="1265" width="108" height="70"/>
-<text x="1020" y="1274" style="font-size: 10px">Timer Relay</text>
-<text x="1020" y="1287" style="font-size: 10px">Contacts Fail to</text>
-<text x="1020" y="1300" style="font-size: 10px">Open When P/S</text>
-<text x="1020" y="1313" style="font-size: 10px">Cont. Closed T &gt;</text>
-<text x="1020" y="1326" style="font-size: 10px">60 sec.</text>
+<text x="1020" y="1283.6" style="font-size: 8.4px">Timer Relay</text>
+<text x="1020" y="1294.5" style="font-size: 8.4px">Contacts Fail to</text>
+<text x="1020" y="1305.5" style="font-size: 8.4px">Open When P/S Cont.</text>
+<text x="1020" y="1316.4" style="font-size: 8.4px">Closed T &gt; 60 sec.</text>
 <rect x="966" y="1340" width="108" height="24"/>
 <text x="1020" y="1352">G8</text>
 <path d="M1020,1372 C1014,1374 987,1385 987,1420 L987,1446 Q1020,1416 1053,1446 L1053,1420 C1053,1385 1026,1374 1020,1372"/>
@@ -209,11 +206,10 @@ text {
 <polyline points="900,1475 900,1620"/>
 
 <rect x="846" y="1475" width="108" height="70"/>
-<text x="900" y="1484" style="font-size: 10px">Timer Does not</text>
-<text x="900" y="1497" style="font-size: 10px">"Time Out" Due</text>
-<text x="900" y="1510" style="font-size: 10px">to Improper</text>
-<text x="900" y="1523" style="font-size: 10px">Setting</text>
-<text x="900" y="1536" style="font-size: 10px">Installation</text>
+<text x="900" y="1491.6" style="font-size: 9.4px">Timer Does not</text>
+<text x="900" y="1503.9" style="font-size: 9.4px">"Time Out" Due to</text>
+<text x="900" y="1516.1" style="font-size: 9.4px">Improper Setting</text>
+<text x="900" y="1528.4" style="font-size: 9.4px">Installation</text>
 <rect x="846" y="1550" width="108" height="24"/>
 <text x="900" y="1562">14</text>
 <circle cx="900" cy="1620" r="38"/>
@@ -290,10 +286,10 @@ text {
 <polyline points="1620,1055 1620,1200"/>
 
 <rect x="1566" y="1055" width="108" height="70"/>
-<text x="1620" y="1070.5" style="font-size: 10px">Excess Pressure</text>
-<text x="1620" y="1083.5" style="font-size: 10px">not Sensed by</text>
-<text x="1620" y="1096.5" style="font-size: 10px">Pressure</text>
-<text x="1620" y="1109.5" style="font-size: 10px">Actuated Switch</text>
+<text x="1620" y="1071.6" style="font-size: 9.4px">Excess Pressure</text>
+<text x="1620" y="1083.9" style="font-size: 9.4px">not Sensed by</text>
+<text x="1620" y="1096.1" style="font-size: 9.4px">Pressure Actuated</text>
+<text x="1620" y="1108.4" style="font-size: 9.4px">Switch</text>
 <rect x="1566" y="1130" width="108" height="24"/>
 <text x="1620" y="1142">8</text>
 <circle cx="1620" cy="1200" r="38"/>
@@ -314,10 +310,10 @@ text {
 <polyline points="1860,215 1860,360"/>
 
 <rect x="1806" y="215" width="108" height="70"/>
-<text x="1860" y="230.5" style="font-size: 10px">Tank Ruptures</text>
-<text x="1860" y="243.5" style="font-size: 10px">Due to Improper</text>
-<text x="1860" y="256.5" style="font-size: 10px">Selection</text>
-<text x="1860" y="269.5" style="font-size: 10px">Installation</text>
+<text x="1860" y="231.6" style="font-size: 9.4px">Tank Ruptures Due</text>
+<text x="1860" y="243.9" style="font-size: 9.4px">to Improper</text>
+<text x="1860" y="256.1" style="font-size: 9.4px">Selection</text>
+<text x="1860" y="268.4" style="font-size: 9.4px">Installation</text>
 <rect x="1806" y="290" width="108" height="24"/>
 <text x="1860" y="302">2</text>
 <circle cx="1860" cy="360" r="38"/>

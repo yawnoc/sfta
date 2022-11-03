@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Fixed over-tall labels for Consolas
+
 
 ## [v0.2.3] Consolas (2022-11-03)
 
