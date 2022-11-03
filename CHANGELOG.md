@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.2.3] Consolas (2022-11-03)
+
 - Actually updated demos for Consolas
 
 
@@ -30,7 +33,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/yawnoc/sfta/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/yawnoc/sfta/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/yawnoc/sfta/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/yawnoc/sfta/compare/v0.1.0...v0.2.0
