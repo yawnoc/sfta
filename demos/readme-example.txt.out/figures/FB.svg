@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-10 -10 500 650" xmlns="http://www.w3.org/2000/svg">
+<style>
+circle, path, polygon, rect {
+  fill: lightyellow;
+}
+circle, path, polygon, polyline, rect {
+  stroke: black;
+  stroke-width: 1.3;
+}
+polyline {
+  fill: none;
+}
+text {
+  dominant-baseline: middle;
+  font-family: Consolas, Cousine, "Courier New", monospace;
+  font-size: 10px;
+  text-anchor: middle;
+}
+</style>
+<polyline points="240,5 240,150"/>
+<polyline points="230,150 230,200 60,200 60,250"/>
+<polyline points="250,150 250,200 300,200 300,250"/>
+<rect x="186" y="5" width="108" height="70"/>
+<text x="240" y="40" style="font-size: 10px">Floor buttered</text>
+<rect x="186" y="80" width="108" height="24"/>
+<text x="240" y="92">FB</text>
+<path d="M240,112 C234,114 207,125 207,160 L207,186 Q240,156 273,186 L273,160 C273,125 246,114 240,112"/>
+<rect x="186" y="138" width="108" height="24"/>
+<text x="240" y="150">w ≤ 0.235/yr</text>
+<polyline points="60,215 60,360"/>
+
+<rect x="6" y="215" width="108" height="70"/>
+<text x="60" y="243.5" style="font-size: 10px">Butter knocked</text>
+<text x="60" y="256.5" style="font-size: 10px">unto floor</text>
+<rect x="6" y="290" width="108" height="24"/>
+<text x="60" y="302">BF</text>
+<circle cx="60" cy="360" r="38"/>
+<rect x="6" y="348" width="108" height="24"/>
+<text x="60" y="360">w = 0.1/yr</text>
+<polyline points="300,215 300,360"/>
+<polyline points="285,360 285,410 180,410 180,460"/>
+<polyline points="300,360 300,410 300,410 300,460"/>
+<polyline points="315,360 315,410 420,410 420,460"/>
+<rect x="246" y="215" width="108" height="70"/>
+<text x="300" y="237" style="font-size: 10px">Toast knocked</text>
+<text x="300" y="250" style="font-size: 10px">unto floor</text>
+<text x="300" y="263" style="font-size: 10px">butter side down</text>
+<rect x="246" y="290" width="108" height="24"/>
+<text x="300" y="302">TFBSD</text>
+<path d="M268,394 L332,394 L332,354 C332,312 268,312 268,354 L268,394 "/>
+<rect x="246" y="348" width="108" height="24"/>
+<text x="300" y="360">w = 0.135/yr</text>
+<polyline points="180,425 180,570"/>
+
+<rect x="126" y="425" width="108" height="70"/>
+<text x="180" y="453.5" style="font-size: 10px">Toast knocked</text>
+<text x="180" y="466.5" style="font-size: 10px">unto floor</text>
+<rect x="126" y="500" width="108" height="24"/>
+<text x="180" y="512">TF</text>
+<circle cx="180" cy="570" r="38"/>
+<rect x="126" y="558" width="108" height="24"/>
+<text x="180" y="570">w = 0.2/yr</text>
+<polyline points="300,425 300,570"/>
+
+<rect x="246" y="425" width="108" height="70"/>
+<text x="300" y="460" style="font-size: 10px">Toast buttered</text>
+<rect x="246" y="500" width="108" height="24"/>
+<text x="300" y="512">TB</text>
+<circle cx="300" cy="570" r="38"/>
+<rect x="246" y="558" width="108" height="24"/>
+<text x="300" y="570">Q = 0.75</text>
+<polyline points="420,425 420,570"/>
+
+<rect x="366" y="425" width="108" height="70"/>
+<text x="420" y="447" style="font-size: 10px">Buttered toast</text>
+<text x="420" y="460" style="font-size: 10px">landeth butter</text>
+<text x="420" y="473" style="font-size: 10px">side down</text>
+<rect x="366" y="500" width="108" height="24"/>
+<text x="420" y="512">BSD</text>
+<circle cx="420" cy="570" r="38"/>
+<rect x="366" y="558" width="108" height="24"/>
+<text x="420" y="570">Q = 0.9</text>
+</svg>

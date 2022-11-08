@@ -1,4 +1,5 @@
 id	is_used	quantity_type	quantity_value	quantity_unit	label
-A	True	probability	0.01	1	Component A fails
-B	True	probability	0.2	1	Component B fails
-C	True	probability	0.3	1	Component C fails
+BF	True	rate	0.1	/yr	Butter knocked unto floor
+BSD	True	probability	0.9	1	Buttered toast landeth butter side down
+TB	True	probability	0.75	1	Toast buttered
+TF	True	rate	0.2	/yr	Toast knocked unto floor

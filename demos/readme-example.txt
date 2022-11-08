@@ -1,21 +1,27 @@
-Gate: SYS
-- label: System fails
+- time_unit: yr
+
+Gate: FB
+- label: Floor buttered
 - type: OR
-- inputs: A, SUB
+- inputs: BF, TFBSD
 
-Event: A
-- label: Component A fails
-- probability: 0.01
+Event: BF
+- label: Butter knocked unto floor
+- rate: 0.1
 
-Gate: SUB
-- label: Subsystem fails
+Gate: TFBSD
+- label: Toast knocked unto floor butter side down
 - type: AND
-- inputs: B, C
+- inputs: TF, TB, BSD
 
-Event: B
-- label: Component B fails
-- probability: 0.2
+Event: TF
+- label: Toast knocked unto floor
+- rate: 0.2
 
-Event: C
-- label: Component C fails
-- probability: 0.3
+Event: TB
+- label: Toast buttered
+- probability: 0.75
+
+Event: BSD
+- label: Buttered toast landeth butter side down
+- probability: 0.9
