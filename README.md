@@ -56,7 +56,7 @@ For the example above, we get the following SVG for the top gate `FB`:
 <img
   alt="Nice looking SVG showing the example fault tree."
   src="demos/readme-example.txt.out/figures/FB.svg"
-  width="480">
+  width="640">
 
 
 ## Limitations
