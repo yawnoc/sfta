@@ -366,12 +366,16 @@ class Event:
         self.quantity_value = None
         self.quantity_line_number = None
 
+        self.comment = None
+        self.comment_line_number = None
+
         self.tome = None
 
     KEY_EXPLAINER = (
         'Recognised keys for an Event property setting are:\n'
         '    label (optional)\n'
-        '    probability or rate (exactly one required).'
+        '    probability or rate (exactly one required)\n'
+        '    comment (optional).'
     )
 
     TYPE_PROBABILITY = 0
@@ -480,6 +484,17 @@ class Event:
         self.quantity_value = rate
         self.quantity_line_number = line_number
 
+    def set_comment(self, comment, line_number):
+        if self.comment is not None:
+            raise Event.CommentAlreadySetException(
+                line_number,
+                f'comment hath already been set for Event `{self.id_}` '
+                f'at line {self.comment_line_number}'
+            )
+
+        self.comment = comment
+        self.comment_line_number = line_number
+
     def validate_properties(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(
@@ -494,6 +509,9 @@ class Event:
         pass
 
     class QuantityAlreadySetException(FaultTreeTextException):
+        pass
+
+    class CommentAlreadySetException(FaultTreeTextException):
         pass
 
     class BadFloatException(FaultTreeTextException):
@@ -528,6 +546,9 @@ class Gate:
         self.input_ids = None
         self.inputs_line_number = None
 
+        self.comment = None
+        self.comment_line_number = None
+
         self.tome = None
 
         self.cut_sets_indices = None
@@ -540,7 +561,8 @@ class Gate:
         '    label (optional)\n'
         '    is_paged (optional)\n'
         '    type (required)\n'
-        '    inputs (required).'
+        '    inputs (required)\n'
+        '    comment (optional).'
     )
     IS_PAGED_EXPLAINER = (
         'Gate is_paged must be either `True` or `False` (case-sensitive). '
@@ -641,6 +663,17 @@ class Gate:
 
         self.input_ids = ids
         self.inputs_line_number = line_number
+
+    def set_comment(self, comment, line_number):
+        if self.comment is not None:
+            raise Gate.CommentAlreadySetException(
+                line_number,
+                f'comment hath already been set for Gate `{self.id_}` '
+                f'at line {self.comment_line_number}'
+            )
+
+        self.comment = comment
+        self.comment_line_number = line_number
 
     def validate_properties(self, line_number):
         if self.is_paged is None:
@@ -743,6 +776,9 @@ class Gate:
         pass
 
     class InputsAlreadySetException(FaultTreeTextException):
+        pass
+
+    class CommentAlreadySetException(FaultTreeTextException):
         pass
 
     class BadIsPagedException(FaultTreeTextException):
@@ -931,6 +967,8 @@ class FaultTree:
                         current_object.set_probability(value, line_number)
                     elif key == 'rate':
                         current_object.set_rate(value, line_number)
+                    elif key == 'comment':
+                        current_object.set_comment(value, line_number)
                     else:
                         raise Event.UnrecognisedKeyException(
                             line_number,
@@ -947,6 +985,8 @@ class FaultTree:
                         current_object.set_type(value, line_number)
                     elif key == 'inputs':
                         current_object.set_inputs(value, line_number)
+                    elif key == 'comment':
+                        current_object.set_comment(value, line_number)
                     else:
                         raise Gate.UnrecognisedKeyException(
                             line_number,

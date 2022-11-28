@@ -610,6 +610,17 @@ class TestSfta(unittest.TestCase):
             '''),
         )
 
+        # Comment already set
+        self.assertRaises(
+            Event.CommentAlreadySetException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Event: A
+                - comment: First comment
+                - comment: Second comment
+            '''),
+        )
+
         # Bad float
         self.assertRaises(
             Event.BadFloatException,
@@ -720,6 +731,17 @@ class TestSfta(unittest.TestCase):
                 Gate: A
                 - inputs: B, C
                 - inputs: B, C
+            '''),
+        )
+
+        # Comment already set
+        self.assertRaises(
+            Gate.CommentAlreadySetException,
+            FaultTree.build,
+            textwrap.dedent('''
+                Gate: A
+                - comment: First comment
+                - comment: Second comment
             '''),
         )
 

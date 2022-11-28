@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Added property setting `comment` for Event and Gate
+
 
 ## [v0.2.4] Label vertical fit (2022-11-03)
 
