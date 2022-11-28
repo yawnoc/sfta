@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.3.0] Determinism (2022-11-28)
+
 - Fixed multiplication dependent on event declaration order
 - Sorted cut set output by string (after sorting by quantity value)
 - Added `cut_set_order` to cut set output
@@ -47,7 +50,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/yawnoc/sfta/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/yawnoc/sfta/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/yawnoc/sfta/compare/v0.2.3...v0.2.4
 [v0.2.3]: https://github.com/yawnoc/sfta/compare/v0.2.2...v0.2.3
