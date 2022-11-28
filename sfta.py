@@ -70,6 +70,18 @@ def dull(number, max_significant_figures=1):
     return str(nice_decimal)
 
 
+def descending_product(factors):
+    """
+    Compute a product after sorting the factors in descending order.
+
+    Needed to prevent cut set quantity computations from depending on
+    event declaration order, because floating-point arithmetic is dumb:
+        0.1 * 0.3 * 0.5 * 0.823 = 0.012344999999999998
+        0.823 * 0.5 * 0.3 * 0.1 = 0.012345
+    """
+    return prod(sorted(factors, reverse=True))
+
+
 def find_cycles(adjacency_dict):
     """
     Find cycles of a directed graph via three-state depth-first search.
@@ -756,7 +768,7 @@ class Gate:
         self.quantity_type = self.tome.quantity_type
         self.quantity_value_from_cut_set_indices = {
             cut_set_indices:
-                prod(
+                descending_product(
                     quantity_value_from_event_index[event_index]
                     for event_index in cut_set_indices
                 )

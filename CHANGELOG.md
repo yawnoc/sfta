@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Fixed multiplication dependent on event declaration order
+
 
 ## [v0.2.5] `comment` property (2022-11-28)
 
