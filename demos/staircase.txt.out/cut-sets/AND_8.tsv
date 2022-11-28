@@ -1,5 +1,5 @@
 quantity_type	quantity_value	quantity_unit	cut_set
 probability	0.01	1	O_8.A_8
 probability	0.001	1	A_9.O_9.A_8
-probability	0.0001	1	A_9.A_10.O_10.A_8
 probability	0.0001	1	A_9.A_10.L.A_8
+probability	0.0001	1	A_9.A_10.O_10.A_8

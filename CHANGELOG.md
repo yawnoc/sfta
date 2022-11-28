@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 - Fixed multiplication dependent on event declaration order
+- Sorted cut set output by string (after sorting by quantity value)
 
 
 ## [v0.2.5] `comment` property (2022-11-28)

@@ -1193,7 +1193,10 @@ class FaultTree:
                 for cut_set_indices, quantity_value
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
-            rows.sort(key=lambda row: -float(row[1]))  # quantity_value
+            rows.sort(
+                key=lambda row: (-float(row[1]), row[3])
+                # quantity_value, cut_set
+            )
             cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
