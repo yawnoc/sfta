@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.2.5] `comment` property (2022-11-28)
+
 - Added property setting `comment` for Event and Gate
 
 
@@ -40,7 +43,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.2.5...HEAD
+[v0.2.5]: https://github.com/yawnoc/sfta/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/yawnoc/sfta/compare/v0.2.3...v0.2.4
 [v0.2.3]: https://github.com/yawnoc/sfta/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/yawnoc/sfta/compare/v0.2.1...v0.2.2

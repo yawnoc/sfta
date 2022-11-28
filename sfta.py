@@ -20,7 +20,7 @@ from decimal import Decimal
 from math import floor, isfinite, log10, prod, sqrt
 
 
-__version__ = '0.2.4'
+__version__ = '0.2.5'
 
 
 def blunt(number, max_decimal_places):
