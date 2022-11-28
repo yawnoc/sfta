@@ -1,4 +1,4 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-probability	0.1	1	O_9
-probability	0.01	1	A_10.L
-probability	0.01	1	A_10.O_10
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+probability	0.1	1	O_9	1
+probability	0.01	1	A_10.L	2
+probability	0.01	1	A_10.O_10	2

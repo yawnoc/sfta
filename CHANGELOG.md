@@ -5,6 +5,7 @@
 
 - Fixed multiplication dependent on event declaration order
 - Sorted cut set output by string (after sorting by quantity value)
+- Added `cut_set_order` to cut set output
 
 
 ## [v0.2.5] `comment` property (2022-11-28)

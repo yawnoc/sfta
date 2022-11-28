@@ -1,3 +1,3 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-rate	0.135	/yr	TF.TB.BSD
-rate	0.1	/yr	BF
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+rate	0.135	/yr	TF.TB.BSD	3
+rate	0.1	/yr	BF	1

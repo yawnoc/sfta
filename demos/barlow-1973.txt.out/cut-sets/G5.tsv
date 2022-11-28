@@ -1,4 +1,4 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-probability	0.00001	1	6
-probability	0.00001	1	7
-probability	0.00001	1	8
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+probability	0.00001	1	6	1
+probability	0.00001	1	7	1
+probability	0.00001	1	8	1

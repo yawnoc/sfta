@@ -1176,6 +1176,7 @@ class FaultTree:
                 'quantity_value',
                 'quantity_unit',
                 'cut_set',
+                'cut_set_order',
             ]
             rows = [
                 [
@@ -1189,13 +1190,14 @@ class FaultTree:
                         self.event_id_from_index[event_index]
                         for event_index in cut_set_indices
                     ),
+                    len(cut_set_indices),
                 ]
                 for cut_set_indices, quantity_value
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
             rows.sort(
-                key=lambda row: (-float(row[1]), row[3])
-                # quantity_value, cut_set
+                key=lambda row: (-float(row[1]), row[4], row[3])
+                # quantity_value, cut_set_order, cut_set
             )
             cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 

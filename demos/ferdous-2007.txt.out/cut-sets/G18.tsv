@@ -1,4 +1,4 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-probability	0.01438	1	X11.X45.X15.X16
-probability	0.01034	1	X11.X44.X13.X14
-probability	0.001024	1	X10.X11.X12.X43
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+probability	0.01438	1	X11.X45.X15.X16	4
+probability	0.01034	1	X11.X44.X13.X14	4
+probability	0.001024	1	X10.X11.X12.X43	4

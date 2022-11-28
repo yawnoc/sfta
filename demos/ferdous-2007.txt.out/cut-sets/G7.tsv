@@ -1,3 +1,3 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-probability	0.02887	1	X9.X37.X30
-probability	0.00594	1	X17.X37.X30
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+probability	0.02887	1	X9.X37.X30	3
+probability	0.00594	1	X17.X37.X30	3

@@ -1,2 +1,2 @@
-quantity_type	quantity_value	quantity_unit	cut_set
-probability	0.001024	1	X10.X11.X12.X43
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+probability	0.001024	1	X10.X11.X12.X43	4
