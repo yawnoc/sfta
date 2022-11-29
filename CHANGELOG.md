@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.3.1] Determinism II (2022-11-29)
+
 - Fixed summation dependent on event declaration order
 - Sorted cut set factors by event declaration order
 
@@ -53,7 +56,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.3.1...HEAD
+[v0.3.1]: https://github.com/yawnoc/sfta/compare/v0.3.0...v0.3.1
 [v0.3.0]: https://github.com/yawnoc/sfta/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/yawnoc/sfta/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/yawnoc/sfta/compare/v0.2.3...v0.2.4
