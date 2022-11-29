@@ -12,6 +12,7 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 
 import textwrap
 import unittest
+from math import prod
 
 from sfta import Event, FaultTree, Gate, Tome, Writ
 from sfta import (
@@ -100,15 +101,23 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(dull(0.00123456789, 10), '0.00123456789')
 
     def test_descending_product(self):
+        factors_1 = [0.1, 0.3, 0.5, 0.823]
+        factors_2 = [0.823, 0.5, 0.3, 0.1]
+        self.assertEqual(set(factors_1), set(factors_2))
+        self.assertNotEqual(prod(factors_1), prod(factors_2))
         self.assertEqual(
-            descending_product([0.1, 0.3, 0.5, 0.823]),
-            descending_product([0.823, 0.5, 0.3, 0.1]),
+            descending_product(factors_1),
+            descending_product(factors_2),
         )
 
     def test_descending_sum(self):
+        terms_1 = [1e-9, 2.5e-12, 5e-13, 5e-10, 2.5e-12]
+        terms_2 = [1e-9, 5e-10, 2.5e-12, 2.5e-12, 5e-13]
+        self.assertEqual(set(terms_1), set(terms_2))
+        self.assertNotEqual(sum(terms_1), sum(terms_2))
         self.assertEqual(
-            descending_sum([1e-9, 2.5e-12, 5e-13, 5e-10, 2.5e-12]),
-            descending_sum([1e-9, 5e-10, 2.5e-12, 2.5e-12, 5e-13]),
+            descending_sum(terms_1),
+            descending_sum(terms_2),
         )
 
     def test_find_cycles(self):
