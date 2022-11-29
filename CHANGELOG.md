@@ -3,6 +3,7 @@
 
 ## [Unreleased]
 
+- Fixed summation dependent on event declaration order
 - Sorted cut set factors by event declaration order
 
 

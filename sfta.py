@@ -82,6 +82,18 @@ def descending_product(factors):
     return prod(sorted(factors, reverse=True))
 
 
+def descending_sum(terms):
+    """
+    Compute a sum after sorting the terms in descending order.
+
+    Needed to prevent cut set quantity computations from depending on
+    event declaration order, because floating-point arithmetic is dumb:
+        1e-9 + 2.5e-12 + 5e-13 + 5e-10 + 2.5e-12 = 1.5054999999999998e-09
+        1e-9 + 5e-10 + 2.5e-12 + 2.5e-12 + 5e-13 = 1.5055e-09
+    """
+    return sum(sorted(terms, reverse=True))
+
+
 def find_cycles(adjacency_dict):
     """
     Find cycles of a directed graph via three-state depth-first search.
@@ -775,7 +787,7 @@ class Gate:
             for cut_set_indices in self.cut_sets_indices
         }
         self.quantity_value = (
-            sum(self.quantity_value_from_cut_set_indices.values())
+            descending_sum(self.quantity_value_from_cut_set_indices.values())
         )
 
     class LabelAlreadySetException(FaultTreeTextException):

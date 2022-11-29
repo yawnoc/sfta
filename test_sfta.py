@@ -14,7 +14,14 @@ import textwrap
 import unittest
 
 from sfta import Event, FaultTree, Gate, Tome, Writ
-from sfta import blunt, descending_product, dull, escape_xml, find_cycles
+from sfta import (
+  blunt,
+  descending_product,
+  descending_sum,
+  dull,
+  escape_xml,
+  find_cycles,
+)
 
 
 class TestSfta(unittest.TestCase):
@@ -96,6 +103,12 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(
             descending_product([0.1, 0.3, 0.5, 0.823]),
             descending_product([0.823, 0.5, 0.3, 0.1]),
+        )
+
+    def test_descending_sum(self):
+        self.assertEqual(
+            descending_sum([1e-9, 2.5e-12, 5e-13, 5e-10, 2.5e-12]),
+            descending_sum([1e-9, 5e-10, 2.5e-12, 2.5e-12, 5e-13]),
         )
 
     def test_find_cycles(self):
