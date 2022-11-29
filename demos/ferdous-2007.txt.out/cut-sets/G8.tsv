@@ -1,5 +1,5 @@
 quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
 probability	0.3245	1	X1.X9.X40	3
-probability	0.3116	1	X9.X7.X40	3
-probability	0.1723	1	X9.X6.X40	3
-probability	0.08366	1	X9.X40.X8	3
+probability	0.3116	1	X7.X9.X40	3
+probability	0.1723	1	X6.X9.X40	3
+probability	0.08366	1	X8.X9.X40	3

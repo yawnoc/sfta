@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Sorted cut set factors by event declaration order
+
 
 ## [v0.3.0] Determinism (2022-11-28)
 

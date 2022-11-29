@@ -1188,7 +1188,7 @@ class FaultTree:
                     ),
                     '.'.join(
                         self.event_id_from_index[event_index]
-                        for event_index in cut_set_indices
+                        for event_index in sorted(cut_set_indices)
                     ),
                     len(cut_set_indices),
                 ]
