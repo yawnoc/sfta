@@ -16,8 +16,7 @@ import re
 import shutil
 import sys
 import textwrap
-from decimal import Decimal
-from math import floor, isfinite, log10, prod, sqrt
+from math import isfinite, log10, prod, sqrt
 
 
 __version__ = '0.3.1'
