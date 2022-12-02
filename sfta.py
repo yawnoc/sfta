@@ -42,7 +42,7 @@ def blunt(number, max_decimal_places):
     return nice_string
 
 
-def dull(number, max_significant_figures=1):
+def dull(number, max_significant_figures=1, coerce_scientific_exponent=3):
     """
     Dull a number to at most certain significant figures, as a string.
     """
@@ -55,16 +55,19 @@ def dull(number, max_significant_figures=1):
     if not isfinite(number):
         return str(number)
 
-    exponent = 1 + floor(log10(abs(number)))  # with mantissa less than unity
-    target_places = max_significant_figures - exponent
-
-    rounded_decimal = round(Decimal(number), target_places)
-    if rounded_decimal == rounded_decimal.to_integral():
-        nice_decimal = rounded_decimal.quantize(1)
+    if log10(abs(number)) < -(coerce_scientific_exponent - 1):
+        nice_string = f'%.{max_significant_figures - 1}E' % number
+        nice_string = re.sub(r'[.]?0*(?=E)', '', nice_string)
     else:
-        nice_decimal = rounded_decimal.normalize()
+        nice_string = f'%.{max_significant_figures}G' % number
+    nice_string = re.sub('(?<=E[+-])0+', '', nice_string)
+    general_float = float(nice_string)
+    general_int = round(general_float)
 
-    return str(nice_decimal)
+    if general_float == general_int:
+        return str(general_int)
+
+    return nice_string
 
 
 def descending_product(factors):

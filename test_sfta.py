@@ -89,16 +89,31 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(dull(69.42069, 7), '69.42069')
         self.assertEqual(dull(69.42069, 8), '69.42069')
 
-        self.assertEqual(dull(0.00123456789, 1), '0.001')
-        self.assertEqual(dull(0.00123456789, 2), '0.0012')
-        self.assertEqual(dull(0.00123456789, 3), '0.00123')
-        self.assertEqual(dull(0.00123456789, 4), '0.001235')
-        self.assertEqual(dull(0.00123456789, 5), '0.0012346')
-        self.assertEqual(dull(0.00123456789, 6), '0.00123457')
-        self.assertEqual(dull(0.00123456789, 7), '0.001234568')
-        self.assertEqual(dull(0.00123456789, 8), '0.0012345679')
-        self.assertEqual(dull(0.00123456789, 9), '0.00123456789')
-        self.assertEqual(dull(0.00123456789, 10), '0.00123456789')
+        self.assertEqual(dull(0.00123456789, 1), '1E-3')
+        self.assertEqual(dull(0.00123456789, 2), '1.2E-3')
+        self.assertEqual(dull(0.00123456789, 3), '1.23E-3')
+        self.assertEqual(dull(0.00123456789, 4), '1.235E-3')
+        self.assertEqual(dull(0.00123456789, 5), '1.2346E-3')
+        self.assertEqual(dull(0.00123456789, 6), '1.23457E-3')
+        self.assertEqual(dull(0.00123456789, 7), '1.234568E-3')
+        self.assertEqual(dull(0.00123456789, 8), '1.2345679E-3')
+        self.assertEqual(dull(0.00123456789, 9), '1.23456789E-3')
+        self.assertEqual(dull(0.00123456789, 10), '1.23456789E-3')
+
+        self.assertEqual(dull(1, coerce_scientific_exponent=1), '1')
+        self.assertEqual(dull(0.1, coerce_scientific_exponent=1), '1E-1')
+        self.assertEqual(dull(0.01, coerce_scientific_exponent=1), '1E-2')
+        self.assertEqual(dull(0.001, coerce_scientific_exponent=1), '1E-3')
+
+        self.assertEqual(dull(1, coerce_scientific_exponent=2), '1')
+        self.assertEqual(dull(0.1, coerce_scientific_exponent=2), '0.1')
+        self.assertEqual(dull(0.01, coerce_scientific_exponent=2), '1E-2')
+        self.assertEqual(dull(0.001, coerce_scientific_exponent=2), '1E-3')
+
+        self.assertEqual(dull(1, coerce_scientific_exponent=3), '1')
+        self.assertEqual(dull(0.1, coerce_scientific_exponent=3), '0.1')
+        self.assertEqual(dull(0.01, coerce_scientific_exponent=3), '0.01')
+        self.assertEqual(dull(0.001, coerce_scientific_exponent=3), '1E-3')
 
     def test_descending_product(self):
         factors_1 = [0.1, 0.3, 0.5, 0.823]
