@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.4.0] Figure index & earlier scientific notation (2022-12-02)
+
 - Rewrote `blunt` (decimal places) without `Decimal`
 - Rewrote `dull` (significant figures) without `Decimal`
 - Coerced `dull` to scientific notation for `9.99...E-3` or lower
@@ -61,7 +64,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/yawnoc/sfta/compare/v0.3.1...v0.4.0
 [v0.3.1]: https://github.com/yawnoc/sfta/compare/v0.3.0...v0.3.1
 [v0.3.0]: https://github.com/yawnoc/sfta/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/yawnoc/sfta/compare/v0.2.4...v0.2.5
