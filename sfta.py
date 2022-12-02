@@ -1215,12 +1215,12 @@ class FaultTree:
         return cut_set_table_from_gate_id
 
     def get_figures(self):
-        figure_from_gate_id = {
+        figure_from_id = {
             id_: Figure(self, id_)
             for id_, gate in self.gate_from_id.items()
             if id_ in self.top_gate_ids or gate.is_paged
         }
-        return figure_from_gate_id
+        return figure_from_id
 
     class SmotheredObjectDeclarationException(FaultTreeTextException):
         pass
@@ -1773,11 +1773,11 @@ class Index:
     """
     A two-way index between figures and their objects.
     """
-    def __init__(self, figure_from_gate_id, figures_directory_name):
+    def __init__(self, figure_from_id, figures_directory_name):
         ids_from_figure_id = {}
         figure_ids_from_id = {}
 
-        for figure_id, figure in figure_from_gate_id.items():
+        for figure_id, figure in figure_from_id.items():
             ids_from_figure_id[figure_id] = figure.contributing_ids
             for id_ in figure.contributing_ids:
                 figure_ids_from_id.setdefault(id_, set()).add(figure_id)
@@ -1983,7 +1983,7 @@ def main():
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
-    figure_from_gate_id = fault_tree.get_figures()
+    figure_from_id = fault_tree.get_figures()
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
@@ -1992,14 +1992,14 @@ def main():
     create_directory_robust(cut_sets_directory_name)
     create_directory_robust(figures_directory_name)
 
-    figure_index = Index(figure_from_gate_id, figures_directory_name)
+    figure_index = Index(figure_from_id, figures_directory_name)
 
     events_table.write_tsv(f'{output_directory_name}/events.tsv')
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
-    for gate_id, figure in figure_from_gate_id.items():
-        figure.write_svg(f'{figures_directory_name}/{gate_id}.svg')
+    for figure_id, figure in figure_from_id.items():
+        figure.write_svg(f'{figures_directory_name}/{figure_id}.svg')
     figure_index.write_html(f'{figures_directory_name}/index.html')
 
 
