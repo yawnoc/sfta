@@ -59,7 +59,7 @@ text {
 <text x="480" y="512">G14</text>
 <path d="M448,604 L512,604 L512,564 C512,522 448,522 448,564 L448,604 "/>
 <rect x="426" y="558" width="108" height="24"/>
-<text x="480" y="570">Q = 0.001154</text>
+<text x="480" y="570">Q = 1.154E-3</text>
 <polyline points="180,635 180,780"/>
 
 <rect x="126" y="635" width="108" height="70"/>

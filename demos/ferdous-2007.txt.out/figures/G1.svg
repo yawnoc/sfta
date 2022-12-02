@@ -42,7 +42,7 @@ text {
 <text x="60" y="302">X31</text>
 <circle cx="60" cy="360" r="38"/>
 <rect x="6" y="348" width="108" height="24"/>
-<text x="60" y="360">Q = 0.00079</text>
+<text x="60" y="360">Q = 7.9E-4</text>
 <polyline points="300,215 300,360"/>
 <polyline points="285,360 285,410 180,410 180,460"/>
 <polyline points="300,360 300,410 300,410 300,460"/>

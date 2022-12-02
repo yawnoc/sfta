@@ -1,10 +1,10 @@
 quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
 probability	0.1	1	O_1	1
 probability	0.01	1	A_2.O_2	2
-probability	0.001	1	A_2.A_3.O_3	3
-probability	0.0001	1	A_2.A_3.A_4.O_4	4
-probability	0.00001	1	A_2.A_3.A_4.A_5.O_5	5
-probability	0.000001	1	A_2.A_3.A_4.A_5.A_6.O_6	6
+probability	1E-3	1	A_2.A_3.O_3	3
+probability	1E-4	1	A_2.A_3.A_4.O_4	4
+probability	1E-5	1	A_2.A_3.A_4.A_5.O_5	5
+probability	1E-6	1	A_2.A_3.A_4.A_5.A_6.O_6	6
 probability	1E-7	1	A_2.A_3.A_4.A_5.A_6.A_7.O_7	7
 probability	1E-8	1	A_2.A_3.A_4.A_5.A_6.A_7.A_8.O_8	8
 probability	1E-9	1	A_2.A_3.A_4.A_5.A_6.A_7.A_8.A_9.O_9	9

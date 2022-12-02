@@ -1,8 +1,8 @@
 id	is_used	quantity_type	quantity_value	quantity_unit	label
 x1	True	probability	0.2	1	Failure of smoke detector sensor
 x2	True	probability	0.1	1	Failure of heat detector sensor
-x3	True	probability	0.001	1	No water to sprinkler system
-x4	True	probability	0.002	1	Sprinkler nozzles blocked
+x3	True	probability	1E-3	1	No water to sprinkler system
+x4	True	probability	2E-3	1	Sprinkler nozzles blocked
 x5	True	probability	0.05	1	Automatic mechanism fails
 x6	True	probability	0.1	1	Communications failure
 x7	True	probability	0.05	1	DDoS attack

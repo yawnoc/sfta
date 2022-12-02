@@ -3,4 +3,4 @@ FPS	True	False	probability	0.0305	1	OR	FDS,FSS	Failure of Fire Protection System
 FDS	False	False	probability	0.02	1	AND	x1,x2	Fire detection system fails
 FSS	False	False	probability	0.0105	1	OR	x3,TS,x4	Fire suppression system fails
 RC	False	False	probability	0.15	1	OR	x6,x7	Remote control fails
-TS	False	False	probability	0.0075	1	AND	x5,RC	Triggering system fails
+TS	False	False	probability	7.5E-3	1	AND	x5,RC	Triggering system fails

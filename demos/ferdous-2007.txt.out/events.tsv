@@ -23,14 +23,14 @@ X28	False	probability	0.06038	1	S2 fails open
 X29	False	probability	0.7812	1	S2 set point too high
 X3	True	probability	0.5643	1	Signal transmission P1-V1 fails
 X30	True	probability	0.03921	1	Ethylene pump fails
-X31	True	probability	0.00079	1	Spontaneous rupture of deposit
+X31	True	probability	7.9E-4	1	Spontaneous rupture of deposit
 X32	True	probability	0.01809	1	Pipe work fire
 X33	True	probability	0.04959	1	External & secondary effects
 X34	False	probability	0.9375	1	Ethylene vaporizer functioning
 X35	True	probability	0.75	1	Pressure vaporizer not functioning
 X36	False	probability	0.75	1	Heater not functioning
 X37	True	probability	1	1	Ethylene pump demanded
-X38	False	probability	0.00625	1	Exit to process closed
+X38	False	probability	6.25E-3	1	Exit to process closed
 X39	False	probability	0.125	1	Exit to recompression closed
 X4	True	probability	0.1515	1	V1 fails closed
 X40	True	probability	0.75	1	No discharge via V2

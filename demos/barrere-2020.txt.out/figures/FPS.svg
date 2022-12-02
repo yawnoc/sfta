@@ -82,7 +82,7 @@ text {
 <text x="300" y="512">x3</text>
 <circle cx="300" cy="570" r="38"/>
 <rect x="246" y="558" width="108" height="24"/>
-<text x="300" y="570">Q = 0.001</text>
+<text x="300" y="570">Q = 1E-3</text>
 <polyline points="540,425 540,570"/>
 <polyline points="530,570 530,620 420,620 420,670"/>
 <polyline points="550,570 550,620 600,620 600,670"/>
@@ -93,7 +93,7 @@ text {
 <text x="540" y="512">TS</text>
 <path d="M508,604 L572,604 L572,564 C572,522 508,522 508,564 L508,604 "/>
 <rect x="486" y="558" width="108" height="24"/>
-<text x="540" y="570">Q ≤ 0.0075</text>
+<text x="540" y="570">Q ≤ 7.5E-3</text>
 <polyline points="420,635 420,780"/>
 
 <rect x="366" y="635" width="108" height="70"/>
@@ -143,5 +143,5 @@ text {
 <text x="780" y="512">x4</text>
 <circle cx="780" cy="570" r="38"/>
 <rect x="726" y="558" width="108" height="24"/>
-<text x="780" y="570">Q = 0.002</text>
+<text x="780" y="570">Q = 2E-3</text>
 </svg>

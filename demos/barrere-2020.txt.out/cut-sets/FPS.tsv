@@ -1,6 +1,6 @@
 quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
 probability	0.02	1	x1.x2	2
-probability	0.005	1	x5.x6	2
-probability	0.0025	1	x5.x7	2
-probability	0.002	1	x4	1
-probability	0.001	1	x3	1
+probability	5E-3	1	x5.x6	2
+probability	2.5E-3	1	x5.x7	2
+probability	2E-3	1	x4	1
+probability	1E-3	1	x3	1
