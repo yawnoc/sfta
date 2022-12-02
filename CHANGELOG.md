@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Rewrote `blunt` (decimal places) without `Decimal`
+
 
 ## [v0.3.1] Determinism II (2022-11-29)
 

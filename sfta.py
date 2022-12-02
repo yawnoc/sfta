@@ -36,13 +36,10 @@ def blunt(number, max_decimal_places):
     if not isfinite(number):
         return str(number)
 
-    rounded_decimal = round(Decimal(number), max_decimal_places)
-    if rounded_decimal == rounded_decimal.to_integral():
-        nice_decimal = rounded_decimal.quantize(1)
-    else:
-        nice_decimal = rounded_decimal.normalize()
+    nice_string = f'%.{max_decimal_places}F' % number
+    nice_string = re.sub(r'[.]?0*$', '', nice_string)
 
-    return str(nice_decimal)
+    return nice_string
 
 
 def dull(number, max_significant_figures=1):
