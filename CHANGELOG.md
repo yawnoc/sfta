@@ -6,6 +6,7 @@
 - Rewrote `blunt` (decimal places) without `Decimal`
 - Rewrote `dull` (significant figures) without `Decimal`
 - Coerced `dull` to scientific notation for `9.99...E-3` or lower
+- Added index.html to output figures directory
 
 
 ## [v0.3.1] Determinism II (2022-11-29)
