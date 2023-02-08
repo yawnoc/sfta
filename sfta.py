@@ -579,6 +579,8 @@ class Gate:
         self.quantity_value_from_cut_set_indices = None
         self.quantity_value = None
 
+        self.contribution_value_from_event_index = None
+
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
         '    label (optional)\n'
@@ -789,6 +791,17 @@ class Gate:
             descending_sum(self.quantity_value_from_cut_set_indices.values())
         )
 
+    def compute_contributions(self, events):
+        self.contribution_value_from_event_index = {
+            event.index:
+                descending_sum(
+                    self.quantity_value_from_cut_set_indices[cut_set_indices]
+                    for cut_set_indices in self.cut_sets_indices
+                    if event.index in cut_set_indices
+                )
+            for event in events
+        }
+
     class LabelAlreadySetException(FaultTreeTextException):
         pass
 
@@ -885,6 +898,7 @@ class FaultTree:
         FaultTree.compute_event_tomes(events)
         FaultTree.compute_gate_tomes(event_from_id, gate_from_id)
         FaultTree.compute_gate_quantities(events, gates)
+        FaultTree.compute_gate_contributions(events, gates)
 
         return (
             event_from_id,
@@ -1127,6 +1141,11 @@ class FaultTree:
         for gate in gates:
             gate.compute_quantity(quantity_value_from_event_index)
 
+    @staticmethod
+    def compute_gate_contributions(events, gates):
+        for gate in gates:
+            gate.compute_contributions(events)
+
     def get_events_table(self):
         field_names = [
             'id',
@@ -1213,6 +1232,38 @@ class FaultTree:
             cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
+
+    def get_contribution_tables(self):
+        contribution_table_from_gate_id = {}
+        for gate_id, gate in self.gate_from_id.items():
+            field_names = [
+                'event',
+                'contribution_type',
+                'contribution_value',
+                'contribution_unit',
+            ]
+            rows = [
+                [
+                    event_id,
+                    Event.STR_FROM_TYPE[gate.quantity_type],
+                    dull(
+                        gate.contribution_value_from_event_index[event_index],
+                        FaultTree.MAX_SIGNIFICANT_FIGURES,
+                    ),
+                    Event.quantity_unit_str(
+                        gate.quantity_type,
+                        self.time_unit,
+                    ),
+                ]
+                for event_index, event_id in self.event_id_from_index.items()
+            ]
+            rows.sort(
+                key=lambda row: (-float(row[2]), row[0])
+                # contribution_value, event
+            )
+            contribution_table_from_gate_id[gate_id] = Table(field_names, rows)
+
+        return contribution_table_from_gate_id
 
     def get_figures(self):
         figure_from_id = {
@@ -1983,13 +2034,17 @@ def main():
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
+    contribution_table_from_gate_id = fault_tree.get_contribution_tables()
     figure_from_id = fault_tree.get_figures()
 
     output_directory_name = f'{text_file_name}.out'
     cut_sets_directory_name = f'{output_directory_name}/cut-sets'
+    contributions_directory_name = f'{output_directory_name}/contributions'
     figures_directory_name = f'{output_directory_name}/figures'
+
     create_directory_robust(output_directory_name)
     create_directory_robust(cut_sets_directory_name)
+    create_directory_robust(contributions_directory_name)
     create_directory_robust(figures_directory_name)
 
     figure_index = Index(figure_from_id, figures_directory_name)
@@ -1998,6 +2053,10 @@ def main():
     gates_table.write_tsv(f'{output_directory_name}/gates.tsv')
     for gate_id, cut_set_table in cut_set_table_from_gate_id.items():
         cut_set_table.write_tsv(f'{cut_sets_directory_name}/{gate_id}.tsv')
+    for gate_id, contribution_table in contribution_table_from_gate_id.items():
+        contribution_table.write_tsv(
+            f'{contributions_directory_name}/{gate_id}.tsv'
+        )
     for figure_id, figure in figure_from_id.items():
         figure.write_svg(f'{figures_directory_name}/{figure_id}.svg')
     figure_index.write_html(f'{figures_directory_name}/index.html')

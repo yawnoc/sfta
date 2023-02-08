@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Implemented contributions (of each event to a gate)
+
 
 ## [v0.4.0] Figure index & earlier scientific notation (2022-12-02)
 
