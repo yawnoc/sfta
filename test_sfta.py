@@ -16,12 +16,12 @@ from math import prod
 
 from sfta import Event, FaultTree, Gate, Tome, Writ
 from sfta import (
-  blunt,
-  descending_product,
-  descending_sum,
-  dull,
-  escape_xml,
-  find_cycles,
+    blunt,
+    descending_product,
+    descending_sum,
+    dull,
+    escape_xml,
+    find_cycles,
 )
 
 
