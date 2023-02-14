@@ -29,6 +29,9 @@ def blunt(number, max_decimal_places):
     if number is None:
         return None
 
+    if number == Nan:
+        return Nan.STRING
+
     if number == 0:
         return '0'
 
@@ -47,6 +50,9 @@ def dull(number, max_significant_figures=1, coerce_scientific_exponent=3):
     """
     if number is None:
         return None
+
+    if number == Nan:
+        return Nan.STRING
 
     if number == 0:
         return '0'
@@ -166,11 +172,20 @@ def escape_xml(text):
     return text
 
 
+class Nan:
+    """
+    Static class representing NaN (not a number).
+    """
+    def __new__(cls):
+        raise TypeError('`Nan` cannot be instantiated')
+
+    STRING = 'nan'
+
+
 class DeepRecurse:
     """
     Context manager for raising maximum recursion depth.
     """
-
     def __init__(self, recursion_limit):
         self.recursion_limit = recursion_limit
 

@@ -14,7 +14,7 @@ import textwrap
 import unittest
 from math import prod
 
-from sfta import Event, FaultTree, Gate, Tome, Writ
+from sfta import Event, FaultTree, Gate, Nan, Tome, Writ
 from sfta import (
     blunt,
     descending_product,
@@ -28,6 +28,7 @@ from sfta import (
 class TestSfta(unittest.TestCase):
     def test_blunt(self):
         self.assertEqual(blunt(None, 1), None)
+        self.assertEqual(blunt(Nan, 1), 'nan')
 
         self.assertEqual(blunt(0, 1), '0')
         self.assertEqual(blunt(0., 1), '0')
@@ -63,6 +64,7 @@ class TestSfta(unittest.TestCase):
 
     def test_dull(self):
         self.assertEqual(dull(None), None)
+        self.assertEqual(dull(Nan), 'nan')
 
         self.assertEqual(dull(0), '0')
         self.assertEqual(dull(0.), '0')
