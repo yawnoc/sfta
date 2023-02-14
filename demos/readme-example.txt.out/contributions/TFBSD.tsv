@@ -1,5 +1,5 @@
-event	contribution_type	contribution_value	contribution_unit
-BSD	rate	0.135	/yr
-TB	rate	0.135	/yr
-TF	rate	0.135	/yr
-BF	rate	0	/yr
+event	contribution_type	contribution_value	contribution_unit	importance
+BSD	rate	0.135	/yr	1
+TB	rate	0.135	/yr	1
+TF	rate	0.135	/yr	1
+BF	rate	0	/yr	0

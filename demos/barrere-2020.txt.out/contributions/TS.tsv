@@ -1,8 +1,8 @@
-event	contribution_type	contribution_value	contribution_unit
-x5	probability	7.5E-3	1
-x6	probability	5E-3	1
-x7	probability	2.5E-3	1
-x1	probability	0	1
-x2	probability	0	1
-x3	probability	0	1
-x4	probability	0	1
+event	contribution_type	contribution_value	contribution_unit	importance
+x5	probability	7.5E-3	1	1
+x6	probability	5E-3	1	0.6667
+x7	probability	2.5E-3	1	0.3333
+x1	probability	0	1	0
+x2	probability	0	1	0
+x3	probability	0	1	0
+x4	probability	0	1	0

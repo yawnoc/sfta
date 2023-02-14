@@ -1,17 +1,17 @@
-event	contribution_type	contribution_value	contribution_unit
-4	probability	1E-5	1
-5	probability	1E-5	1
-6	probability	8E-10	1
-7	probability	8E-10	1
-8	probability	8E-10	1
-10	probability	3E-10	1
-11	probability	3E-10	1
-12	probability	3E-10	1
-13	probability	3E-10	1
-14	probability	3E-10	1
-15	probability	3E-10	1
-16	probability	3E-10	1
-9	probability	3E-10	1
-1	probability	0	1
-2	probability	0	1
-3	probability	0	1
+event	contribution_type	contribution_value	contribution_unit	importance
+4	probability	1E-5	1	0.4999
+5	probability	1E-5	1	0.4999
+6	probability	8E-10	1	4E-5
+7	probability	8E-10	1	4E-5
+8	probability	8E-10	1	4E-5
+10	probability	3E-10	1	1.5E-5
+11	probability	3E-10	1	1.5E-5
+12	probability	3E-10	1	1.5E-5
+13	probability	3E-10	1	1.5E-5
+14	probability	3E-10	1	1.5E-5
+15	probability	3E-10	1	1.5E-5
+16	probability	3E-10	1	1.5E-5
+9	probability	3E-10	1	1.5E-5
+1	probability	0	1	0
+2	probability	0	1	0
+3	probability	0	1	0

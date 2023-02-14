@@ -1,22 +1,22 @@
-event	contribution_type	contribution_value	contribution_unit
-O_3	probability	0.1	1
-A_4	probability	0.01111	1
-O_4	probability	0.01	1
-A_5	probability	1.111E-3	1
-O_5	probability	1E-3	1
-A_6	probability	1.111E-4	1
-O_6	probability	1E-4	1
-A_7	probability	1.112E-5	1
-O_7	probability	1E-5	1
-A_8	probability	1.12E-6	1
-O_8	probability	1E-6	1
-A_9	probability	1.2E-7	1
-O_9	probability	1E-7	1
-A_10	probability	2E-8	1
-L	probability	1E-8	1
-O_10	probability	1E-8	1
-A_1	probability	0	1
-A_2	probability	0	1
-A_3	probability	0	1
-O_1	probability	0	1
-O_2	probability	0	1
+event	contribution_type	contribution_value	contribution_unit	importance
+O_3	probability	0.1	1	0.9
+A_4	probability	0.01111	1	0.1
+O_4	probability	0.01	1	0.09
+A_5	probability	1.111E-3	1	0.01
+O_5	probability	1E-3	1	9E-3
+A_6	probability	1.111E-4	1	1E-3
+O_6	probability	1E-4	1	9E-4
+A_7	probability	1.112E-5	1	1.001E-4
+O_7	probability	1E-5	1	9E-5
+A_8	probability	1.12E-6	1	1.008E-5
+O_8	probability	1E-6	1	9E-6
+A_9	probability	1.2E-7	1	1.08E-6
+O_9	probability	1E-7	1	9E-7
+A_10	probability	2E-8	1	1.8E-7
+L	probability	1E-8	1	9E-8
+O_10	probability	1E-8	1	9E-8
+A_1	probability	0	1	0
+A_2	probability	0	1	0
+A_3	probability	0	1	0
+O_1	probability	0	1	0
+O_2	probability	0	1	0

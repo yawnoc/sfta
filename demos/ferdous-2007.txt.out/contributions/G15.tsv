@@ -1,47 +1,47 @@
-event	contribution_type	contribution_value	contribution_unit
-X11	probability	2.872E-3	1
-X17	probability	2.872E-3	1
-X9	probability	2.872E-3	1
-X15	probability	1.604E-3	1
-X16	probability	1.604E-3	1
-X45	probability	1.604E-3	1
-X13	probability	1.154E-3	1
-X14	probability	1.154E-3	1
-X44	probability	1.154E-3	1
-X10	probability	1.142E-4	1
-X12	probability	1.142E-4	1
-X43	probability	1.142E-4	1
-X1	probability	0	1
-X18	probability	0	1
-X19	probability	0	1
-X2	probability	0	1
-X20	probability	0	1
-X21	probability	0	1
-X22	probability	0	1
-X23	probability	0	1
-X24	probability	0	1
-X25	probability	0	1
-X26	probability	0	1
-X27	probability	0	1
-X28	probability	0	1
-X29	probability	0	1
-X3	probability	0	1
-X30	probability	0	1
-X31	probability	0	1
-X32	probability	0	1
-X33	probability	0	1
-X34	probability	0	1
-X35	probability	0	1
-X36	probability	0	1
-X37	probability	0	1
-X38	probability	0	1
-X39	probability	0	1
-X4	probability	0	1
-X40	probability	0	1
-X41	probability	0	1
-X42	probability	0	1
-X46	probability	0	1
-X5	probability	0	1
-X6	probability	0	1
-X7	probability	0	1
-X8	probability	0	1
+event	contribution_type	contribution_value	contribution_unit	importance
+X11	probability	2.872E-3	1	1
+X17	probability	2.872E-3	1	1
+X9	probability	2.872E-3	1	1
+X15	probability	1.604E-3	1	0.5585
+X16	probability	1.604E-3	1	0.5585
+X45	probability	1.604E-3	1	0.5585
+X13	probability	1.154E-3	1	0.4017
+X14	probability	1.154E-3	1	0.4017
+X44	probability	1.154E-3	1	0.4017
+X10	probability	1.142E-4	1	0.03977
+X12	probability	1.142E-4	1	0.03977
+X43	probability	1.142E-4	1	0.03977
+X1	probability	0	1	0
+X18	probability	0	1	0
+X19	probability	0	1	0
+X2	probability	0	1	0
+X20	probability	0	1	0
+X21	probability	0	1	0
+X22	probability	0	1	0
+X23	probability	0	1	0
+X24	probability	0	1	0
+X25	probability	0	1	0
+X26	probability	0	1	0
+X27	probability	0	1	0
+X28	probability	0	1	0
+X29	probability	0	1	0
+X3	probability	0	1	0
+X30	probability	0	1	0
+X31	probability	0	1	0
+X32	probability	0	1	0
+X33	probability	0	1	0
+X34	probability	0	1	0
+X35	probability	0	1	0
+X36	probability	0	1	0
+X37	probability	0	1	0
+X38	probability	0	1	0
+X39	probability	0	1	0
+X4	probability	0	1	0
+X40	probability	0	1	0
+X41	probability	0	1	0
+X42	probability	0	1	0
+X46	probability	0	1	0
+X5	probability	0	1	0
+X6	probability	0	1	0
+X7	probability	0	1	0
+X8	probability	0	1	0
