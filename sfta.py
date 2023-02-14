@@ -580,6 +580,7 @@ class Gate:
         self.quantity_value = None
 
         self.contribution_value_from_event_index = None
+        self.importance_from_event_index = None
 
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
@@ -800,6 +801,11 @@ class Gate:
                     if event.index in cut_set_indices
                 )
             for event in events
+        }
+        self.importance_from_event_index = {
+            event_index: contribution_value / self.quantity_value
+            for event_index, contribution_value
+            in self.contribution_value_from_event_index.items()
         }
 
     class LabelAlreadySetException(FaultTreeTextException):
@@ -1241,6 +1247,7 @@ class FaultTree:
                 'contribution_type',
                 'contribution_value',
                 'contribution_unit',
+                'importance',
             ]
             rows = [
                 [
@@ -1254,6 +1261,10 @@ class FaultTree:
                         gate.quantity_type,
                         self.time_unit,
                     ),
+                    dull(
+                        gate.importance_from_event_index[event_index],
+                        FaultTree.MAX_SIGNIFICANT_FIGURES,
+                    )
                 ]
                 for event_index, event_id in self.event_id_from_index.items()
             ]

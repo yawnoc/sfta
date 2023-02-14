@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Implemented importance (event contribution divided by gate quantity)
+
 
 ## [v0.5.0] Contributions (2023-02-09)
 
