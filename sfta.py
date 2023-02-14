@@ -803,7 +803,9 @@ class Gate:
             for event in events
         }
         self.importance_from_event_index = {
-            event_index: contribution_value / self.quantity_value
+            event_index:
+                None if self.quantity_value == 0
+                else contribution_value / self.quantity_value
             for event_index, contribution_value
             in self.contribution_value_from_event_index.items()
         }
