@@ -1354,7 +1354,7 @@ class Figure:
         top_node.position_recursive()
 
         self.top_node = top_node
-        self.contributing_ids = top_node.implicated_ids
+        self.occurrence_ids = top_node.implicated_ids
 
     def get_svg_content(self):
         top_node = self.top_node
@@ -1860,8 +1860,8 @@ class Index:
         figure_ids_from_id = {}
 
         for figure_id, figure in figure_from_id.items():
-            ids_from_figure_id[figure_id] = figure.contributing_ids
-            for id_ in figure.contributing_ids:
+            ids_from_figure_id[figure_id] = figure.occurrence_ids
+            for id_ in figure.occurrence_ids:
                 figure_ids_from_id.setdefault(id_, set()).add(figure_id)
 
         self.ids_from_figure_id = ids_from_figure_id
