@@ -1494,16 +1494,19 @@ class Node:
                 f'neither `event_from_id` nor `gate_from_id`.'
             )
 
-        if input_nodes:
-            contributing_ids = {
+        contributing_ids = {
+            id_,
+            *{
                 id_
                 for node in input_nodes
                 for id_ in node.contributing_ids
-            }
+            },
+        }
+
+        if input_nodes:
             width = sum(node.width for node in input_nodes)
             height = Node.HEIGHT + max(node.height for node in input_nodes)
         else:
-            contributing_ids = {id_}
             width = Node.WIDTH
             height = Node.HEIGHT
 

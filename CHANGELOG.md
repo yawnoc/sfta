@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Fixed figure index missing gates
+
 
 ## [v0.6.0] Importance (2023-02-14)
 
