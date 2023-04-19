@@ -1354,7 +1354,11 @@ class Figure:
         top_node.position_recursive()
 
         self.top_node = top_node
-        self.occurrence_ids = top_node.implicated_ids
+        self.occurrence_ids = {
+            implicated_id
+            for implicated_id in top_node.implicated_ids
+            if implicated_id != id_
+        }
 
     def get_svg_content(self):
         top_node = self.top_node
