@@ -1354,7 +1354,7 @@ class Figure:
         top_node.position_recursive()
 
         self.top_node = top_node
-        self.contributing_ids = top_node.contributing_ids
+        self.contributing_ids = top_node.implicated_ids
 
     def get_svg_content(self):
         top_node = self.top_node
@@ -1494,12 +1494,12 @@ class Node:
                 f'neither `event_from_id` nor `gate_from_id`.'
             )
 
-        contributing_ids = {
+        implicated_ids = {
             id_,
             *{
                 id_
                 for node in input_nodes
-                for id_ in node.contributing_ids
+                for id_ in node.implicated_ids
             },
         }
 
@@ -1515,7 +1515,7 @@ class Node:
         self.symbol_type = symbol_type
         self.time_unit = time_unit
         self.input_nodes = input_nodes
-        self.contributing_ids = contributing_ids
+        self.implicated_ids = implicated_ids
         self.width = width
         self.height = height
 
