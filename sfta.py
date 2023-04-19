@@ -19,7 +19,7 @@ import textwrap
 from math import isfinite, log10, prod, sqrt
 
 
-__version__ = '0.6.0'
+__version__ = '0.6.1'
 
 
 def blunt(number, max_decimal_places):

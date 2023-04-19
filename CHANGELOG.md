@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.6.1] Gates in figure index (2023-04-19)
+
 - Fixed figure index missing gates
 
 
@@ -76,7 +79,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.6.1...HEAD
+[v0.6.1]: https://github.com/yawnoc/sfta/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/yawnoc/sfta/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/yawnoc/sfta/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/yawnoc/sfta/compare/v0.3.1...v0.4.0
