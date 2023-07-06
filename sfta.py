@@ -38,7 +38,7 @@ def blunt(number, max_decimal_places):
     if not isfinite(number):
         return str(number)
 
-    nice_string = f'%.{max_decimal_places}F' % number
+    nice_string = f'{number :.{max_decimal_places}F}'
     nice_string = re.sub(r'[.]?0*$', '', nice_string)
 
     return nice_string
