@@ -61,10 +61,10 @@ def dull(number, max_significant_figures=1, coerce_scientific_exponent=3):
         return str(number)
 
     if log10(abs(number)) < -(coerce_scientific_exponent - 1):
-        nice_string = f'%.{max_significant_figures - 1}E' % number
+        nice_string = f'{number :.{max_significant_figures - 1}E}'
         nice_string = re.sub(r'[.]?0*(?=E)', '', nice_string)
     else:
-        nice_string = f'%.{max_significant_figures}G' % number
+        nice_string = f'{number :.{max_significant_figures}G}'
     nice_string = re.sub('(?<=E[+-])0+', '', nice_string)
     general_float = float(nice_string)
     general_int = round(general_float)

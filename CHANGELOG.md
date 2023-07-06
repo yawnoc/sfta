@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 - Rewrote `blunt` without percent operator
+- Rewrote `dull` without percent operator
 
 
 ## [v0.6.1] Gates in figure index (2023-04-19)
