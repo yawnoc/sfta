@@ -28,9 +28,9 @@ from src.data_models.utilities import (
     find_cycles,
     is_bad_id,
 )
-from src.data_models.exceptations.fault_tree import *
-from src.data_models.exceptations.event import *
-from src.data_models.exceptations.gate import *
+from src.data_models.exceptions.fault_tree import *
+from src.data_models.exceptions.event import *
+from src.data_models.exceptions.gate import *
 
 
 class TestSfta(unittest.TestCase):

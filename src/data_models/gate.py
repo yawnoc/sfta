@@ -2,7 +2,7 @@ import re
 from .utilities import descending_product, descending_sum, Nan, is_bad_id
 from .tome import Tome, Writ
 from .event import Event
-from .exceptations.gate import (
+from .exceptions.gate import (
     GateBadIsPagedException,
     GateBadTypeException,
     GateCommentAlreadySetException,
@@ -16,7 +16,7 @@ from .exceptations.gate import (
     GateTypeNotSetException,
     GateZeroInputsException,
 )
-from .exceptations.fault_tree import FtBadIdException
+from .exceptions.fault_tree import FtBadIdException
 
 
 class Gate:

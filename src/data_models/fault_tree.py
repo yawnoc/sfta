@@ -12,7 +12,7 @@ from .event import Event
 from .gate import Gate
 from .figure import Figure
 from .table import Table
-from .exceptations.fault_tree import (
+from .exceptions.fault_tree import (
     FtBadIdException, 
     FtSmotheredObjectDeclarationException, 
     FtDanglingPropertySettingException, 
@@ -24,8 +24,8 @@ from .exceptations.fault_tree import (
     FtCircularGateInputsException
     )
 
-from .exceptations.gate import GateUnknownInputException, GateUnrecognisedKeyException
-from .exceptations.event import EventUnrecognisedKeyException
+from .exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
+from .exceptions.event import EventUnrecognisedKeyException
 
 
 class FaultTree:

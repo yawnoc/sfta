@@ -1,5 +1,5 @@
 from .tome import Tome, Writ
-from .exceptations.event import (
+from .exceptions.event import (
     EventBadFloatException,
     EventBadProbabilityException,
     EventBadRateException,

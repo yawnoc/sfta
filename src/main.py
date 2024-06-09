@@ -7,7 +7,7 @@ import sys
 from src.output_handling import create_directory_robust, write_output_files
 from src.content_manager import DeepRecurse
 from src.data_models.fault_tree import FaultTree
-from src.data_models.exceptations.base import FaultTreeTextException
+from src.data_models.exceptions.base import FaultTreeTextException
 
 
 __version__ = "0.6.2"
