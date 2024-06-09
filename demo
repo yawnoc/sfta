@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 for txt_file in demos/*.txt; do
-  python -m src.main $txt_file
+  python3 -m src.main $txt_file
 done
