@@ -40,7 +40,11 @@ class Writ:
             1: stops before the '0b' prefix returned by `bin`
             -1: travels from right to left
         """
-        return frozenset(index for index, digit in enumerate(bin(writ)[-1:1:-1]) if digit == "1")
+        return frozenset(
+            index
+            for index, digit in enumerate(bin(writ)[-1:1:-1])
+            if digit == '1'
+        )
 
     @staticmethod
     def and_(*input_writs):
@@ -137,7 +141,9 @@ class Tome:
         Hence the conjunction has the same dimension as the first input.
         """
         non_first_rate_indices = [
-            index for index, tome in enumerate(input_tomes) if index > 0 and tome.quantity_type == EVENT_TYPE_RATE
+            index
+            for index, tome in enumerate(input_tomes)
+            if index > 0 and tome.quantity_type == EVENT_TYPE_RATE
         ]
         if non_first_rate_indices:
             raise Tome.ConjunctionBadTypesException(non_first_rate_indices)
@@ -164,7 +170,11 @@ class Tome:
 
         disjunction_quantity_type = input_quantity_types[0]
 
-        input_writs = (writ for tome in input_tomes for writ in tome.writs)
+        input_writs = (
+            writ
+            for tome in input_tomes
+            for writ in tome.writs
+        )
         disjunction_writs = Writ.or_(*input_writs)
 
         return Tome(disjunction_writs, disjunction_quantity_type)
