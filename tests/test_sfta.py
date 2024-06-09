@@ -14,12 +14,12 @@ import textwrap
 import unittest
 from math import prod
 
-from src.data_models.event import Event
-from src.data_models.fault_tree import FaultTree
-from src.data_models.nan import Nan
-from src.data_models.gate import Gate
-from src.data_models.tome import Tome, Writ
-from src.data_models.utilities import (
+from sfta.data_models.event import Event
+from sfta.data_models.fault_tree import FaultTree
+from sfta.data_models.nan import Nan
+from sfta.data_models.gate import Gate
+from sfta.data_models.tome import Tome, Writ
+from sfta.data_models.utilities import (
     blunt,
     descending_product,
     descending_sum,
@@ -28,9 +28,9 @@ from src.data_models.utilities import (
     find_cycles,
     is_bad_id,
 )
-from src.data_models.exceptions.fault_tree import *
-from src.data_models.exceptions.event import *
-from src.data_models.exceptions.gate import *
+from sfta.data_models.exceptions.fault_tree import *
+from sfta.data_models.exceptions.event import *
+from sfta.data_models.exceptions.gate import *
 
 
 class TestSfta(unittest.TestCase):

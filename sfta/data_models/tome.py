@@ -1,6 +1,6 @@
 import itertools
 
-from src.data_models.utilities import EVENT_TYPE_RATE
+from sfta.data_models.utilities import EVENT_TYPE_RATE
 
 
 class Writ:
