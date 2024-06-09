@@ -2,7 +2,7 @@ import logging
 
 import streamlit as st
 
-from src.content_manager import DeepRecurse
+from src.context_manager import DeepRecurse
 from src.data_models.exceptions.base import FaultTreeTextException
 from src.data_models.fault_tree import FaultTree
 from src.output_handling import create_directory_robust, write_output_files
