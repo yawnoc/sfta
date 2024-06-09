@@ -38,11 +38,11 @@ def write_output_files(fault_tree, output_directory_name):
     for figure_id, figure in figure_from_id.items():
         figure.write_svg(f"{figures_directory_name}/{figure_id}.svg")
     figure_index.write_html(f"{figures_directory_name}/index.html")
-    
+
     # go through the figures directory and get the path of all the svg files
     for root, _, files in os.walk(figures_directory_name):
         for file in files:
             if file.endswith(".svg"):
                 svg_file_path.append(os.path.join(root, file))
-    
+
     return svg_file_path
