@@ -82,7 +82,7 @@ class Node:
                 elif gate.type_ == Gate.TYPE_AND:
                     symbol_type = Node.SYMBOL_TYPE_AND
                 else:
-                    raise RuntimeError(f"Implementation error: " f"Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.")
+                    raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
             input_nodes = [
                 Node(
                     event_from_id,
@@ -95,7 +95,7 @@ class Node:
             ]
         else:
             raise RuntimeError(
-                f"Implementation error: " f"`{id_}` is in " f"neither `event_from_id` nor `gate_from_id`."
+                f'Implementation error: `{id_}` is in neither `event_from_id` nor `gate_from_id`.'
             )
 
         implicated_ids = {
@@ -173,7 +173,7 @@ class Node:
         ]
         input_elements = [input_node.get_svg_elements_recursive() for input_node in self.input_nodes]
 
-        return "\n".join(self_elements + input_elements)
+        return '\n'.join(self_elements + input_elements)
 
     @staticmethod
     def label_symbol_connector_element(x, y):
@@ -181,14 +181,14 @@ class Node:
         label_middle = y - Node.LABEL_BOX_HEIGHT // 2 + Node.LABEL_BOX_Y_OFFSET
         symbol_middle = y + Node.SYMBOL_Y_OFFSET
 
-        points = f"{centre},{label_middle} {centre},{symbol_middle}"
+        points = f'{centre},{label_middle} {centre},{symbol_middle}'
 
         return f'<polyline points="{points}"/>'
 
     @staticmethod
     def symbol_input_connector_elements(input_nodes, x, y):
         if not input_nodes:
-            return ""
+            return ''
 
         symbol_centre = x
         symbol_middle = y + Node.SYMBOL_Y_OFFSET
@@ -226,17 +226,17 @@ class Node:
             input_label_middle = input_node.y + Node.LABEL_BOX_Y_OFFSET
 
             points_by_input.append(
-                " ".join(
+                ' '.join(
                     [
-                        f"{slot_x},{symbol_middle}",
-                        f"{slot_x},{bus_y}",
-                        f"{input_label_centre},{bus_y}",
-                        f"{input_label_centre},{input_label_middle}",
+                        f'{slot_x},{symbol_middle}',
+                        f'{slot_x},{bus_y}',
+                        f'{input_label_centre},{bus_y}',
+                        f'{input_label_centre},{input_label_middle}',
                     ]
                 )
             )
 
-        return "\n".join(f'<polyline points="{points}"/>' for points in points_by_input)
+        return '\n'.join(f'<polyline points="{points}"/>' for points in points_by_input)
 
     @staticmethod
     def label_rectangle_element(x, y):
@@ -250,7 +250,7 @@ class Node:
     @staticmethod
     def label_text_elements(x, y, label):
         if label is None:
-            return ""
+            return ''
 
         centre = x
         middle = y + Node.LABEL_BOX_Y_OFFSET
@@ -268,7 +268,7 @@ class Node:
         )
         font_size = scale_factor * Node.DEFAULT_FONT_SIZE
         font_size_str = blunt(font_size, max_decimal_places=1)
-        style = f"font-size: {font_size_str}px"
+        style = f'font-size: {font_size_str}px'
 
         line_count = len(lines)
         text_elements = []
@@ -280,11 +280,9 @@ class Node:
             )
             content = escape_xml(line)
 
-            text_elements.append(
-                f"<text" f' x="{centre}"' f' y="{line_middle}"' f' style="{style}"' f">{content}</text>"
-            )
+            text_elements.append(f'<text x="{centre}" y="{line_middle}" style="{style}">{content}</text>')
 
-        return "\n".join(text_elements)
+        return '\n'.join(text_elements)
 
     @staticmethod
     def id_rectangle_element(x, y):
@@ -317,7 +315,7 @@ class Node:
         if symbol_type == Node.SYMBOL_TYPE_PAGED:
             return Node.paged_symbol_element(x, y)
 
-        return ""
+        return ''
 
     @staticmethod
     def or_symbol_element(x, y):
@@ -340,12 +338,12 @@ class Node:
         groin_y = toe_y - Node.OR_GROIN_RISE
 
         commands = (
-            f"M{apex_x},{apex_y} "
-            f"C{left_slant_x},{slant_y} {left_x},{sling_y} {left_x},{ear_y} "
-            f"L{left_x},{toe_y} "
-            f"Q{groin_x},{groin_y} {right_x},{toe_y} "
-            f"L{right_x},{ear_y} "
-            f"C{right_x},{sling_y} {right_slant_x},{slant_y} {apex_x},{apex_y}"
+            f'M{apex_x},{apex_y} '
+            f'C{left_slant_x},{slant_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
+            f'Q{groin_x},{groin_y} {right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {right_slant_x},{slant_y} {apex_x},{apex_y}'
         )
 
         return f'<path d="{commands}"/>'
@@ -361,11 +359,11 @@ class Node:
         sling_y = ear_y - Node.AND_SLING_RISE
 
         commands = (
-            f"M{left_x},{toe_y} "
-            f"L{right_x},{toe_y} "
-            f"L{right_x},{ear_y} "
-            f"C{right_x},{sling_y} {left_x},{sling_y} {left_x},{ear_y} "
-            f"L{left_x},{toe_y} "
+            f'M{left_x},{toe_y} '
+            f'L{right_x},{toe_y} '
+            f'L{right_x},{ear_y} '
+            f'C{right_x},{sling_y} {left_x},{sling_y} {left_x},{ear_y} '
+            f'L{left_x},{toe_y} '
         )
 
         return f'<path d="{commands}"/>'
@@ -387,7 +385,7 @@ class Node:
         right_x = x + Node.PAGED_HALF_WIDTH
         toe_y = y + Node.PAGED_BODY_HEIGHT + Node.SYMBOL_Y_OFFSET
 
-        points = f"{apex_x},{apex_y} {left_x},{toe_y} {right_x},{toe_y}"
+        points = f'{apex_x},{apex_y} {left_x},{toe_y} {right_x},{toe_y}'
 
         return f'<polygon points="{points}"/>'
 
@@ -402,35 +400,31 @@ class Node:
 
     @staticmethod
     def quantity_text_element(
-            x,
-            y,
-            quantity_value,
-            quantity_type,
-            hath_multiple_writs,
-            time_unit,
+        x,
+        y,
+        quantity_value,
+        quantity_type,
+        hath_multiple_writs,
+        time_unit,
     ):
         centre = x
         middle = y + Node.QUANTITY_BOX_Y_OFFSET
 
         if quantity_type == Event.TYPE_PROBABILITY:
-            lhs = "Q"
+            lhs = 'Q'
         elif quantity_type == Event.TYPE_RATE:
-            lhs = "w"
+            lhs = 'w'
         else:
-            raise RuntimeError("Implementation error: " "`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`")
+            raise RuntimeError('Implementation error: `quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`')
 
         if hath_multiple_writs:
-            relation = "≤"
+            relation = '≤'
         else:
-            relation = "="
+            relation = '='
 
         value_str = dull(quantity_value, MAX_SIGNIFICANT_FIGURES)
-        unit_str = Event.quantity_unit_str(
-            quantity_type,
-            time_unit,
-            suppress_unity=True,
-        )
+        unit_str = Event.quantity_unit_str(quantity_type, time_unit, suppress_unity=True)
 
-        content = escape_xml(f"{lhs} {relation} {value_str}{unit_str}")
+        content = escape_xml(f'{lhs} {relation} {value_str}{unit_str}')
 
         return f'<text x="{centre}" y="{middle}">{content}</text>'
