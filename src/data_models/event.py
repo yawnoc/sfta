@@ -39,22 +39,23 @@ class Event:
     def quantity_unit_str(quantity_type, time_unit, suppress_unity=False):
         if quantity_type == Event.TYPE_PROBABILITY:
             if suppress_unity:
-                return ""
+                return ''
             else:
-                return "1"
+                return '1'
 
         if quantity_type == Event.TYPE_RATE:
             if time_unit is None:
-                return "(unspecified)"
+                return '(unspecified)'
             else:
-                return f"/{time_unit}"
+                return f'/{time_unit}'
 
-        raise RuntimeError("Implementation error: " "`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`")
+        raise RuntimeError('Implementation error: `quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`')
 
     def set_label(self, label, line_number):
         if self.label is not None:
             raise EventLabelAlreadySetException(
-                line_number, f"label hath already been set for Event `{self.id_}` " f"at line {self.label_line_number}"
+                line_number,
+                f'label hath already been set for Event `{self.id_}` at line {self.label_line_number}'
             )
 
         self.label = label
@@ -64,25 +65,26 @@ class Event:
         if self.quantity_type is not None:
             raise EventQuantityAlreadySetException(
                 line_number,
-                f"probability or rate hath already been set "
-                f"for Event `{self.id_}` "
-                f"at line {self.quantity_line_number}",
+                f'probability or rate hath already been set for Event `{self.id_}` at line {self.quantity_line_number}',
             )
 
         try:
             probability = float(probability_str)
         except ValueError:
             raise EventBadFloatException(
-                line_number, f"unable to convert `{probability_str}` to float " f"for Event `{self.id_}`"
+                line_number,
+                f'unable to convert `{probability_str}` to float for Event `{self.id_}`',
             )
 
         if probability < 0:
             raise EventBadProbabilityException(
-                line_number, f"probability `{probability_str}` is negative " f"for Event `{self.id_}`"
+                line_number,
+                f'probability `{probability_str}` is negative for Event `{self.id_}`',
             )
         if probability > 1:
             raise EventBadProbabilityException(
-                line_number, f"probability `{probability_str}` exceedeth 1 " f"for Event `{self.id_}`"
+                line_number,
+                f'probability `{probability_str}` exceedeth 1 for Event `{self.id_}`',
             )
 
         self.quantity_type = Event.TYPE_PROBABILITY
@@ -93,22 +95,27 @@ class Event:
         if self.quantity_type is not None:
             raise EventQuantityAlreadySetException(
                 line_number,
-                f"probability or rate hath already been set "
-                f"for Event `{self.id_}` "
-                f"at line {self.quantity_line_number}",
+                f'probability or rate hath already been set for Event `{self.id_}` at line {self.quantity_line_number}',
             )
 
         try:
             rate = float(rate_str)
         except ValueError:
             raise EventBadFloatException(
-                line_number, f"unable to convert `{rate_str}` to float " f"for Event `{self.id_}`"
+                line_number,
+                f'unable to convert `{rate_str}` to float for Event `{self.id_}`',
             )
 
         if rate < 0:
-            raise EventBadRateException(line_number, f"rate `{rate_str}` is negative for Event `{self.id_}`")
-        if not rate < float("inf"):
-            raise EventBadRateException(line_number, f"rate `{rate_str}` is not finite for Event `{self.id_}`")
+            raise EventBadRateException(
+                line_number,
+                f'rate `{rate_str}` is negative for Event `{self.id_}`'
+            )
+        if not rate < float('inf'):
+            raise EventBadRateException(
+                line_number,
+                f'rate `{rate_str}` is not finite for Event `{self.id_}`'
+            )
 
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
@@ -118,7 +125,7 @@ class Event:
         if self.comment is not None:
             raise EventCommentAlreadySetException(
                 line_number,
-                f"comment hath already been set for Event `{self.id_}` " f"at line {self.comment_line_number}",
+                f'comment hath already been set for Event `{self.id_}` at line {self.comment_line_number}',
             )
 
         self.comment = comment
@@ -127,7 +134,8 @@ class Event:
     def validate_properties(self, line_number):
         if self.quantity_type is None or self.quantity_value is None:
             raise EventQuantityNotSetException(
-                line_number, f"probability or rate hath not been set for Event `{self.id_}`"
+                line_number,
+                f'probability or rate hath not been set for Event `{self.id_}`',
             )
 
     def compute_tome(self):
