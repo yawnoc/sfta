@@ -45,7 +45,7 @@ class FaultTree:
 
     @staticmethod
     def is_bad_id(string):
-        return not re.fullmatch(r"[a-zA-Z0-9_-]+", string)
+        return not re.fullmatch(r'[a-zA-Z0-9_-]+', string)
 
     @staticmethod
     def build(fault_tree_text):
@@ -83,116 +83,120 @@ class FaultTree:
         current_object = FaultTree
         ids = set()
 
-        lines = (fault_tree_text + "\n\n").splitlines()
+        lines = (fault_tree_text + '\n\n').splitlines()
         for line_number, line in enumerate(lines, start=1):
 
-            object_line_regex = r"^(?P<class_>Event|Gate): \s*(?P<id_>.+?)\s*$"
+            object_line_regex = r'^(?P<class_>Event|Gate): \s*(?P<id_>.+?)\s*$'
             object_line_match = re.match(object_line_regex, line)
             if object_line_match:
-                class_ = object_line_match.group("class_")
-                id_ = object_line_match.group("id_")
+                class_ = object_line_match.group('class_')
+                id_ = object_line_match.group('id_')
 
                 if current_object not in (None, FaultTree):
                     raise FaultTreeSmotheredObjectDeclarationException(
-                        line_number, f"missing blank line before " f"declaration of {class_} `{id_}`"
+                        line_number,
+                        f'missing blank line before declaration of {class_} `{id_}`',
                     )
                 if id_ in ids:
-                    raise FaultTreeDuplicateIdException(line_number, f"duplicate ID `{id_}` in declaration of {class_}")
+                    raise FaultTreeDuplicateIdException(
+                        line_number,
+                        f'duplicate ID `{id_}` in declaration of {class_}',
+                    )
                 if is_bad_id(id_):
                     raise FaultTreeBadIdException(
-                        line_number, f"bad ID `{id_}` in declaration of {class_}" f"\n\n{FaultTree.IDS_EXPLAINER}"
+                        line_number,
+                        f'bad ID `{id_}` in declaration of {class_}' f'\n\n{FaultTree.IDS_EXPLAINER}',
                     )
 
-                if class_ == "Event":
+                if class_ == 'Event':
                     event = Event(id_, event_index)
                     events.append(event)
                     event_index += 1
                     current_object = event
-                elif class_ == "Gate":
+                elif class_ == 'Gate':
                     gate = Gate(id_)
                     gates.append(gate)
                     current_object = gate
                 else:
                     raise RuntimeError(
-                        f"Implementation error: "
-                        f"`class_` matched from regex `{object_line_regex}` "
-                        f"is neither `Event` nor `Gate`."
+                        f'Implementation error: '
+                        f'`class_` matched from regex `{object_line_regex}` is neither `Event` nor `Gate`.'
                     )
                 ids.add(id_)
                 continue
 
-            property_line_regex = r"^- (?P<key>\S+): \s*(?P<value>.+?)\s*$"
+            property_line_regex = r'^- (?P<key>\S+): \s*(?P<value>.+?)\s*$'
             property_line_match = re.match(property_line_regex, line)
             if property_line_match:
-                key = property_line_match.group("key")
-                value = property_line_match.group("value")
+                key = property_line_match.group('key')
+                value = property_line_match.group('value')
 
                 if current_object is None:
                     raise FaultTreeDanglingPropertySettingException(
                         line_number,
-                        f"missing Event or Gate declaration before "
-                        f"setting {key} to `{value}`"
-                        f"\n\n{FaultTree.PROPERTY_EXPLAINER}",
+                        f'missing Event or Gate declaration before setting {key} to `{value}`'
+                        f'\n\n{FaultTree.PROPERTY_EXPLAINER}',
                     )
 
                 if current_object is FaultTree:
-                    if key == "time_unit":
+                    if key == 'time_unit':
                         if time_unit is not None:
                             raise FaultTreeTimeUnitAlreadySetException(
-                                line_number, f"time unit hath already been set " f"at line {time_unit_line_number}"
+                                line_number,
+                                f'time unit hath already been set at line {time_unit_line_number}',
                             )
                         time_unit = value
                         time_unit_line_number = line_number
                     else:
                         raise FaultTreeUnrecognisedKeyException(
                             line_number,
-                            f"unrecognised key `{key}` " f"for the fault tree" f"\n\n{FaultTree.KEY_EXPLAINER}",
+                            f'unrecognised key `{key}` for the fault tree'
+                            f'\n\n{FaultTree.KEY_EXPLAINER}',
                         )
                 elif isinstance(current_object, Event):
-                    if key == "label":
+                    if key == 'label':
                         current_object.set_label(value, line_number)
-                    elif key == "probability":
+                    elif key == 'probability':
                         current_object.set_probability(value, line_number)
-                    elif key == "rate":
+                    elif key == 'rate':
                         current_object.set_rate(value, line_number)
-                    elif key == "comment":
+                    elif key == 'comment':
                         current_object.set_comment(value, line_number)
                     else:
                         raise EventUnrecognisedKeyException(
                             line_number,
-                            f"unrecognised key `{key}` "
-                            f"for Event `{current_object.id_}`"
-                            f"\n\n{Event.KEY_EXPLAINER}",
+                            f'unrecognised key `{key}` for Event `{current_object.id_}`'
+                            f'\n\n{Event.KEY_EXPLAINER}',
                         )
                 elif isinstance(current_object, Gate):
-                    if key == "label":
+                    if key == 'label':
                         current_object.set_label(value, line_number)
-                    elif key == "is_paged":
+                    elif key == 'is_paged':
                         current_object.set_is_paged(value, line_number)
-                    elif key == "type":
+                    elif key == 'type':
                         current_object.set_type(value, line_number)
-                    elif key == "inputs":
+                    elif key == 'inputs':
                         current_object.set_inputs(value, line_number)
-                    elif key == "comment":
+                    elif key == 'comment':
                         current_object.set_comment(value, line_number)
                     else:
                         raise GateUnrecognisedKeyException(
                             line_number,
-                            f"unrecognised key `{key}` " f"for Gate `{current_object.id_}`" f"\n\n{Gate.KEY_EXPLAINER}",
+                            f'unrecognised key `{key}` for Gate `{current_object.id_}`'
+                            f'\n\n{Gate.KEY_EXPLAINER}',
                         )
                 else:
                     raise RuntimeError(
-                        f"Implementation error: "
-                        f"current_object {current_object} "
-                        f"is an instance of neither Event nor Gate."
+                        f'Implementation error: '
+                        f'current_object {current_object} is an instance of neither Event nor Gate.'
                     )
                 continue
 
-            comment_line_regex = "^#.*$"
+            comment_line_regex = '^#.*$'
             if re.match(comment_line_regex, line):
                 continue
 
-            blank_line_regex = r"^\s*$"
+            blank_line_regex = r'^\s*$'
             if re.match(blank_line_regex, line):
                 if current_object is None:
                     continue
@@ -204,13 +208,16 @@ class FaultTree:
                     current_object = None
                 else:
                     raise RuntimeError(
-                        f"Implementation error: "
-                        f"current_object {current_object} "
-                        f"is an instance of neither Event nor Gate."
+                        f'Implementation error: '
+                        f'current_object {current_object} is an instance of neither Event nor Gate.'
                     )
                 continue
 
-            raise FaultTreeBadLineException(line_number, f"bad line `{line}`" f"\n\n{FaultTree.LINE_EXPLAINER}")
+            raise FaultTreeBadLineException(
+                line_number,
+                f'bad line `{line}`'
+                f'\n\n{FaultTree.LINE_EXPLAINER}',
+            )
 
         return events, gates, time_unit
 
@@ -235,7 +242,8 @@ class FaultTree:
 
                 if not (input_is_known_event or input_is_known_gate):
                     raise GateUnknownInputException(
-                        gate.inputs_line_number, f"no Event or Gate is ever declared with ID `{id_}`"
+                        gate.inputs_line_number,
+                        f'no Event or Gate is ever declared with ID `{id_}`',
                     )
 
         return used_event_ids, top_gate_ids
@@ -253,11 +261,11 @@ class FaultTree:
             length = len(cycle)
             raise FaultTreeCircularGateInputsException(
                 None,
-                "circular gate inputs detected:"
-                + "\n    "
-                + "\n    ".join(
-                    f"at line {gate_from_id[cycle[i]].inputs_line_number}: "
-                    f"Gate `{cycle[i]}` hath input `{cycle[(i+1) % length]}`"
+                'circular gate inputs detected:'
+                + '\n    '
+                + '\n    '.join(
+                    f'at line {gate_from_id[cycle[i]].inputs_line_number}: '
+                    f'Gate `{cycle[i]}` hath input `{cycle[(i+1) % length]}`'
                     for i, _ in enumerate(cycle)
                 ),
             )
@@ -285,12 +293,12 @@ class FaultTree:
 
     def get_events_table(self):
         field_names = [
-            "id",
-            "is_used",
-            "quantity_type",
-            "quantity_value",
-            "quantity_unit",
-            "label",
+            'id',
+            'is_used',
+            'quantity_type',
+            'quantity_value',
+            'quantity_unit',
+            'label',
         ]
         rows = [
             [
@@ -308,15 +316,15 @@ class FaultTree:
 
     def get_gates_table(self):
         field_names = [
-            "id",
-            "is_top_gate",
-            "is_paged",
-            "quantity_type",
-            "quantity_value",
-            "quantity_unit",
-            "type",
-            "inputs",
-            "label",
+            'id',
+            'is_top_gate',
+            'is_paged',
+            'quantity_type',
+            'quantity_value',
+            'quantity_unit',
+            'type',
+            'inputs',
+            'label',
         ]
         rows = [
             [
@@ -327,7 +335,7 @@ class FaultTree:
                 dull(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                 Gate.STR_FROM_TYPE[gate.type_],
-                ",".join(gate.input_ids),
+                ','.join(gate.input_ids),
                 gate.label,
             ]
             for id_, gate in self.gate_from_id.items()
@@ -339,21 +347,18 @@ class FaultTree:
         cut_set_table_from_gate_id = {}
         for gate_id, gate in self.gate_from_id.items():
             field_names = [
-                "quantity_type",
-                "quantity_value",
-                "quantity_unit",
-                "cut_set",
-                "cut_set_order",
+                'quantity_type',
+                'quantity_value',
+                'quantity_unit',
+                'cut_set',
+                'cut_set_order',
             ]
             rows = [
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
                     dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
-                    Event.quantity_unit_str(
-                        gate.quantity_type,
-                        self.time_unit,
-                    ),
-                    ".".join(self.event_id_from_index[event_index] for event_index in sorted(cut_set_indices)),
+                    Event.quantity_unit_str(gate.quantity_type, self.time_unit),
+                    '.'.join(self.event_id_from_index[event_index] for event_index in sorted(cut_set_indices)),
                     len(cut_set_indices),
                 ]
                 for cut_set_indices, quantity_value in gate.quantity_value_from_cut_set_indices.items()
@@ -370,28 +375,19 @@ class FaultTree:
         contribution_table_from_gate_id = {}
         for gate_id, gate in self.gate_from_id.items():
             field_names = [
-                "event",
-                "contribution_type",
-                "contribution_value",
-                "contribution_unit",
-                "importance",
+                'event',
+                'contribution_type',
+                'contribution_value',
+                'contribution_unit',
+                'importance',
             ]
             rows = [
                 [
                     event_id,
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    dull(
-                        gate.contribution_value_from_event_index[event_index],
-                        FaultTree.MAX_SIGNIFICANT_FIGURES,
-                    ),
-                    Event.quantity_unit_str(
-                        gate.quantity_type,
-                        self.time_unit,
-                    ),
-                    dull(
-                        gate.importance_from_event_index[event_index],
-                        FaultTree.MAX_SIGNIFICANT_FIGURES,
-                    ),
+                    dull(gate.contribution_value_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES),
+                    Event.quantity_unit_str(gate.quantity_type, self.time_unit),
+                    dull(gate.importance_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES),
                 ]
                 for event_index, event_id in self.event_id_from_index.items()
             ]
