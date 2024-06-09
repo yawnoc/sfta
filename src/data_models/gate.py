@@ -49,40 +49,42 @@ class Gate:
         self.importance_from_event_index = None
 
     KEY_EXPLAINER = (
-        "Recognised keys for a Gate property setting are:\n"
-        "    label (optional)\n"
-        "    is_paged (optional)\n"
-        "    type (required)\n"
-        "    inputs (required)\n"
-        "    comment (optional)."
+        'Recognised keys for a Gate property setting are:\n'
+        '    label (optional)\n'
+        '    is_paged (optional)\n'
+        '    type (required)\n'
+        '    inputs (required)\n'
+        '    comment (optional).'
     )
     IS_PAGED_EXPLAINER = (
-        "Gate is_paged must be either `True` or `False` (case-sensitive). " "The default value is `False`."
+        'Gate is_paged must be either `True` or `False` (case-sensitive). '
+        'The default value is `False`.'
     )
-    TYPE_EXPLAINER = "Gate type must be either `AND` or `OR` (case-sensitive)."
+    TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
     AND_INPUTS_EXPLAINER = (
-        "The first input of an AND gate "
-        "may be a probability (initiator/enabler) or a rate (initiator). "
-        "All subsequent inputs must be probabilities (enablers)."
+        'The first input of an AND gate '
+        'may be a probability (initiator/enabler) or a rate (initiator). '
+        'All subsequent inputs must be probabilities (enablers).'
     )
-    OR_INPUTS_EXPLAINER = "OR gate inputs must be either all probabilities or all rates."
+    OR_INPUTS_EXPLAINER = 'OR gate inputs must be either all probabilities or all rates.'
 
     TYPE_OR = 0
     TYPE_AND = 1
 
     STR_FROM_TYPE = {
-        TYPE_OR: "OR",
-        TYPE_AND: "AND",
+        TYPE_OR: 'OR',
+        TYPE_AND: 'AND',
     }
 
     @staticmethod
     def split_ids(input_ids_str):
-        return list(filter(None, re.split(r"\s*,\s*", input_ids_str)))
+        return list(filter(None, re.split(r'\s*,\s*', input_ids_str)))
 
     def set_label(self, label, line_number):
         if self.label is not None:
             raise GateLabelAlreadySetException(
-                line_number, f"label hath already been set for Gate `{self.id_}` " f"at line {self.label_line_number}"
+                line_number,
+                f'label hath already been set for Gate `{self.id_}` at line {self.label_line_number}',
             )
 
         self.label = label
@@ -91,47 +93,55 @@ class Gate:
     def set_is_paged(self, is_paged, line_number):
         if self.is_paged is not None:
             raise GateIsPagedAlreadySetException(
-                line_number, f"is_paged hath already been set for `{self.id_}` " f"at line {self.is_paged_line_number}"
+                line_number,
+                f'is_paged hath already been set for `{self.id_}` at line {self.is_paged_line_number}',
             )
 
-        if is_paged not in ["True", "False"]:
+        if is_paged not in ['True', 'False']:
             raise GateBadIsPagedException(
-                line_number, f"bad is_paged `{is_paged}` for Gate `{self.id_}`" f"\n\n{Gate.IS_PAGED_EXPLAINER}"
+                line_number,
+                f'bad is_paged `{is_paged}` for Gate `{self.id_}`\n\n{Gate.IS_PAGED_EXPLAINER}',
             )
+
         self.is_paged = is_paged
         self.is_paged_line_number = line_number
 
     def set_type(self, type_str, line_number):
         if self.type_ is not None:
             raise GateTypeAlreadySetException(
-                line_number, f"type hath already been set for Gate `{self.id_}` " f"at line {self.type_line_number}"
+                line_number,
+                f'type hath already been set for Gate `{self.id_}` at line {self.type_line_number}',
             )
 
-        if type_str == "OR":
+        if type_str == 'OR':
             self.type_ = Gate.TYPE_OR
-        elif type_str == "AND":
+        elif type_str == 'AND':
             self.type_ = Gate.TYPE_AND
         else:
             raise GateBadTypeException(
-                line_number, f"bad type `{type_str}` for Gate `{self.id_}`" f"\n\n{Gate.TYPE_EXPLAINER}"
+                line_number,
+                f'bad type `{type_str}` for Gate `{self.id_}`\n\n{Gate.TYPE_EXPLAINER}',
             )
         self.type_line_number = line_number
 
     def set_inputs(self, input_ids_str, line_number):
         if self.input_ids is not None:
             raise GateInputsAlreadySetException(
-                line_number, f"inputs have already been set for Gate `{self.id_}` " f"at line {self.inputs_line_number}"
+                line_number,
+                f'inputs have already been set for Gate `{self.id_}` at line {self.inputs_line_number}',
             )
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
             raise GateZeroInputsException(
-                line_number, f"no IDs could be extracted from inputs `{input_ids_str}` " f"for Gate `{self.id_}`"
+                line_number,
+                f'no IDs could be extracted from inputs `{input_ids_str}` for Gate `{self.id_}`',
             )
         for id_ in ids:
             if is_bad_id(id_):
                 raise FaultTreeBadIdException(
-                    line_number, f"bad ID `{id_}` among inputs for Gate `{self.id_}`"
+                    line_number,
+                    f'bad ID `{id_}` among inputs for Gate `{self.id_}`',
                 )
 
         self.input_ids = ids
@@ -141,7 +151,7 @@ class Gate:
         if self.comment is not None:
             raise GateCommentAlreadySetException(
                 line_number,
-                f"comment hath already been set for Gate `{self.id_}` " f"at line {self.comment_line_number}",
+                f'comment hath already been set for Gate `{self.id_}` at line {self.comment_line_number}',
             )
 
         self.comment = comment
@@ -151,9 +161,15 @@ class Gate:
         if self.is_paged is None:
             self.is_paged = False
         if self.type_ is None:
-            raise GateTypeNotSetException(line_number, f"type hath not been set for Gate `{self.id_}`")
+            raise GateTypeNotSetException(
+                line_number,
+                f'type hath not been set for Gate `{self.id_}`',
+            )
         if self.input_ids is None:
-            raise GateInputsNotSetException(line_number, f"inputs have not been set for Gate `{self.id_}`")
+            raise GateInputsNotSetException(
+                line_number,
+                f'inputs have not been set for Gate `{self.id_}`',
+            )
 
     def compute_tome(self, event_from_id, gate_from_id):
         input_tomes = []
@@ -168,7 +184,7 @@ class Gate:
                 input_tomes.append(gate.tome)
             else:
                 raise RuntimeError(
-                    f"Implementation error: " f"`{input_id}` is in " f"neither `event_from_id` nor `gate_from_id`."
+                    f'Implementation error: `{input_id}` is in neither `event_from_id` nor `gate_from_id`.'
                 )
 
         if self.type_ == Gate.TYPE_AND:
@@ -179,10 +195,10 @@ class Gate:
                 ids = [self.input_ids[index] for index in indices]
                 raise GateConjunctionBadTypesException(
                     self.inputs_line_number,
-                    f"non-first inputs of type rate for AND Gate `{self.id_}`:"
-                    + "\n    "
-                    + "\n    ".join(f"`{id_}` (input #{index+1}) hath type rate" for index, id_ in zip(indices, ids))
-                    + f"\n\n{Gate.AND_INPUTS_EXPLAINER}",
+                    f'non-first inputs of type rate for AND Gate `{self.id_}`:'
+                    + '\n    '
+                    + '\n    '.join(f'`{id_}` (input #{index+1}) hath type rate' for index, id_ in zip(indices, ids))
+                    + f'\n\n{Gate.AND_INPUTS_EXPLAINER}',
                 )
         elif self.type_ == Gate.TYPE_OR:
             try:
@@ -192,13 +208,13 @@ class Gate:
                 ids = self.input_ids
                 raise GateDisjunctionBadTypesException(
                     self.inputs_line_number,
-                    f"inputs of different type for OR Gate `{self.id_}`:"
-                    + "\n    "
-                    + "\n    ".join(f"`{id_}` hath type {type_str}" for id_, type_str in zip(ids, type_strs))
-                    + f"\n\n{Gate.OR_INPUTS_EXPLAINER}",
+                    f'inputs of different type for OR Gate `{self.id_}`:'
+                    + '\n    '
+                    + '\n    '.join(f'`{id_}` hath type {type_str}' for id_, type_str in zip(ids, type_strs))
+                    + f'\n\n{Gate.OR_INPUTS_EXPLAINER}',
                 )
         else:
-            raise RuntimeError(f"Implementation error: " f"Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.")
+            raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
 
     def compute_quantity(self, quantity_value_from_event_index):
         self.cut_sets_indices = {Writ.to_event_indices(writ) for writ in self.tome.writs}
@@ -221,6 +237,8 @@ class Gate:
             for event in events
         }
         self.importance_from_event_index = {
-            event_index: Nan if self.quantity_value == 0 else contribution_value / self.quantity_value
+            event_index:
+                Nan if self.quantity_value == 0
+                else contribution_value / self.quantity_value
             for event_index, contribution_value in self.contribution_value_from_event_index.items()
         }
