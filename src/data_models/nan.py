@@ -4,6 +4,6 @@ class Nan:
     """
 
     def __new__(cls):
-        raise TypeError("`Nan` cannot be instantiated")
+        raise TypeError('`Nan` cannot be instantiated')
 
-    STRING = "nan"
+    STRING = 'nan'
