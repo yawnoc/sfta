@@ -12,6 +12,7 @@ def create_directory_robust(directory_name):
 
 
 def write_output_files(fault_tree, output_directory_name):
+    svg_file_path = []
     events_table = fault_tree.get_events_table()
     gates_table = fault_tree.get_gates_table()
     cut_set_table_from_gate_id = fault_tree.get_cut_set_tables()
@@ -37,3 +38,11 @@ def write_output_files(fault_tree, output_directory_name):
     for figure_id, figure in figure_from_id.items():
         figure.write_svg(f"{figures_directory_name}/{figure_id}.svg")
     figure_index.write_html(f"{figures_directory_name}/index.html")
+    
+    # go through the figures directory and get the path of all the svg files
+    for root, _, files in os.walk(figures_directory_name):
+        for file in files:
+            if file.endswith(".svg"):
+                svg_file_path.append(os.path.join(root, file))
+    
+    return svg_file_path

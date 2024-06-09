@@ -68,7 +68,7 @@ def main():
 
     output_directory_name = f"{text_file_name}.out"
     create_directory_robust(output_directory_name)
-    write_output_files(fault_tree, output_directory_name)
+    svg_file_path = write_output_files(fault_tree, output_directory_name)
 
 
 if __name__ == "__main__":
