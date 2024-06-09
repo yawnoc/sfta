@@ -1,5 +1,6 @@
 import sys
 
+
 class DeepRecurse:
     """
     Context manager for raising maximum recursion depth.
