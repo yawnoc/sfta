@@ -4,7 +4,7 @@ import streamlit as st
 
 from sfta.context_manager import DeepRecurse
 from sfta.data_models.exceptions.base import FaultTreeTextException
-from sfta.data_models.fault_tree import FaultTree
+from sfta.core.fault_tree import FaultTree
 from sfta.output_handling import create_directory_robust, write_output_files
 
 logging.basicConfig(level=logging.DEBUG)

@@ -1,8 +1,8 @@
 import re
 
 from .event import Event
-from .exceptions.event import EventUnrecognisedKeyException
-from .exceptions.fault_tree import (
+from sfta.data_models.exceptions.event import EventUnrecognisedKeyException
+from sfta.data_models.exceptions.fault_tree import (
     FaultTreeSmotheredObjectDeclarationException,
     FaultTreeDanglingPropertySettingException,
     FaultTreeDuplicateIdException,
@@ -12,7 +12,7 @@ from .exceptions.fault_tree import (
     FaultTreeUnrecognisedKeyException,
     FaultTreeCircularGateInputsException
 )
-from .exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
+from sfta.data_models.exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
 from .figure import Figure
 from .gate import Gate
 from .table import Table

@@ -2,7 +2,7 @@ import re
 from .utilities import descending_product, descending_sum, Nan, is_bad_id
 from .tome import Tome, Writ
 from .event import Event
-from .exceptions.gate import (
+from sfta.data_models.exceptions.gate import (
     GateBadIsPagedException,
     GateBadTypeException,
     GateCommentAlreadySetException,
@@ -16,7 +16,7 @@ from .exceptions.gate import (
     GateTypeNotSetException,
     GateZeroInputsException,
 )
-from .exceptions.fault_tree import FaultTreeBadIdException
+from sfta.data_models.exceptions.fault_tree import FaultTreeBadIdException
 
 
 class Gate:
