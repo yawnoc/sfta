@@ -5,7 +5,6 @@ class DeepRecurse:
     """
     Context manager for raising maximum recursion depth.
     """
-
     def __init__(self, recursion_limit):
         self.recursion_limit = recursion_limit
 

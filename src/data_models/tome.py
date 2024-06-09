@@ -19,7 +19,6 @@ class Writ:
 
     Note that the writ 0 encodes an empty conjunction, which is True.
     """
-
     @staticmethod
     def to_writs(event_index):
         """
@@ -117,7 +116,6 @@ class Tome:
     A __tome__ holds a collection of writs (representing cut sets)
     and the quantity type (probability or rate).
     """
-
     def __init__(self, writs, quantity_type):
         self.writs = frozenset(writs)
         self.quantity_type = quantity_type

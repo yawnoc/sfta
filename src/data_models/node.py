@@ -11,7 +11,6 @@ class Node:
     """
     A node which instantiates recursively, of a figure.
     """
-
     SYMBOL_TYPE_NULL = -1
     SYMBOL_TYPE_OR = 0
     SYMBOL_TYPE_AND = 1

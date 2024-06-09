@@ -5,7 +5,6 @@ class Index:
     """
     A two-way index between figures and their objects.
     """
-
     def __init__(self, figure_from_id, figures_directory_name):
         ids_from_figure_id = {}
         figure_ids_from_id = {}
