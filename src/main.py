@@ -34,10 +34,7 @@ def main():
     text_file_name = parsed_arguments.fault_tree_text_file_name
 
     if os.path.isdir(text_file_name):
-        print(
-            f'Error: `{text_file_name}` is a directory, not a file',
-            file=sys.stderr,
-        )
+        print(f'Error: `{text_file_name}` is a directory, not a file', file=sys.stderr)
         sys.exit(1)
 
     try:
@@ -59,10 +56,7 @@ def main():
         else:
             error_location_str = ''
 
-        print(
-            f'Error {error_location_str}in `{text_file_name}`:\n  {message}',
-            file=sys.stderr,
-        )
+        print(f'Error {error_location_str}in `{text_file_name}`:\n  {message}', file=sys.stderr)
         sys.exit(1)
 
     output_directory_name = f'{text_file_name}.out'
