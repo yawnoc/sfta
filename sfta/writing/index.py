@@ -1,4 +1,4 @@
-from .utilities import escape_xml
+from sfta.core.utilities import escape_xml
 
 
 class Index:

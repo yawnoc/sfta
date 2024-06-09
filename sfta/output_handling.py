@@ -1,6 +1,6 @@
 import os
 import shutil
-from sfta.core.index import Index
+from sfta.writing.index import Index
 
 
 def create_directory_robust(directory_name):

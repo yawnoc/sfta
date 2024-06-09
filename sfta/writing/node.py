@@ -1,10 +1,10 @@
 import textwrap
 from math import sqrt
 
-from .gate import Gate
-from .event import Event
-from .utilities import blunt, escape_xml, dull
-from .utilities import FAULT_TREE_MAX_SIGNIFICANT_FIGURES as MAX_SIGNIFICANT_FIGURES
+from sfta.core.gate import Gate
+from sfta.core.event import Event
+from sfta.core.utilities import blunt, escape_xml, dull
+from sfta.core.utilities import FAULT_TREE_MAX_SIGNIFICANT_FIGURES as MAX_SIGNIFICANT_FIGURES
 
 
 class Node:

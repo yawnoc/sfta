@@ -13,9 +13,9 @@ from sfta.exceptions.fault_tree import (
     FaultTreeCircularGateInputsException
 )
 from sfta.exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
-from .figure import Figure
+from sfta.writing.figure import Figure
 from .gate import Gate
-from .table import Table
+from sfta.writing.table import Table
 from .utilities import (
     FAULT_TREE_MAX_SIGNIFICANT_FIGURES,
     FAULT_TREE_KEY_EXPLAINER,
