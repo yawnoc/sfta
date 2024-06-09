@@ -204,24 +204,34 @@ class Gate:
             try:
                 self.tome = Tome.or_(*input_tomes)
             except Tome.DisjunctionBadTypesException as exception:
-                type_strs = [Event.STR_FROM_TYPE[type_] for type_ in exception.input_quantity_types]
+                type_strs = [
+                    Event.STR_FROM_TYPE[type_]
+                    for type_ in exception.input_quantity_types
+                ]
                 ids = self.input_ids
                 raise GateDisjunctionBadTypesException(
                     self.inputs_line_number,
                     f'inputs of different type for OR Gate `{self.id_}`:'
                     + '\n    '
-                    + '\n    '.join(f'`{id_}` hath type {type_str}' for id_, type_str in zip(ids, type_strs))
+                    + '\n    '.join(
+                        f'`{id_}` hath type {type_str}'
+                        for id_, type_str in zip(ids, type_strs)
+                    )
                     + f'\n\n{Gate.OR_INPUTS_EXPLAINER}',
                 )
         else:
             raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
 
     def compute_quantity(self, quantity_value_from_event_index):
-        self.cut_sets_indices = {Writ.to_event_indices(writ) for writ in self.tome.writs}
+        self.cut_sets_indices = {
+            Writ.to_event_indices(writ)
+            for writ in self.tome.writs
+        }
         self.quantity_type = self.tome.quantity_type
         self.quantity_value_from_cut_set_indices = {
             cut_set_indices: descending_product(
-                quantity_value_from_event_index[event_index] for event_index in cut_set_indices
+                quantity_value_from_event_index[event_index]
+                for event_index in cut_set_indices
             )
             for cut_set_indices in self.cut_sets_indices
         }

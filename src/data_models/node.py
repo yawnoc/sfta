@@ -100,7 +100,11 @@ class Node:
 
         implicated_ids = {
             id_,
-            *{id_ for node in input_nodes for id_ in node.implicated_ids},
+            *{
+                id_
+                for node in input_nodes
+                for id_ in node.implicated_ids
+            },
         }
 
         if input_nodes:
@@ -171,7 +175,10 @@ class Node:
                 time_unit,
             ),
         ]
-        input_elements = [input_node.get_svg_elements_recursive() for input_node in self.input_nodes]
+        input_elements = [
+            input_node.get_svg_elements_recursive()
+            for input_node in self.input_nodes
+        ]
 
         return '\n'.join(self_elements + input_elements)
 
@@ -236,7 +243,10 @@ class Node:
                 )
             )
 
-        return '\n'.join(f'<polyline points="{points}"/>' for points in points_by_input)
+        return '\n'.join(
+            f'<polyline points="{points}"/>'
+            for points in points_by_input
+        )
 
     @staticmethod
     def label_rectangle_element(x, y):

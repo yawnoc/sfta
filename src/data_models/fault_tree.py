@@ -105,7 +105,8 @@ class FaultTree:
                 if is_bad_id(id_):
                     raise FaultTreeBadIdException(
                         line_number,
-                        f'bad ID `{id_}` in declaration of {class_}' f'\n\n{FaultTree.IDS_EXPLAINER}',
+                        f'bad ID `{id_}` in declaration of {class_}'
+                        f'\n\n{FaultTree.IDS_EXPLAINER}',
                     )
 
                 if class_ == 'Event':
@@ -251,7 +252,11 @@ class FaultTree:
     @staticmethod
     def validate_tree(gate_from_id):
         input_gate_ids_from_id = {
-            id_: set(input_id for input_id in gate.input_ids if input_id in gate_from_id)  # exclude Events
+            id_: set(
+                input_id
+                for input_id in gate.input_ids
+                if input_id in gate_from_id  # exclude Events
+            )
             for id_, gate in gate_from_id.items()
         }
 
@@ -282,7 +287,10 @@ class FaultTree:
 
     @staticmethod
     def compute_gate_quantities(events, gates):
-        quantity_value_from_event_index = {event.index: event.quantity_value for event in events}
+        quantity_value_from_event_index = {
+            event.index: event.quantity_value
+            for event in events
+        }
         for gate in gates:
             gate.compute_quantity(quantity_value_from_event_index)
 
@@ -358,7 +366,10 @@ class FaultTree:
                     Event.STR_FROM_TYPE[gate.quantity_type],
                     dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
                     Event.quantity_unit_str(gate.quantity_type, self.time_unit),
-                    '.'.join(self.event_id_from_index[event_index] for event_index in sorted(cut_set_indices)),
+                    '.'.join(
+                        self.event_id_from_index[event_index]
+                        for event_index in sorted(cut_set_indices)
+                    ),
                     len(cut_set_indices),
                 ]
                 for cut_set_indices, quantity_value in gate.quantity_value_from_cut_set_indices.items()

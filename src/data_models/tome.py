@@ -152,7 +152,10 @@ class Tome:
 
         writs_by_tome = (tome.writs for tome in input_tomes)
         writ_tuples_by_term = itertools.product(*writs_by_tome)
-        conjunction_writs_by_term = (Writ.and_(*term_writ_tuple) for term_writ_tuple in writ_tuples_by_term)
+        conjunction_writs_by_term = (
+            Writ.and_(*term_writ_tuple)
+            for term_writ_tuple in writ_tuples_by_term
+        )
         conjunction_writs = Writ.or_(*conjunction_writs_by_term)
 
         return Tome(conjunction_writs, conjunction_quantity_type)
