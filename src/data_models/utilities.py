@@ -5,6 +5,41 @@ from math import isfinite, log10, prod
 
 from .nan import Nan
 
+FAULT_TREE_MAX_SIGNIFICANT_FIGURES = 4
+FAULT_TREE_KEY_EXPLAINER = (
+    "Recognised keys for a fault tree property setting are:\n"
+    "    time_unit (optional)."
+)
+FAULT_TREE_IDS_EXPLAINER = "IDs may only contain letters, digits, underscores, and hyphens."
+FAULT_TREE_LINE_EXPLAINER = (
+    "A line must have one of the following forms:\n"
+    "    Event: <id>         (an Event declaration)\n"
+    "    Gate: <id>          (a Gate declaration)\n"
+    "    - <key>: <value>    (a property setting)\n"
+    "    # <comment>         (a comment)\n"
+    "    <a blank line>      (used before the next declaration)."
+)
+FAULT_TREE_PROPERTY_EXPLAINER = (
+    "Setting of properties for the fault tree itself "
+    "must be done at the start of the file, "
+    "even before any Event or Gate hath been declared."
+)
+
+EVENT_KEY_EXPLAINER = (
+    "Recognised keys for an Event property setting are:\n"
+    "    label (optional)\n"
+    "    probability or rate (exactly one required)\n"
+    "    comment (optional)."
+)
+
+EVENT_TYPE_PROBABILITY = 0
+EVENT_TYPE_RATE = 1
+
+EVENT_STR_FROM_TYPE = {
+    EVENT_TYPE_PROBABILITY: "probability",
+    EVENT_TYPE_RATE: "rate",
+}
+
 
 def blunt(number, max_decimal_places):
     """
@@ -159,36 +194,3 @@ def escape_xml(text):
 
 def is_bad_id(string):
     return not re.fullmatch(r"[a-zA-Z0-9_-]+", string)
-
-
-FAULT_TREE_MAX_SIGNIFICANT_FIGURES = 4
-FAULT_TREE_KEY_EXPLAINER = "Recognised keys for a fault tree property setting are:\n" "    time_unit (optional)."
-FAULT_TREE_IDS_EXPLAINER = "IDs may only contain letters, digits, underscores, and hyphens."
-FAULT_TREE_LINE_EXPLAINER = (
-    "A line must have one of the following forms:\n"
-    "    Event: <id>         (an Event declaration)\n"
-    "    Gate: <id>          (a Gate declaration)\n"
-    "    - <key>: <value>    (a property setting)\n"
-    "    # <comment>         (a comment)\n"
-    "    <a blank line>      (used before the next declaration)."
-)
-FAULT_TREE_PROPERTY_EXPLAINER = (
-    "Setting of properties for the fault tree itself "
-    "must be done at the start of the file, "
-    "even before any Event or Gate hath been declared."
-)
-
-EVENT_KEY_EXPLAINER = (
-    "Recognised keys for an Event property setting are:\n"
-    "    label (optional)\n"
-    "    probability or rate (exactly one required)\n"
-    "    comment (optional)."
-)
-
-EVENT_TYPE_PROBABILITY = 0
-EVENT_TYPE_RATE = 1
-
-EVENT_STR_FROM_TYPE = {
-    EVENT_TYPE_PROBABILITY: "probability",
-    EVENT_TYPE_RATE: "rate",
-}
