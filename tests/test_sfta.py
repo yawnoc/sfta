@@ -18,7 +18,8 @@ from sfta.core.event import Event
 from sfta.core.fault_tree import FaultTree
 from sfta.core.nan import Nan
 from sfta.core.gate import Gate
-from sfta.core.tome import Tome, Writ
+from sfta.core.tome import Tome
+from sfta.core.writ import Writ
 from sfta.core.utilities import (
     blunt,
     descending_product,

@@ -1,6 +1,7 @@
 import re
 from .utilities import descending_product, descending_sum, Nan, is_bad_id
-from .tome import Tome, Writ
+from .tome import Tome
+from .writ import Writ
 from .event import Event
 from sfta.exceptions.gate import (
     GateBadIsPagedException,

@@ -7,7 +7,8 @@ from sfta.exceptions.event import (
     EventQuantityAlreadySetException,
     EventQuantityNotSetException,
 )
-from .tome import Tome, Writ
+from .tome import Tome
+from .writ import Writ
 from .utilities import EVENT_KEY_EXPLAINER, EVENT_TYPE_PROBABILITY, EVENT_TYPE_RATE, EVENT_STR_FROM_TYPE
 
 
