@@ -16,7 +16,7 @@ from .exceptions.gate import (
     GateTypeNotSetException,
     GateZeroInputsException,
 )
-from .exceptions.fault_tree import FtBadIdException
+from .exceptions.fault_tree import FaultTreeBadIdException
 
 
 class Gate:
@@ -130,7 +130,7 @@ class Gate:
             )
         for id_ in ids:
             if is_bad_id(id_):
-                raise FtBadIdException(
+                raise FaultTreeBadIdException(
                     line_number, f"bad ID `{id_}` among inputs for Gate `{self.id_}`"
                 )
 

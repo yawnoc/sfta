@@ -1,33 +1,33 @@
 from .base import FaultTreeTextException
 
 
-class FtSmotheredObjectDeclarationException(FaultTreeTextException):
+class FaultTreeSmotheredObjectDeclarationException(FaultTreeTextException):
     pass
 
 
-class FtDanglingPropertySettingException(FaultTreeTextException):
+class FaultTreeDanglingPropertySettingException(FaultTreeTextException):
     pass
 
 
-class FtDuplicateIdException(FaultTreeTextException):
+class FaultTreeDuplicateIdException(FaultTreeTextException):
     pass
 
 
-class FtBadIdException(FaultTreeTextException):
+class FaultTreeBadIdException(FaultTreeTextException):
     pass
 
 
-class FtBadLineException(FaultTreeTextException):
+class FaultTreeBadLineException(FaultTreeTextException):
     pass
 
 
-class FtTimeUnitAlreadySetException(FaultTreeTextException):
+class FaultTreeTimeUnitAlreadySetException(FaultTreeTextException):
     pass
 
 
-class FtUnrecognisedKeyException(FaultTreeTextException):
+class FaultTreeUnrecognisedKeyException(FaultTreeTextException):
     pass
 
 
-class FtCircularGateInputsException(FaultTreeTextException):
+class FaultTreeCircularGateInputsException(FaultTreeTextException):
     pass

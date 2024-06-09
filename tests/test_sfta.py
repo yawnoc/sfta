@@ -480,7 +480,7 @@ class TestSfta(unittest.TestCase):
     def test_fault_tree_build(self):
         # Missing blank line before next object declaration
         self.assertRaises(
-            FtSmotheredObjectDeclarationException,
+            FaultTreeSmotheredObjectDeclarationException,
             FaultTree.build,
             textwrap.dedent('''
                 Event: A
@@ -493,7 +493,7 @@ class TestSfta(unittest.TestCase):
 
         # Duplicate IDs
         self.assertRaises(
-            FtDuplicateIdException,
+            FaultTreeDuplicateIdException,
             FaultTree.build,
             textwrap.dedent('''
                 Event: A
@@ -506,7 +506,7 @@ class TestSfta(unittest.TestCase):
 
         # Bad ID
         self.assertRaises(
-            FtBadIdException,
+            FaultTreeBadIdException,
             FaultTree.build,
             textwrap.dedent(
                 """
@@ -518,7 +518,7 @@ class TestSfta(unittest.TestCase):
 
         # Dangling property declaration
         self.assertRaises(
-            FtDanglingPropertySettingException,
+            FaultTreeDanglingPropertySettingException,
             FaultTree.build,
             textwrap.dedent(
                 """
@@ -533,34 +533,34 @@ class TestSfta(unittest.TestCase):
 
         # Bad line
         self.assertRaises(
-            FtBadLineException,
+            FaultTreeBadLineException,
             FaultTree.build,
             "foo bar",
         )
         self.assertRaises(
-            FtBadLineException,
+            FaultTreeBadLineException,
             FaultTree.build,
             "Event:",
         )
         self.assertRaises(
-            FtBadLineException,
+            FaultTreeBadLineException,
             FaultTree.build,
             "Gate: ",
         )
         self.assertRaises(
-            FtBadLineException,
+            FaultTreeBadLineException,
             FaultTree.build,
             "Event:A",
         )
         self.assertRaises(
-            FtBadLineException,
+            FaultTreeBadLineException,
             FaultTree.build,
             " - key: value",
         )
 
         # Time unit already set
         self.assertRaises(
-            FtTimeUnitAlreadySetException,
+            FaultTreeTimeUnitAlreadySetException,
             FaultTree.build,
             textwrap.dedent(
                 """
@@ -572,14 +572,14 @@ class TestSfta(unittest.TestCase):
 
         # Unrecognised Key
         self.assertRaises(
-            FtUnrecognisedKeyException,
+            FaultTreeUnrecognisedKeyException,
             FaultTree.build,
             "- foo: bar",
         )
 
         # Circular gate inputs
         self.assertRaises(
-            FtCircularGateInputsException,
+            FaultTreeCircularGateInputsException,
             FaultTree.build,
             textwrap.dedent(
                 """
@@ -590,7 +590,7 @@ class TestSfta(unittest.TestCase):
             ),
         )
         self.assertRaises(
-            FtCircularGateInputsException,
+            FaultTreeCircularGateInputsException,
             FaultTree.build,
             textwrap.dedent(
                 """
@@ -876,7 +876,7 @@ class TestSfta(unittest.TestCase):
 
         # Bad ID
         self.assertRaises(
-            FtBadIdException,
+            FaultTreeBadIdException,
             FaultTree.build,
             textwrap.dedent(
                 """

@@ -13,15 +13,15 @@ from .gate import Gate
 from .figure import Figure
 from .table import Table
 from .exceptions.fault_tree import (
-    FtBadIdException, 
-    FtSmotheredObjectDeclarationException, 
-    FtDanglingPropertySettingException, 
-    FtDuplicateIdException, 
-    FtBadIdException, 
-    FtBadLineException, 
-    FtTimeUnitAlreadySetException, 
-    FtUnrecognisedKeyException, 
-    FtCircularGateInputsException
+    FaultTreeBadIdException,
+    FaultTreeSmotheredObjectDeclarationException,
+    FaultTreeDanglingPropertySettingException,
+    FaultTreeDuplicateIdException,
+    FaultTreeBadIdException,
+    FaultTreeBadLineException,
+    FaultTreeTimeUnitAlreadySetException,
+    FaultTreeUnrecognisedKeyException,
+    FaultTreeCircularGateInputsException
     )
 
 from .exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
@@ -95,13 +95,13 @@ class FaultTree:
                 id_ = object_line_match.group("id_")
 
                 if current_object not in (None, FaultTree):
-                    raise FtSmotheredObjectDeclarationException(
+                    raise FaultTreeSmotheredObjectDeclarationException(
                         line_number, f"missing blank line before " f"declaration of {class_} `{id_}`"
                     )
                 if id_ in ids:
-                    raise FtDuplicateIdException(line_number, f"duplicate ID `{id_}` in declaration of {class_}")
+                    raise FaultTreeDuplicateIdException(line_number, f"duplicate ID `{id_}` in declaration of {class_}")
                 if is_bad_id(id_):
-                    raise FtBadIdException(
+                    raise FaultTreeBadIdException(
                         line_number, f"bad ID `{id_}` in declaration of {class_}" f"\n\n{FaultTree.IDS_EXPLAINER}"
                     )
 
@@ -130,7 +130,7 @@ class FaultTree:
                 value = property_line_match.group("value")
 
                 if current_object is None:
-                    raise FtDanglingPropertySettingException(
+                    raise FaultTreeDanglingPropertySettingException(
                         line_number,
                         f"missing Event or Gate declaration before "
                         f"setting {key} to `{value}`"
@@ -140,13 +140,13 @@ class FaultTree:
                 if current_object is FaultTree:
                     if key == "time_unit":
                         if time_unit is not None:
-                            raise FtTimeUnitAlreadySetException(
+                            raise FaultTreeTimeUnitAlreadySetException(
                                 line_number, f"time unit hath already been set " f"at line {time_unit_line_number}"
                             )
                         time_unit = value
                         time_unit_line_number = line_number
                     else:
-                        raise FtUnrecognisedKeyException(
+                        raise FaultTreeUnrecognisedKeyException(
                             line_number,
                             f"unrecognised key `{key}` " f"for the fault tree" f"\n\n{FaultTree.KEY_EXPLAINER}",
                         )
@@ -212,7 +212,7 @@ class FaultTree:
                     )
                 continue
 
-            raise FtBadLineException(line_number, f"bad line `{line}`" f"\n\n{FaultTree.LINE_EXPLAINER}")
+            raise FaultTreeBadLineException(line_number, f"bad line `{line}`" f"\n\n{FaultTree.LINE_EXPLAINER}")
 
         return events, gates, time_unit
 
@@ -253,7 +253,7 @@ class FaultTree:
         if cycles:
             cycle = min(cycles)
             length = len(cycle)
-            raise FtCircularGateInputsException(
+            raise FaultTreeCircularGateInputsException(
                 None,
                 "circular gate inputs detected:"
                 + "\n    "
