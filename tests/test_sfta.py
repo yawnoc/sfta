@@ -139,7 +139,7 @@ class TestSfta(unittest.TestCase):
         terms_1 = [1e-9, 2.5e-12, 5e-13, 5e-10, 2.5e-12]
         terms_2 = [1e-9, 5e-10, 2.5e-12, 2.5e-12, 5e-13]
         self.assertEqual(set(terms_1), set(terms_2))
-        # self.assertNotEqual(sum(terms_1), sum(terms_2)) # No longer true
+        self.assertNotEqual(sum(terms_1), sum(terms_2))
         self.assertEqual(
             descending_sum(terms_1),
             descending_sum(terms_2),
@@ -467,15 +467,15 @@ class TestSfta(unittest.TestCase):
         self.assertEqual(Gate.split_ids('abc, DEF,'), ['abc', 'DEF'])
 
     def test_fault_tree_is_bad_id(self):
-        self.assertTrue(is_bad_id('Contains space'))
-        self.assertTrue(is_bad_id('Contains\ttab'))
-        self.assertTrue(is_bad_id('Contains,comma'))
-        self.assertTrue(is_bad_id('Contains.full.stop'))
-        self.assertTrue(is_bad_id('file/separators'))
+        self.assertTrue(FaultTree.is_bad_id('Contains space'))
+        self.assertTrue(FaultTree.is_bad_id('Contains\ttab'))
+        self.assertTrue(FaultTree.is_bad_id('Contains,comma'))
+        self.assertTrue(FaultTree.is_bad_id('Contains.full.stop'))
+        self.assertTrue(FaultTree.is_bad_id('file/separators'))
 
-        self.assertFalse(is_bad_id('abc123XYZ'))
-        self.assertFalse(is_bad_id('is_good'))
-        self.assertFalse(is_bad_id('AbSoLUtEly-fiNe'))
+        self.assertFalse(FaultTree.is_bad_id('abc123XYZ'))
+        self.assertFalse(FaultTree.is_bad_id('is_good'))
+        self.assertFalse(FaultTree.is_bad_id('AbSoLUtEly-fiNe'))
 
     def test_fault_tree_build(self):
         # Missing blank line before next object declaration
@@ -508,92 +508,83 @@ class TestSfta(unittest.TestCase):
         self.assertRaises(
             FaultTreeBadIdException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: This ID hath whitespace
                 - probability: 1
-            """
-            ),
+            '''),
         )
 
         # Dangling property declaration
         self.assertRaises(
             FaultTreeDanglingPropertySettingException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - probability: 1
 
                 # Dangling:
                 - probability: 0
-            """
-            ),
+            '''),
         )
 
         # Bad line
         self.assertRaises(
             FaultTreeBadLineException,
             FaultTree.build,
-            "foo bar",
+            'foo bar',
         )
         self.assertRaises(
             FaultTreeBadLineException,
             FaultTree.build,
-            "Event:",
+            'Event:',
         )
         self.assertRaises(
             FaultTreeBadLineException,
             FaultTree.build,
-            "Gate: ",
+            'Gate: ',
         )
         self.assertRaises(
             FaultTreeBadLineException,
             FaultTree.build,
-            "Event:A",
+            'Event:A',
         )
         self.assertRaises(
             FaultTreeBadLineException,
             FaultTree.build,
-            " - key: value",
+            ' - key: value',
         )
 
         # Time unit already set
         self.assertRaises(
             FaultTreeTimeUnitAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 - time_unit: h
                 - time_unit: yr
-            """
-            ),
+            '''),
         )
 
         # Unrecognised Key
         self.assertRaises(
             FaultTreeUnrecognisedKeyException,
             FaultTree.build,
-            "- foo: bar",
+            '- foo: bar',
         )
 
         # Circular gate inputs
         self.assertRaises(
             FaultTreeCircularGateInputsException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: AND
                 - inputs: A
-            """
-            ),
+            '''),
         )
         self.assertRaises(
             FaultTreeCircularGateInputsException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: Paper
                 - type: OR
                 - inputs: Scissors, Lizard
@@ -613,8 +604,7 @@ class TestSfta(unittest.TestCase):
                 Gate: Rock
                 - type: OR
                 - inputs: Paper, Spock
-            """
-            ),
+            '''),
         )
 
     def test_fault_tree_build_event(self):
@@ -633,145 +623,123 @@ class TestSfta(unittest.TestCase):
         self.assertRaises(
             EventQuantityAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - probability: 0
                 - probability: 0
-            """
-            ),
+            '''),
         )
 
         # Setting probability after rate already set
         self.assertRaises(
             EventQuantityAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: 1
                 - probability: 0
-            """
-            ),
+            '''),
         )
 
         # Setting rate after probability already set
         self.assertRaises(
             EventQuantityAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - probability: 0
                 - rate: 1
-            """
-            ),
+            '''),
         )
 
         # Setting rate after rate already set
         self.assertRaises(
             EventQuantityAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: 1
                 - rate: 1
-            """
-            ),
+            '''),
         )
 
         # Comment already set
         self.assertRaises(
             EventCommentAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - comment: First comment
                 - comment: Second comment
-            """
-            ),
+            '''),
         )
 
         # Bad float
         self.assertRaises(
             EventBadFloatException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: not-a-float
-            """
-            ),
+            '''),
         )
 
         # Bad probability (negative)
         self.assertRaises(
             EventBadProbabilityException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - probability: -0.1
-            """
-            ),
+            '''),
         )
 
         # Bad probability (too big)
         self.assertRaises(
             EventBadProbabilityException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - probability: 2
-            """
-            ),
+            '''),
         )
 
         # Bad rate (negative)
         self.assertRaises(
             EventBadRateException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: -1
-            """
-            ),
+            '''),
         )
 
         # Bad rate (too big)
         self.assertRaises(
             EventBadRateException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: inf
-            """
-            ),
+            '''),
         )
 
         # Unrecognised key
         self.assertRaises(
             EventUnrecognisedKeyException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: A
                 - rate: 1
                 - foo: bar
-            """
-            ),
+            '''),
         )
 
         # Quantity not set
         self.assertRaises(
             EventQuantityNotSetException,
             FaultTree.build,
-            "Event: A",
+            'Event: A',
         )
 
     def test_fault_tree_build_gate(self):
@@ -790,150 +758,126 @@ class TestSfta(unittest.TestCase):
         self.assertRaises(
             GateIsPagedAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - is_paged: True
                 - is_paged: True
-            """
-            ),
+            '''),
         )
 
         # Type already set
         self.assertRaises(
             GateTypeAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: AND
                 - type: AND
-            """
-            ),
+            '''),
         )
 
         # Inputs already set
         self.assertRaises(
             GateInputsAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - inputs: B, C
                 - inputs: B, C
-            """
-            ),
+            '''),
         )
 
         # Comment already set
         self.assertRaises(
             GateCommentAlreadySetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - comment: First comment
                 - comment: Second comment
-            """
-            ),
+            '''),
         )
 
         # Bad is_paged
         self.assertRaises(
             GateBadIsPagedException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - is_paged: TrUE
-            """
-            ),
+            '''),
         )
 
         # Bad type
         self.assertRaises(
             GateBadTypeException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: aNd
-            """
-            ),
+            '''),
         )
 
         # Missing inputs
         self.assertRaises(
             GateZeroInputsException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - inputs: ,
-            """
-            ),
+            '''),
         )
 
         # Bad ID
         self.assertRaises(
             FaultTreeBadIdException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - inputs: good, (bad because of whitespace)
-            """
-            ),
+            '''),
         )
 
         # Unrecognised key
         self.assertRaises(
             GateUnrecognisedKeyException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: AND
                 - foo: bar
-            """
-            ),
+            '''),
         )
 
         # Type not set
         self.assertRaises(
             GateTypeNotSetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - inputs: B, C
-            """
-            ),
+            '''),
         )
 
         # Inputs not set
         self.assertRaises(
             GateInputsNotSetException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: OR
-            """
-            ),
+            '''),
         )
 
         # Unknown input
         self.assertRaises(
             GateUnknownInputException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Gate: A
                 - type: OR
                 - inputs: anonymous
-            """
-            ),
+            ''')
         )
 
         # AND gate with first rate and non-first probabilities
@@ -964,8 +908,7 @@ class TestSfta(unittest.TestCase):
         self.assertRaises(
             GateConjunctionBadTypesException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: P1
                 - probability: 0.5
 
@@ -981,8 +924,7 @@ class TestSfta(unittest.TestCase):
                 Gate: conjunction
                 - type: AND
                 - inputs: P1, R2, P3, R4
-            """
-            ),
+            '''),
         )
 
         # OR gate with all rates
@@ -1037,8 +979,7 @@ class TestSfta(unittest.TestCase):
         self.assertRaises(
             GateDisjunctionBadTypesException,
             FaultTree.build,
-            textwrap.dedent(
-                """
+            textwrap.dedent('''
                 Event: P
                 - probability: 0.5
 
@@ -1048,8 +989,7 @@ class TestSfta(unittest.TestCase):
                 Gate: P_R
                 - type: OR
                 - inputs: P, R
-            """
-            ),
+            '''),
         )
 
 
