@@ -7,7 +7,7 @@ import sys
 from sfta.output_handling import create_directory_robust, write_output_files
 from sfta.context_manager import DeepRecurse
 from sfta.core.fault_tree import FaultTree
-from sfta.data_models.exceptions.base import FaultTreeTextException
+from sfta.exceptions.base import FaultTreeTextException
 
 
 __version__ = '0.6.2'

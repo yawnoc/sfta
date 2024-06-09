@@ -1,4 +1,4 @@
-from sfta.data_models.exceptions.event import (
+from sfta.exceptions.event import (
     EventBadFloatException,
     EventBadProbabilityException,
     EventBadRateException,

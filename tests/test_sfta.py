@@ -27,9 +27,9 @@ from sfta.core.utilities import (
     escape_xml,
     find_cycles,
 )
-from sfta.data_models.exceptions.fault_tree import *
-from sfta.data_models.exceptions.event import *
-from sfta.data_models.exceptions.gate import *
+from sfta.exceptions.fault_tree import *
+from sfta.exceptions.event import *
+from sfta.exceptions.gate import *
 
 
 class TestSfta(unittest.TestCase):
