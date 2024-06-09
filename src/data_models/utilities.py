@@ -5,6 +5,7 @@ from math import isfinite, log10, prod
 
 from .nan import Nan
 
+
 def blunt(number, max_decimal_places):
     """
     Blunt a number to at most certain decimal places, as a string.
@@ -98,6 +99,7 @@ def find_cycles(adjacency_dict):
 
     clean_nodes = set(adjacency_dict.keys())
     infected_nodes = set()
+
     # No point keeping track of dead_nodes, which is never queried
 
     def infect(node):
@@ -154,8 +156,10 @@ def escape_xml(text):
 
     return text
 
+
 def is_bad_id(string):
     return not re.fullmatch(r"[a-zA-Z0-9_-]+", string)
+
 
 FAULT_TREE_MAX_SIGNIFICANT_FIGURES = 4
 FAULT_TREE_KEY_EXPLAINER = "Recognised keys for a fault tree property setting are:\n" "    time_unit (optional)."
@@ -175,11 +179,11 @@ FAULT_TREE_PROPERTY_EXPLAINER = (
 )
 
 EVENT_KEY_EXPLAINER = (
-        "Recognised keys for an Event property setting are:\n"
-        "    label (optional)\n"
-        "    probability or rate (exactly one required)\n"
-        "    comment (optional)."
-    )
+    "Recognised keys for an Event property setting are:\n"
+    "    label (optional)\n"
+    "    probability or rate (exactly one required)\n"
+    "    comment (optional)."
+)
 
 EVENT_TYPE_PROBABILITY = 0
 EVENT_TYPE_RATE = 1
