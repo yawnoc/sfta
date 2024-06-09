@@ -1,5 +1,6 @@
 from .node import Node
 
+
 class Figure:
     MARGIN = 10
 

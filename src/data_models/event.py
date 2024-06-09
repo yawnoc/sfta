@@ -1,4 +1,3 @@
-from .tome import Tome, Writ
 from .exceptions.event import (
     EventBadFloatException,
     EventBadProbabilityException,
@@ -7,9 +6,10 @@ from .exceptions.event import (
     EventLabelAlreadySetException,
     EventQuantityAlreadySetException,
     EventQuantityNotSetException,
-    EventUnrecognisedKeyException,
 )
+from .tome import Tome, Writ
 from .utilities import EVENT_KEY_EXPLAINER, EVENT_TYPE_PROBABILITY, EVENT_TYPE_RATE, EVENT_STR_FROM_TYPE
+
 
 class Event:
     def __init__(self, id_, index):

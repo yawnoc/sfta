@@ -2,6 +2,7 @@ import itertools
 
 from src.data_models.utilities import EVENT_TYPE_RATE
 
+
 class Writ:
     """
     Static class for performing calculations with writs.

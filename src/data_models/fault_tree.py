@@ -1,19 +1,8 @@
 import re
 
-from .utilities import dull, find_cycles, is_bad_id
-from .utilities import (
-    FAULT_TREE_MAX_SIGNIFICANT_FIGURES,
-    FAULT_TREE_KEY_EXPLAINER,
-    FAULT_TREE_IDS_EXPLAINER,
-    FAULT_TREE_LINE_EXPLAINER,
-    FAULT_TREE_PROPERTY_EXPLAINER,
-)
 from .event import Event
-from .gate import Gate
-from .figure import Figure
-from .table import Table
+from .exceptions.event import EventUnrecognisedKeyException
 from .exceptions.fault_tree import (
-    FaultTreeBadIdException,
     FaultTreeSmotheredObjectDeclarationException,
     FaultTreeDanglingPropertySettingException,
     FaultTreeDuplicateIdException,
@@ -22,10 +11,19 @@ from .exceptions.fault_tree import (
     FaultTreeTimeUnitAlreadySetException,
     FaultTreeUnrecognisedKeyException,
     FaultTreeCircularGateInputsException
-    )
-
+)
 from .exceptions.gate import GateUnknownInputException, GateUnrecognisedKeyException
-from .exceptions.event import EventUnrecognisedKeyException
+from .figure import Figure
+from .gate import Gate
+from .table import Table
+from .utilities import (
+    FAULT_TREE_MAX_SIGNIFICANT_FIGURES,
+    FAULT_TREE_KEY_EXPLAINER,
+    FAULT_TREE_IDS_EXPLAINER,
+    FAULT_TREE_LINE_EXPLAINER,
+    FAULT_TREE_PROPERTY_EXPLAINER,
+)
+from .utilities import dull, find_cycles, is_bad_id
 
 
 class FaultTree:

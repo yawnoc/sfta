@@ -1,4 +1,6 @@
 from .utilities import escape_xml
+
+
 class Index:
     """
     A two-way index between figures and their objects.

@@ -6,6 +6,7 @@ from .event import Event
 from .utilities import blunt, escape_xml, dull
 from .utilities import FAULT_TREE_MAX_SIGNIFICANT_FIGURES as MAX_SIGNIFICANT_FIGURES
 
+
 class Node:
     """
     A node which instantiates recursively, of a figure.
@@ -401,12 +402,12 @@ class Node:
 
     @staticmethod
     def quantity_text_element(
-        x,
-        y,
-        quantity_value,
-        quantity_type,
-        hath_multiple_writs,
-        time_unit,
+            x,
+            y,
+            quantity_value,
+            quantity_type,
+            hath_multiple_writs,
+            time_unit,
     ):
         centre = x
         middle = y + Node.QUANTITY_BOX_Y_OFFSET

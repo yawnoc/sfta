@@ -1,6 +1,7 @@
 import os
 import csv
 
+
 class Table:
     def __init__(self, field_names, rows):
         self.field_names = field_names

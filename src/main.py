@@ -24,7 +24,7 @@ def parse_command_line_arguments():
     )
     argument_parser.add_argument(
         "fault_tree_text_file_name",
-        help=("name of fault tree text file; " "output is written unto the directory `{ft.txt}.out/`"),
+        help="name of fault tree text file; " "output is written unto the directory `{ft.txt}.out/`",
         metavar="ft.txt",
     )
     return argument_parser.parse_args()
@@ -68,7 +68,7 @@ def main():
 
     output_directory_name = f"{text_file_name}.out"
     create_directory_robust(output_directory_name)
-    svg_file_path = write_output_files(fault_tree, output_directory_name)
+    write_output_files(fault_tree, output_directory_name)
 
 
 if __name__ == "__main__":
