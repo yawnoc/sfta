@@ -3,7 +3,7 @@
 
 Perform unit testing for `cmd.py`.
 
-**Copyright 2022–2023 Conway**
+**Copyright 2022–2024 Conway**
 Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
 This is free software with NO WARRANTY etc. etc., see LICENSE.
 """
@@ -12,15 +12,9 @@ import textwrap
 import unittest
 from math import prod
 
-from sfta.cli import Event, FaultTree, Gate, Nan, Tome, Writ
-from sfta.cli import (
-    blunt,
-    descending_product,
-    descending_sum,
-    dull,
-    escape_xml,
-    find_cycles,
-)
+from sfta.cli import Event, FaultTree, Gate, Tome, Writ
+from sfta.utilities import Nan
+from sfta.utilities import blunt, dull, descending_product, descending_sum, find_cycles, escape_xml
 
 
 class TestSfta(unittest.TestCase):
