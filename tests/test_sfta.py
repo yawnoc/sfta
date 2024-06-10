@@ -12,7 +12,7 @@ import textwrap
 import unittest
 from math import prod
 
-from sfta.cli import Event, FaultTree, Gate, Tome, Writ
+from sfta.core import Event, FaultTree, Gate, Tome, Writ
 from sfta.utilities import Nan
 from sfta.utilities import blunt, dull, descending_product, descending_sum, find_cycles, escape_xml
 
