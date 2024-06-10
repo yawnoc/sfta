@@ -14,8 +14,8 @@ import textwrap
 import unittest
 from math import prod
 
-from sfta import Event, FaultTree, Gate, Nan, Tome, Writ
-from sfta import (
+from sfta.cli import Event, FaultTree, Gate, Nan, Tome, Writ
+from sfta.cli import (
     blunt,
     descending_product,
     descending_sum,
