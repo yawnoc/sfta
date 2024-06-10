@@ -33,11 +33,10 @@ class DeepRecurse:
         sys.setrecursionlimit(self.old_recursion_limit)
 
 
-DESCRIPTION = 'Perform a slow fault tree analysis.'
-
-
 def parse_command_line_arguments():
-    argument_parser = argparse.ArgumentParser(description=DESCRIPTION)
+    argument_parser = argparse.ArgumentParser(
+        description='Perform a slow fault tree analysis.'
+    )
     argument_parser.add_argument(
         '-v', '--version',
         action='version',
