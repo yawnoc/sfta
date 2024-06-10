@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-
 """
-# test_sfta.py
+# Slow Fault Tree Analyser: test_sfta.py
 
 Perform unit testing for `cmd.py`.
 

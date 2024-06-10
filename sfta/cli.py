@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-
 """
-# Slow Fault Tree Analyser (SFTA)
+# Slow Fault Tree Analyser: cli.py
 
 **Copyright 2022–2023 Conway**
 Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
