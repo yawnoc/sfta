@@ -1,7 +1,7 @@
 """
-# Slow Fault Tree Analyser: test_sfta.py
+# Slow Fault Tree Analyser: test_core.py
 
-Perform unit testing for `sfta.py`.
+Perform unit testing for `core.py`.
 
 **Copyright 2022–2024 Conway**
 Licensed under the GNU General Public License v3.0 (GPL-3.0-only).
@@ -14,7 +14,7 @@ import unittest
 from sfta.core import Event, FaultTree, Gate, Tome, Writ
 
 
-class TestSfta(unittest.TestCase):
+class TestCore(unittest.TestCase):
     def test_writ_to_writs(self):
         self.assertEqual(Writ.to_writs(0), {2 ** 0})
         self.assertEqual(Writ.to_writs(1), {2 ** 1})
