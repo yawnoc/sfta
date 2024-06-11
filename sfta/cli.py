@@ -13,9 +13,8 @@ import os
 import shutil
 import sys
 
+from sfta._version import __version__
 from sfta.core import FaultTreeTextException, FaultTree, Index
-
-__version__ = '0.6.2'
 
 
 class DeepRecurse:

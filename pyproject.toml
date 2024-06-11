@@ -4,7 +4,6 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "sfta"
-version = "0.6.2"
 requires-python = ">=3.11"
 authors = [{name="Conway", email="pypi.sheep257@passmail.net"}]
 description = "Slow Fault Tree Analyser (SFTA)"
@@ -17,6 +16,7 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
 ]
+dynamic = ["version"]
 
 [project.urls]
 Homepage = "https://github.com/yawnoc/sfta"
