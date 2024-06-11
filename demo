@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 for txt_file in demos/*.txt; do
-  python3 sfta.py $txt_file
+  python3 -m sfta.cli $txt_file
 done

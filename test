@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for py_file in tests/test_*.py; do
+  python3 -m $(echo ${py_file%%.*} | tr '/' '.')
+done

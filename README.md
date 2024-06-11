@@ -70,58 +70,33 @@ For the example above, we get the following SVG for the top gate `FB`:
   as the first-order sum is an upper bound for the actual probability or rate.
 
 
+## Installation
+
+```bash
+$ pip3 install sfta
+```
+
+
 ## Usage
 
-SFTA is currently a single-file script.
+```bash
+$ sfta [-h] [-v] ft.txt
 
-### Linux terminals, macOS Terminal, Git BASH for Windows
+Perform a slow fault tree analysis.
 
-1. Make an alias for `sfta.py`
-   in whatever dotfile you configure your aliases in:
+positional arguments:
+  ft.txt         name of fault tree text file; output is written unto the
+                 directory `{ft.txt}.out/`
 
-   ```bashrc
-   alias sfta='path/to/sfta.py'
-   ```
-
-2. Invoke the alias to analyse a fault tree text file:
-
-   ```bash
-   $ sfta [-h] [-v] ft.txt
-
-   Perform a slow fault tree analysis.
-
-   positional arguments:
-     ft.txt         name of fault tree text file; output is written unto the
-                    directory `{ft.txt}.out/`
-
-   optional arguments:
-     -h, --help     show this help message and exit
-     -v, --version  show program's version number and exit
-   ```
-
-### Windows Command Prompt
-
-1. Add the folder containing `sfta.py` to the `%PATH%` variable
-
-2. Invoke `sfta.py` to analyse a fault tree text file:
-   ```cmd
-   > sfta.py [-h] [-v] ft.txt
-
-   Perform a slow fault tree analysis.
-
-   positional arguments:
-     ft.txt         name of fault tree text file; output is written unto the
-                    directory `{ft.txt}.out/`
-
-   optional arguments:
-     -h, --help     show this help message and exit
-     -v, --version  show program's version number and exit
-   ```
+optional arguments:
+  -h, --help     show this help message and exit
+  -v, --version  show program's version number and exit
+```
 
 
 ## License
 
-**Copyright 2022–2023 Conway** <br>
+**Copyright 2022–2024 Conway** <br>
 Licensed under the GNU General Public License v3.0 (GPL-3.0-only). <br>
 This is free software with NO WARRANTY etc. etc., see [LICENSE]. <br>
 
