@@ -4,7 +4,7 @@
 ## [Unreleased]
 
 
-## [v0.7.2] Readme tweaks (2024-06-14)
+## [v0.7.2] PyPI tweaks (2024-06-14)
 
 - Minor PyPI listing tweaks
 
