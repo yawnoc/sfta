@@ -4,10 +4,15 @@
 ## [Unreleased]
 
 
+## [v0.7.1] Readme tweaks (2024-06-14)
+
+- Minor readme tweaks
+
+
 ## [v0.7.0] Modularised and packaged (2024-06-12)
 
 - Modularised to no longer be a single-file script
-- Packaged as `sfta`
+- Packaged as `sfta` and published to PyPI
 
 
 ## [v0.6.2] No percent-operator string formatting (2023-07-06)
@@ -91,7 +96,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.7.1...HEAD
+[v0.7.1]: https://github.com/yawnoc/sfta/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/yawnoc/sfta/compare/v0.6.2...v0.7.0
 [v0.6.2]: https://github.com/yawnoc/sfta/compare/v0.6.1...v0.6.2
 [v0.6.1]: https://github.com/yawnoc/sfta/compare/v0.6.0...v0.6.1
