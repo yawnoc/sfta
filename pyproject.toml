@@ -19,9 +19,9 @@ classifiers = [
 dynamic = ["version"]
 
 [project.urls]
-Homepage = "https://github.com/yawnoc/sfta"
-Issues = "https://github.com/yawnoc/sfta/issues"
-Changelog = "https://github.com/yawnoc/sfta/blob/master/CHANGELOG.md"
+repository = "https://github.com/yawnoc/sfta"
+issues = "https://github.com/yawnoc/sfta/issues"
+changelog = "https://github.com/yawnoc/sfta/blob/master/CHANGELOG.md"
 
 [project.scripts]
 sfta = "sfta.cli:main"
