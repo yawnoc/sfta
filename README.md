@@ -2,7 +2,7 @@
 
 A slow (also shitty) fault tree analyser inspired by the idea presented in
 [Wheeler et al. (1977). Fault Tree Analysis Using Bit Manipulation.
-IEEE Transactions on Reliability, Volume R-26, Issue 2.
+IEEE Transactions on Reliability, Volume R-26, Issue 2.
 <<https://doi.org/10.1109/TR.1977.5220060>>]
 
 
