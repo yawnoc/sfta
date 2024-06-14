@@ -1,3 +1,3 @@
 id	is_top_gate	is_paged	quantity_type	quantity_value	quantity_unit	type	inputs	label
-FB	True	False	rate	0.235	/yr	OR	BF,TFBSD	Floor buttered
-TFBSD	False	False	rate	0.135	/yr	AND	TF,TB,BSD	Toast knocked unto floor butter side down
+FB	True	False	rate	0.235	/yr	OR	BF,TFBSD	Conway causeth floor to be buttered
+TFBSD	False	False	rate	0.135	/yr	AND	TF,TB,BSD	Conway knocketh toast onto floor butter side down

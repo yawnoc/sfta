@@ -1,5 +1,5 @@
 id	is_used	quantity_type	quantity_value	quantity_unit	label
-BF	True	rate	0.1	/yr	Butter knocked unto floor
+BF	True	rate	0.1	/yr	Conway knocketh butter onto floor
 BSD	True	probability	0.9	1	Buttered toast landeth butter side down
-TB	True	probability	0.75	1	Toast buttered
-TF	True	rate	0.2	/yr	Toast knocked unto floor
+TB	True	probability	0.75	1	Falling toast is buttered
+TF	True	rate	0.2	/yr	Conway knocketh toast onto floor

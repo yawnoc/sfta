@@ -1,25 +1,25 @@
 - time_unit: yr
 
 Gate: FB
-- label: Floor buttered
+- label: Conway causeth floor to be buttered
 - type: OR
 - inputs: BF, TFBSD
 
 Event: BF
-- label: Butter knocked unto floor
+- label: Conway knocketh butter onto floor
 - rate: 0.1
 
 Gate: TFBSD
-- label: Toast knocked unto floor butter side down
+- label: Conway knocketh toast onto floor butter side down
 - type: AND
 - inputs: TF, TB, BSD
 
 Event: TF
-- label: Toast knocked unto floor
+- label: Conway knocketh toast onto floor
 - rate: 0.2
 
 Event: TB
-- label: Toast buttered
+- label: Falling toast is buttered
 - probability: 0.75
 
 Event: BSD

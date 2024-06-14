@@ -22,7 +22,9 @@ text {
 <polyline points="230,150 230,200 60,200 60,250"/>
 <polyline points="250,150 250,200 300,200 300,250"/>
 <rect x="186" y="5" width="108" height="70"/>
-<text x="240" y="40" style="font-size: 10px">Floor buttered</text>
+<text x="240" y="27" style="font-size: 10px">Conway causeth</text>
+<text x="240" y="40" style="font-size: 10px">floor to be</text>
+<text x="240" y="53" style="font-size: 10px">buttered</text>
 <rect x="186" y="80" width="108" height="24"/>
 <text x="240" y="92">FB</text>
 <path d="M240,112 C234,114 207,125 207,160 L207,186 Q240,156 273,186 L273,160 C273,125 246,114 240,112"/>
@@ -31,8 +33,9 @@ text {
 <polyline points="60,215 60,360"/>
 
 <rect x="6" y="215" width="108" height="70"/>
-<text x="60" y="243.5" style="font-size: 10px">Butter knocked</text>
-<text x="60" y="256.5" style="font-size: 10px">unto floor</text>
+<text x="60" y="237" style="font-size: 10px">Conway knocketh</text>
+<text x="60" y="250" style="font-size: 10px">butter onto</text>
+<text x="60" y="263" style="font-size: 10px">floor</text>
 <rect x="6" y="290" width="108" height="24"/>
 <text x="60" y="302">BF</text>
 <circle cx="60" cy="360" r="38"/>
@@ -43,8 +46,8 @@ text {
 <polyline points="300,360 300,410 300,410 300,460"/>
 <polyline points="315,360 315,410 420,410 420,460"/>
 <rect x="246" y="215" width="108" height="70"/>
-<text x="300" y="237" style="font-size: 10px">Toast knocked</text>
-<text x="300" y="250" style="font-size: 10px">unto floor</text>
+<text x="300" y="237" style="font-size: 10px">Conway knocketh</text>
+<text x="300" y="250" style="font-size: 10px">toast onto floor</text>
 <text x="300" y="263" style="font-size: 10px">butter side down</text>
 <rect x="246" y="290" width="108" height="24"/>
 <text x="300" y="302">TFBSD</text>
@@ -54,8 +57,8 @@ text {
 <polyline points="180,425 180,570"/>
 
 <rect x="126" y="425" width="108" height="70"/>
-<text x="180" y="453.5" style="font-size: 10px">Toast knocked</text>
-<text x="180" y="466.5" style="font-size: 10px">unto floor</text>
+<text x="180" y="453.5" style="font-size: 10px">Conway knocketh</text>
+<text x="180" y="466.5" style="font-size: 10px">toast onto floor</text>
 <rect x="126" y="500" width="108" height="24"/>
 <text x="180" y="512">TF</text>
 <circle cx="180" cy="570" r="38"/>
@@ -64,7 +67,8 @@ text {
 <polyline points="300,425 300,570"/>
 
 <rect x="246" y="425" width="108" height="70"/>
-<text x="300" y="460" style="font-size: 10px">Toast buttered</text>
+<text x="300" y="453.5" style="font-size: 10px">Falling toast is</text>
+<text x="300" y="466.5" style="font-size: 10px">buttered</text>
 <rect x="246" y="500" width="108" height="24"/>
 <text x="300" y="512">TB</text>
 <circle cx="300" cy="570" r="38"/>
