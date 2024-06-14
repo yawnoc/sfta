@@ -4,6 +4,11 @@
 ## [Unreleased]
 
 
+## [v0.7.2] Readme tweaks (2024-06-14)
+
+- Minor PyPI listing tweaks
+
+
 ## [v0.7.1] Readme tweaks (2024-06-14)
 
 - Minor readme tweaks
@@ -96,7 +101,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.7.2...HEAD
+[v0.7.2]: https://github.com/yawnoc/sfta/compare/v0.7.1...v0.7.2
 [v0.7.1]: https://github.com/yawnoc/sfta/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/yawnoc/sfta/compare/v0.6.2...v0.7.0
 [v0.6.2]: https://github.com/yawnoc/sfta/compare/v0.6.1...v0.6.2
