@@ -28,7 +28,9 @@ def main():
     ''')
 
     fault_tree = FaultTree(fault_tree_text)
+    print(fault_tree.gate_from_id['AB'].quantity_value)
     print(fault_tree.gate_from_id['AB_C'].quantity_value)
+    print(fault_tree.gate_from_id['AB_C'].input_ids)
 
     print(end='\n\n')
 
