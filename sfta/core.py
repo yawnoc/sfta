@@ -1150,6 +1150,16 @@ class Table:
         self.field_names = field_names
         self.rows = rows
 
+    def __str__(self):
+        return '\n'.join([
+            f'Table(',
+            f'  field_names={repr(self.field_names)},',
+            f'  rows=[',
+            *[f'    {repr(row)},' for row in self.rows],
+            f'  ],',
+            f')',
+        ])
+
     def write_tsv(self, file_name):
         with open(file_name, 'w', encoding='utf-8', newline='') as file:
             writer = csv.writer(file, delimiter='\t', lineterminator=os.linesep)
