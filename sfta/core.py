@@ -152,7 +152,7 @@ class Tome:
 
     def __str__(self):
         writ_sequence = ', '.join(bin(writ) for writ in self.writs)
-        return f'Tome(writs={writ_sequence})'
+        return f'Tome(writs={{{writ_sequence}}})'
 
     def identity(self):
         return self.writs, self.quantity_type
@@ -422,6 +422,32 @@ class Gate:
 
         self.contribution_value_from_event_index = None
         self.importance_from_event_index = None
+
+    def __str__(self):
+        cut_set_indices_sequence = ', '.join(
+            repr(set(cut_set_indices))
+            for cut_set_indices in self.cut_sets_indices
+        )
+        quantity_value_from_cut_set_indices_sequence = ', '.join(
+            f'{repr(set(cut_set_indices))}: {repr(quantity_value)}'
+            for cut_set_indices, quantity_value in self.quantity_value_from_cut_set_indices.items()
+        )
+        field_sequence = ', '.join([
+            f'id_={repr(self.id_)}',
+            f'label={repr(self.label)}',
+            f'is_paged={repr(self.is_paged)}',
+            f'type_={repr(self.type_)}',
+            f'input_ids={repr(self.input_ids)}',
+            f'comment={repr(self.comment)}',
+            f'tome={self.tome}',
+            f'cut_sets_indices={{{cut_set_indices_sequence}}}',
+            f'quantity_type={self.quantity_type}',
+            f'quantity_value_from_cut_set_indices={quantity_value_from_cut_set_indices_sequence}',
+            f'quantity_value={self.quantity_value}',
+            f'contribution_value_from_event_index={self.contribution_value_from_event_index}',
+            f'importance_from_event_index={self.importance_from_event_index}',
+        ])
+        return f'Gate({field_sequence})'
 
     KEY_EXPLAINER = (
         'Recognised keys for a Gate property setting are:\n'
