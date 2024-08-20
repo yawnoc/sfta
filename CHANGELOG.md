@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.8.0] String representations (2024-08-21)
+
 - Implemented `__str__` for FaultTree, Event, Gate, Tome, Table
 
 
@@ -103,7 +106,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.7.2...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/yawnoc/sfta/compare/v0.7.2...v0.8.0
 [v0.7.2]: https://github.com/yawnoc/sfta/compare/v0.7.1...v0.7.2
 [v0.7.1]: https://github.com/yawnoc/sfta/compare/v0.7.0...v0.7.1
 [v0.7.0]: https://github.com/yawnoc/sfta/compare/v0.6.2...v0.7.0
