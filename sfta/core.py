@@ -232,6 +232,18 @@ class Event:
 
         self.tome = None
 
+    def __str__(self):
+        field_sequence = ', '.join([
+            f'id_={repr(self.id_)}',
+            f'index={repr(self.index)}',
+            f'label={repr(self.label)}',
+            f'quantity_type={repr(self.quantity_type)}',
+            f'quantity_value={repr(self.quantity_value)}',
+            f'comment={repr(self.comment)}',
+            f'tome={self.tome}',
+        ])
+        return f'Event({field_sequence})'
+
     KEY_EXPLAINER = (
         'Recognised keys for an Event property setting are:\n'
         '    label (optional)\n'
