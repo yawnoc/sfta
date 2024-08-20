@@ -3,7 +3,7 @@
 
 ## [Unreleased]
 
-- Implemented `__str__` for FaultTree, Event
+- Implemented `__str__` for FaultTree, Event, Tome
 
 
 ## [v0.7.2] PyPI tweaks (2024-06-14)

@@ -150,6 +150,10 @@ class Tome:
     def __hash__(self):
         return hash(self.identity())
 
+    def __str__(self):
+        writ_sequence = ', '.join(bin(writ) for writ in self.writs)
+        return f'Tome(writs={writ_sequence})'
+
     def identity(self):
         return self.writs, self.quantity_type
 
