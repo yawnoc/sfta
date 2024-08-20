@@ -15,7 +15,8 @@ import re
 import textwrap
 from math import sqrt
 
-from sfta.utilities import descending_product, descending_sum, Nan, find_cycles, dull, blunt, escape_xml
+from sfta.utilities import Nan
+from sfta.utilities import descending_product, descending_sum, find_cycles, dull, blunt, escape_xml
 
 
 class Writ:
@@ -75,6 +76,7 @@ class Writ:
             10011 | 00110 = 10111  <-->  ABE . BC = ABCE
         """
         conjunction_writ = 0
+
         for writ in input_writs:
             conjunction_writ |= writ
 
@@ -259,17 +261,13 @@ class Event:
             else:
                 return f'/{time_unit}'
 
-        raise RuntimeError(
-            'Implementation error: '
-            '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
-        )
+        raise RuntimeError('Implementation error: `quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`')
 
     def set_label(self, label, line_number):
         if self.label is not None:
             raise Event.LabelAlreadySetException(
                 line_number,
-                f'label hath already been set for Event `{self.id_}` '
-                f'at line {self.label_line_number}'
+                f'label hath already been set for Event `{self.id_}` at line {self.label_line_number}',
             )
 
         self.label = label
@@ -279,9 +277,7 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate hath already been set '
-                f'for Event `{self.id_}` '
-                f'at line {self.quantity_line_number}'
+                f'probability or rate hath already been set for Event `{self.id_}` at line {self.quantity_line_number}',
             )
 
         try:
@@ -289,21 +285,18 @@ class Event:
         except ValueError:
             raise Event.BadFloatException(
                 line_number,
-                f'unable to convert `{probability_str}` to float '
-                f'for Event `{self.id_}`'
+                f'unable to convert `{probability_str}` to float for Event `{self.id_}`',
             )
 
         if probability < 0:
             raise Event.BadProbabilityException(
                 line_number,
-                f'probability `{probability_str}` is negative '
-                f'for Event `{self.id_}`'
+                f'probability `{probability_str}` is negative for Event `{self.id_}`',
             )
         if probability > 1:
             raise Event.BadProbabilityException(
                 line_number,
-                f'probability `{probability_str}` exceedeth 1 '
-                f'for Event `{self.id_}`'
+                f'probability `{probability_str}` exceedeth 1 for Event `{self.id_}`',
             )
 
         self.quantity_type = Event.TYPE_PROBABILITY
@@ -314,9 +307,7 @@ class Event:
         if self.quantity_type is not None:
             raise Event.QuantityAlreadySetException(
                 line_number,
-                f'probability or rate hath already been set '
-                f'for Event `{self.id_}` '
-                f'at line {self.quantity_line_number}'
+                f'probability or rate hath already been set for Event `{self.id_}` at line {self.quantity_line_number}',
             )
 
         try:
@@ -324,19 +315,18 @@ class Event:
         except ValueError:
             raise Event.BadFloatException(
                 line_number,
-                f'unable to convert `{rate_str}` to float '
-                f'for Event `{self.id_}`'
+                f'unable to convert `{rate_str}` to float for Event `{self.id_}`',
             )
 
         if rate < 0:
             raise Event.BadRateException(
                 line_number,
-                f'rate `{rate_str}` is negative for Event `{self.id_}`'
+                f'rate `{rate_str}` is negative for Event `{self.id_}`',
             )
         if not rate < float('inf'):
             raise Event.BadRateException(
                 line_number,
-                f'rate `{rate_str}` is not finite for Event `{self.id_}`'
+                f'rate `{rate_str}` is not finite for Event `{self.id_}`',
             )
 
         self.quantity_type = Event.TYPE_RATE
@@ -347,8 +337,7 @@ class Event:
         if self.comment is not None:
             raise Event.CommentAlreadySetException(
                 line_number,
-                f'comment hath already been set for Event `{self.id_}` '
-                f'at line {self.comment_line_number}'
+                f'comment hath already been set for Event `{self.id_}` at line {self.comment_line_number}',
             )
 
         self.comment = comment
@@ -358,7 +347,7 @@ class Event:
         if self.quantity_type is None or self.quantity_value is None:
             raise Event.QuantityNotSetException(
                 line_number,
-                f'probability or rate hath not been set for Event `{self.id_}`'
+                f'probability or rate hath not been set for Event `{self.id_}`',
             )
 
     def compute_tome(self):
@@ -456,8 +445,7 @@ class Gate:
         if self.label is not None:
             raise Gate.LabelAlreadySetException(
                 line_number,
-                f'label hath already been set for Gate `{self.id_}` '
-                f'at line {self.label_line_number}'
+                f'label hath already been set for Gate `{self.id_}` at line {self.label_line_number}',
             )
 
         self.label = label
@@ -467,15 +455,13 @@ class Gate:
         if self.is_paged is not None:
             raise Gate.IsPagedAlreadySetException(
                 line_number,
-                f'is_paged hath already been set for `{self.id_}` '
-                f'at line {self.is_paged_line_number}'
+                f'is_paged hath already been set for `{self.id_}` at line {self.is_paged_line_number}',
             )
 
         if is_paged not in ['True', 'False']:
             raise Gate.BadIsPagedException(
                 line_number,
-                f'bad is_paged `{is_paged}` for Gate `{self.id_}`'
-                f'\n\n{Gate.IS_PAGED_EXPLAINER}'
+                f'bad is_paged `{is_paged}` for Gate `{self.id_}`\n\n{Gate.IS_PAGED_EXPLAINER}',
             )
         self.is_paged = is_paged
         self.is_paged_line_number = line_number
@@ -484,8 +470,7 @@ class Gate:
         if self.type_ is not None:
             raise Gate.TypeAlreadySetException(
                 line_number,
-                f'type hath already been set for Gate `{self.id_}` '
-                f'at line {self.type_line_number}'
+                f'type hath already been set for Gate `{self.id_}` at line {self.type_line_number}',
             )
 
         if type_str == 'OR':
@@ -495,8 +480,7 @@ class Gate:
         else:
             raise Gate.BadTypeException(
                 line_number,
-                f'bad type `{type_str}` for Gate `{self.id_}`'
-                f'\n\n{Gate.TYPE_EXPLAINER}'
+                f'bad type `{type_str}` for Gate `{self.id_}`\n\n{Gate.TYPE_EXPLAINER}',
             )
         self.type_line_number = line_number
 
@@ -504,23 +488,20 @@ class Gate:
         if self.input_ids is not None:
             raise Gate.InputsAlreadySetException(
                 line_number,
-                f'inputs have already been set for Gate `{self.id_}` '
-                f'at line {self.inputs_line_number}'
+                f'inputs have already been set for Gate `{self.id_}` at line {self.inputs_line_number}',
             )
 
         ids = Gate.split_ids(input_ids_str)
         if not ids:
             raise Gate.ZeroInputsException(
                 line_number,
-                f'no IDs could be extracted from inputs `{input_ids_str}` '
-                f'for Gate `{self.id_}`'
+                f'no IDs could be extracted from inputs `{input_ids_str}` for Gate `{self.id_}`',
             )
         for id_ in ids:
             if FaultTree.is_bad_id(id_):
                 raise FaultTree.BadIdException(
                     line_number,
-                    f'bad ID `{id_}` among inputs for Gate `{self.id_}`'
-                    f'\n\n{FaultTree.IDS_EXPLAINER}'
+                    f'bad ID `{id_}` among inputs for Gate `{self.id_}`\n\n{FaultTree.IDS_EXPLAINER}',
                 )
 
         self.input_ids = ids
@@ -530,8 +511,7 @@ class Gate:
         if self.comment is not None:
             raise Gate.CommentAlreadySetException(
                 line_number,
-                f'comment hath already been set for Gate `{self.id_}` '
-                f'at line {self.comment_line_number}'
+                f'comment hath already been set for Gate `{self.id_}` at line {self.comment_line_number}',
             )
 
         self.comment = comment
@@ -543,12 +523,12 @@ class Gate:
         if self.type_ is None:
             raise Gate.TypeNotSetException(
                 line_number,
-                f'type hath not been set for Gate `{self.id_}`'
+                f'type hath not been set for Gate `{self.id_}`',
             )
         if self.input_ids is None:
             raise Gate.InputsNotSetException(
                 line_number,
-                f'inputs have not been set for Gate `{self.id_}`'
+                f'inputs have not been set for Gate `{self.id_}`',
             )
 
     def compute_tome(self, event_from_id, gate_from_id):
@@ -564,9 +544,7 @@ class Gate:
                 input_tomes.append(gate.tome)
             else:
                 raise RuntimeError(
-                    f'Implementation error: '
-                    f'`{input_id}` is in '
-                    f'neither `event_from_id` nor `gate_from_id`.'
+                    f'Implementation error: `{input_id}` is in neither `event_from_id` nor `gate_from_id`.'
                 )
 
         if self.type_ == Gate.TYPE_AND:
@@ -605,10 +583,7 @@ class Gate:
                     + f'\n\n{Gate.OR_INPUTS_EXPLAINER}'
                 )
         else:
-            raise RuntimeError(
-                f'Implementation error: '
-                f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
-            )
+            raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
 
     def compute_quantity(self, quantity_value_from_event_index):
         self.cut_sets_indices = {
@@ -624,9 +599,7 @@ class Gate:
                 )
             for cut_set_indices in self.cut_sets_indices
         }
-        self.quantity_value = (
-            descending_sum(self.quantity_value_from_cut_set_indices.values())
-        )
+        self.quantity_value = descending_sum(self.quantity_value_from_cut_set_indices.values())
 
     def compute_contributions(self, events):
         self.contribution_value_from_event_index = {
@@ -734,9 +707,7 @@ class FaultTree:
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
 
-        used_event_ids, top_gate_ids = (
-            FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
-        )
+        used_event_ids, top_gate_ids = FaultTree.validate_gate_inputs(event_from_id, gate_from_id)
         FaultTree.validate_tree(gate_from_id)
 
         FaultTree.compute_event_tomes(events)
@@ -767,7 +738,6 @@ class FaultTree:
 
         lines = (fault_tree_text + '\n\n').splitlines()
         for line_number, line in enumerate(lines, start=1):
-
             object_line_regex = r'^(?P<class_>Event|Gate): \s*(?P<id_>.+?)\s*$'
             object_line_match = re.match(object_line_regex, line)
             if object_line_match:
@@ -777,19 +747,17 @@ class FaultTree:
                 if current_object not in (None, FaultTree):
                     raise FaultTree.SmotheredObjectDeclarationException(
                         line_number,
-                        f'missing blank line before '
-                        f'declaration of {class_} `{id_}`'
+                        f'missing blank line before declaration of {class_} `{id_}`',
                     )
                 if id_ in ids:
                     raise FaultTree.DuplicateIdException(
                         line_number,
-                        f'duplicate ID `{id_}` in declaration of {class_}'
+                        f'duplicate ID `{id_}` in declaration of {class_}',
                     )
                 if FaultTree.is_bad_id(id_):
                     raise FaultTree.BadIdException(
                         line_number,
-                        f'bad ID `{id_}` in declaration of {class_}'
-                        f'\n\n{FaultTree.IDS_EXPLAINER}'
+                        f'bad ID `{id_}` in declaration of {class_}\n\n{FaultTree.IDS_EXPLAINER}',
                     )
 
                 if class_ == 'Event':
@@ -804,8 +772,7 @@ class FaultTree:
                 else:
                     raise RuntimeError(
                         f'Implementation error: '
-                        f'`class_` matched from regex `{object_line_regex}` '
-                        f'is neither `Event` nor `Gate`.'
+                        f'`class_` matched from regex `{object_line_regex}` is neither `Event` nor `Gate`.'
                     )
                 ids.add(id_)
                 continue
@@ -819,9 +786,8 @@ class FaultTree:
                 if current_object is None:
                     raise FaultTree.DanglingPropertySettingException(
                         line_number,
-                        f'missing Event or Gate declaration before '
-                        f'setting {key} to `{value}`'
-                        f'\n\n{FaultTree.PROPERTY_EXPLAINER}'
+                        f'missing Event or Gate declaration before setting {key} to `{value}`'
+                        f'\n\n{FaultTree.PROPERTY_EXPLAINER}',
                     )
 
                 if current_object is FaultTree:
@@ -829,17 +795,14 @@ class FaultTree:
                         if time_unit is not None:
                             raise FaultTree.TimeUnitAlreadySetException(
                                 line_number,
-                                f'time unit hath already been set '
-                                f'at line {time_unit_line_number}'
+                                f'time unit hath already been set at line {time_unit_line_number}',
                             )
                         time_unit = value
                         time_unit_line_number = line_number
                     else:
                         raise FaultTree.UnrecognisedKeyException(
                             line_number,
-                            f'unrecognised key `{key}` '
-                            f'for the fault tree'
-                            f'\n\n{FaultTree.KEY_EXPLAINER}'
+                            f'unrecognised key `{key}` for the fault tree\n\n{FaultTree.KEY_EXPLAINER}',
                         )
                 elif isinstance(current_object, Event):
                     if key == 'label':
@@ -853,9 +816,7 @@ class FaultTree:
                     else:
                         raise Event.UnrecognisedKeyException(
                             line_number,
-                            f'unrecognised key `{key}` '
-                            f'for Event `{current_object.id_}`'
-                            f'\n\n{Event.KEY_EXPLAINER}'
+                            f'unrecognised key `{key}` for Event `{current_object.id_}`\n\n{Event.KEY_EXPLAINER}',
                         )
                 elif isinstance(current_object, Gate):
                     if key == 'label':
@@ -871,15 +832,12 @@ class FaultTree:
                     else:
                         raise Gate.UnrecognisedKeyException(
                             line_number,
-                            f'unrecognised key `{key}` '
-                            f'for Gate `{current_object.id_}`'
-                            f'\n\n{Gate.KEY_EXPLAINER}'
+                            f'unrecognised key `{key}` for Gate `{current_object.id_}`\n\n{Gate.KEY_EXPLAINER}',
                         )
                 else:
                     raise RuntimeError(
                         f'Implementation error: '
-                        f'current_object {current_object} '
-                        f'is an instance of neither Event nor Gate.'
+                        f'current_object {current_object} is an instance of neither Event nor Gate.'
                     )
                 continue
 
@@ -900,15 +858,13 @@ class FaultTree:
                 else:
                     raise RuntimeError(
                         f'Implementation error: '
-                        f'current_object {current_object} '
-                        f'is an instance of neither Event nor Gate.'
+                        f'current_object {current_object} is an instance of neither Event nor Gate.'
                     )
                 continue
 
             raise FaultTree.BadLineException(
                 line_number,
-                f'bad line `{line}`'
-                f'\n\n{FaultTree.LINE_EXPLAINER}'
+                f'bad line `{line}`\n\n{FaultTree.LINE_EXPLAINER}',
             )
 
         return events, gates, time_unit
@@ -935,7 +891,7 @@ class FaultTree:
                 if not (input_is_known_event or input_is_known_gate):
                     raise Gate.UnknownInputException(
                         gate.inputs_line_number,
-                        f'no Event or Gate is ever declared with ID `{id_}`'
+                        f'no Event or Gate is ever declared with ID `{id_}`',
                     )
 
         return used_event_ids, top_gate_ids
@@ -1056,10 +1012,7 @@ class FaultTree:
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
                     dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
-                    Event.quantity_unit_str(
-                        gate.quantity_type,
-                        self.time_unit,
-                    ),
+                    Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                     '.'.join(
                         self.event_id_from_index[event_index]
                         for event_index in sorted(cut_set_indices)
@@ -1069,10 +1022,7 @@ class FaultTree:
                 for cut_set_indices, quantity_value
                 in gate.quantity_value_from_cut_set_indices.items()
             ]
-            rows.sort(
-                key=lambda row: (-float(row[1]), row[4], row[3])
-                # quantity_value, cut_set_order, cut_set
-            )
+            rows.sort(key=lambda row: (-float(row[1]), row[4], row[3]))  # quantity_value, cut_set_order, cut_set
             cut_set_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return cut_set_table_from_gate_id
@@ -1091,25 +1041,13 @@ class FaultTree:
                 [
                     event_id,
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    dull(
-                        gate.contribution_value_from_event_index[event_index],
-                        FaultTree.MAX_SIGNIFICANT_FIGURES,
-                    ),
-                    Event.quantity_unit_str(
-                        gate.quantity_type,
-                        self.time_unit,
-                    ),
-                    dull(
-                        gate.importance_from_event_index[event_index],
-                        FaultTree.MAX_SIGNIFICANT_FIGURES,
-                    )
+                    dull(gate.contribution_value_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES),
+                    Event.quantity_unit_str(gate.quantity_type, self.time_unit),
+                    dull(gate.importance_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES)
                 ]
                 for event_index, event_id in self.event_id_from_index.items()
             ]
-            rows.sort(
-                key=lambda row: (-float(row[2]), row[0])
-                # contribution_value, event
-            )
+            rows.sort(key=lambda row: (-float(row[2]), row[0]))  # contribution_value, event
             contribution_table_from_gate_id[gate_id] = Table(field_names, rows)
 
         return contribution_table_from_gate_id
@@ -1154,9 +1092,7 @@ class Table:
 
     def write_tsv(self, file_name):
         with open(file_name, 'w', encoding='utf-8', newline='') as file:
-            writer = (
-                csv.writer(file, delimiter='\t', lineterminator=os.linesep)
-            )
+            writer = csv.writer(file, delimiter='\t', lineterminator=os.linesep)
             writer.writerow(self.field_names)
             writer.writerows(self.rows)
 
@@ -1169,9 +1105,7 @@ class Figure:
         gate_from_id = fault_tree.gate_from_id
         time_unit = fault_tree.time_unit
 
-        top_node = (
-            Node(event_from_id, gate_from_id, time_unit, id_, to_node=None)
-        )
+        top_node = Node(event_from_id, gate_from_id, time_unit, id_, to_node=None)
         top_node.position_recursive()
 
         self.top_node = top_node
@@ -1298,26 +1232,13 @@ class Node:
                 elif gate.type_ == Gate.TYPE_AND:
                     symbol_type = Node.SYMBOL_TYPE_AND
                 else:
-                    raise RuntimeError(
-                        f'Implementation error: '
-                        f'Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.'
-                    )
+                    raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
             input_nodes = [
-                Node(
-                    event_from_id,
-                    gate_from_id,
-                    time_unit,
-                    input_id,
-                    to_node=self,
-                )
+                Node(event_from_id, gate_from_id, time_unit, input_id, to_node=self)
                 for input_id in input_ids
             ]
         else:
-            raise RuntimeError(
-                f'Implementation error: '
-                f'`{id_}` is in '
-                f'neither `event_from_id` nor `gate_from_id`.'
-            )
+            raise RuntimeError(f'Implementation error: `{id_}` is in neither `event_from_id` nor `gate_from_id`.')
 
         implicated_ids = {
             id_,
@@ -1387,11 +1308,7 @@ class Node:
             Node.id_text_element(x, y, id_),
             Node.symbol_element(x, y, symbol_type),
             Node.quantity_rectangle_element(x, y),
-            Node.quantity_text_element(
-                x, y,
-                quantity_value, quantity_type, hath_multiple_writs,
-                time_unit,
-            ),
+            Node.quantity_text_element(x, y, quantity_value, quantity_type, hath_multiple_writs, time_unit),
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
@@ -1435,9 +1352,7 @@ class Node:
         points_by_input = []
         for input_number, input_node in enumerate(input_nodes, start=1):
             slot_bias = 2 * input_number / (1 + input_count) - 1
-            slot_x = round(
-                symbol_centre + slot_bias * Node.SYMBOL_SLOTS_HALF_WIDTH
-            )
+            slot_x = round(symbol_centre + slot_bias * Node.SYMBOL_SLOTS_HALF_WIDTH)
 
             if input_number in input_numbers_left:
                 left_number = input_numbers_left.index(input_number) + 1
@@ -1447,9 +1362,7 @@ class Node:
                 bus_bias = 1 - 2 * right_number / (1 + right_input_count)
             else:
                 bus_bias = 0
-            bus_y = round(
-                bus_middle + bus_bias * Node.CONNECTOR_BUS_HALF_HEIGHT
-            )
+            bus_y = round(bus_middle + bus_bias * Node.CONNECTOR_BUS_HALF_HEIGHT)
 
             input_label_centre = input_node.x
             input_label_middle = input_node.y + Node.LABEL_BOX_Y_OFFSET
@@ -1475,9 +1388,7 @@ class Node:
         width = Node.LABEL_BOX_WIDTH
         height = Node.LABEL_BOX_HEIGHT
 
-        return (
-            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
-        )
+        return f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
 
     @staticmethod
     def label_text_elements(x, y, label):
@@ -1506,19 +1417,10 @@ class Node:
         text_elements = []
         for line_number, line in enumerate(lines, start=1):
             bias = line_number - (1 + line_count) / 2
-            line_middle = blunt(
-                middle + bias * font_size * Node.LINE_SPACING,
-                max_decimal_places=1,
-            )
+            line_middle = blunt(middle + bias * font_size * Node.LINE_SPACING, max_decimal_places=1)
             content = escape_xml(line)
 
-            text_elements.append(
-                f'<text'
-                f' x="{centre}"'
-                f' y="{line_middle}"'
-                f' style="{style}"'
-                f'>{content}</text>'
-            )
+            text_elements.append(f'<text x="{centre}" y="{line_middle}" style="{style}">{content}</text>')
 
         return '\n'.join(text_elements)
 
@@ -1529,9 +1431,7 @@ class Node:
         width = Node.ID_BOX_WIDTH
         height = Node.ID_BOX_HEIGHT
 
-        return (
-            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
-        )
+        return f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
 
     @staticmethod
     def id_text_element(x, y, id_):
@@ -1636,16 +1536,10 @@ class Node:
         width = Node.QUANTITY_BOX_WIDTH
         height = Node.QUANTITY_BOX_HEIGHT
 
-        return (
-            f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
-        )
+        return f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
 
     @staticmethod
-    def quantity_text_element(
-        x, y,
-        quantity_value, quantity_type, hath_multiple_writs,
-        time_unit,
-    ):
+    def quantity_text_element(x, y, quantity_value, quantity_type, hath_multiple_writs, time_unit):
         centre = x
         middle = y + Node.QUANTITY_BOX_Y_OFFSET
 
@@ -1654,10 +1548,7 @@ class Node:
         elif quantity_type == Event.TYPE_RATE:
             lhs = 'w'
         else:
-            raise RuntimeError(
-                'Implementation error: '
-                '`quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`'
-            )
+            raise RuntimeError('Implementation error: `quantity_type` is neither `TYPE_PROBABILITY` nor `TYPE_RATE`')
 
         if hath_multiple_writs:
             relation = '≤'
@@ -1665,11 +1556,7 @@ class Node:
             relation = '='
 
         value_str = dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
-        unit_str = Event.quantity_unit_str(
-            quantity_type,
-            time_unit,
-            suppress_unity=True,
-        )
+        unit_str = Event.quantity_unit_str(quantity_type, time_unit, suppress_unity=True)
 
         content = escape_xml(f'{lhs} {relation} {value_str}{unit_str}')
 
@@ -1697,12 +1584,7 @@ class Index:
         figures_directory_name = escape_xml(self.figures_directory_name)
 
         meta_charset = '<meta charset="utf-8">'
-        meta_viewport = (
-            '<meta'
-            ' name="viewport"'
-            ' content="width=device-width, initial-scale=1"'
-            '>'
-        )
+        meta_viewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
         title = f'Index of `{figures_directory_name}/`'
         heading = f'Index of <code>{figures_directory_name}/</code>'
 
