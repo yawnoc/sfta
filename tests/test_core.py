@@ -66,10 +66,7 @@ class TestCore(unittest.TestCase):
         self.assertEqual(Writ.or_(0b001, 0b011, 0b110), {0b001, 0b110})
 
         # AB + BC + CA + ABC = AB + BC + CA
-        self.assertEqual(
-            Writ.or_(0b011, 0b110, 0b101, 0b111),
-            {0b011, 0b110, 0b101},
-        )
+        self.assertEqual(Writ.or_(0b011, 0b110, 0b101, 0b111), {0b011, 0b110, 0b101})
 
         # God save!
         self.assertEqual(
