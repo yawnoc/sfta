@@ -674,6 +674,24 @@ class FaultTree:
         ) \
             = FaultTree.build(fault_tree_text)
 
+    def __str__(self):
+        return '\n'.join([
+            f'FaultTree(',
+            f'  event_from_id={{',
+            *[f'    {repr(id_)}: {event},' for id_, event in self.event_from_id.items()],
+            f'  }},',
+            f'  gate_from_id={{',
+            *[f'    {repr(id_)}: {gate},' for id_, gate in self.gate_from_id.items()],
+            f'  }},',
+            f'  event_id_from_index={{',
+            *[f'    {repr(event_index)}: {repr(event_id)},' for event_index, event_id in self.event_id_from_index.items()],
+            f'  }},',
+            f'  used_event_ids={repr(self.used_event_ids)},',
+            f'  top_gate_ids={repr(self.top_gate_ids)},',
+            f'  time_unit={repr(self.time_unit)},',
+            f')',
+        ])
+
     MAX_SIGNIFICANT_FIGURES = 4
     KEY_EXPLAINER = (
         'Recognised keys for a fault tree property setting are:\n'
