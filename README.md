@@ -78,7 +78,7 @@ $ pip3 install sfta
 ```
 
 
-## Usage
+## Usage (command line)
 
 ```bash
 $ sfta [-h] [-v] ft.txt
@@ -92,6 +92,48 @@ positional arguments:
 optional arguments:
   -h, --help     show this help message and exit
   -v, --version  show program's version number and exit
+```
+
+
+## Usage (scripting example)
+
+```python
+import textwrap
+
+from sfta.core import FaultTree, Gate
+
+fault_tree = FaultTree('''
+Event: A
+- rate: 0.9
+
+Event: B
+- probability: 0.7
+
+Event: C
+- rate: 1e-4
+
+Gate: AB
+- label: This be an AND gate.
+- type: AND
+- inputs: A, B
+
+Gate: AB_C
+- label: This be an OR gate.
+- type: OR
+- inputs: AB, C
+''')
+
+fault_tree.gate_from_id['AB'].quantity_value
+# 0.63
+
+fault_tree.gate_from_id['AB_C'].quantity_value
+# 0.6301
+
+fault_tree.gate_from_id['AB_C'].input_ids
+# ['AB', 'C']
+
+fault_tree.gate_from_id['AB_C'].type_ == Gate.TYPE_OR
+# True
 ```
 
 

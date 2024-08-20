@@ -2,7 +2,7 @@
 
 import textwrap
 
-from sfta.core import FaultTree
+from sfta.core import FaultTree, Gate
 
 
 def main():
@@ -31,6 +31,7 @@ def main():
     print(fault_tree.gate_from_id['AB'].quantity_value)
     print(fault_tree.gate_from_id['AB_C'].quantity_value)
     print(fault_tree.gate_from_id['AB_C'].input_ids)
+    print(fault_tree.gate_from_id['AB_C'].type_ == Gate.TYPE_OR)
 
     print(end='\n\n')
 
