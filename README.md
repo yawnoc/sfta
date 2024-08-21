@@ -98,8 +98,6 @@ optional arguments:
 ## Usage (scripting example)
 
 ```python
-import textwrap
-
 from sfta.core import FaultTree, Gate
 
 fault_tree = FaultTree('''
