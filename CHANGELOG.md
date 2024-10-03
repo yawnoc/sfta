@@ -4,6 +4,11 @@
 ## [Unreleased]
 
 
+## [v0.8.1] Trusted publishing (2024-10-04)
+
+- Implemented PyPI trusted publishing (no code changes otherwise)
+
+
 ## [v0.8.0] String representations (2024-08-21)
 
 - Implemented `__str__` for FaultTree, Event, Gate, Tome, Table
@@ -106,7 +111,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.8.1...HEAD
+[v0.8.1]: https://github.com/yawnoc/sfta/compare/v0.8.0...v0.8.1
 [v0.8.0]: https://github.com/yawnoc/sfta/compare/v0.7.2...v0.8.0
 [v0.7.2]: https://github.com/yawnoc/sfta/compare/v0.7.1...v0.7.2
 [v0.7.1]: https://github.com/yawnoc/sfta/compare/v0.7.0...v0.7.1
