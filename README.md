@@ -77,6 +77,10 @@ For the example above, we get the following SVG for the top gate `FB`:
 $ pip3 install sfta
 ```
 
+- If simply using as a command line tool, do `pipx` instead of `pip3`
+  to avoid having to set up a virtual environment.
+- If using Windows, do `pip` instead of `pip3`.
+
 
 ## Usage (command line)
 
