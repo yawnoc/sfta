@@ -1,0 +1,18 @@
+id	is_top_gate	is_paged	quantity_type	quantity_value	quantity_unit	type	inputs	label
+ART	True	False	rate	nan	/h	OR	RI_PU,RI_PH,RI_P0,RI_PH_P0,RU_PU,RU_PH,R1_PU	AND rate tests
+ORT	True	False	rate	nan	/h	OR	RI_RU,RI_R1,RU_R1,RI_RU_R1	OR rate tests
+PT	True	False	probability	nan	1	OR	APT,OPT,INAT	Probability tests
+APT	False	False	probability	nan	1	AND	PU,PH	AND probability test
+INAT	False	False	probability	0.5	1	OR	PH,APT	Irrelevant nan absorption test
+OPT	False	False	probability	nan	1	OR	PU,PH	OR probability test
+R1_PU	False	False	rate	nan	/h	AND	R1,PU	1 * nan
+RI_P0	False	False	rate	nan	/h	AND	RI,P0	inf * 0
+RI_PH	False	False	rate	inf	/h	AND	RI,PH	inf * 1/2
+RI_PH_P0	False	False	rate	nan	/h	AND	RI,PH,P0	inf * 1/2 * 0
+RI_PU	False	False	rate	nan	/h	AND	RI,PU	inf * nan
+RI_R1	False	False	rate	inf	/h	OR	RI,R1	inf + 1
+RI_RU	False	False	rate	nan	/h	OR	RI,RU	inf + nan
+RI_RU_R1	False	False	rate	nan	/h	OR	RI,RU,R1	inf + nan + 1
+RU_PH	False	False	rate	nan	/h	AND	RU,PH	nan * 1/2
+RU_PU	False	False	rate	nan	/h	AND	RU,PU	nan * nan
+RU_R1	False	False	rate	nan	/h	OR	RU,R1	nan + 1

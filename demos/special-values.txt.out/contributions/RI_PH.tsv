@@ -1,0 +1,7 @@
+event	contribution_type	contribution_value	contribution_unit	importance
+PH	rate	inf	/h	nan
+RI	rate	inf	/h	nan
+P0	rate	0	/h	0
+PU	rate	0	/h	0
+R1	rate	0	/h	0
+RU	rate	0	/h	0

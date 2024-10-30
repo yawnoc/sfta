@@ -1,0 +1,7 @@
+quantity_type	quantity_value	quantity_unit	cut_set	cut_set_order
+rate	nan	/h	RU.PH	2
+rate	nan	/h	R1.PU	2
+rate	nan	/h	RI.PU	2
+rate	inf	/h	RI.PH	2
+rate	nan	/h	RI.P0	2
+rate	nan	/h	RU.PU	2

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-10 -10 1820 650" xmlns="http://www.w3.org/2000/svg">
+<style>
+circle, path, polygon, rect {
+  fill: lightyellow;
+}
+circle, path, polygon, polyline, rect {
+  stroke: black;
+  stroke-width: 1.3;
+}
+polyline {
+  fill: none;
+}
+text {
+  dominant-baseline: middle;
+  font-family: Consolas, Cousine, "Courier New", monospace;
+  font-size: 10px;
+  text-anchor: middle;
+}
+</style>
+<polyline points="900,5 900,150"/>
+<polyline points="878,150 878,195 120,195 120,250"/>
+<polyline points="885,150 885,200 360,200 360,250"/>
+<polyline points="892,150 892,205 600,205 600,250"/>
+<polyline points="900,150 900,200 900,200 900,250"/>
+<polyline points="908,150 908,205 1200,205 1200,250"/>
+<polyline points="915,150 915,200 1440,200 1440,250"/>
+<polyline points="922,150 922,195 1680,195 1680,250"/>
+<rect x="846" y="5" width="108" height="70"/>
+<text x="900" y="40" style="font-size: 10px">AND rate tests</text>
+<rect x="846" y="80" width="108" height="24"/>
+<text x="900" y="92">ART</text>
+<path d="M900,112 C894,114 867,125 867,160 L867,186 Q900,156 933,186 L933,160 C933,125 906,114 900,112"/>
+<rect x="846" y="138" width="108" height="24"/>
+<text x="900" y="150">w ≤ nan/h</text>
+<polyline points="120,215 120,360"/>
+<polyline points="110,360 110,410 60,410 60,460"/>
+<polyline points="130,360 130,410 180,410 180,460"/>
+<rect x="66" y="215" width="108" height="70"/>
+<text x="120" y="250" style="font-size: 10px">inf * nan</text>
+<rect x="66" y="290" width="108" height="24"/>
+<text x="120" y="302">RI_PU</text>
+<path d="M88,394 L152,394 L152,354 C152,312 88,312 88,354 L88,394 "/>
+<rect x="66" y="348" width="108" height="24"/>
+<text x="120" y="360">w = nan/h</text>
+<polyline points="60,425 60,570"/>
+
+<rect x="6" y="425" width="108" height="70"/>
+<text x="60" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="6" y="500" width="108" height="24"/>
+<text x="60" y="512">RI</text>
+<circle cx="60" cy="570" r="38"/>
+<rect x="6" y="558" width="108" height="24"/>
+<text x="60" y="570">w = inf/h</text>
+<polyline points="180,425 180,570"/>
+
+<rect x="126" y="425" width="108" height="70"/>
+<text x="180" y="453.5" style="font-size: 10px">Unknown</text>
+<text x="180" y="466.5" style="font-size: 10px">probability</text>
+<rect x="126" y="500" width="108" height="24"/>
+<text x="180" y="512">PU</text>
+<circle cx="180" cy="570" r="38"/>
+<rect x="126" y="558" width="108" height="24"/>
+<text x="180" y="570">Q = nan</text>
+<polyline points="360,215 360,360"/>
+<polyline points="350,360 350,410 300,410 300,460"/>
+<polyline points="370,360 370,410 420,410 420,460"/>
+<rect x="306" y="215" width="108" height="70"/>
+<text x="360" y="250" style="font-size: 10px">inf * 1/2</text>
+<rect x="306" y="290" width="108" height="24"/>
+<text x="360" y="302">RI_PH</text>
+<path d="M328,394 L392,394 L392,354 C392,312 328,312 328,354 L328,394 "/>
+<rect x="306" y="348" width="108" height="24"/>
+<text x="360" y="360">w = inf/h</text>
+<polyline points="300,425 300,570"/>
+
+<rect x="246" y="425" width="108" height="70"/>
+<text x="300" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="246" y="500" width="108" height="24"/>
+<text x="300" y="512">RI</text>
+<circle cx="300" cy="570" r="38"/>
+<rect x="246" y="558" width="108" height="24"/>
+<text x="300" y="570">w = inf/h</text>
+<polyline points="420,425 420,570"/>
+
+<rect x="366" y="425" width="108" height="70"/>
+<text x="420" y="460" style="font-size: 10px">Half probability</text>
+<rect x="366" y="500" width="108" height="24"/>
+<text x="420" y="512">PH</text>
+<circle cx="420" cy="570" r="38"/>
+<rect x="366" y="558" width="108" height="24"/>
+<text x="420" y="570">Q = 0.5</text>
+<polyline points="600,215 600,360"/>
+<polyline points="590,360 590,410 540,410 540,460"/>
+<polyline points="610,360 610,410 660,410 660,460"/>
+<rect x="546" y="215" width="108" height="70"/>
+<text x="600" y="250" style="font-size: 10px">inf * 0</text>
+<rect x="546" y="290" width="108" height="24"/>
+<text x="600" y="302">RI_P0</text>
+<path d="M568,394 L632,394 L632,354 C632,312 568,312 568,354 L568,394 "/>
+<rect x="546" y="348" width="108" height="24"/>
+<text x="600" y="360">w = nan/h</text>
+<polyline points="540,425 540,570"/>
+
+<rect x="486" y="425" width="108" height="70"/>
+<text x="540" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="486" y="500" width="108" height="24"/>
+<text x="540" y="512">RI</text>
+<circle cx="540" cy="570" r="38"/>
+<rect x="486" y="558" width="108" height="24"/>
+<text x="540" y="570">w = inf/h</text>
+<polyline points="660,425 660,570"/>
+
+<rect x="606" y="425" width="108" height="70"/>
+<text x="660" y="460" style="font-size: 10px">Zero probability</text>
+<rect x="606" y="500" width="108" height="24"/>
+<text x="660" y="512">P0</text>
+<circle cx="660" cy="570" r="38"/>
+<rect x="606" y="558" width="108" height="24"/>
+<text x="660" y="570">Q = 0</text>
+<polyline points="900,215 900,360"/>
+<polyline points="885,360 885,410 780,410 780,460"/>
+<polyline points="900,360 900,410 900,410 900,460"/>
+<polyline points="915,360 915,410 1020,410 1020,460"/>
+<rect x="846" y="215" width="108" height="70"/>
+<text x="900" y="250" style="font-size: 10px">inf * 1/2 * 0</text>
+<rect x="846" y="290" width="108" height="24"/>
+<text x="900" y="302">RI_PH_P0</text>
+<path d="M868,394 L932,394 L932,354 C932,312 868,312 868,354 L868,394 "/>
+<rect x="846" y="348" width="108" height="24"/>
+<text x="900" y="360">w = nan/h</text>
+<polyline points="780,425 780,570"/>
+
+<rect x="726" y="425" width="108" height="70"/>
+<text x="780" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="726" y="500" width="108" height="24"/>
+<text x="780" y="512">RI</text>
+<circle cx="780" cy="570" r="38"/>
+<rect x="726" y="558" width="108" height="24"/>
+<text x="780" y="570">w = inf/h</text>
+<polyline points="900,425 900,570"/>
+
+<rect x="846" y="425" width="108" height="70"/>
+<text x="900" y="460" style="font-size: 10px">Half probability</text>
+<rect x="846" y="500" width="108" height="24"/>
+<text x="900" y="512">PH</text>
+<circle cx="900" cy="570" r="38"/>
+<rect x="846" y="558" width="108" height="24"/>
+<text x="900" y="570">Q = 0.5</text>
+<polyline points="1020,425 1020,570"/>
+
+<rect x="966" y="425" width="108" height="70"/>
+<text x="1020" y="460" style="font-size: 10px">Zero probability</text>
+<rect x="966" y="500" width="108" height="24"/>
+<text x="1020" y="512">P0</text>
+<circle cx="1020" cy="570" r="38"/>
+<rect x="966" y="558" width="108" height="24"/>
+<text x="1020" y="570">Q = 0</text>
+<polyline points="1200,215 1200,360"/>
+<polyline points="1190,360 1190,410 1140,410 1140,460"/>
+<polyline points="1210,360 1210,410 1260,410 1260,460"/>
+<rect x="1146" y="215" width="108" height="70"/>
+<text x="1200" y="250" style="font-size: 10px">nan * nan</text>
+<rect x="1146" y="290" width="108" height="24"/>
+<text x="1200" y="302">RU_PU</text>
+<path d="M1168,394 L1232,394 L1232,354 C1232,312 1168,312 1168,354 L1168,394 "/>
+<rect x="1146" y="348" width="108" height="24"/>
+<text x="1200" y="360">w = nan/h</text>
+<polyline points="1140,425 1140,570"/>
+
+<rect x="1086" y="425" width="108" height="70"/>
+<text x="1140" y="460" style="font-size: 10px">Unknown rate</text>
+<rect x="1086" y="500" width="108" height="24"/>
+<text x="1140" y="512">RU</text>
+<circle cx="1140" cy="570" r="38"/>
+<rect x="1086" y="558" width="108" height="24"/>
+<text x="1140" y="570">w = nan/h</text>
+<polyline points="1260,425 1260,570"/>
+
+<rect x="1206" y="425" width="108" height="70"/>
+<text x="1260" y="453.5" style="font-size: 10px">Unknown</text>
+<text x="1260" y="466.5" style="font-size: 10px">probability</text>
+<rect x="1206" y="500" width="108" height="24"/>
+<text x="1260" y="512">PU</text>
+<circle cx="1260" cy="570" r="38"/>
+<rect x="1206" y="558" width="108" height="24"/>
+<text x="1260" y="570">Q = nan</text>
+<polyline points="1440,215 1440,360"/>
+<polyline points="1430,360 1430,410 1380,410 1380,460"/>
+<polyline points="1450,360 1450,410 1500,410 1500,460"/>
+<rect x="1386" y="215" width="108" height="70"/>
+<text x="1440" y="250" style="font-size: 10px">nan * 1/2</text>
+<rect x="1386" y="290" width="108" height="24"/>
+<text x="1440" y="302">RU_PH</text>
+<path d="M1408,394 L1472,394 L1472,354 C1472,312 1408,312 1408,354 L1408,394 "/>
+<rect x="1386" y="348" width="108" height="24"/>
+<text x="1440" y="360">w = nan/h</text>
+<polyline points="1380,425 1380,570"/>
+
+<rect x="1326" y="425" width="108" height="70"/>
+<text x="1380" y="460" style="font-size: 10px">Unknown rate</text>
+<rect x="1326" y="500" width="108" height="24"/>
+<text x="1380" y="512">RU</text>
+<circle cx="1380" cy="570" r="38"/>
+<rect x="1326" y="558" width="108" height="24"/>
+<text x="1380" y="570">w = nan/h</text>
+<polyline points="1500,425 1500,570"/>
+
+<rect x="1446" y="425" width="108" height="70"/>
+<text x="1500" y="460" style="font-size: 10px">Half probability</text>
+<rect x="1446" y="500" width="108" height="24"/>
+<text x="1500" y="512">PH</text>
+<circle cx="1500" cy="570" r="38"/>
+<rect x="1446" y="558" width="108" height="24"/>
+<text x="1500" y="570">Q = 0.5</text>
+<polyline points="1680,215 1680,360"/>
+<polyline points="1670,360 1670,410 1620,410 1620,460"/>
+<polyline points="1690,360 1690,410 1740,410 1740,460"/>
+<rect x="1626" y="215" width="108" height="70"/>
+<text x="1680" y="250" style="font-size: 10px">1 * nan</text>
+<rect x="1626" y="290" width="108" height="24"/>
+<text x="1680" y="302">R1_PU</text>
+<path d="M1648,394 L1712,394 L1712,354 C1712,312 1648,312 1648,354 L1648,394 "/>
+<rect x="1626" y="348" width="108" height="24"/>
+<text x="1680" y="360">w = nan/h</text>
+<polyline points="1620,425 1620,570"/>
+
+<rect x="1566" y="425" width="108" height="70"/>
+<text x="1620" y="460" style="font-size: 10px">Unit rate</text>
+<rect x="1566" y="500" width="108" height="24"/>
+<text x="1620" y="512">R1</text>
+<circle cx="1620" cy="570" r="38"/>
+<rect x="1566" y="558" width="108" height="24"/>
+<text x="1620" y="570">w = 1/h</text>
+<polyline points="1740,425 1740,570"/>
+
+<rect x="1686" y="425" width="108" height="70"/>
+<text x="1740" y="453.5" style="font-size: 10px">Unknown</text>
+<text x="1740" y="466.5" style="font-size: 10px">probability</text>
+<rect x="1686" y="500" width="108" height="24"/>
+<text x="1740" y="512">PU</text>
+<circle cx="1740" cy="570" r="38"/>
+<rect x="1686" y="558" width="108" height="24"/>
+<text x="1740" y="570">Q = nan</text>
+</svg>

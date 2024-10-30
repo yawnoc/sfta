@@ -1,0 +1,114 @@
+- time_unit: h
+
+
+Event: RI
+- label: Infinite rate
+- rate: inf
+
+Event: RU
+- label: Unknown rate
+- rate: nan
+
+Event: R1
+- label: Unit rate
+- rate: 1
+
+Event: PU
+- label: Unknown probability
+- probability: nan
+
+Event: PH
+- label: Half probability
+- probability: 0.5
+
+Event: P0
+- label: Zero probability
+- probability: 0
+
+
+Gate: ORT
+- label: OR rate tests
+- type: OR
+- inputs: RI_RU, RI_R1, RU_R1, RI_RU_R1
+
+Gate: RI_RU
+- label: inf + nan
+- type: OR
+- inputs: RI, RU
+
+Gate: RI_R1
+- label: inf + 1
+- type: OR
+- inputs: RI, R1
+
+Gate: RU_R1
+- label: nan + 1
+- type: OR
+- inputs: RU, R1
+
+Gate: RI_RU_R1
+- label: inf + nan + 1
+- type: OR
+- inputs: RI, RU, R1
+
+
+Gate: ART
+- label: AND rate tests
+- type: OR
+- inputs: RI_PU, RI_PH, RI_P0, RI_PH_P0, RU_PU, RU_PH, R1_PU
+
+Gate: RI_PU
+- label: inf * nan
+- type: AND
+- inputs: RI, PU
+
+Gate: RI_PH
+- label: inf * 1/2
+- type: AND
+- inputs: RI, PH
+
+Gate: RI_P0
+- label: inf * 0
+- type: AND
+- inputs: RI, P0
+
+Gate: RI_PH_P0
+- label: inf * 1/2 * 0
+- type: AND
+- inputs: RI, PH, P0
+
+Gate: RU_PU
+- label: nan * nan
+- type: AND
+- inputs: RU, PU
+
+Gate: RU_PH
+- label: nan * 1/2
+- type: AND
+- inputs: RU, PH
+
+Gate: R1_PU
+- label: 1 * nan
+- type: AND
+- inputs: R1, PU
+
+
+Gate: PT
+- label: Probability tests
+- type: OR
+- inputs: APT, OPT, INAT
+
+Gate: APT
+- label: AND probability test
+- type: AND
+- inputs: PU, PH
+
+Gate: OPT
+- label: OR probability test
+- type: OR
+- inputs: PU, PH
+
+Gate: INAT
+- label: Irrelevant nan absorption test
+- type: OR
+- inputs: PH, APT

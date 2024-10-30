@@ -1,0 +1,7 @@
+event	contribution_type	contribution_value	contribution_unit	importance
+P0	probability	0	1	nan
+R1	probability	0	1	nan
+RI	probability	0	1	nan
+RU	probability	0	1	nan
+PU	probability	nan	1	nan
+PH	probability	nan	1	nan

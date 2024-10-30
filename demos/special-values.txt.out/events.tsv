@@ -1,0 +1,7 @@
+id	is_used	quantity_type	quantity_value	quantity_unit	label
+P0	True	probability	0	1	Zero probability
+PH	True	probability	0.5	1	Half probability
+PU	True	probability	nan	1	Unknown probability
+R1	True	rate	1	/h	Unit rate
+RI	True	rate	inf	/h	Infinite rate
+RU	True	rate	nan	/h	Unknown rate

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-10 -10 1100 650" xmlns="http://www.w3.org/2000/svg">
+<style>
+circle, path, polygon, rect {
+  fill: lightyellow;
+}
+circle, path, polygon, polyline, rect {
+  stroke: black;
+  stroke-width: 1.3;
+}
+polyline {
+  fill: none;
+}
+text {
+  dominant-baseline: middle;
+  font-family: Consolas, Cousine, "Courier New", monospace;
+  font-size: 10px;
+  text-anchor: middle;
+}
+</style>
+<polyline points="540,5 540,150"/>
+<polyline points="522,150 522,197 120,197 120,250"/>
+<polyline points="534,150 534,203 360,203 360,250"/>
+<polyline points="546,150 546,203 600,203 600,250"/>
+<polyline points="558,150 558,197 900,197 900,250"/>
+<rect x="486" y="5" width="108" height="70"/>
+<text x="540" y="40" style="font-size: 10px">OR rate tests</text>
+<rect x="486" y="80" width="108" height="24"/>
+<text x="540" y="92">ORT</text>
+<path d="M540,112 C534,114 507,125 507,160 L507,186 Q540,156 573,186 L573,160 C573,125 546,114 540,112"/>
+<rect x="486" y="138" width="108" height="24"/>
+<text x="540" y="150">w ≤ nan/h</text>
+<polyline points="120,215 120,360"/>
+<polyline points="110,360 110,410 60,410 60,460"/>
+<polyline points="130,360 130,410 180,410 180,460"/>
+<rect x="66" y="215" width="108" height="70"/>
+<text x="120" y="250" style="font-size: 10px">inf + nan</text>
+<rect x="66" y="290" width="108" height="24"/>
+<text x="120" y="302">RI_RU</text>
+<path d="M120,322 C114,324 87,335 87,370 L87,396 Q120,366 153,396 L153,370 C153,335 126,324 120,322"/>
+<rect x="66" y="348" width="108" height="24"/>
+<text x="120" y="360">w ≤ nan/h</text>
+<polyline points="60,425 60,570"/>
+
+<rect x="6" y="425" width="108" height="70"/>
+<text x="60" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="6" y="500" width="108" height="24"/>
+<text x="60" y="512">RI</text>
+<circle cx="60" cy="570" r="38"/>
+<rect x="6" y="558" width="108" height="24"/>
+<text x="60" y="570">w = inf/h</text>
+<polyline points="180,425 180,570"/>
+
+<rect x="126" y="425" width="108" height="70"/>
+<text x="180" y="460" style="font-size: 10px">Unknown rate</text>
+<rect x="126" y="500" width="108" height="24"/>
+<text x="180" y="512">RU</text>
+<circle cx="180" cy="570" r="38"/>
+<rect x="126" y="558" width="108" height="24"/>
+<text x="180" y="570">w = nan/h</text>
+<polyline points="360,215 360,360"/>
+<polyline points="350,360 350,410 300,410 300,460"/>
+<polyline points="370,360 370,410 420,410 420,460"/>
+<rect x="306" y="215" width="108" height="70"/>
+<text x="360" y="250" style="font-size: 10px">inf + 1</text>
+<rect x="306" y="290" width="108" height="24"/>
+<text x="360" y="302">RI_R1</text>
+<path d="M360,322 C354,324 327,335 327,370 L327,396 Q360,366 393,396 L393,370 C393,335 366,324 360,322"/>
+<rect x="306" y="348" width="108" height="24"/>
+<text x="360" y="360">w ≤ inf/h</text>
+<polyline points="300,425 300,570"/>
+
+<rect x="246" y="425" width="108" height="70"/>
+<text x="300" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="246" y="500" width="108" height="24"/>
+<text x="300" y="512">RI</text>
+<circle cx="300" cy="570" r="38"/>
+<rect x="246" y="558" width="108" height="24"/>
+<text x="300" y="570">w = inf/h</text>
+<polyline points="420,425 420,570"/>
+
+<rect x="366" y="425" width="108" height="70"/>
+<text x="420" y="460" style="font-size: 10px">Unit rate</text>
+<rect x="366" y="500" width="108" height="24"/>
+<text x="420" y="512">R1</text>
+<circle cx="420" cy="570" r="38"/>
+<rect x="366" y="558" width="108" height="24"/>
+<text x="420" y="570">w = 1/h</text>
+<polyline points="600,215 600,360"/>
+<polyline points="590,360 590,410 540,410 540,460"/>
+<polyline points="610,360 610,410 660,410 660,460"/>
+<rect x="546" y="215" width="108" height="70"/>
+<text x="600" y="250" style="font-size: 10px">nan + 1</text>
+<rect x="546" y="290" width="108" height="24"/>
+<text x="600" y="302">RU_R1</text>
+<path d="M600,322 C594,324 567,335 567,370 L567,396 Q600,366 633,396 L633,370 C633,335 606,324 600,322"/>
+<rect x="546" y="348" width="108" height="24"/>
+<text x="600" y="360">w ≤ nan/h</text>
+<polyline points="540,425 540,570"/>
+
+<rect x="486" y="425" width="108" height="70"/>
+<text x="540" y="460" style="font-size: 10px">Unknown rate</text>
+<rect x="486" y="500" width="108" height="24"/>
+<text x="540" y="512">RU</text>
+<circle cx="540" cy="570" r="38"/>
+<rect x="486" y="558" width="108" height="24"/>
+<text x="540" y="570">w = nan/h</text>
+<polyline points="660,425 660,570"/>
+
+<rect x="606" y="425" width="108" height="70"/>
+<text x="660" y="460" style="font-size: 10px">Unit rate</text>
+<rect x="606" y="500" width="108" height="24"/>
+<text x="660" y="512">R1</text>
+<circle cx="660" cy="570" r="38"/>
+<rect x="606" y="558" width="108" height="24"/>
+<text x="660" y="570">w = 1/h</text>
+<polyline points="900,215 900,360"/>
+<polyline points="885,360 885,410 780,410 780,460"/>
+<polyline points="900,360 900,410 900,410 900,460"/>
+<polyline points="915,360 915,410 1020,410 1020,460"/>
+<rect x="846" y="215" width="108" height="70"/>
+<text x="900" y="250" style="font-size: 10px">inf + nan + 1</text>
+<rect x="846" y="290" width="108" height="24"/>
+<text x="900" y="302">RI_RU_R1</text>
+<path d="M900,322 C894,324 867,335 867,370 L867,396 Q900,366 933,396 L933,370 C933,335 906,324 900,322"/>
+<rect x="846" y="348" width="108" height="24"/>
+<text x="900" y="360">w ≤ nan/h</text>
+<polyline points="780,425 780,570"/>
+
+<rect x="726" y="425" width="108" height="70"/>
+<text x="780" y="460" style="font-size: 10px">Infinite rate</text>
+<rect x="726" y="500" width="108" height="24"/>
+<text x="780" y="512">RI</text>
+<circle cx="780" cy="570" r="38"/>
+<rect x="726" y="558" width="108" height="24"/>
+<text x="780" y="570">w = inf/h</text>
+<polyline points="900,425 900,570"/>
+
+<rect x="846" y="425" width="108" height="70"/>
+<text x="900" y="460" style="font-size: 10px">Unknown rate</text>
+<rect x="846" y="500" width="108" height="24"/>
+<text x="900" y="512">RU</text>
+<circle cx="900" cy="570" r="38"/>
+<rect x="846" y="558" width="108" height="24"/>
+<text x="900" y="570">w = nan/h</text>
+<polyline points="1020,425 1020,570"/>
+
+<rect x="966" y="425" width="108" height="70"/>
+<text x="1020" y="460" style="font-size: 10px">Unit rate</text>
+<rect x="966" y="500" width="108" height="24"/>
+<text x="1020" y="512">R1</text>
+<circle cx="1020" cy="570" r="38"/>
+<rect x="966" y="558" width="108" height="24"/>
+<text x="1020" y="570">w = 1/h</text>
+</svg>
