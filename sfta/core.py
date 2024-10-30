@@ -15,7 +15,6 @@ import re
 import textwrap
 from math import sqrt
 
-from sfta.utilities import Nan
 from sfta.utilities import descending_product, descending_sum, find_cycles, dull, blunt, escape_xml
 
 
@@ -650,7 +649,7 @@ class Gate:
         }
         self.importance_from_event_index = {
             event_index:
-                Nan if self.quantity_value == 0
+                float('nan') if self.quantity_value == 0
                 else contribution_value / self.quantity_value
             for event_index, contribution_value
             in self.contribution_value_from_event_index.items()
