@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.8.2] NaN and Infinity (2024-10-30)
+
 - Allowed rates to be `nan` or `inf`
 - Eliminated custom `Nan` class
 
@@ -114,7 +117,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.8.2...HEAD
+[v0.8.2]: https://github.com/yawnoc/sfta/compare/v0.8.1...v0.8.2
 [v0.8.1]: https://github.com/yawnoc/sfta/compare/v0.8.0...v0.8.1
 [v0.8.0]: https://github.com/yawnoc/sfta/compare/v0.7.2...v0.8.0
 [v0.7.2]: https://github.com/yawnoc/sfta/compare/v0.7.1...v0.7.2
