@@ -11,14 +11,15 @@ This is free software with NO WARRANTY etc. etc., see LICENSE.
 import unittest
 from math import prod
 
-from sfta.utilities import Nan
 from sfta.utilities import blunt, dull, descending_product, descending_sum, find_cycles, escape_xml
 
 
 class TestUtilities(unittest.TestCase):
     def test_blunt(self):
         self.assertEqual(blunt(None, 1), None)
-        self.assertEqual(blunt(Nan, 1), 'nan')
+        self.assertEqual(blunt(float('nan'), 1), 'nan')
+        self.assertEqual(blunt(float('inf'), 1), 'inf')
+        self.assertEqual(blunt(float('-inf'), 1), '-inf')
 
         self.assertEqual(blunt(0, 1), '0')
         self.assertEqual(blunt(0., 1), '0')
@@ -54,15 +55,13 @@ class TestUtilities(unittest.TestCase):
 
     def test_dull(self):
         self.assertEqual(dull(None), None)
-        self.assertEqual(dull(Nan), 'nan')
+        self.assertEqual(dull(float('inf')), 'inf')
+        self.assertEqual(dull(float('-inf')), '-inf')
+        self.assertEqual(dull(float('nan')), 'nan')
 
         self.assertEqual(dull(0), '0')
         self.assertEqual(dull(0.), '0')
         self.assertEqual(dull(-0.), '0')
-
-        self.assertEqual(dull(float('inf')), 'inf')
-        self.assertEqual(dull(float('-inf')), '-inf')
-        self.assertEqual(dull(float('nan')), 'nan')
 
         self.assertNotEqual(str(0.1 + 0.2), '0.3')
         self.assertEqual(dull(0.1 + 0.2, 1), '0.3')

@@ -4,6 +4,7 @@
 ## [Unreleased]
 
 - Allowed rates to be `nan` or `inf`
+- Eliminated custom `Nan` class
 
 
 ## [v0.8.1] Trusted publishing (2024-10-04)

@@ -12,16 +12,6 @@ import re
 from math import isfinite, log10, prod
 
 
-class Nan:
-    """
-    Static class representing NaN (not a number).
-    """
-    def __new__(cls):
-        raise TypeError('`Nan` cannot be instantiated')
-
-    STRING = 'nan'
-
-
 def blunt(number, max_decimal_places):
     """
     Blunt a number to at most certain decimal places, as a string.
@@ -29,14 +19,11 @@ def blunt(number, max_decimal_places):
     if number is None:
         return None
 
-    if number == Nan:
-        return Nan.STRING
+    if not isfinite(number):
+        return str(number)
 
     if number == 0:
         return '0'
-
-    if not isfinite(number):
-        return str(number)
 
     nice_string = f'{number :.{max_decimal_places}F}'
     nice_string = re.sub(r'[.]?0*$', '', nice_string)
@@ -51,14 +38,11 @@ def dull(number, max_significant_figures=1, coerce_scientific_exponent=3):
     if number is None:
         return None
 
-    if number == Nan:
-        return Nan.STRING
+    if not isfinite(number):
+        return str(number)
 
     if number == 0:
         return '0'
-
-    if not isfinite(number):
-        return str(number)
 
     if log10(abs(number)) < -(coerce_scientific_exponent - 1):
         nice_string = f'{number :.{max_significant_figures - 1}E}'
