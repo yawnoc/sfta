@@ -527,16 +527,6 @@ class TestCore(unittest.TestCase):
             '''),
         )
 
-        # Bad rate (too big)
-        self.assertRaises(
-            Event.BadRateException,
-            FaultTree.build,
-            textwrap.dedent('''
-                Event: A
-                - rate: inf
-            '''),
-        )
-
         # Unrecognised key
         self.assertRaises(
             Event.UnrecognisedKeyException,

@@ -339,11 +339,6 @@ class Event:
                 line_number,
                 f'rate `{rate_str}` is negative for Event `{self.id_}`',
             )
-        if not rate < float('inf'):
-            raise Event.BadRateException(
-                line_number,
-                f'rate `{rate_str}` is not finite for Event `{self.id_}`',
-            )
 
         self.quantity_type = Event.TYPE_RATE
         self.quantity_value = rate
