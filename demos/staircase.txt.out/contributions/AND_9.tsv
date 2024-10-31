@@ -1,9 +1,9 @@
 event	contribution_type	contribution_value	contribution_unit	importance
 A_9	probability	0.012	1	1
-O_9	probability	0.01	1	0.8333
-A_10	probability	2E-3	1	0.1667
-L	probability	1E-3	1	0.08333
-O_10	probability	1E-3	1	0.08333
+O_9	probability	0.01	1	0.833333
+A_10	probability	2E-3	1	0.166667
+L	probability	1E-3	1	0.0833333
+O_10	probability	1E-3	1	0.0833333
 A_1	probability	0	1	0
 A_2	probability	0	1	0
 A_3	probability	0	1	0

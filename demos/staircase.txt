@@ -1,3 +1,4 @@
+- max_significant_figures: 6
 
 Gate: AND_1
 - label: And this be the AND gate of level 1. Its label shall be exceeding long, that the capabilities of SFTA to properly wrap and size a long label might be tested, and be proved functional and not unpleasing.
