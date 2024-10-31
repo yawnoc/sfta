@@ -367,6 +367,15 @@ class TestCore(unittest.TestCase):
             ' - key: value',
         )
 
+        # Bad integer
+        self.assertRaises(
+            FaultTree.BadIntegerException,
+            FaultTree.build,
+            textwrap.dedent('''
+                - max_significant_figures: not-an-integer
+            '''),
+        )
+
         # Time unit already set
         self.assertRaises(
             FaultTree.TimeUnitAlreadySetException,
@@ -374,6 +383,16 @@ class TestCore(unittest.TestCase):
             textwrap.dedent('''
                 - time_unit: h
                 - time_unit: yr
+            '''),
+        )
+
+        # Max significant figures already set
+        self.assertRaises(
+            FaultTree.MaxSignificantFiguresAlreadySetException,
+            FaultTree.build,
+            textwrap.dedent('''
+                - max_significant_figures: 2
+                - max_significant_figures: 3
             '''),
         )
 

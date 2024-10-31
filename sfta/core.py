@@ -707,6 +707,7 @@ class FaultTree:
             self.used_event_ids,
             self.top_gate_ids,
             self.time_unit,
+            self.max_significant_figures,
         ) \
             = FaultTree.build(fault_tree_text)
 
@@ -728,10 +729,12 @@ class FaultTree:
             f')',
         ])
 
-    MAX_SIGNIFICANT_FIGURES = 4
+    MAX_SIGNIFICANT_FIGURES_DEFAULT = 4
+
     KEY_EXPLAINER = (
-        'Recognised keys for a fault tree property setting are:\n'
-        '    time_unit (optional).'
+        f'Recognised keys for a fault tree property setting are:\n'
+        f'    time_unit (optional)'
+        f'    max_significant_figures (optional; default {MAX_SIGNIFICANT_FIGURES_DEFAULT}).'
     )
     IDS_EXPLAINER = (
         'IDs may only contain letters, digits, underscores, and hyphens.'
@@ -756,7 +759,11 @@ class FaultTree:
 
     @staticmethod
     def build(fault_tree_text):
-        events, gates, time_unit = FaultTree.parse(fault_tree_text)
+        events, gates, time_unit, max_significant_figures = FaultTree.parse(fault_tree_text)
+
+        if max_significant_figures is None:
+            max_significant_figures = FaultTree.MAX_SIGNIFICANT_FIGURES_DEFAULT
+
         event_id_from_index = {event.index: event.id_ for event in events}
         event_from_id = {event.id_: event for event in events}
         gate_from_id = {gate.id_: gate for gate in gates}
@@ -776,6 +783,7 @@ class FaultTree:
             used_event_ids,
             top_gate_ids,
             time_unit,
+            max_significant_figures,
         )
 
     @staticmethod
@@ -785,6 +793,9 @@ class FaultTree:
 
         time_unit = None
         time_unit_line_number = None
+
+        max_significant_figures = None
+        max_significant_figures_line_number = None
 
         event_index = 0
         current_object = FaultTree
@@ -853,6 +864,21 @@ class FaultTree:
                             )
                         time_unit = value
                         time_unit_line_number = line_number
+                    elif key == 'max_significant_figures':
+                        if max_significant_figures is not None:
+                            raise FaultTree.MaxSignificantFiguresAlreadySetException(
+                                line_number,
+                                f'max significant figures hath already been set '
+                                f'at line {max_significant_figures_line_number}',
+                            )
+                        try:
+                            max_significant_figures = int(value)
+                        except ValueError:
+                            raise FaultTree.BadIntegerException(
+                                line_number,
+                                f'unable to convert `{value}` to integer`',
+                            )
+                        max_significant_figures_line_number = line_number
                     else:
                         raise FaultTree.UnrecognisedKeyException(
                             line_number,
@@ -921,7 +947,7 @@ class FaultTree:
                 f'bad line `{line}`\n\n{FaultTree.LINE_EXPLAINER}',
             )
 
-        return events, gates, time_unit
+        return events, gates, time_unit, max_significant_figures
 
     @staticmethod
     def validate_gate_inputs(event_from_id, gate_from_id):
@@ -1014,7 +1040,7 @@ class FaultTree:
                 id_,
                 id_ in self.used_event_ids,
                 Event.STR_FROM_TYPE[event.quantity_type],
-                dull(event.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                dull(event.quantity_value, self.max_significant_figures),
                 Event.quantity_unit_str(event.quantity_type, self.time_unit),
                 event.label,
             ]
@@ -1041,7 +1067,7 @@ class FaultTree:
                 id_ in self.top_gate_ids,
                 gate.is_paged,
                 Event.STR_FROM_TYPE[gate.quantity_type],
-                dull(gate.quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                dull(gate.quantity_value, self.max_significant_figures),
                 Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                 Gate.STR_FROM_TYPE[gate.type_],
                 ','.join(gate.input_ids),
@@ -1065,7 +1091,7 @@ class FaultTree:
             rows = [
                 [
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES),
+                    dull(quantity_value, self.max_significant_figures),
                     Event.quantity_unit_str(gate.quantity_type, self.time_unit),
                     '.'.join(
                         self.event_id_from_index[event_index]
@@ -1095,9 +1121,9 @@ class FaultTree:
                 [
                     event_id,
                     Event.STR_FROM_TYPE[gate.quantity_type],
-                    dull(gate.contribution_value_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES),
+                    dull(gate.contribution_value_from_event_index[event_index], self.max_significant_figures),
                     Event.quantity_unit_str(gate.quantity_type, self.time_unit),
-                    dull(gate.importance_from_event_index[event_index], FaultTree.MAX_SIGNIFICANT_FIGURES)
+                    dull(gate.importance_from_event_index[event_index], self.max_significant_figures)
                 ]
                 for event_index, event_id in self.event_id_from_index.items()
             ]
@@ -1129,7 +1155,13 @@ class FaultTree:
     class BadLineException(FaultTreeTextException):
         pass
 
+    class BadIntegerException(FaultTreeTextException):
+        pass
+
     class TimeUnitAlreadySetException(FaultTreeTextException):
+        pass
+
+    class MaxSignificantFiguresAlreadySetException(FaultTreeTextException):
         pass
 
     class UnrecognisedKeyException(FaultTreeTextException):
@@ -1168,8 +1200,9 @@ class Figure:
         event_from_id = fault_tree.event_from_id
         gate_from_id = fault_tree.gate_from_id
         time_unit = fault_tree.time_unit
+        max_significant_figures = fault_tree.max_significant_figures
 
-        top_node = Node(event_from_id, gate_from_id, time_unit, id_, to_node=None)
+        top_node = Node(event_from_id, gate_from_id, time_unit, max_significant_figures, id_, to_node=None)
         top_node.position_recursive()
 
         self.top_node = top_node
@@ -1277,7 +1310,7 @@ class Node:
     QUANTITY_BOX_WIDTH = 108
     QUANTITY_BOX_HEIGHT = 24
 
-    def __init__(self, event_from_id, gate_from_id, time_unit, id_, to_node):
+    def __init__(self, event_from_id, gate_from_id, time_unit, max_significant_figures, id_, to_node):
         if id_ in event_from_id.keys():  # object is Event
             reference_object = event_from_id[id_]
             symbol_type = Node.SYMBOL_TYPE_EVENT
@@ -1298,7 +1331,7 @@ class Node:
                 else:
                     raise RuntimeError(f'Implementation error: Gate `type_` is neither `TYPE_AND` nor `TYPE_OR`.')
             input_nodes = [
-                Node(event_from_id, gate_from_id, time_unit, input_id, to_node=self)
+                Node(event_from_id, gate_from_id, time_unit, max_significant_figures, input_id, to_node=self)
                 for input_id in input_ids
             ]
         else:
@@ -1324,6 +1357,7 @@ class Node:
         self.reference_object = reference_object
         self.symbol_type = symbol_type
         self.time_unit = time_unit
+        self.max_significant_figures = max_significant_figures
         self.input_nodes = input_nodes
         self.implicated_ids = implicated_ids
         self.width = width
@@ -1355,6 +1389,7 @@ class Node:
         input_nodes = self.input_nodes
         symbol_type = self.symbol_type
         time_unit = self.time_unit
+        max_significant_figures = self.max_significant_figures
 
         reference_object = self.reference_object
         id_ = reference_object.id_
@@ -1372,7 +1407,12 @@ class Node:
             Node.id_text_element(x, y, id_),
             Node.symbol_element(x, y, symbol_type),
             Node.quantity_rectangle_element(x, y),
-            Node.quantity_text_element(x, y, quantity_value, quantity_type, hath_multiple_writs, time_unit),
+            Node.quantity_text_element(
+                x, y,
+                quantity_value, quantity_type,
+                hath_multiple_writs,
+                time_unit, max_significant_figures,
+            ),
         ]
         input_elements = [
             input_node.get_svg_elements_recursive()
@@ -1603,7 +1643,12 @@ class Node:
         return f'<rect x="{left}" y="{top}" width="{width}" height="{height}"/>'
 
     @staticmethod
-    def quantity_text_element(x, y, quantity_value, quantity_type, hath_multiple_writs, time_unit):
+    def quantity_text_element(
+        x, y,
+        quantity_value, quantity_type,
+        hath_multiple_writs,
+        time_unit, max_significant_figures,
+    ):
         centre = x
         middle = y + Node.QUANTITY_BOX_Y_OFFSET
 
@@ -1619,7 +1664,7 @@ class Node:
         else:
             relation = '='
 
-        value_str = dull(quantity_value, FaultTree.MAX_SIGNIFICANT_FIGURES)
+        value_str = dull(quantity_value, max_significant_figures)
         unit_str = Event.quantity_unit_str(quantity_type, time_unit, suppress_unity=True)
 
         content = escape_xml(f'{lhs} {relation} {value_str}{unit_str}')

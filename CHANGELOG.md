@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Added fault tree property setting `max_significant_figures`
+
 
 ## [v0.8.2] NaN and Infinity (2024-10-30)
 
