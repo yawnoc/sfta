@@ -3,6 +3,9 @@
 
 ## [Unreleased]
 
+
+## [v0.9.1] AND inputs explainer fix (2024-11-18)
+
 - Removed references to initiators/enablers from `AND_INPUTS_EXPLAINER`
 
 
@@ -124,7 +127,8 @@
 - First seemingly working version. SVG generation yet to be implemented.
 
 
-[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/yawnoc/sfta/compare/v0.9.1...HEAD
+[v0.9.1]: https://github.com/yawnoc/sfta/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/yawnoc/sfta/compare/v0.8.2...v0.9.0
 [v0.8.2]: https://github.com/yawnoc/sfta/compare/v0.8.1...v0.8.2
 [v0.8.1]: https://github.com/yawnoc/sfta/compare/v0.8.0...v0.8.1
