@@ -3,6 +3,8 @@
 
 ## [Unreleased]
 
+- Removed references to initiators/enablers from `AND_INPUTS_EXPLAINER`
+
 
 ## [v0.9.0] Significant figures setting (2024-10-31)
 

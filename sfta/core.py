@@ -161,8 +161,8 @@ class Tome:
         """
         Compute the AND (conjunction) of some input tomes.
 
-        The first input may be a probability (initiator/enabler) or a rate
-        (initiator). All subsequent inputs must be probabilities (enablers).
+        The first input may be a probability or a rate.
+        All subsequent inputs must be probabilities.
         Hence the conjunction has the same dimension as the first input.
         """
         non_first_rate_indices = [
@@ -457,9 +457,8 @@ class Gate:
     )
     TYPE_EXPLAINER = 'Gate type must be either `AND` or `OR` (case-sensitive).'
     AND_INPUTS_EXPLAINER = (
-        'The first input of an AND gate '
-        'may be a probability (initiator/enabler) or a rate (initiator). '
-        'All subsequent inputs must be probabilities (enablers).'
+        'The first input of an AND gate may be a probability or a rate. '
+        'All subsequent inputs must be probabilities.'
     )
     OR_INPUTS_EXPLAINER = (
         'OR gate inputs must be either all probabilities or all rates.'
