@@ -64,6 +64,12 @@ For the example above, we get the following SVG for the top gate `FB`:
 
 - Only supports coherent fault trees, which have only AND gates and OR gates.
 
+- Enforces the naive "initiator-equals-rate" paradigm. Specifically:
+  - For an AND gate, the first input may be a probability or a rate,
+    but all subsequent inputs must be probabilities.
+  - For an OR gate, all inputs must be the same type
+    (all probability or all rate).
+
 - The probability or rate for a gate is approximated by simply summing the
   contributions from each minimal cut set (rare event approximation).
   The higher-order terms (subtraction of pairwise intersections, addition of
