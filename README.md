@@ -1,3 +1,12 @@
+**Consider switching to [Public Fault Tree Analyser (PFTA)].**
+PFTA operates under the more general framework
+where objects can have *both* a failure probability and a failure intensity.
+
+[Public Fault Tree Analyser (PFTA)]: https://github.com/public-fta/pfta
+
+---
+
+
 # Slow Fault Tree Analyser (SFTA)
 
 A slow (also shitty) fault tree analyser inspired by the idea presented in:
